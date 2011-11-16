@@ -1,10 +1,11 @@
 
 package vue.Editeurs;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
+@SuppressWarnings("serial")
 public class EditeurBIN extends JPanel
 {
 	
@@ -14,6 +15,8 @@ public class EditeurBIN extends JPanel
 
 	public static Integer	TAILLE_X	= Editeurs.TAILLE_X / 4;
 	public static Integer	TAILLE_Y	= Editeurs.TAILLE_Y / 2;
+	
+	private JTable	tableBIN;
 	
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
