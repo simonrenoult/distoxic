@@ -1,15 +1,17 @@
-
+/*
+ * Panneau contenant les onglets.
+ * Ces derniers incluent chacun trois éditeurs associés à un type de fichier prédéfini :
+ *				- SDF ;
+ *				- GPH ;
+ *				- BIN ;
+ */
 package vue.Editeurs;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import controleur.EcouteurMenuTextuel;
 import vue.ConteneurGlobal;
-import vue.FenetrePrincipale;
 import vue.NavigateurFichiers;
-import vue.Menus.MenuTextuel;
 
 @SuppressWarnings("serial")
 public class ConteneurEditeurs extends JTabbedPane
@@ -35,6 +37,8 @@ public class ConteneurEditeurs extends JTabbedPane
 
 		editeurs = new Editeurs();
 		this.add(titreEditeurs,editeurs);
+		
+		initListeners();
 	}
 	
 	// ----------------------------------------- //
@@ -43,6 +47,7 @@ public class ConteneurEditeurs extends JTabbedPane
 	
 	private void initListeners()
 	{
+		@SuppressWarnings("unused")
 		EcouteurMenuTextuel emt = new EcouteurMenuTextuel(this);
 	}
 	
@@ -58,7 +63,29 @@ public class ConteneurEditeurs extends JTabbedPane
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
 	
+	public Editeurs getEditeurs()
+	{
+		return editeurs;
+	}
+
+	public String getTitreEditeurs()
+	{
+		return titreEditeurs;
+	}
+	
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
+	
+	public void setEditeurs(Editeurs editeurs)
+	{
+		this.editeurs = editeurs;
+	}
+
+	public void setTitreEditeurs(String titreEditeurs)
+	{
+		this.titreEditeurs = titreEditeurs;
+	}
+
+
 }
