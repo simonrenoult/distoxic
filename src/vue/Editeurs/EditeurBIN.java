@@ -1,7 +1,6 @@
 
 package vue.Editeurs;
 
-<<<<<<< HEAD
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,19 +11,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 @SuppressWarnings("serial")
-=======
-import java.awt.Color;
-import java.awt.Dimension;
-import javax.swing.JPanel;
-
->>>>>>> 830ee8fbb3182a341dac33c0fdac3606ffadff27
 public class EditeurBIN extends JPanel
 {
 	
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-<<<<<<< HEAD
 	
 	public static Integer			TAILLE_X		= Editeurs.TAILLE_X / 4;
 	public static Integer			TAILLE_Y		= Editeurs.TAILLE_Y / 2;
@@ -36,11 +28,6 @@ public class EditeurBIN extends JPanel
 	private JTable					tableBIN;
 	private ModeleTablesEditeurs	modele;
 	private String[]				titresTableBIN	= { "Numéro", "Classe", "Nombre de fragments" };
-=======
-
-	public static Integer	TAILLE_X	= Editeurs.TAILLE_X / 4;
-	public static Integer	TAILLE_Y	= Editeurs.TAILLE_Y / 2;
->>>>>>> 830ee8fbb3182a341dac33c0fdac3606ffadff27
 	
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -48,7 +35,6 @@ public class EditeurBIN extends JPanel
 	
 	public EditeurBIN()
 	{
-<<<<<<< HEAD
 		// super();
 		super(new FlowLayout());
 		
@@ -58,17 +44,12 @@ public class EditeurBIN extends JPanel
 		initTitre();
 		initModeleEtTable();
 		initScroll();
-=======
-		this.setSize(TAILLE_X, TAILLE_Y);
-		this.setPreferredSize(new Dimension(TAILLE_X,TAILLE_Y));
->>>>>>> 830ee8fbb3182a341dac33c0fdac3606ffadff27
 	}
 	
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 	
-<<<<<<< HEAD
 	private void initTitre()
 	{
 		titre = new JLabel(contenuTitre);
@@ -88,8 +69,6 @@ public class EditeurBIN extends JPanel
 		this.add(scroll);
 	}
 	
-=======
->>>>>>> 830ee8fbb3182a341dac33c0fdac3606ffadff27
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
