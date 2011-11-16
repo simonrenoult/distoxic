@@ -27,7 +27,7 @@ public class ConteneurGlobal extends JSplitPane
 	{
 		buildConteneurGlobal();
 		buildConteneurEditeurs();
-		// buildNavigateur();
+		buildNavigateur();
 	}
 	
 	// ----------------------------------------- //
@@ -40,12 +40,13 @@ public class ConteneurGlobal extends JSplitPane
 		
 		this.setSize(TAILLE_X, TAILLE_Y);
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+		this.setDividerLocation(NavigateurFichiers.TAILLE_X);
 	}
 	
 	private void buildNavigateur()
 	{
 		setNavigateur(new NavigateurFichiers());
-		this.setLeftComponent(conteneurEd);
+		this.setLeftComponent(navigateur);
 	}
 	
 	private void buildConteneurEditeurs()
