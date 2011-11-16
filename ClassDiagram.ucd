@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="ClassDiagram" id="{UMLID=_ma_q0ArvEeGwUYIVJBDzig,JavaID=}" metadata="uml2-1.0" initialized="true" scrolledX="-3" scrolledY="84" tag="10" key="323030373036323920446973546F786963">
+  <children xsi:type="editmodel:PackageEditModel" name="modele" location="2,2" size="843,541" id="{UMLID=_rH6F4ArvEeGwUYIVJBDzig,JavaID=modele}">
+    <children xsi:type="editmodel:PackageEditModel" name="Parseur" location="16,56" size="401,375" id="{UMLID=_gQcFsAryEeGwUYIVJBDzig,JavaID=Parseur}">
+      <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@children.1/@children.0/@sourceConnections.0" name="ParseurGenerique" location="213,210" size="156,115" timstampe="268022" stereotype="" id="{UMLID=_OrWJMArwEeGwUYIVJBDzig,JavaID=Parseur/ParseurGenerique}" runTimeClassModel="">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="ParseurGPH" location="-25,-5" size="174,144" timstampe="268011" stereotype="" id="{UMLID=_ww3ScArvEeGwUYIVJBDzig,JavaID=Parseur/ParseurGPH}" runTimeClassModel="">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="ParseurBIN" location="171,-3" size="168,140" timstampe="268013" stereotype="" description="UML" id="{UMLID=_x9tgEArvEeGwUYIVJBDzig}" runTimeClassModel="">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <sourceConnections xsi:type="editmodel:UseCaseAssociationEditModel" name="contenir" size="2,1" stereotype="" autoLocated="true" id="{UMLID=_8T7JIArzEeGwUYIVJBDzig}" source="//@children.0/@children.0/@children.2" target="//@children.0/@children.1/@children.0" targetEnd="//@children.0/@children.0/@children.2/@sourceConnections.0/@children.1" label="//@children.0/@children.0/@children.2/@sourceConnections.0/@children.2" sourceEnd="//@children.0/@children.0/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" name="ParseurBIN" location="168,105" id="{UMLID=_J2c6AAr0EeGwUYIVJBDzig}" attachSource="true" multiplicityLabel="//@children.0/@children.0/@children.2/@sourceConnections.0/@children.0/@children.0" roleLabel="//@children.0/@children.0/@children.2/@sourceConnections.0/@children.0/@children.1" navigable="true" flags="1">
+            <children xsi:type="editmodel:LabelEditModel" name="1" location="399,175" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+            <children xsi:type="editmodel:LabelEditModel" name="+ ParseurBIN" foregroundRGB="96,96,96" location="399,203" size="63,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+          </children>
+          <children xsi:type="editmodel:AssociationEndEditModel" name="TripletFichiers" location="0,35" id="{UMLID=_J2evMAr0EeGwUYIVJBDzig}" multiplicityLabel="//@children.0/@children.0/@children.2/@sourceConnections.0/@children.1/@children.0" roleLabel="//@children.0/@children.0/@children.2/@sourceConnections.0/@children.1/@children.1" navigable="true" flags="1">
+            <children xsi:type="editmodel:LabelEditModel" name="1..*" location="447,174" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+            <children xsi:type="editmodel:LabelEditModel" name="+ TripletFichiers" foregroundRGB="96,96,96" location="387,139" size="76,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+          </children>
+          <children xsi:type="editmodel:WireLabelEditModel" name="contenir" foregroundRGB="96,96,96" size="39,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="ParseurSDF" location="27,203" size="172,136" timstampe="268085" stereotype="" id="{UMLID=_uTt6kArvEeGwUYIVJBDzig,JavaID=Parseur/ParseurSDF}" runTimeClassModel="">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+      </children>
+      <packagePreferences xsi:type="editmodel:UMLClassDiagramPackagePreference" shortPackageNameFormat="true"/>
+    </children>
+    <children xsi:type="editmodel:PackageEditModel" name="TripletDeFichiers" location="445,87" size="338,338" id="{UMLID=_Nhh6EArzEeGwUYIVJBDzig,JavaID=TripletDeFichiers}">
+      <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@children.0/@children.2/@sourceConnections.0" name="TripletFichiers" location="23,36" size="149,129" timstampe="268241" stereotype="" id="{UMLID=_Pw24YArzEeGwUYIVJBDzig,JavaID=TripletDeFichiers/TripletFichiers}" runTimeClassModel="setCheminFichiers([Ljava.io.File;),cheminFichiers,getCheminFichiers()">
+        <children xsi:type="editmodel:CompartmentEditModel">
+          <children xsi:type="editmodel:AttributeEditModel" name="cheminFichiers" size="101,16" id="{UMLID=_zlrmoArzEeGwUYIVJBDzig}"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel">
+          <children xsi:type="editmodel:MethodEditModel" name="getCheminFichiers" size="128,16" id="{UMLID=_zurKkArzEeGwUYIVJBDzig,JavaID=TripletDeFichiers/TripletFichiers#getCheminFichiers()}"/>
+          <children xsi:type="editmodel:MethodEditModel" name="setCheminFichiers" size="128,16" id="{UMLID=_zq1zcArzEeGwUYIVJBDzig,JavaID=TripletDeFichiers/TripletFichiers#setCheminFichiers([Ljava.io.File;)}"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <sourceConnections xsi:type="editmodel:UseCaseAssociationEditModel" name="contenir" size="2,1" stereotype="" autoLocated="true" id="{UMLID=_uHUrEAr0EeGwUYIVJBDzig}" source="//@children.0/@children.1/@children.0" target="//@children.0/@children.0/@children.0" targetEnd="//@children.0/@children.1/@children.0/@sourceConnections.0/@children.1" label="//@children.0/@children.1/@children.0/@sourceConnections.0/@children.2" sourceEnd="//@children.0/@children.1/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" name="TripletFichiers" location="0,107" id="{UMLID=_v5uc0Ar0EeGwUYIVJBDzig}" attachSource="true" multiplicityLabel="//@children.0/@children.1/@children.0/@sourceConnections.0/@children.0/@children.0" roleLabel="//@children.0/@children.1/@children.0/@sourceConnections.0/@children.0/@children.1" navigable="true" flags="1">
+            <children xsi:type="editmodel:LabelEditModel" name="1" location="457,239" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+            <children xsi:type="editmodel:LabelEditModel" name="+ TripletFichiers" foregroundRGB="96,96,96" location="387,211" size="76,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+          </children>
+          <children xsi:type="editmodel:AssociationEndEditModel" name="ParseurGenerique" location="156,12" id="{UMLID=_v5vq8Ar0EeGwUYIVJBDzig}" multiplicityLabel="//@children.0/@children.1/@children.0/@sourceConnections.0/@children.1/@children.0" roleLabel="//@children.0/@children.1/@children.0/@sourceConnections.0/@children.1/@children.1" navigable="true" flags="1">
+            <children xsi:type="editmodel:LabelEditModel" name="1..*" location="429,274" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+            <children xsi:type="editmodel:LabelEditModel" name="+ ParseurGenerique" foregroundRGB="96,96,96" location="429,323" size="97,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+          </children>
+          <children xsi:type="editmodel:WireLabelEditModel" name="contenir" foregroundRGB="96,96,96" size="39,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+      </children>
+      <packagePreferences xsi:type="editmodel:UMLClassDiagramPackagePreference" shortPackageNameFormat="true"/>
+    </children>
+    <packagePreferences xsi:type="editmodel:UMLClassDiagramPackagePreference" shortPackageNameFormat="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=1" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="14,14" gridOrigin="98,238" rulerUnit="cm" gridShow="true">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" shortPackageNameFormat="true" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showMethods="true" showAttributes="true" showLiterlas="true" showInnerEntity="true"/>
+</editmodel:ClassDiagramEditModel>
