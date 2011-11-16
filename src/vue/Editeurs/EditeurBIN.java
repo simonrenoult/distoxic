@@ -2,6 +2,7 @@
 package vue.Editeurs;
 
 import java.awt.Dimension;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -16,6 +17,8 @@ public class EditeurBIN extends JPanel
 	public static Integer	TAILLE_X	= Editeurs.TAILLE_X / 4;
 	public static Integer	TAILLE_Y	= Editeurs.TAILLE_Y / 2;
 	
+	private JLabel	conteneurTitre;
+	private String	titre = "Editeur de fichiers *.bin";
 	private JTable	tableBIN;
 	
 	// ----------------------------------------- //
