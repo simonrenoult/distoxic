@@ -37,7 +37,6 @@ public class ConteneurGlobal extends JSplitPane
 	private void buildConteneurGlobal()
 	{
 		this.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
-		
 		this.setSize(TAILLE_X, TAILLE_Y);
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		this.setDividerLocation(NavigateurFichiers.TAILLE_X);
