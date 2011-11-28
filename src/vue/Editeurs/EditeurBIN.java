@@ -9,7 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import modele.Parseur.ParseurBIN;
+
+import modele.parseur.ParseurBIN;
 
 @SuppressWarnings("serial")
 public class EditeurBIN extends JPanel
@@ -28,7 +29,7 @@ public class EditeurBIN extends JPanel
 	private JScrollPane				scroll;
 	
 	private JTable					tableBIN;
-	private String[]				titresTableBIN	= { "Numéro", "Classe", "Nombre de fragments" };
+	private String[]				titresTableBIN	= { "Numero", "Classe", "Nombre de fragments" };
 	
 	private ModeleTablesEditeurs	modele;
 	
@@ -40,12 +41,11 @@ public class EditeurBIN extends JPanel
 	
 	public EditeurBIN()
 	{
-		// super();
 		super(new FlowLayout());
 		
 		this.setSize(TAILLE_X, TAILLE_Y);
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		
+		this.setBackground(Color.WHITE);
 		initTitre();
 		//initModeleEtTable();
 		//initScroll();

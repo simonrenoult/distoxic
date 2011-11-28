@@ -14,31 +14,30 @@ public class FenetrePrincipale extends JFrame
 	// ----------------------------------------- //
 	// ----------------ATTRIBUTS---------------- //
 	// ----------------------------------------- //
-	
+
 	public static Integer	TAILLE_X	= 800;
 	public static Integer	TAILLE_Y	= 600;
 	public static String	TITRE		= "Dis'toxic";
-	
+
 	private MenuTextuel		menu;
 	private ConteneurGlobal	conteneurGlobal;
-	private BarOutils barOutils;
-	private JPanel subContentPane;
-	private JPanel contentPane;
+	private BarOutils		barOutils;
+	private JPanel			contentPane;
+
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	
+
 	public FenetrePrincipale()
 	{
 		super();
-		
 		try
 		{
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 		}
 		catch (ClassNotFoundException e)
 		{
-			
+
 		}
 		catch (InstantiationException e)
 		{
@@ -77,11 +76,11 @@ public class FenetrePrincipale extends JFrame
 				e1.printStackTrace();
 			}
 		}
-		
+
 		buildMenuTop();
 		buildBarOutils();
 		buildConteneurGlobal();
-		buildsubContentPane();
+		buildContentPane();
 		buildContentPane();
 		buildFenetre();
 		this.pack();
@@ -90,24 +89,20 @@ public class FenetrePrincipale extends JFrame
 	// ----------------------------------------- //
 	// --------------INITIALISEURS-------------- //
 	// ----------------------------------------- //
-	
-	private void buildsubContentPane() {
-		subContentPane = new JPanel(new BorderLayout());
-		subContentPane.add(barOutils,BorderLayout.NORTH);
-		subContentPane.add(conteneurGlobal,BorderLayout.CENTER);
-	}
-	
-	
-	private void buildContentPane() {
+
+	private void buildContentPane()
+	{
 		contentPane = new JPanel(new BorderLayout());
-		contentPane.add(subContentPane,BorderLayout.CENTER);
+		contentPane.add(barOutils, BorderLayout.NORTH);
+		contentPane.add(conteneurGlobal, BorderLayout.CENTER);
 		this.getContentPane().add(contentPane);
 	}
-	
-	private void buildBarOutils() {
+
+	private void buildBarOutils()
+	{
 		barOutils = new BarOutils();
 	}
-	
+
 	private void buildFenetre()
 	{
 		this.setTitle(TITRE);
@@ -117,26 +112,26 @@ public class FenetrePrincipale extends JFrame
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-	
+
 	private void buildMenuTop()
 	{
 		menu = new MenuTextuel();
 		this.setJMenuBar(menu);
 	}
-	
+
 	private void buildConteneurGlobal()
 	{
 		conteneurGlobal = new ConteneurGlobal();
 	}
-	
+
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-	
+
 	public void displayLF()
 	{
 		UIManager.LookAndFeelInfo[] info = UIManager.getInstalledLookAndFeels();
-		
+
 		for (int i = 0; i < info.length; i++)
 		{
 			String nomLF = info[i].getName();
@@ -145,20 +140,20 @@ public class FenetrePrincipale extends JFrame
 			System.out.println('\t' + "CLASSE : " + nomClasse);
 		}
 	}
-	
+
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
-	
+
 	public MenuTextuel getMenu()
 	{
 		return menu;
 	}
-	
+
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
-	
+
 	public void setLookAndFeel(String LF)
 	{
 		try
@@ -182,7 +177,7 @@ public class FenetrePrincipale extends JFrame
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void setMenu(MenuTextuel menu)
 	{
 		this.menu = menu;

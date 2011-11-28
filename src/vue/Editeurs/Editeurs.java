@@ -1,6 +1,7 @@
 
 package vue.Editeurs;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JSplitPane;
 
@@ -30,7 +31,6 @@ public class Editeurs extends JSplitPane
 		
 		this.setSize(TAILLE_X, TAILLE_Y);
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		
 		this.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		
 		this.setTopComponent(edSdf);
