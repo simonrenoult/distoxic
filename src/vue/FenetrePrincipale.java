@@ -3,6 +3,7 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import vue.Menus.MenuTextuel;
@@ -20,7 +21,9 @@ public class FenetrePrincipale extends JFrame
 	
 	private MenuTextuel		menu;
 	private ConteneurGlobal	conteneurGlobal;
-	
+	private BarOutils barOutils;
+	private JPanel subContentPane;
+	private JPanel contentPane;
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
@@ -76,13 +79,34 @@ public class FenetrePrincipale extends JFrame
 		}
 		
 		buildMenuTop();
+		buildBarOutils();
 		buildConteneurGlobal();
+		buildsubContentPane();
+		buildContentPane();
 		buildFenetre();
+		this.pack();
 	}
 
 	// ----------------------------------------- //
 	// --------------INITIALISEURS-------------- //
 	// ----------------------------------------- //
+	
+	private void buildsubContentPane() {
+		subContentPane = new JPanel(new BorderLayout());
+		subContentPane.add(barOutils,BorderLayout.NORTH);
+		subContentPane.add(conteneurGlobal,BorderLayout.CENTER);
+	}
+	
+	
+	private void buildContentPane() {
+		contentPane = new JPanel(new BorderLayout());
+		contentPane.add(subContentPane,BorderLayout.CENTER);
+		this.getContentPane().add(contentPane);
+	}
+	
+	private void buildBarOutils() {
+		barOutils = new BarOutils();
+	}
 	
 	private void buildFenetre()
 	{
@@ -97,13 +121,12 @@ public class FenetrePrincipale extends JFrame
 	private void buildMenuTop()
 	{
 		menu = new MenuTextuel();
-		this.getContentPane().add(menu, BorderLayout.NORTH);
+		this.setJMenuBar(menu);
 	}
 	
 	private void buildConteneurGlobal()
 	{
 		conteneurGlobal = new ConteneurGlobal();
-		this.getContentPane().add(conteneurGlobal, BorderLayout.CENTER);
 	}
 	
 	// ----------------------------------------- //
