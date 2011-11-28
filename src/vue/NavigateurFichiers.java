@@ -46,13 +46,8 @@ public class NavigateurFichiers extends JPanel
         //Create the nodes.
        // DefaultMutableTreeNode top = new DefaultMutableTreeNode("files");
         
- 
         //Create a tree that allows one selection at a time.
-        //tree = new JTree(top);
-		
-        
-	 
-	        
+        //tree = new JTree(top);	        
 	}
 	
 	// ----------------------------------------- //
