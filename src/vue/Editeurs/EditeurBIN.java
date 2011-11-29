@@ -62,9 +62,17 @@ public class EditeurBIN extends JPanel
 		this.add(titre);
 	}
 	
+	private void initParseur()
+	{
+		//FIXME chemin à définir.
+		parseur = new ParseurBIN("chemin");
+		parseur.convertirListeVersTableau();
+	}
+	
 	private void initModeleEtTable()
 	{
-		modele = new ModeleTablesEditeurs(titresTableBIN, parseur.getDonnees());
+		
+		modele = new ModeleTablesEditeurs(titresTableBIN, parseur.getTableauBIN());
 		tableBIN = new JTable(modele);
 	}
 	

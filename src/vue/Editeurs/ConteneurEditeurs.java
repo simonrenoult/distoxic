@@ -1,6 +1,6 @@
 /*
  * Panneau contenant les onglets.
- * Ces derniers incluent chacun trois éditeurs associés à un type de fichier prédéfini :
+ * Ces derniers incluent chacun trois ï¿½diteurs associï¿½s ï¿½ un type de fichier prï¿½dï¿½fini :
  *				- SDF ;
  *				- GPH ;
  *				- BIN ;
