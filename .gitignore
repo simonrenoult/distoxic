@@ -1,2 +1,2 @@
-#Do not consider class/* files
-class/
+#Do not consider bin/* files
+bin/
