@@ -10,7 +10,6 @@ public class FragmentMoleculeSDF
 	// ----------------ATTRIBUTS---------------- //
 	// ----------------------------------------- //
 
-	public final static String	FIN_DESCRIPTION	= "$$$$";
 
 	private String				numDebutDescription;
 	private LinkedList<Float>	listeAtomes;

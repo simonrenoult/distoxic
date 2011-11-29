@@ -3,10 +3,7 @@ package modele.parseur;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
-
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Hashtable;
 
 public class ParseurSDF implements ParseurGenerique
 {
@@ -16,6 +13,11 @@ public class ParseurSDF implements ParseurGenerique
 
 	private LinkedList<FragmentMoleculeSDF>	listeMolecules;
 	private Object[][]						tableauMolecules;
+
+	private final static String				DEBUT_DESCRIPTION	= "  ";
+	private final static String				SEPARATEUR_ATOME	= "    ";
+	private final static String				SEPARATEUR_LIAISONS	= "  ";
+	private final static String				FIN_DESCRIPTION		= "$$$$";
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -48,10 +50,7 @@ public class ParseurSDF implements ParseurGenerique
 
 				while ((ligneActuelle = buff.readLine()) != null)
 				{
-					if(!ligneActuelle.isEmpty())
-					{	
-						
-					}
+					creationListe(ligneActuelle);
 				}
 			}
 			finally
@@ -65,10 +64,19 @@ public class ParseurSDF implements ParseurGenerique
 			System.out.println("Erreur --" + ioe.toString());
 		}
 	}
-
-	private FragmentMoleculeSDF creationListe(String line)
+	
+	/*
+	 * b : Extrémité de mot.
+	 * t : tabulation
+	 * n : Le caractère de nouvelle ligne
+	 * f : espace
+	 * r : Le caractère de retour en début de ligne
+	 */
+	private FragmentMoleculeSDF creationListe(String ligne)
 	{
-
+		if(ligne.matches("^[\\s]{2}[A-Z]{1}[A-Za-z0-9]{1,}"))
+			System.out.println(ligne);
+				
 		return null;
 	}
 
