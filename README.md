@@ -12,5 +12,6 @@ Pour plus de détail, constultez le [Sujet](https://github.com/distoxic/distoxic
 Qui ?
 -----
 Nous sommes deux étudiants en deuxième année de D.U.T. Informatique :
-* G4llic4 ;
-* Xelais ;
+
+*  G4llic4 ;
+*  Xelais ;
