@@ -67,14 +67,14 @@ public class ParseurSDF implements ParseurGenerique
 	
 	/*
 	 * b : Extrémité de mot.
-	 * t : tabulation
-	 * n : Le caractère de nouvelle ligne
-	 * f : espace
-	 * r : Le caractère de retour en début de ligne
+	 * t : Tabulation.
+	 * n : Le caractère de nouvelle ligne.
+	 * f : Espace.
+	 * r : Le caractère de retour en début de ligne.
 	 */
 	private FragmentMoleculeSDF creationListe(String ligne)
 	{
-		if(ligne.matches("^[\\s]{2}[A-Z]{1}[A-Za-z0-9]{1,}"))
+		if(ligne.matches("^[ ]{2}[A-Za-z0-9]{1,}"))
 			System.out.println(ligne);
 				
 		return null;

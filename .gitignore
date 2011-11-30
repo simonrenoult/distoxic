@@ -1,2 +1,10 @@
-#Do not consider bin/* files
+# Do not consider bin/ files
 bin/
+
+# Ignore eclipse files
+.classpath
+.project
+.umlproject
+
+# Ignore temporay files
+*~
