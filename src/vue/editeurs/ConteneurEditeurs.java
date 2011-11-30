@@ -5,7 +5,7 @@
  *				- GPH ;
  *				- BIN ;
  */
-package vue.Editeurs;
+package vue.editeurs;
 
 import java.awt.Dimension;
 import javax.swing.JTabbedPane;

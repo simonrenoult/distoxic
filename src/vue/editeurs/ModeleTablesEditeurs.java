@@ -1,5 +1,5 @@
 
-package vue.Editeurs;
+package vue.editeurs;
 
 import javax.jws.WebParam.Mode;
 import javax.swing.table.AbstractTableModel;

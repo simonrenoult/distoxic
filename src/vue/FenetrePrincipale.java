@@ -6,7 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import vue.Menus.MenuTextuel;
+
+import vue.menus.MenuTextuel;
 
 @SuppressWarnings("serial")
 public class FenetrePrincipale extends JFrame

@@ -2,9 +2,9 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vue.Editeurs.ConteneurEditeurs;
-import vue.Editeurs.Editeurs;
-import vue.Menus.MenuTextuel;
+import vue.editeurs.ConteneurEditeurs;
+import vue.editeurs.Editeurs;
+import vue.menus.MenuTextuel;
 
 public class EcouteurMenuTextuel implements ActionListener
 {

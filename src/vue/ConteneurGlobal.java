@@ -3,8 +3,8 @@ package vue;
 
 import java.awt.Dimension;
 import javax.swing.JSplitPane;
-import vue.Editeurs.ConteneurEditeurs;
-import vue.Menus.MenuTextuel;
+import vue.editeurs.ConteneurEditeurs;
+import vue.menus.MenuTextuel;
 
 @SuppressWarnings("serial")
 public class ConteneurGlobal extends JSplitPane

@@ -1,5 +1,5 @@
 
-package vue.Menus;
+package vue.menus;
 
 import java.awt.Color;
 import java.awt.Dimension;

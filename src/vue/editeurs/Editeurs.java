@@ -1,5 +1,5 @@
 
-package vue.Editeurs;
+package vue.editeurs;
 
 import java.awt.Color;
 import java.awt.Dimension;
