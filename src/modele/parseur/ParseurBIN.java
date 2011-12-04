@@ -103,7 +103,8 @@ public class ParseurBIN implements ParseurGenerique
 
 	/**
 	 * Créé un tableau d'objets à deux dimensions, copie de la liste de ligne.
-	 * @return 
+	 * 
+	 * @return : tableau d'objets issu de la liste precedemment generee.
 	 */
 	public Object[][] convertirListeVersTableau()
 	{
@@ -123,6 +124,9 @@ public class ParseurBIN implements ParseurGenerique
 	// --------------- AFFICHAGES -------------- //
 	// ----------------------------------------- //
 	
+	/**
+	 * Affiche le contenu de la liste en console.
+	 */
 	public void afficherListeBIN()
 	{
 		for (ArrayList<Integer> liste : listeBIN)

@@ -72,7 +72,7 @@ public class EditeurBIN extends JPanel
 	private void initModeleEtTable()
 	{
 		
-		modele = new ModeleTablesEditeurs(titresTableBIN, parseur.getTableauBIN());
+		modele = new ModeleTablesEditeurs(titresTableBIN, null);
 		tableBIN = new JTable(modele);
 	}
 	

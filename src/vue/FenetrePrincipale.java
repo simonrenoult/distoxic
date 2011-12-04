@@ -18,7 +18,7 @@ public class FenetrePrincipale extends JFrame
 
 	public static Integer	TAILLE_X	= 800;
 	public static Integer	TAILLE_Y	= 600;
-	public static String	TITRE		= "Dis'toxic";
+	public static String	TITRE		= "Dis'Toxic";
 
 	private MenuTextuel		menu;
 	private ConteneurGlobal	conteneurGlobal;
@@ -34,48 +34,28 @@ public class FenetrePrincipale extends JFrame
 		super();
 		try
 		{
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			if(System.getProperty("os.name").toLowerCase().contains("linux"))
+				UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+			else if(System.getProperty("os.name").toLowerCase().contains("windows"))
+				UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			else
+				UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
 		}
 		catch (ClassNotFoundException e)
 		{
-
+			e.printStackTrace();
 		}
 		catch (InstantiationException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		catch (IllegalAccessException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		catch (UnsupportedLookAndFeelException e)
 		{
-			try
-			{
-				UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
-			}
-			catch (ClassNotFoundException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			catch (InstantiationException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			catch (IllegalAccessException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			catch (UnsupportedLookAndFeelException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			e.printStackTrace();
 		}
 
 		buildMenuTop();
