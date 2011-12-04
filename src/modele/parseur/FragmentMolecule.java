@@ -2,6 +2,7 @@ package modele.parseur;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 public class FragmentMolecule
@@ -10,13 +11,13 @@ public class FragmentMolecule
 	// ----------------ATTRIBUTS---------------- //
 	// ----------------------------------------- //
 
-	private String								debutDescription;
-	private String								resumeContenu;
-	private LinkedList<Atome>					atomes;
-	private LinkedList<LinkedList<String>>		liaisons;
-	private LinkedList<String>					balises;
-	private LinkedList<String>					contenuBalises;
-	private HashMap<String, LinkedList<String>>	infos;
+	private String										debutDescription;
+	private String										resumeContenu;
+	private LinkedList<Atome>							atomes;
+	private LinkedList<LinkedList<String>>				liaisons;
+	private LinkedList<String>							balises;
+	private LinkedList<String>							contenuBalises;
+	private LinkedHashMap<String, LinkedList<String>>	infos;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -28,7 +29,7 @@ public class FragmentMolecule
 		setLiaisons(new LinkedList<LinkedList<String>>());
 		setBalises(new LinkedList<String>());
 		setContenuBalises(new LinkedList<String>());
-		setInfos(new HashMap<String, LinkedList<String>>());
+		setInfos(new LinkedHashMap<String, LinkedList<String>>());
 	}
 
 	// ----------------------------------------- //
@@ -40,17 +41,25 @@ public class FragmentMolecule
 		try
 		{
 			System.out.println("Debut du fragment : " + debutDescription);
+			System.out.println("======================================");
 			System.out.println("Resume du fragment : " + resumeContenu);
+			System.out.println("======================================");
 
 			for (int i = 0 ; i < atomes.size() ; i++)
 				System.out.println("Atome - " + atomes.get(i));
+			System.out.println("======================================");
 			for (int i = 0 ; i < liaisons.size() ; i++)
 				System.out.println("Liaison - " + liaisons.get(i));
+			System.out.println("======================================");
 			for (int i = 0 ; i < balises.size() ; i++)
-				System.out.println("Balise - " + balises.get(i));
-			for (int i = 0 ; i < contenuBalises.size() ; i++)
-				System.out.println("Contenu balise - "+contenuBalises.get(i));
-			System.out.println("Infos - " +infos.keySet()+infos.values());
+			{
+				System.out.println("Balise :"+'\t'+ balises.get(i));
+				System.out.println("Contenu :"+'\t'+contenuBalises.get(i));
+				System.out.println("--------------------------------------");
+			}
+			System.out.println("======================================");
+			System.out.println("Infos - " +infos.toString());
+			System.out.println("======================================");
 		}
 		catch (NullPointerException e)
 		{
@@ -92,7 +101,7 @@ public class FragmentMolecule
 		return resumeContenu;
 	}
 
-	public HashMap<String, LinkedList<String>> getInfos()
+	public LinkedHashMap<String, LinkedList<String>> getInfos()
 	{
 		return infos;
 	}
@@ -131,7 +140,7 @@ public class FragmentMolecule
 		this.resumeContenu = resumeContenu;
 	}
 
-	public void setInfos(HashMap<String, LinkedList<String>> infos)
+	public void setInfos(LinkedHashMap<String, LinkedList<String>> infos)
 	{
 		this.infos = infos;
 	}
