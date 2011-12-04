@@ -19,13 +19,18 @@ public class Atome
 
 	public Atome()
 	{
-		infos = new LinkedList<Float>();
-		divers = new LinkedList<Integer>();
+		setInfos(new LinkedList<Float>());
+		setDivers(new LinkedList<Integer>());
 	}
 
 	// ----------------------------------------- //
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
+	
+	public String toString()
+	{
+		return nom+" : "+infos+" "+divers;
+	}
 	
 	public void afficher()
 	{

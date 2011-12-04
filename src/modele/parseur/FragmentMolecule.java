@@ -1,5 +1,7 @@
 package modele.parseur;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class FragmentMolecule
@@ -8,13 +10,13 @@ public class FragmentMolecule
 	// ----------------ATTRIBUTS---------------- //
 	// ----------------------------------------- //
 
-
-	private String				debutDescription;
-	private String				resumeContenu;
-	private LinkedList<Atome>	listeAtomes;
-	private LinkedList<String>	listeLiaisons;
-	private LinkedList<String>	balises;
-	private LinkedList<String>	contenuBalises;
+	private String								debutDescription;
+	private String								resumeContenu;
+	private LinkedList<Atome>					atomes;
+	private LinkedList<LinkedList<String>>		liaisons;
+	private LinkedList<String>					balises;
+	private LinkedList<String>					contenuBalises;
+	private HashMap<String, LinkedList<String>>	infos;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -22,57 +24,57 @@ public class FragmentMolecule
 
 	public FragmentMolecule()
 	{
-		listeAtomes = new LinkedList<Atome>();
-		listeLiaisons = new LinkedList<String>();
-		balises = new LinkedList<String>();
-		contenuBalises = new LinkedList<String>();
+		setAtomes(new LinkedList<Atome>());
+		setLiaisons(new LinkedList<LinkedList<String>>());
+		setBalises(new LinkedList<String>());
+		setContenuBalises(new LinkedList<String>());
+		setInfos(new HashMap<String, LinkedList<String>>());
 	}
-
-	// ----------------------------------------- //
-	// -------------INITIALISEURS--------------- //
-	// ----------------------------------------- //
 
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-	
+
 	public void display()
 	{
-		try 
+		try
 		{
-			System.out.println("Debut du fragment : "+debutDescription);
-			System.out.println("Resume du fragment : " +resumeContenu);
-			
-			for (int i = 0 ; i < listeAtomes.size() ; i++)
-				System.out.println(listeAtomes.get(i));
-			for (int i = 0 ; i < listeLiaisons.size() ; i++)
-				System.out.println(listeLiaisons.get(i));
+			System.out.println("Debut du fragment : " + debutDescription);
+			System.out.println("Resume du fragment : " + resumeContenu);
+
+			for (int i = 0 ; i < atomes.size() ; i++)
+				System.out.println("Atome - " + atomes.get(i));
+			for (int i = 0 ; i < liaisons.size() ; i++)
+				System.out.println("Liaison - " + liaisons.get(i));
 			for (int i = 0 ; i < balises.size() ; i++)
-				System.out.println(balises.get(i));
+				System.out.println("Balise - " + balises.get(i));
+			for (int i = 0 ; i < contenuBalises.size() ; i++)
+				System.out.println("Contenu balise - "+contenuBalises.get(i));
+			System.out.println("Infos - " +infos.keySet()+infos.values());
 		}
-		catch(NullPointerException e)
+		catch (NullPointerException e)
 		{
-			
+
 		}
 	}
-	
+
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
 
-	public String getNumDebutDescription()
+	public String getDebutDescription()
 	{
 		return debutDescription;
 	}
 
-	public LinkedList<Atome> getListeAtomes()
+	public LinkedList<Atome> getAtomes()
 	{
-		return listeAtomes;
+		return atomes;
 	}
 
-	public LinkedList<String> getLitseLiaisons()
+	public LinkedList<LinkedList<String>> getLiaisons()
 	{
-		return listeLiaisons;
+		return liaisons;
 	}
 
 	public LinkedList<String> getBalises()
@@ -80,38 +82,9 @@ public class FragmentMolecule
 		return balises;
 	}
 
-	// ----------------------------------------- //
-	// ----------------MUTATEURS---------------- //
-	// ----------------------------------------- //
-
-	public void setNumDebutDescription(String numDebutDescription)
-	{
-		this.debutDescription = numDebutDescription;
-	}
-
-	public void setListeAtomes(LinkedList<Atome> listeAtomes)
-	{
-		this.listeAtomes = listeAtomes;
-	}
-
-	public void setLitseLiaisons(LinkedList<String> listeLiaisons)
-	{
-		this.listeLiaisons = listeLiaisons;
-	}
-
-	public void setBalises(LinkedList<String> balises)
-	{
-		this.balises = balises;
-	}
-
 	public LinkedList<String> getContenuBalises()
 	{
 		return contenuBalises;
-	}
-
-	public void setContenuBalises(LinkedList<String> contenuBalises)
-	{
-		this.contenuBalises = contenuBalises;
 	}
 
 	public String getResumeContenu()
@@ -119,10 +92,48 @@ public class FragmentMolecule
 		return resumeContenu;
 	}
 
+	public HashMap<String, LinkedList<String>> getInfos()
+	{
+		return infos;
+	}
+
+	// ----------------------------------------- //
+	// ----------------MUTATEURS---------------- //
+	// ----------------------------------------- //
+
+	public void setDebutDescription(String numDebutDescription)
+	{
+		this.debutDescription = numDebutDescription;
+	}
+
+	public void setAtomes(LinkedList<Atome> listeAtomes)
+	{
+		this.atomes = listeAtomes;
+	}
+
+	public void setLiaisons(LinkedList<LinkedList<String>> listeLiaisons)
+	{
+		this.liaisons = listeLiaisons;
+	}
+
+	public void setBalises(LinkedList<String> balises)
+	{
+		this.balises = balises;
+	}
+
+	public void setContenuBalises(LinkedList<String> contenuBalises)
+	{
+		this.contenuBalises = contenuBalises;
+	}
+
 	public void setResumeContenu(String resumeContenu)
 	{
 		this.resumeContenu = resumeContenu;
 	}
 
+	public void setInfos(HashMap<String, LinkedList<String>> infos)
+	{
+		this.infos = infos;
+	}
 
 }
