@@ -13,6 +13,7 @@ import controleur.EcouteurMenuTextuel;
 import vue.ConteneurGlobal;
 import vue.NavigateurFichiers;
 
+@SuppressWarnings("serial")
 public class ConteneurEditeurs extends JTabbedPane
 {
 	// ----------------------------------------- //
@@ -34,7 +35,7 @@ public class ConteneurEditeurs extends JTabbedPane
 		this.setSize(TAILLE_X, TAILLE_Y);
 		this.setPreferredSize(new Dimension(TAILLE_X,TAILLE_Y));
 
-		editeurs = new Editeurs();
+		this.editeurs = new Editeurs();
 		this.add(titreEditeurs,editeurs);
 		
 		initListeners();

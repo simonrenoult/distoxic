@@ -24,9 +24,9 @@ public class EditeurSDF extends JPanel
 
 	public EditeurSDF()
 	{
-		this.setSize(TAILLE_X, TAILLE_Y);
-		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		this.setBackground(Color.WHITE);
+		setSize(TAILLE_X, TAILLE_Y);
+		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+		setBackground(Color.WHITE);
 
 		initTitre();
 	}

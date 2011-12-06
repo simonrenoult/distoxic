@@ -16,7 +16,7 @@ public class ConteneurGlobal extends JSplitPane
 	public static Integer		TAILLE_X	= FenetrePrincipale.TAILLE_X;
 	public static Integer		TAILLE_Y	= FenetrePrincipale.TAILLE_Y - MenuTextuel.TAILLE_Y;
 	
-	private ConteneurEditeurs	conteneurEd;
+	private ConteneurEditeurs	conteneurEditeurs;
 	private NavigateurFichiers	navigateur;
 	
 	// ----------------------------------------- //
@@ -25,7 +25,11 @@ public class ConteneurGlobal extends JSplitPane
 	
 	public ConteneurGlobal()
 	{
-		buildConteneurGlobal();
+		this.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+		this.setSize(TAILLE_X, TAILLE_Y);
+		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+		this.setDividerLocation(NavigateurFichiers.TAILLE_X);
+		
 		buildConteneurEditeurs();
 		buildNavigateur();
 	}
@@ -34,24 +38,16 @@ public class ConteneurGlobal extends JSplitPane
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 	
-	private void buildConteneurGlobal()
+	private void buildConteneurEditeurs()
 	{
-		this.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
-		this.setSize(TAILLE_X, TAILLE_Y);
-		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		this.setDividerLocation(NavigateurFichiers.TAILLE_X);
+		conteneurEditeurs = new ConteneurEditeurs();
+		this.setRightComponent(conteneurEditeurs);
 	}
 	
 	private void buildNavigateur()
 	{
 		setNavigateur(new NavigateurFichiers());
 		this.setLeftComponent(navigateur);
-	}
-	
-	private void buildConteneurEditeurs()
-	{
-		conteneurEd = new ConteneurEditeurs();
-		this.setRightComponent(conteneurEd);
 	}
 	
 	// ----------------------------------------- //
@@ -64,7 +60,7 @@ public class ConteneurGlobal extends JSplitPane
 	
 	public ConteneurEditeurs getEditeur()
 	{
-		return conteneurEd;
+		return conteneurEditeurs;
 	}
 	
 	public NavigateurFichiers getNavigateur()
@@ -78,7 +74,7 @@ public class ConteneurGlobal extends JSplitPane
 	
 	public void setEditeur(ConteneurEditeurs editeur)
 	{
-		this.conteneurEd = editeur;
+		this.conteneurEditeurs = editeur;
 	}
 	
 	public void setNavigateur(NavigateurFichiers navigateur)

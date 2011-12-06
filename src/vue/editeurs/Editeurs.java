@@ -26,16 +26,15 @@ public class Editeurs extends JSplitPane
 	
 	public Editeurs()
 	{
-		buildEdSdf();
-		buildEdGph_Bin();
-		
 		this.setSize(TAILLE_X, TAILLE_Y);
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		this.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		
+		buildEditeurSdf();
+		buildEditeursGph_Bin();		
+		
 		this.setTopComponent(edSdf);
 		this.setBottomComponent(edGph_Bin);
-		
 		this.setDividerLocation(EditeurSDF.TAILLE_Y);
 	}
 	
@@ -43,18 +42,17 @@ public class Editeurs extends JSplitPane
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 	
-	private void buildEdSdf()
+	private void buildEditeurSdf()
 	{
 		edSdf = new EditeurSDF();
 	}
 	
-	private void buildEdGph_Bin()
+	private void buildEditeursGph_Bin()
 	{
 		edBin = new EditeurBIN();
 		edGph = new EditeurGPH();
 		edGph_Bin = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, edGph, edBin);
 		edGph_Bin.setDividerLocation(EditeurGPH.TAILLE_X);
-
 	}
 	
 	// ----------------------------------------- //

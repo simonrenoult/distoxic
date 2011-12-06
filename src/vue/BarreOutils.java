@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
-public class BarOutils extends JPanel {
+public class BarreOutils extends JPanel {
 
 	
 	// ----------------------------------------- //
@@ -29,7 +29,7 @@ public class BarOutils extends JPanel {
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	public BarOutils() {
+	public BarreOutils() {
 		
 		super(new BorderLayout());
 		initialiserBouton();

@@ -19,7 +19,7 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	// ----------------------------------------- //
 	
 	public ModeleTablesEditeurs(String[] titresColonnes,Object[][] donneesTableau)
-	{
+	{		
 		this.titres = titresColonnes;
 		this.donnees = donneesTableau;
 	}

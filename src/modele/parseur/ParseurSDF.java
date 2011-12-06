@@ -7,6 +7,9 @@ import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import modele.Atome;
+import modele.FragmentMolecule;
+
 public class ParseurSDF implements ParseurGenerique
 {
 	// ----------------------------------------- //
@@ -24,7 +27,6 @@ public class ParseurSDF implements ParseurGenerique
 	public final static Pattern				LIAISONS		= Pattern.compile("^([ ]( [0-9]|[0-9]{2}))+");
 	public final static Pattern				INFO			= Pattern.compile("^M[ ]{2}([A-Z]{3})");
 	public final static Pattern				BALISES			= Pattern.compile("<(.+)>");
-	//public final static Pattern			BALISES_CONTENT	= Pattern.compile("");
 	public final static Pattern				FIN				= Pattern.compile("^[$]{4}");
 
 	// ----------------------------------------- //
@@ -69,17 +71,10 @@ public class ParseurSDF implements ParseurGenerique
 		}
 		catch (IOException ioe)
 		{
-			// erreur de fermeture des flux
 			System.out.println("Erreur --" + ioe.toString());
 		}
-		
-		molecules.getFirst().display();
 	}
 
-	/*
-	 * b : Extremite de mot. t : Tabulation. n : Le caractere de nouvelle ligne.
-	 * f : Espace. r : Le caractere de retour en debut de ligne.
-	 */
 	public Object creationListe(String ligne, FragmentMolecule fragment)
 	{
 		Matcher m;
@@ -136,7 +131,7 @@ public class ParseurSDF implements ParseurGenerique
 			fragment.getInfos().put(tmp[1], content);
 		}
 		else if (FIN.matcher(ligne).find());
-		else // BALISE_CONTENT 
+		else // BALISE_CONTENT
 		{			
 			fragment.getContenuBalises().add(ligne.trim());
 		}
@@ -153,21 +148,38 @@ public class ParseurSDF implements ParseurGenerique
 	@Override
 	public Object[][] convertirListeVersTableau()
 	{
-		return null;
+		Object [][] tableau = new Object[molecules.size()][calculerLargeurTableau()];
+		
+		return tableau;
 	}
-
-	public static void main(String[] args)
+	
+	private Integer calculerLargeurTableau()
 	{
-		ParseurSDF p = new ParseurSDF("workspace/exemple_60_56/test.sdf");
-		//ParseurSDF p = new ParseurSDF("workspace/exemple_60_56/exemple_56.sdf");
+		Integer taille = 0;
+		
+		
+		taille = molecules.getFirst().getAtomes().size()+
+				molecules.getFirst().getLiaisons().size();
+				
+		
+		return taille;
 	}
 
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
 
+	public Object[][] getTabMolecules()
+	{
+		return tabMolecules;
+	}
+	
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 
+	public void setTabMolecules(Object[][] tabMolecules)
+	{
+		this.tabMolecules = tabMolecules;
+	}
 }

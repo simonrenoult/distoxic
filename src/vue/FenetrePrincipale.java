@@ -22,7 +22,7 @@ public class FenetrePrincipale extends JFrame
 
 	private MenuTextuel		menu;
 	private ConteneurGlobal	conteneurGlobal;
-	private BarOutils		barOutils;
+	private BarreOutils		barreOutils;
 	private JPanel			contentPane;
 
 	// ----------------------------------------- //
@@ -62,26 +62,27 @@ public class FenetrePrincipale extends JFrame
 		buildBarOutils();
 		buildConteneurGlobal();
 		buildContentPane();
-		buildContentPane();
 		buildFenetre();
-		this.pack();
 	}
 
 	// ----------------------------------------- //
 	// --------------INITIALISEURS-------------- //
 	// ----------------------------------------- //
-
-	private void buildContentPane()
+	
+	private void buildMenuTop()
 	{
-		contentPane = new JPanel(new BorderLayout());
-		contentPane.add(barOutils, BorderLayout.NORTH);
-		contentPane.add(conteneurGlobal, BorderLayout.CENTER);
-		this.getContentPane().add(contentPane);
+		menu = new MenuTextuel();
+		this.setJMenuBar(menu);
 	}
-
+	
 	private void buildBarOutils()
 	{
-		barOutils = new BarOutils();
+		barreOutils = new BarreOutils();
+	}
+	
+	private void buildConteneurGlobal()
+	{
+		conteneurGlobal = new ConteneurGlobal();
 	}
 
 	private void buildFenetre()
@@ -94,17 +95,14 @@ public class FenetrePrincipale extends JFrame
 		this.setVisible(true);
 	}
 
-	private void buildMenuTop()
+	private void buildContentPane()
 	{
-		menu = new MenuTextuel();
-		this.setJMenuBar(menu);
+		contentPane = new JPanel(new BorderLayout());
+		contentPane.add(barreOutils, BorderLayout.NORTH);
+		contentPane.add(conteneurGlobal, BorderLayout.CENTER);
+		this.getContentPane().add(contentPane);
 	}
-
-	private void buildConteneurGlobal()
-	{
-		conteneurGlobal = new ConteneurGlobal();
-	}
-
+	
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //

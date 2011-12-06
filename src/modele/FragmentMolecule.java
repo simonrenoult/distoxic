@@ -1,18 +1,21 @@
-package modele.parseur;
+package modele;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 public class FragmentMolecule
 {
+	/**
+	 * @author g4llic4
+	 */
+
 	// ----------------------------------------- //
 	// ----------------ATTRIBUTS---------------- //
 	// ----------------------------------------- //
 
 	private String										debutDescription;
 	private String										resumeContenu;
+
 	private LinkedList<Atome>							atomes;
 	private LinkedList<LinkedList<String>>				liaisons;
 	private LinkedList<String>							balises;
@@ -38,33 +41,33 @@ public class FragmentMolecule
 
 	public void display()
 	{
-		try
-		{
-			System.out.println("Debut du fragment : " + debutDescription);
-			System.out.println("======================================");
-			System.out.println("Resume du fragment : " + resumeContenu);
-			System.out.println("======================================");
+		System.out.println("Debut du fragment : " + debutDescription);
+		System.out.println("======================================");
+		System.out.println("Resume du fragment : " + resumeContenu);
+		System.out.println("======================================");
 
-			for (int i = 0 ; i < atomes.size() ; i++)
-				System.out.println("Atome - " + atomes.get(i));
-			System.out.println("======================================");
-			for (int i = 0 ; i < liaisons.size() ; i++)
-				System.out.println("Liaison - " + liaisons.get(i));
-			System.out.println("======================================");
-			for (int i = 0 ; i < balises.size() ; i++)
-			{
-				System.out.println("Balise :"+'\t'+ balises.get(i));
-				System.out.println("Contenu :"+'\t'+contenuBalises.get(i));
-				System.out.println("--------------------------------------");
-			}
-			System.out.println("======================================");
-			System.out.println("Infos - " +infos.toString());
-			System.out.println("======================================");
-		}
-		catch (NullPointerException e)
-		{
+		for (int i = 0 ; i < atomes.size() ; i++)
+			System.out.println("Atome - " + atomes.get(i));
 
+		System.out.println("======================================");
+
+		for (int i = 0 ; i < liaisons.size() ; i++)
+			System.out.println("Liaison - " + liaisons.get(i));
+
+		System.out.println("======================================");
+
+		for (int i = 0 ; i < balises.size() ; i++)
+		{
+			System.out.println("Balise :" + '\t' + balises.get(i));
+			System.out.println("Contenu :" + '\t' + contenuBalises.get(i));
+			System.out.println("--------------------------------------");
 		}
+
+		System.out.println("======================================");
+		System.out.println("Infos - " + infos.toString()+ '\n'+
+							"======================================"+ '\n');
+		
+		System.out.println("###################################");
 	}
 
 	// ----------------------------------------- //
