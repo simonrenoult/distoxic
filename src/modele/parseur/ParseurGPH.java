@@ -9,6 +9,10 @@ import modele.Atome;
 import modele.FragmentMoleculaire;
 import modele.Liaison;
 
+/**
+ * @author g4llic4
+ * 
+ */
 public class ParseurGPH implements ParseurGenerique
 {
 
@@ -23,15 +27,15 @@ public class ParseurGPH implements ParseurGenerique
 	 * ----FIN FRAGMENT -------
 	 */
 
-	private static String					_SEPARATION_CHAMP		= " ";
-	private static String					_VERTEX					= "v";
-	private static String					_EDGE					= "e";
-	private static String					_MARQUEUR_DEBUT			= "t";
-	private static String					_NUMERO_GRAPHE			= "#";
-	private static String					_CLASSE_GRAPHE			= "&";
-	private static String					_FREQUENCE_GRAPHE		= "*";
-	private static String					_VALEUR_TOXICITE_GRAPHE	= "@";
-	private static String					_EMERGENCE_GRAPHE		= "%";
+	private final static String				_SEPARATION_CHAMP		= " ";
+	private final static String				_VERTEX					= "v";
+	private final static String				_EDGE					= "e";
+	private final static String				_MARQUEUR_DEBUT			= "t";
+	private final static String				_NUMERO_GRAPHE			= "#";
+	private final static String				_CLASSE_GRAPHE			= "&";
+	private final static String				_FREQUENCE_GRAPHE		= "*";
+	private final static String				_VALEUR_TOXICITE_GRAPHE	= "@";
+	private final static String				_EMERGENCE_GRAPHE		= "%";
 
 	@SuppressWarnings("unused")
 	private static String					_SEPARATION_FRAGMENT	= " ";
@@ -40,22 +44,22 @@ public class ParseurGPH implements ParseurGenerique
 	 * Indice de l'objet FragmentMoleculaire sur lequel on travail.
 	 */
 	private static int						indiceFragment			= 0;
-	private ArrayList<FragmentMoleculaire>	ListeGPH				= null;
+	private ArrayList<FragmentMoleculaire>	listeGPH				= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	
+
 	public ParseurGPH(String filePath)
 	{
-		ListeGPH = new ArrayList<FragmentMoleculaire>();
+		listeGPH = new ArrayList<FragmentMoleculaire>();
 		lireFichier(filePath);
 	}
 
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-	
+
 	/**
 	 * Permet de lire toutes les lignes d'un fichier donn� pour enextraire les
 	 * donn�es.
@@ -99,15 +103,15 @@ public class ParseurGPH implements ParseurGenerique
 
 		if (tab[0].compareTo(_MARQUEUR_DEBUT) == 0)
 		{
-			CreerFragmentMoleculaireIdentite(tab);
+			creerFragmentMoleculaireIdentite(tab);
 		}
 		else if (tab[0].compareTo(_VERTEX) == 0)
 		{
-			CreerFragmentMoleculaireAtome(tab);
+			creerFragmentMoleculaireAtome(tab);
 		}
 		else if (tab[0].compareTo(_EDGE) == 0)
 		{
-			CreerFragmentMoleculaireLiaison(tab);
+			creerFragmentMoleculaireLiaison(tab);
 		}
 
 	}
@@ -119,7 +123,7 @@ public class ParseurGPH implements ParseurGenerique
 	 * 
 	 * @param tab
 	 */
-	private void CreerFragmentMoleculaireIdentite(String[] tab)
+	private void creerFragmentMoleculaireIdentite(String[] tab)
 	{
 		FragmentMoleculaire f = new FragmentMoleculaire();
 
@@ -147,8 +151,8 @@ public class ParseurGPH implements ParseurGenerique
 				f.setEmergence(Float.parseFloat(tab[i + 1]));
 			}
 		}
-		ListeGPH.add(f);
-		indiceFragment = ListeGPH.size() - 1;
+		listeGPH.add(f);
+		indiceFragment = listeGPH.size() - 1;
 
 	}
 
@@ -158,26 +162,26 @@ public class ParseurGPH implements ParseurGenerique
 	 * 
 	 * @param tab
 	 */
-	private void CreerFragmentMoleculaireAtome(String[] tab)
+	private void creerFragmentMoleculaireAtome(String[] tab)
 	{
 		Atome atome = new Atome(Integer.parseInt(tab[1]), Integer.parseInt(tab[2]));
-		ListeGPH.get(indiceFragment).getListeAtome().add(atome);
+		listeGPH.get(indiceFragment).getListeAtome().add(atome);
 	}
 
 	/**
-	 * On prend la fragment actuel (gr�ce � indiceFragment) et on rempli la
+	 * On prend la fragment actuel (grace a indiceFragment) et on rempli la
 	 * liste d'objet Liaison.
 	 * 
 	 * @param tab
 	 */
-	private void CreerFragmentMoleculaireLiaison(String[] tab)
+	private void creerFragmentMoleculaireLiaison(String[] tab)
 	{
 		Liaison liaison = new Liaison(Integer.parseInt(tab[1]), Integer.parseInt(tab[2]), Integer.parseInt(tab[3]));
-		ListeGPH.get(indiceFragment).getListeLiaison().add(liaison);
+		listeGPH.get(indiceFragment).getListeLiaison().add(liaison);
 	}
 
 	/**
-	 * Permet de converitr la liste de Fragment en un tableau 2D exploitable par
+	 * Permet de convertir la liste de Fragment en un tableau 2D exploitable par
 	 * la JTable.
 	 * 
 	 * @return
@@ -185,20 +189,17 @@ public class ParseurGPH implements ParseurGenerique
 	@Override
 	public Object[][] convertirListeVersTableau()
 	{
-		Object[][] tableauGPH = new Object[7][ListeGPH.size()];
+		Object[][] tableauGPH = new Object[listeGPH.size()][7];
 
 		for (int i = 0 ; i < tableauGPH.length ; i++)
 		{
-			for (FragmentMoleculaire fragment : ListeGPH)
-			{
-				tableauGPH[0][i] = fragment.getNumero();
-				tableauGPH[1][i] = fragment.getListeAtome().size();
-				tableauGPH[2][i] = fragment.getListeLiaison().size();
-				tableauGPH[3][i] = fragment.getNumero();
-				tableauGPH[4][i] = fragment.getFrequence();
-				tableauGPH[5][i] = fragment.getToxicite();
-				tableauGPH[6][i] = fragment.getEmergence();
-			}
+			tableauGPH[i][0] = listeGPH.get(i).getNumero();
+			tableauGPH[i][1] = listeGPH.get(i).getListeAtome().size();
+			tableauGPH[i][2] = listeGPH.get(i).getListeLiaison().size();
+			tableauGPH[i][3] = listeGPH.get(i).getNumero();
+			tableauGPH[i][4] = listeGPH.get(i).getFrequence();
+			tableauGPH[i][5] = listeGPH.get(i).getToxicite();
+			tableauGPH[i][6] = listeGPH.get(i).getEmergence();
 		}
 
 		return tableauGPH;
@@ -209,7 +210,7 @@ public class ParseurGPH implements ParseurGenerique
 	 */
 	public void afficherTableau()
 	{
-		for (FragmentMoleculaire fragment : ListeGPH)
+		for (FragmentMoleculaire fragment : listeGPH)
 		{
 			System.out.println("\n_______________NOUVEAU FRAGMENT______________");
 			System.out.print("Numero : " + fragment.getNumero());
@@ -223,16 +224,15 @@ public class ParseurGPH implements ParseurGenerique
 
 	}
 
-	// ----------------------------------------- //
-	// ---------------ACCESSEURS---------------- //
-	// ----------------------------------------- //
-
 	@Override
 	public void trierListe()
 	{
-		// TODO Auto-generated method stub
 
 	}
+
+	// ----------------------------------------- //
+	// ---------------ACCESSEURS---------------- //
+	// ----------------------------------------- //
 
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //

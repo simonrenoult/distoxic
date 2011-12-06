@@ -2,28 +2,35 @@ package vue;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import vue.menus.MenuTextuel;
+import vue.barreOutils.BarreOutils;
+import vue.menus.BarreMenu;
 
 @SuppressWarnings("serial")
 public class FenetrePrincipale extends JFrame
 {
 	// ----------------------------------------- //
-	// ----------------ATTRIBUTS---------------- //
+	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
-	public static Integer	TAILLE_X	= 800;
-	public static Integer	TAILLE_Y	= 600;
-	public static String	TITRE		= "Dis'Toxic";
-
-	private MenuTextuel		menu;
-	private ConteneurGlobal	conteneurGlobal;
-	private BarreOutils		barreOutils;
-	private JPanel			contentPane;
+	public final static Integer	MAX_WIDTH	= 1024;
+	public final static Integer	TAILLE_X	= (Toolkit.getDefaultToolkit().getScreenSize().width > MAX_WIDTH) ? MAX_WIDTH
+													: 4 * Toolkit.getDefaultToolkit().getScreenSize().width / 5;
+	public final static Integer	TAILLE_Y	= 4 * Toolkit.getDefaultToolkit().getScreenSize().height / 5;
+	public final static String	TITRE		= "Dis'Toxic";
+	
+	// ----------------------------------------- //
+	// ----------------ATTRIBUTS---------------- //
+	// ----------------------------------------- //
+	
+	private BarreMenu			menu;
+	private ConteneurGlobal		conteneurGlobal;
+	private BarreOutils			barreOutils;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -32,11 +39,34 @@ public class FenetrePrincipale extends JFrame
 	public FenetrePrincipale()
 	{
 		super();
+
+		buildLookAndFeel();
+
+		this.setTitle(TITRE);
+		this.setSize(TAILLE_X, TAILLE_Y);
+		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);		
+		this.setLayout(new BorderLayout());
+		
+		buildMenuTop();
+		buildBarreOutils();
+		buildConteneurGlobal();
+		
+		this.setVisible(true);
+	}
+
+	// ----------------------------------------- //
+	// --------------INITIALISEURS-------------- //
+	// ----------------------------------------- //
+
+	private void buildLookAndFeel()
+	{
 		try
 		{
-			if(System.getProperty("os.name").toLowerCase().contains("linux"))
+			if (System.getProperty("os.name").toLowerCase().contains("linux"))
 				UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
-			else if(System.getProperty("os.name").toLowerCase().contains("windows"))
+			else if (System.getProperty("os.name").toLowerCase().contains("windows"))
 				UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 			else
 				UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -57,52 +87,26 @@ public class FenetrePrincipale extends JFrame
 		{
 			e.printStackTrace();
 		}
-
-		buildMenuTop();
-		buildBarOutils();
-		buildConteneurGlobal();
-		buildContentPane();
-		buildFenetre();
 	}
-
-	// ----------------------------------------- //
-	// --------------INITIALISEURS-------------- //
-	// ----------------------------------------- //
 	
 	private void buildMenuTop()
 	{
-		menu = new MenuTextuel();
+		menu = new BarreMenu();
 		this.setJMenuBar(menu);
 	}
-	
-	private void buildBarOutils()
+
+	private void buildBarreOutils()
 	{
 		barreOutils = new BarreOutils();
+		this.getContentPane().add(barreOutils, BorderLayout.NORTH);
 	}
-	
+
 	private void buildConteneurGlobal()
 	{
 		conteneurGlobal = new ConteneurGlobal();
+		this.getContentPane().add(conteneurGlobal, BorderLayout.CENTER);
 	}
 
-	private void buildFenetre()
-	{
-		this.setTitle(TITRE);
-		this.setSize(TAILLE_X, TAILLE_Y);
-		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		this.setLocationRelativeTo(null);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setVisible(true);
-	}
-
-	private void buildContentPane()
-	{
-		contentPane = new JPanel(new BorderLayout());
-		contentPane.add(barreOutils, BorderLayout.NORTH);
-		contentPane.add(conteneurGlobal, BorderLayout.CENTER);
-		this.getContentPane().add(contentPane);
-	}
-	
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
@@ -111,7 +115,7 @@ public class FenetrePrincipale extends JFrame
 	{
 		UIManager.LookAndFeelInfo[] info = UIManager.getInstalledLookAndFeels();
 
-		for (int i = 0; i < info.length; i++)
+		for (int i = 0 ; i < info.length ; i++)
 		{
 			String nomLF = info[i].getName();
 			String nomClasse = info[i].getClassName();
@@ -124,7 +128,7 @@ public class FenetrePrincipale extends JFrame
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
 
-	public MenuTextuel getMenu()
+	public BarreMenu getMenu()
 	{
 		return menu;
 	}
@@ -133,31 +137,7 @@ public class FenetrePrincipale extends JFrame
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 
-	public void setLookAndFeel(String LF)
-	{
-		try
-		{
-			UIManager.setLookAndFeel(LF);
-		}
-		catch (ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
-		{
-			e.printStackTrace();
-		}
-		catch (UnsupportedLookAndFeelException e)
-		{
-			e.printStackTrace();
-		}
-	}
-
-	public void setMenu(MenuTextuel menu)
+	public void setMenu(BarreMenu menu)
 	{
 		this.menu = menu;
 	}

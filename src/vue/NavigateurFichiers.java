@@ -1,6 +1,5 @@
 package vue;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.io.File;
 import javax.swing.JPanel;
@@ -13,12 +12,15 @@ import modele.FileInformation;
 public class NavigateurFichiers extends JPanel
 {
 	// ----------------------------------------- //
-	// ----------------ATRIBUTS----------------- //
+	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
-	public static Integer			TAILLE_X	= 200;
-	public static Integer			TAILLE_Y	= ConteneurGlobal.TAILLE_Y;
-	private static Color			COLOR_BG	= Color.GREEN;
+	public final static Integer		TAILLE_X	= 1 * ConteneurGlobal.TAILLE_X / 5;
+	public final static Integer		TAILLE_Y	= ConteneurGlobal.TAILLE_Y;
+
+	// ----------------------------------------- //
+	// --------------- ATTRIBUTS --------------- //
+	// ----------------------------------------- //
 
 	private DefaultMutableTreeNode	racine		= new DefaultMutableTreeNode("Workspace");
 	// private ArrayList<FileInformation> JtreeComponent = new

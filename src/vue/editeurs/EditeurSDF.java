@@ -6,17 +6,23 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class EditeurSDF extends JPanel
 {
+	// ----------------------------------------- //
+	// --------------- CONSTANTES -------------- //
+	// ----------------------------------------- //
+
+	public static Integer		TAILLE_X	= Editeurs.TAILLE_X;
+	public static Integer		TAILLE_Y	= 2 * Editeurs.TAILLE_Y / 5;
+
+	private final static String	TITRE		= "Editeur de fichiers *.sdf";
+
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 
-	public static Integer	TAILLE_X		= Editeurs.TAILLE_X;
-	public static Integer	TAILLE_Y		= 2 * Editeurs.TAILLE_Y / 5;
-
-	private JLabel			titre;
-	private String			contenuTitre	= "Editeur de fichiers *.sdf";
+	private JLabel				titre;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -37,20 +43,26 @@ public class EditeurSDF extends JPanel
 
 	private void initTitre()
 	{
-		titre = new JLabel(contenuTitre);
+		titre = new JLabel(TITRE);
 		titre.setName("titre");
 		this.add(titre);
 	}
-
+	
 	// ----------------------------------------- //
-	// -----------------METHODES---------------- //
-	// ----------------------------------------- //
-
-	// ----------------------------------------- //
-	// ---------------ACCESSEURS---------------- //
+	// -------------- ACCESSEURS --------------- //
 	// ----------------------------------------- //
 
+	public JLabel getTitre()
+	{
+		return titre;
+	}
+
 	// ----------------------------------------- //
-	// ----------------MUTATEURS---------------- //
+	// --------------- MUTATEURS --------------- //
 	// ----------------------------------------- //
+	
+	public void setTitre(JLabel titre)
+	{
+		this.titre = titre;
+	}
 }
