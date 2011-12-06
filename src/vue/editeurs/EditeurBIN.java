@@ -9,6 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import modele.parseur.ParseurBIN;
+import modele.parseur.editeurs.ModeleTablesEditeurs;
 
 @SuppressWarnings("serial")
 public class EditeurBIN extends JPanel

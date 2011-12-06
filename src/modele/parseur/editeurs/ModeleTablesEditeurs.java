@@ -1,4 +1,4 @@
-package vue.editeurs;
+package modele.parseur.editeurs;
 
 import javax.swing.table.AbstractTableModel;
 
