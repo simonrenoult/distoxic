@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import modele.Atome;
-import modele.FragmentMolecule;
+import modele.composantsChimiques.Atome;
+import modele.composantsChimiques.FragmentMolecule;
 
 public class ParseurSDF implements ParseurGenerique
 {

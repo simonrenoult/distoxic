@@ -5,9 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import modele.Atome;
-import modele.FragmentMoleculaire;
-import modele.Liaison;
+import modele.composantsChimiques.Atome;
+import modele.composantsChimiques.FragmentMoleculaire;
+import modele.composantsChimiques.Liaison;
 
 /**
  * @author g4llic4
