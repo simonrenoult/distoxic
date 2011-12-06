@@ -8,8 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import modele.editeurs.ModeleTablesEditeurs;
 import modele.parseurs.ParseurGPH;
-import modele.parseurs.editeurs.ModeleTablesEditeurs;
 
 @SuppressWarnings("serial")
 public class EditeurGPH extends JPanel
