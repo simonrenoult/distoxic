@@ -8,8 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import modele.parseur.ParseurBIN;
-import modele.parseur.editeurs.ModeleTablesEditeurs;
+import modele.parseurs.ParseurBIN;
+import modele.parseurs.editeurs.ModeleTablesEditeurs;
 
 @SuppressWarnings("serial")
 public class EditeurBIN extends JPanel
