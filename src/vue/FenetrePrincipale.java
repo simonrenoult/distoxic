@@ -38,9 +38,10 @@ public class FenetrePrincipale extends JFrame
 
 	public FenetrePrincipale()
 	{
-		super();
-
-		buildLookAndFeel();
+		super();		
+		
+		//FIXME remove comment
+		//buildLookAndFeel();
 
 		this.setTitle(TITRE);
 		this.setSize(TAILLE_X, TAILLE_Y);

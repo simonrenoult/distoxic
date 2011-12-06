@@ -35,7 +35,6 @@ public class ConteneurEditeurs extends JTabbedPane
 
 	public ConteneurEditeurs()
 	{
-		this.setSize(TAILLE_X, TAILLE_Y);
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 
 		this.editeurs = new Editeurs();

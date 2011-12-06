@@ -15,7 +15,7 @@ public class NavigateurFichiers extends JPanel
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
-	public final static Integer		TAILLE_X	= 1 * ConteneurGlobal.TAILLE_X / 5;
+	public final static Integer		TAILLE_X	= ConteneurGlobal.TAILLE_X / 5;
 	public final static Integer		TAILLE_Y	= ConteneurGlobal.TAILLE_Y;
 
 	// ----------------------------------------- //
@@ -25,7 +25,7 @@ public class NavigateurFichiers extends JPanel
 	private DefaultMutableTreeNode	racine		= new DefaultMutableTreeNode("Workspace");
 	// private ArrayList<FileInformation> JtreeComponent = new
 	// ArrayList<FileInformation>();
-	private JTree					tree		= null;
+	private JTree					tree;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -33,8 +33,8 @@ public class NavigateurFichiers extends JPanel
 
 	public NavigateurFichiers()
 	{
-		super();
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+		
 		buildTree();
 	}
 

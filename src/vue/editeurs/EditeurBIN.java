@@ -1,5 +1,6 @@
 package vue.editeurs;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -14,26 +15,27 @@ import modele.parseurs.ParseurBIN;
 @SuppressWarnings("serial")
 public class EditeurBIN extends JPanel
 {
+	// ----------------------------------------- //
+	// --------------- CONSTANTES -------------- //
+	// ----------------------------------------- //
+
+	public final static Integer		TAILLE_X		= 2 * Editeurs.TAILLE_X / 5 - 40;
+	public final static Integer		TAILLE_Y		= 3 * Editeurs.TAILLE_Y / 5;
+
+	public final static Color		BG_COLOR		= Color.WHITE;
+
+	private final static String		CONTENU_TITRE	= "Editeur de fichiers *.bin";
+	private final static String[]	TITRES_TABLEAU	= { "Numero", "Classe", "Nombre de fragments" };
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 
-	// Taille ideale : 210
-	public static Integer			TAILLE_X		= Editeurs.TAILLE_X - EditeurGPH.TAILLE_X;
-	// Taille ideale : 230
-	public static Integer			TAILLE_Y		= Editeurs.TAILLE_Y - EditeurSDF.TAILLE_Y;
-
 	private JLabel					titre;
-	private final static String		CONTENU_TITRE	= "Editeur de fichiers *.bin";
-
 	private JScrollPane				scroll;
 
 	private JTable					tableauBIN;
-	private final static String[]	TITRES_TABLEAU	= { "Numero", "Classe", "Nombre de fragments" };
-
 	private ModeleTablesEditeurs	modele;
-
 	private ParseurBIN				parseur;
 
 	// ----------------------------------------- //
@@ -42,9 +44,8 @@ public class EditeurBIN extends JPanel
 
 	public EditeurBIN()
 	{
-		this.setLayout(new FlowLayout());
-		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		this.setBackground(Color.WHITE);
+		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+		setBackground(BG_COLOR);
 		
 		initTitre();
 		initParseur();
@@ -58,9 +59,14 @@ public class EditeurBIN extends JPanel
 
 	private void initTitre()
 	{
+		// FlowLayout afin de centrer le titre quand aucune table n'est
+		// affichee.
+		setLayout(new FlowLayout());
+
 		titre = new JLabel(CONTENU_TITRE);
 		titre.setName("titre");
-		this.add(titre);
+
+		add(titre, BorderLayout.BEFORE_FIRST_LINE);
 	}
 
 	private void initParseur()
@@ -73,16 +79,19 @@ public class EditeurBIN extends JPanel
 	{
 		modele = new ModeleTablesEditeurs(TITRES_TABLEAU, parseur.convertirListeVersTableau());
 		tableauBIN = new JTable(modele);
-		tableauBIN.setPreferredSize(new Dimension(TAILLE_X,TAILLE_Y));
 	}
 
 	private void initScroll()
 	{
-		this.remove(titre);
+		remove(titre);
+		// BordeLayout quand une table est affichee afin de permettre le
+		// centrage de la table.
+		setLayout(new BorderLayout());
+
 		scroll = new JScrollPane(tableauBIN);
-		//FIXME changer par des tailles variables selon les dimensions de la fenetre
-		scroll.setPreferredSize(new Dimension(210,230));
-		this.add(scroll);
+		scroll.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+
+		add(scroll, BorderLayout.CENTER);
 	}
 
 	// ----------------------------------------- //

@@ -1,7 +1,9 @@
 package vue.editeurs;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,8 +20,10 @@ public class EditeurGPH extends JPanel
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
-	public static Integer			TAILLE_X		= 3 * Editeurs.TAILLE_X / 5;
-	public static Integer			TAILLE_Y		= Editeurs.TAILLE_Y - EditeurSDF.TAILLE_Y;
+	public final static Integer		TAILLE_X		= 3 * Editeurs.TAILLE_X / 5;
+	public final static Integer		TAILLE_Y		= 3 * Editeurs.TAILLE_Y / 5;
+
+	public final static Color		BG_COLOR		= Color.WHITE;
 
 	private final static String		TITRE			= "Editeur de fichiers *.gph";
 	private final static String[]	TITRES_TABLEAU	= { "Numero", "Nb atomes", "Nb liaisons", "Classe", "Frequece",
@@ -43,9 +47,8 @@ public class EditeurGPH extends JPanel
 
 	public EditeurGPH()
 	{
-		this.setSize(TAILLE_X, TAILLE_Y);
-		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		this.setBackground(Color.WHITE);
+		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+		setBackground(BG_COLOR);
 
 		initTitre();
 		initParseur();
@@ -59,9 +62,12 @@ public class EditeurGPH extends JPanel
 
 	private void initTitre()
 	{
+		setLayout(new FlowLayout());
+
 		titre = new JLabel(TITRE);
 		titre.setName("titre");
-		this.add(titre);
+		
+		add(titre);
 	}
 
 	private void initParseur()
@@ -78,12 +84,13 @@ public class EditeurGPH extends JPanel
 
 	private void initScroll()
 	{
-		this.remove(titre);
+		remove(titre);
+		setLayout(new BorderLayout());
+
 		scroll = new JScrollPane(tableauGPH);
-		// FIXME changer par des tailles variables selon les dimensions de la
-		// fenetre
-		scroll.setPreferredSize(new Dimension(350, 230));
-		this.add(scroll);
+		scroll.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+
+		add(scroll, BorderLayout.CENTER);
 	}
 
 	// ----------------------------------------- //

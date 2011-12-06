@@ -11,7 +11,7 @@ public class Editeurs extends JSplitPane
 	// ----------------------------------------- //
 
 	public final static Integer	TAILLE_X	= ConteneurEditeurs.TAILLE_X;
-	public final static Integer	TAILLE_Y	= ConteneurEditeurs.TAILLE_Y;
+	public final static Integer	TAILLE_Y	= ConteneurEditeurs.TAILLE_Y - 75;
 
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
@@ -23,7 +23,7 @@ public class Editeurs extends JSplitPane
 	private EditeurGPH			edGph;
 
 	// ----------------------------------------- //
-	// --------------CONSTRUCTEURS-------------- //
+	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
 
 	public Editeurs()
@@ -31,7 +31,7 @@ public class Editeurs extends JSplitPane
 		this.setSize(TAILLE_X, TAILLE_Y);
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		this.setOrientation(JSplitPane.VERTICAL_SPLIT);
-
+		
 		buildEditeurSdf();
 		buildEditeursGph_Bin();
 
