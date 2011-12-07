@@ -24,6 +24,10 @@
 ##Editeurs :
 
 - **( 5 )** Afficher la JTable issu du parseurSDF.
+- **( 4 )** Cases des JTables éditables.
+- **( 4 )** Ajouter lignes aux JTables.
+	+ Générer fichiers en conséquence.
+- **( 4 )** Tris JTables. 
 - **( 3 )** Réduire une table via les SplitPane.
 - **( 3 )** Booléen indiquant si une JTable a été modifiée :
 	+ Fenêtre pop-up demandant d'enregistrer ou non les modifications efectuées.
@@ -38,3 +42,10 @@
 ##Config :
  
 - **( 3 )** Envisager la creation de fichiers de configuration des constantes de classes.
+
+##Versions :
+
+- **( 5 )** Fusionner les versions.
+
+##Finalité :
+- **( 3 )** Créer un jar exécutable.
