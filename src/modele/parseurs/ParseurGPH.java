@@ -17,7 +17,7 @@ public class ParseurGPH implements ParseurGenerique
 {
 
 	// ----------------------------------------- //
-	// ----------------ATRIBUTS----------------- //
+	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
 	/**
@@ -40,6 +40,10 @@ public class ParseurGPH implements ParseurGenerique
 	@SuppressWarnings("unused")
 	private static String					_SEPARATION_FRAGMENT	= " ";
 
+	// ----------------------------------------- //
+	// --------------- ATTRIBUTS --------------- //
+	// ----------------------------------------- //
+	
 	/**
 	 * Indice de l'objet FragmentMoleculaire sur lequel on travail.
 	 */

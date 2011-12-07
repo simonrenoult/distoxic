@@ -15,17 +15,17 @@ public class ParseurSDF implements ParseurGenerique
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-	
-	public final static Pattern				DEBUT			= Pattern.compile("^[ ]{2}[A-Z][A-Za-z0-9]+");
-	public final static Pattern				RESUME	= Pattern
-																	.compile("^[ ]([0-9]+( +)){6}( +)[0-9]{3}( +)[A-Z][0-9]{3}");
-	public final static Pattern				ATOMES			= Pattern
-																	.compile("^([ ]{3}( |-)[0-9][.][0-9]{4}){3}[ ][A-Z](( +)[0-9])+");
-	public final static Pattern				LIAISONS		= Pattern.compile("^([ ]( [0-9]|[0-9]{2}))+");
-	public final static Pattern				INFO			= Pattern.compile("^M[ ]{2}([A-Z]{3})");
-	public final static Pattern				BALISES			= Pattern.compile("<(.+)>");
-	public final static Pattern				FIN				= Pattern.compile("^[$]{4}");
-	
+
+	public final static Pattern				DEBUT		= Pattern.compile("^[ ]{2}[A-Z][A-Za-z0-9]+");
+	public final static Pattern				RESUME		= Pattern
+																.compile("^[ ]([0-9]+( +)){6}( +)[0-9]{3}( +)[A-Z][0-9]{3}");
+	public final static Pattern				ATOMES		= Pattern
+																.compile("^([ ]{3}( |-)[0-9][.][0-9]{4}){3}[ ][A-Z](( +)[0-9])+");
+	public final static Pattern				LIAISONS	= Pattern.compile("^([ ]( [0-9]|[0-9]{2}))+");
+	public final static Pattern				INFO		= Pattern.compile("^M[ ]{2}([A-Z]{3})");
+	public final static Pattern				BALISES		= Pattern.compile("<(.+)>");
+	public final static Pattern				FIN			= Pattern.compile("^[$]{4}");
+
 	// ----------------------------------------- //
 	// ----------------ATTRIBUTS---------------- //
 	// ----------------------------------------- //
@@ -95,7 +95,7 @@ public class ParseurSDF implements ParseurGenerique
 		{
 			String[] tmp = ligne.trim().split("( +)");
 			Atome atome = new Atome();
-			
+
 			for (int i = 0 ; i < tmp.length ; i++)
 			{							
 				if (i < 3)
@@ -180,6 +180,13 @@ public class ParseurSDF implements ParseurGenerique
 	
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
+	// ----------------------------------------- //
+
+	public void setTabMolecules(Object[][] tabMolecules)
+	{
+		this.tabMolecules = tabMolecules;
+	}
+}
 	// ----------------------------------------- //
 
 	public void setTabMolecules(Object[][] tabMolecules)

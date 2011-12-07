@@ -71,3 +71,42 @@ public class EditeurSDF extends JPanel
 		this.titre = titre;
 	}
 }
+		// FIXME chemin a definir.
+		parseur = new ParseurSDF("./workspace/exemple_60_56/exemple_56.sdf");
+	}
+
+	private void initModeleEtTable()
+	{
+		parseur.convertirListeVersTableau();
+		//modele = new ModeleTablesEditeurs(TITRES_TABLEAU, parseur.convertirListeVersTableau());
+		tableauSDF = new JTable(modele);
+	}
+
+	private void initScroll()
+	{
+		remove(titre);
+		setLayout(new BorderLayout());
+
+		scroll = new JScrollPane(tableauSDF);
+		scroll.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+
+		add(scroll, BorderLayout.CENTER);
+	}
+	// ----------------------------------------- //
+	// -------------- ACCESSEURS --------------- //
+	// ----------------------------------------- //
+
+	public JLabel getTitre()
+	{
+		return titre;
+	}
+
+	// ----------------------------------------- //
+	// --------------- MUTATEURS --------------- //
+	// ----------------------------------------- //
+
+	public void setTitre(JLabel titre)
+	{
+		this.titre = titre;
+	}
+}
