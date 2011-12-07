@@ -54,15 +54,17 @@ public class ParseurGPH implements ParseurGenerique
 	{
 		listeGPH = new ArrayList<FragmentMoleculaire>();
 		lireFichier(filePath);
+		convertirListeVersTableau();
 	}
 
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 
+	
 	/**
 	 * Permet de lire toutes les lignes d'un fichier donn� pour enextraire les
-	 * donn�es.
+	 * donnees.
 	 * 
 	 * @param filePath
 	 */

@@ -30,6 +30,7 @@ public class ParseurBIN implements ParseurGenerique
 	{
 		listeBIN = new ArrayList<ArrayList<Integer>>();
 		lireFichier(filePath);
+		convertirListeVersTableau();
 	}
 
 	// ----------------------------------------- //
@@ -137,6 +138,18 @@ public class ParseurBIN implements ParseurGenerique
 		}
 	}
 
+	/**
+	 * Permet d'afficher le tableau 2D à partir de la liste
+	 */
+	public void afficherTableau() {
+		for(ArrayList<Integer> liste : listeBIN){
+			System.out.println();
+			System.out.println("\n_______________NOUVELLE LIGNE BIN______________");
+			for (int i = 0; i< liste.size(); i++){
+				System.out.print(liste.get(i).toString()+" ");
+			}
+		}
+	}
 	// ----------------------------------------- //
 	// -------------- ACCESSEURS --------------- //
 	// ----------------------------------------- //
