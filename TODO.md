@@ -12,9 +12,9 @@ BarreOutils
 
 Workspace
 ---------
+	* ( 4 ) Rafraichissement automatique du workspace ;
 	* ( 2 ) Menu contextuel sur le clic droit ;
 		-> Nouveau Workspace, Importer, Exporter ;
-	* ( 4 ) Rafraichissement automatique du workspace ;
 
 Onglets
 -------
