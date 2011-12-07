@@ -1,3 +1,6 @@
+TODO
+====
+
 Menus
 ----
 
@@ -21,4 +24,4 @@ Editeurs
 	[*] Afficher la JTable issu du parseurSDF ;
 	[*] Offrir la possibilité de fermer une table ouverte dans un des éditeur ;
 	[*] Booléen indiquant si une JTable a été modifiée ;
-		-> Fenêtre pop-up demandant d'enregistrer ou non les modifications 			efectuées
+		-> Fenêtre pop-up demandant d'enregistrer ou non les modifications efectuées
