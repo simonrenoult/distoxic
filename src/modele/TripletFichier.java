@@ -1,13 +1,13 @@
 package modele;
 
-import modele.File.BINFile;
-import modele.File.GPHFile;
-import modele.File.SDFFile;
+import modele.file.BINFile;
+import modele.file.GPHFile;
+import modele.file.SDFFile;
 
 /**
  * 
  * Cette classe regroupe les 3 types de fichiers sous forme de tableaux d'objet 
- * qui permet de remplir le modele des JTable. Cette classe sera aussi utilisé 
+ * qui permet de remplir le modele des JTable. Cette classe sera aussi utilisï¿½ 
  * pour l'export et l'import d'archive .zip (contenant les 3 fichiers).
  * 
  * 
@@ -37,7 +37,7 @@ public class TripletFichier {
 // ----------------------------------------- //
 	/**
 	 * Constructeur prenant les 3 chemins de fichiers (sdf,bin et gph).
-	 * On créé alors à partir de ces 3 chemins, 3 objets associés à l'extension.
+	 * On crï¿½ï¿½ alors ï¿½ partir de ces 3 chemins, 3 objets associï¿½s ï¿½ l'extension.
 	 * @param Path1
 	 * @param Path2
 	 * @param Path3
@@ -50,7 +50,7 @@ public class TripletFichier {
 	
 	/**
 	 * Constructeur prenant 2 chemins de fichiers parmis les formats sdf,bin et gph.
-	 * On créé alors à partir de ces 2 chemins, 2 objets associés à l'extension.
+	 * On crï¿½ï¿½ alors ï¿½ partir de ces 2 chemins, 2 objets associï¿½s ï¿½ l'extension.
 	 * @param Path1
 	 * @param Path2
 	 */
@@ -61,7 +61,7 @@ public class TripletFichier {
 	
 	/**
  	 *Constructeur prenant 1 chemin de fichier parmis les formats sdf,bin et gph.
-	 * On créé alors à partir de ce 1 chemins, l'objet associé à l'extension. 
+	 * On crï¿½ï¿½ alors ï¿½ partir de ce 1 chemins, l'objet associï¿½ ï¿½ l'extension. 
 	 * @param Path1
 	 */
 	public TripletFichier(String Path1){
