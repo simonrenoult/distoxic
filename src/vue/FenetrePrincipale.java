@@ -40,21 +40,20 @@ public class FenetrePrincipale extends JFrame
 	{
 		super();		
 		
-		//FIXME remove comment
-		//buildLookAndFeel();
+		buildLookAndFeel();
 
-		this.setTitle(TITRE);
-		this.setSize(TAILLE_X, TAILLE_Y);
-		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		this.setLocationRelativeTo(null);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);		
-		this.setLayout(new BorderLayout());
+		setTitle(TITRE);
+		setSize(TAILLE_X, TAILLE_Y);
+		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);		
+		setLayout(new BorderLayout());
 		
 		buildMenuTop();
 		buildBarreOutils();
 		buildConteneurGlobal();
 		
-		this.setVisible(true);
+		setVisible(true);
 	}
 
 	// ----------------------------------------- //

@@ -46,7 +46,7 @@ public class EditeurBIN extends JPanel
 	{
 		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		setBackground(BG_COLOR);
-		
+
 		initTitre();
 		initParseur();
 		initModeleEtTable();
@@ -84,8 +84,11 @@ public class EditeurBIN extends JPanel
 	private void initScroll()
 	{
 		remove(titre);
-		// BordeLayout quand une table est affichee afin de permettre le
-		// centrage de la table.
+		/*
+		 * BordeLayout quand une table est affichee afin de permettre le
+		 * centrage de la table lors d'une modification de la taille de la
+		 * fenetre
+		 */
 		setLayout(new BorderLayout());
 
 		scroll = new JScrollPane(tableauBIN);
