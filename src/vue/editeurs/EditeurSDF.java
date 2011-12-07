@@ -1,11 +1,18 @@
 package vue.editeurs;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import modele.editeurs.ModeleTablesEditeurs;
+import modele.parseurs.ParseurGPH;
+import modele.parseurs.ParseurSDF;
 
 @SuppressWarnings("serial")
 public class EditeurSDF extends JPanel
@@ -25,7 +32,13 @@ public class EditeurSDF extends JPanel
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 
-	private JLabel				titre;
+	private JLabel					titre;
+	private JScrollPane				scroll;
+
+	private JTable					tableauGPH;
+	private ModeleTablesEditeurs	modele;
+	
+	private ParseurSDF				parseur;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -37,6 +50,10 @@ public class EditeurSDF extends JPanel
 		setBackground(BG_COLOR);
 
 		initTitre();
+
+		//initParseur();
+		//initModeleEtTable();
+		//initScroll();
 	}
 
 	// ----------------------------------------- //
@@ -53,33 +70,16 @@ public class EditeurSDF extends JPanel
 		add(titre);
 	}
 
-	// ----------------------------------------- //
-	// -------------- ACCESSEURS --------------- //
-	// ----------------------------------------- //
-
-	public JLabel getTitre()
+	private void initParseur()
 	{
-		return titre;
-	}
-
-	// ----------------------------------------- //
-	// --------------- MUTATEURS --------------- //
-	// ----------------------------------------- //
-
-	public void setTitre(JLabel titre)
-	{
-		this.titre = titre;
-	}
-}
 		// FIXME chemin a definir.
-		parseur = new ParseurSDF("./workspace/exemple_60_56/exemple_56.sdf");
+		parseur = new ParseurSDF("./workspace/exemple_60_56/exemple_60.gph");
 	}
 
 	private void initModeleEtTable()
 	{
-		parseur.convertirListeVersTableau();
 		//modele = new ModeleTablesEditeurs(TITRES_TABLEAU, parseur.convertirListeVersTableau());
-		tableauSDF = new JTable(modele);
+		tableauGPH = new JTable(modele);
 	}
 
 	private void initScroll()
@@ -87,11 +87,12 @@ public class EditeurSDF extends JPanel
 		remove(titre);
 		setLayout(new BorderLayout());
 
-		scroll = new JScrollPane(tableauSDF);
+		scroll = new JScrollPane(tableauGPH);
 		scroll.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 
 		add(scroll, BorderLayout.CENTER);
 	}
+	
 	// ----------------------------------------- //
 	// -------------- ACCESSEURS --------------- //
 	// ----------------------------------------- //
