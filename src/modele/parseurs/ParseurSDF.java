@@ -41,6 +41,7 @@ public class ParseurSDF implements ParseurGenerique
 	{
 		molecules = new LinkedList<FragmentMolecule>();
 		lireFichier(filePath);
+		convertirListeVersTableau();
 	}
 
 	// ----------------------------------------- //

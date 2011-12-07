@@ -6,6 +6,7 @@ import javax.swing.JSplitPane;
 import vue.barreOutils.BarreOutils;
 import vue.editeurs.ConteneurEditeurs;
 import vue.menus.BarreMenu;
+import vue.naviguateur.NavigateurFichiers;
 
 @SuppressWarnings("serial")
 public class ConteneurGlobal extends JSplitPane
