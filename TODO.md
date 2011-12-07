@@ -3,8 +3,9 @@
 *Légende : ( Priorité de niveau 5 ) > ( Priorité de niveau 1 ).*
 
 ##Menus :
-
-
+- **( 2 )** : Menu permettant d'éditer les préférences :
+	+ Ouverture d'un fichier dans un nouvel onglet ou en écrasant l'onglet courant.
+     
 ##BarreOutils :
 
 - **( 1 )** Diviser le code de chacune des toolbars en autant de classes. 
