@@ -38,6 +38,6 @@ Editeurs
 
 Config
 ------ 
-	* ( 3 )Envisager la creation de fichiers de configuration des constantes de classes ;
+	* ( 3 ) Envisager la creation de fichiers de configuration des constantes de classes ;
 		
 		
