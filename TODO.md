@@ -2,11 +2,12 @@ TODO
 ====
 
 Menus
-----
+-----
 
 BarreOutils
 -----------
 	* Diviser le code de chacune des toolbars en autant de classes ;
+	* Ecrire de nouvelles barres d'outils pour faciliter l'accès aux optionnalités ;
 
 Workspace
 ---------
