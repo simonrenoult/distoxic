@@ -1,6 +1,6 @@
 #TODO
 
-*Légende : ( Priorité de niveau 5 ) > ( Priorité de niveau 1 ) ;*
+*Légende : ( Priorité de niveau 5 ) > ( Priorité de niveau 1 ).*
 
 ##Menus :
 
