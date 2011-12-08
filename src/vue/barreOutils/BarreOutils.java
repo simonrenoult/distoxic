@@ -89,8 +89,8 @@ public class BarreOutils extends JPanel
 
 	private void initListener()
 	{
-		@SuppressWarnings("unused")
-		EcouteurBarreOutils e = new EcouteurBarreOutils(this);
+		//@SuppressWarnings("unused")
+		//EcouteurBarreOutils e = new EcouteurBarreOutils(this);
 	}
 
 	private void initPanel()

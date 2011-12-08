@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import controleur.EcouteurBarreOutils;
+
 import vue.barreOutils.BarreOutils;
 import vue.menus.BarreMenu;
 
@@ -50,8 +52,9 @@ public class FenetrePrincipale extends JFrame
 		setLayout(new BorderLayout());
 		
 		buildMenuTop();
-		buildBarreOutils();
 		buildConteneurGlobal();
+		buildBarreOutils();
+		
 		
 		setVisible(true);
 	}
@@ -94,17 +97,18 @@ public class FenetrePrincipale extends JFrame
 		menu = new BarreMenu();
 		this.setJMenuBar(menu);
 	}
-
-	private void buildBarreOutils()
-	{
-		barreOutils = new BarreOutils();
-		this.getContentPane().add(barreOutils, BorderLayout.NORTH);
-	}
-
+	
 	private void buildConteneurGlobal()
 	{
 		conteneurGlobal = new ConteneurGlobal();
 		this.getContentPane().add(conteneurGlobal, BorderLayout.CENTER);
+	}
+	
+	private void buildBarreOutils()
+	{
+		barreOutils = new BarreOutils();
+		EcouteurBarreOutils e = new EcouteurBarreOutils(this);
+		this.getContentPane().add(barreOutils, BorderLayout.NORTH);
 	}
 
 	// ----------------------------------------- //
@@ -132,7 +136,18 @@ public class FenetrePrincipale extends JFrame
 	{
 		return menu;
 	}
-
+	/**
+	 * @return the conteneurGlobal
+	 */
+	public ConteneurGlobal getConteneurGlobal() {
+		return conteneurGlobal;
+	}
+	/**
+	 * @return the barreOutils
+	 */
+	public BarreOutils getBarreOutils() {
+		return barreOutils;
+	}
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
@@ -140,5 +155,19 @@ public class FenetrePrincipale extends JFrame
 	public void setMenu(BarreMenu menu)
 	{
 		this.menu = menu;
+	}
+
+	/**
+	 * @param conteneurGlobal the conteneurGlobal to set
+	 */
+	public void setConteneurGlobal(ConteneurGlobal conteneurGlobal) {
+		this.conteneurGlobal = conteneurGlobal;
+	}
+
+	/**
+	 * @param barreOutils the barreOutils to set
+	 */
+	public void setBarreOutils(BarreOutils barreOutils) {
+		this.barreOutils = barreOutils;
 	}
 }

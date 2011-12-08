@@ -5,12 +5,17 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.JFileChooser;
 import modele.FiltreZIP;
+import modele.WorkspaceModele;
+import modele.zip.UnZip;
 import vue.FenetreImportationTripletFichier;
+import vue.FenetrePrincipale;
+import vue.naviguateur.NavigateurFichiers;
 
 public class EcouteurFenetreImportationTripletFichier implements ActionListener {
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
+	private FenetrePrincipale fenetreprincipale;
 	private FenetreImportationTripletFichier fenetre = null;
 	private JFileChooser jf = null;
 	// ----------------------------------------- //
@@ -18,6 +23,7 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 	// ----------------------------------------- //
 	public EcouteurFenetreImportationTripletFichier(FenetreImportationTripletFichier f){
 		fenetre = f;
+		fenetreprincipale = fenetre.getFenetrePrincipale();
 		fenetre.getDossierBouton().addActionListener(this);
 		fenetre.getArchiveBouton().addActionListener(this);
 		fenetre.getImpoterArchive().addActionListener(this);
@@ -68,7 +74,6 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 		}	
 		else if (e.getSource() == fenetre.getArchiveBouton()){
 			//TODO : IMPORTER ZIP DEPUIS LE SYSTEME VERS LE WORKSPACE.
-			System.out.println("OK IMPORT ZIP");
 			jf = new JFileChooser();
 			jf.setCurrentDirectory(new File("."));
 			jf.addChoosableFileFilter(new FiltreZIP(".zip", "fichier zip"));
@@ -77,7 +82,16 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 			{
 				File fichier;
 				fichier = jf.getSelectedFile();
-				System.out.println(fichier.getAbsolutePath());
+				WorkspaceModele conf = new WorkspaceModele(1);
+				conf.lireFichier();
+				
+				//System.out.println("fichier de depart : "+fichier.getAbsolutePath());
+				//System.out.println("dezzipage vars    : "+conf.getWorkspacePath());
+				
+				UnZip fichierZip = new UnZip(fichier.getAbsolutePath(),conf.getWorkspacePath());
+				System.out.println("succes unzip :"+fichierZip.zipAction());
+				fenetreprincipale.getConteneurGlobal().buildNavigateur();
+				fenetre.repaint();
 			}
 			fenetre.setVisible(false);
 		}

@@ -1,6 +1,7 @@
 
 package vue.naviguateur;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.io.File;
 
@@ -23,7 +24,8 @@ public class NavigateurFichiers extends JPanel
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-	
+	private static String		_ICON_PATH	= "src" + File.separator + "images" + File.separator + "icones"
+			+ File.separator;
 	public static Integer			TAILLE_X	= 200;
 	public static Integer			TAILLE_Y	= ConteneurGlobal.TAILLE_Y;
 	
@@ -36,9 +38,9 @@ public class NavigateurFichiers extends JPanel
 	
 	public NavigateurFichiers(){
 		super();
+		this.setLayout(new BorderLayout());
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		buildTree();
-		
 	}
 	
 	
@@ -50,9 +52,9 @@ public class NavigateurFichiers extends JPanel
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 	
-	private void buildTree(){
+	public void buildTree(){
 		
-		WorkspaceModele modele = new WorkspaceModele();
+		WorkspaceModele modele = new WorkspaceModele(0);
 		modele.workspaceExistant();
 		String workspacePath = modele.getWorkspacePath();
 		
@@ -68,7 +70,7 @@ public class NavigateurFichiers extends JPanel
 		tree.setShowsRootHandles(true);
 		tree.putClientProperty("JTree.lineStyle", "Angled");
 		
-		ImageIcon leafIcon = new ImageIcon("src/images/icones/chart_stock.png");
+		ImageIcon leafIcon = new ImageIcon(_ICON_PATH+"chart_stock.png");
 		if (leafIcon != null) {
 		    DefaultTreeCellRenderer renderer =  new DefaultTreeCellRenderer();
 		    renderer.setLeafIcon(leafIcon);
@@ -78,7 +80,7 @@ public class NavigateurFichiers extends JPanel
 		
 		JScrollPane treeView = new JScrollPane(tree);
 		treeView.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		this.add(treeView);
+		this.add(treeView,BorderLayout.CENTER);
 	}
 
 	private void buildJtreeComponentList(File file,DefaultMutableTreeNode node){

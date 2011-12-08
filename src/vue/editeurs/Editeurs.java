@@ -84,6 +84,12 @@ public class Editeurs extends JSplitPane
 	{
 		return edGph;
 	}
+	/**
+	 * @return the tripletFichier
+	 */
+	public TripletFichier getTripletFichier() {
+		return tripletFichier;
+	}
 
 	// ----------------------------------------- //
 	// --------------- MUTATEURS --------------- //
@@ -107,5 +113,11 @@ public class Editeurs extends JSplitPane
 	public void setEdGph(EditeurGPH edGph)
 	{
 		this.edGph = edGph;
+	}
+	/**
+	 * @param tripletFichier the tripletFichier to set
+	 */
+	public void setTripletFichier(TripletFichier tripletFichier) {
+		this.tripletFichier = tripletFichier;
 	}
 }

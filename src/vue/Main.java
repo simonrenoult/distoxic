@@ -7,7 +7,7 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		WorkspaceModele modele = new WorkspaceModele();
+		WorkspaceModele modele = new WorkspaceModele(0);
 		if(!modele.workspaceExistant()){
 			//System.err.println("Le worspace n'a pas été trouvé");
 			

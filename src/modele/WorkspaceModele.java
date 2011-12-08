@@ -19,11 +19,16 @@ public class WorkspaceModele {
 	private String workspacePath = null;
 	private String workspacePathDesire =null;
 	private File workspaceFile = null;
+	
+	private int index ;
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	public WorkspaceModele(){
-		
+	public WorkspaceModele(int index){
+		this.index = index;
+		//l'index est un marqueur utilise par la methode traitementLigne
+		//pour savoir si c'est qu'une simple lecture ou que l'on veuille
+		//la création d'un dossier.
 	}
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
@@ -66,7 +71,7 @@ public class WorkspaceModele {
 		workspacePath = tab[0];
 		workspacePath = workspacePath+File.separator+_NOMREPERTOIRE_TRAVAIL;
 		workspaceFile = new File(workspacePath);
-		if(!(workspaceFile.exists() && workspaceFile.isDirectory())){
+		if(!(workspaceFile.exists() && workspaceFile.isDirectory()) && (index == 0)){
 			//System.out.println("le workspace n'existe pas à l'emplacement inscrit dans le fichier.");
 			//System.out.println("fichier : "+workspacePath);
 			return false;

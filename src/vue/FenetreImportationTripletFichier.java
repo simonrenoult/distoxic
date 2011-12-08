@@ -22,7 +22,9 @@ public class FenetreImportationTripletFichier extends JFrame{
 		public static Integer	TAILLE_X	= 400;
 		public static Integer	TAILLE_Y	= 200;
 		public static String	TITRE		= "Import project";
-	
+		
+		private FenetrePrincipale fenetrePrincipale;
+		
 		private JPanel containerPrincipal = new JPanel();
 		private JPanel containerInformation = new JPanel();
 		private JPanel containerSelectionArchive = new JPanel();
@@ -36,7 +38,8 @@ public class FenetreImportationTripletFichier extends JFrame{
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-		public FenetreImportationTripletFichier(){
+		public FenetreImportationTripletFichier(FenetrePrincipale fenetrePrincipale){
+			this.fenetrePrincipale = fenetrePrincipale;
 			init();
 			
 			this.setTitle(TITRE);
@@ -243,6 +246,19 @@ public class FenetreImportationTripletFichier extends JFrame{
 		 */
 		public void setDossierBouton(JButton dossierBouton) {
 			this.dossierBouton = dossierBouton;
+		}
+		/**
+		 * @return the fenetrePrincipale
+		 */
+		public FenetrePrincipale getFenetrePrincipale() {
+			return fenetrePrincipale;
+		}
+
+		/**
+		 * @param fenetrePrincipale the fenetrePrincipale to set
+		 */
+		public void setFenetrePrincipale(FenetrePrincipale fenetrePrincipale) {
+			this.fenetrePrincipale = fenetrePrincipale;
 		}
 
 	// ----------------------------------------- //

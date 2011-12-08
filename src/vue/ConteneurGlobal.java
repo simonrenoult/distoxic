@@ -51,7 +51,7 @@ public class ConteneurGlobal extends JSplitPane
 		this.setRightComponent(conteneurEditeurs);
 	}
 
-	private void buildNavigateur()
+	public void buildNavigateur()
 	{
 		navigateur = new NavigateurFichiers();
 		EcouteurNavigateur e = new EcouteurNavigateur(this);

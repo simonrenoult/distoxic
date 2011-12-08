@@ -85,20 +85,30 @@ public class EcouteurNavigateur implements TreeSelectionListener, MouseListener{
 			
 			if (node == null) return;
 			Object nodeInfo = node.getUserObject();
-	        if (node.isLeaf()) {
-	            FileInformation information = (FileInformation)nodeInfo;
-	            System.out.println(information.getFilePath());
-	            
-	            
-	            if(information.toString().endsWith(".gph")){
-	            	cGlobal.getEditeur().addEditeur(new TripletFichier(information.getFilePath()));
-	            }
-	            else if(information.toString().endsWith(".sdf")){
-	            	cGlobal.getEditeur().addEditeur(new TripletFichier(information.getFilePath()));
-	            }
-	            else if(information.toString().endsWith(".bin")){
-	            	cGlobal.getEditeur().addEditeur(new TripletFichier(information.getFilePath()));
-	            }
+			if (node.isLeaf()) {
+				
+				FileInformation information = (FileInformation)nodeInfo;
+				System.out.println(information.getFilePath());
+				
+				//TODO Gerer les 3 cas sur le double clic d'un fichier sur Jtree.
+				/*
+				 *3 cas possibles : 
+				 *->le triplet (chemin du projet) existe déjà et la zone et vierge : on importe 
+				 *dans ce triplet dans l'onglet existant.
+				 *->le triplet (chemin du projet) existe déjà et la zone à déjà un contenu : Verifier
+				 *l'enregistrement de l'ancien contenu et on importe dans ce triplet dans l'onglet existant.
+				 *->le triplet (chemin du projet) n'existe pas, on créé un nouvel onglet.
+				 */
+				
+				if(information.toString().endsWith(".gph")){
+					cGlobal.getEditeur().addEditeur(new TripletFichier(information.getFilePath()));
+				}
+				else if(information.toString().endsWith(".sdf")){
+					cGlobal.getEditeur().addEditeur(new TripletFichier(information.getFilePath()));
+				}
+				else if(information.toString().endsWith(".bin")){
+					cGlobal.getEditeur().addEditeur(new TripletFichier(information.getFilePath()));
+				}
 	        }
 		}
 		

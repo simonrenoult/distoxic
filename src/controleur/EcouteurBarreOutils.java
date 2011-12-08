@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JToolBar;
 
 import vue.FenetreImportationTripletFichier;
+import vue.FenetrePrincipale;
 import vue.barreOutils.BarreOutils;
 
 public class EcouteurBarreOutils implements ActionListener
@@ -14,15 +15,22 @@ public class EcouteurBarreOutils implements ActionListener
 	// ----------------------------------------- //
 
 	private BarreOutils panel;
+	private FenetrePrincipale fenetrePrincipale;
 	private FenetreImportationTripletFichier fenetreImportation;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
-
-	public EcouteurBarreOutils(BarreOutils f)
+	public EcouteurBarreOutils(FenetrePrincipale fenetrePrincipale)
 	{
-		panel = f;
+		this(fenetrePrincipale.getBarreOutils());
+		this.fenetrePrincipale = fenetrePrincipale;
+		
+	}
+	
+	public EcouteurBarreOutils(BarreOutils bo)
+	{
+		panel = bo;
 		panel.getNouveau().addActionListener(this);
 		panel.getImporter().addActionListener(this);
 		panel.getEnregistrer().addActionListener(this);
@@ -40,7 +48,7 @@ public class EcouteurBarreOutils implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		if(e.getSource() == panel.getImporter()){
-			fenetreImportation = new FenetreImportationTripletFichier();
+			fenetreImportation = new FenetreImportationTripletFichier(fenetrePrincipale);
 		}
 	}
 
