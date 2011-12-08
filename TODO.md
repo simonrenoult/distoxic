@@ -13,8 +13,8 @@
 ##Workspace :
 
 - **( 4 )** Rafraichissement automatique du workspace.
-- **( 2 )** Menu contextuel sur le clic droit :
-	+ Nouveau Workspace, Importer, Exporter.
+- **( 1 )** Menu contextuel sur le clic droit :
+	+ Nouveau Workspace, Importer, Exporter, Renommer Fichier/Répertoire.
 
 ##Onglets :
 
