@@ -46,7 +46,6 @@
 
 ##Versions :
 
-- **( 5 )** Fusionner les versions.
 
 ##Finalité :
 
