@@ -4,7 +4,9 @@
 
 ##Menus :
 
-
+- **( 2 )** : Menu permettant d'éditer les préférences :
+	+ Ouverture d'un fichier dans un nouvel onglet ou en écrasant l'onglet courant.
+     
 ##BarreOutils :
 
 - **( 1 )** Diviser le code de chacune des toolbars en autant de classes. 
@@ -12,8 +14,8 @@
 ##Workspace :
 
 - **( 4 )** Rafraichissement automatique du workspace.
-- **( 2 )** Menu contextuel sur le clic droit :
-	+ Nouveau Workspace, Importer, Exporter.
+- **( 1 )** Menu contextuel sur le clic droit :
+	+ Nouveau Workspace, Importer, Exporter, Renommer Fichier/Répertoire.
 
 ##Onglets :
 
@@ -48,4 +50,5 @@
 - **( 5 )** Fusionner les versions.
 
 ##Finalité :
+
 - **( 3 )** Créer un jar exécutable.
