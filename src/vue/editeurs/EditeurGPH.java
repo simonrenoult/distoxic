@@ -73,12 +73,12 @@ public class EditeurGPH extends JPanel
 	private void initParseur()
 	{
 		// FIXME chemin a definir.
-		parseur = new ParseurGPH("./workspace/exemple_60_56/exemple_60.gph");
+		parseur = new ParseurGPH("./workspace/DisToxicProjects/exemple_60_56/exemple_60.gph");
 	}
 
 	private void initModeleEtTable()
 	{
-		modele = new ModeleTablesEditeurs(TITRES_TABLEAU, parseur.convertirListeVersTableau());
+		modele = new ModeleTablesEditeurs(TITRES_TABLEAU, parseur.convertirListeVersTableau2D());
 		tableauGPH = new JTable(modele);
 	}
 

@@ -21,7 +21,7 @@ public interface ParseurGenerique
  	 * 
 	 * @return retourne la conversion de la liste en tableau.
 	 */
-	Object[][] convertirListeVersTableau();
+	Object[][] convertirListeVersTableau2D();
 	
 	void trierListe();
 }

@@ -58,7 +58,7 @@ public class ParseurGPH implements ParseurGenerique
 	{
 		listeGPH = new ArrayList<FragmentMoleculaire>();
 		lireFichier(filePath);
-		convertirListeVersTableau();
+		convertirListeVersTableau2D();
 	}
 
 	// ----------------------------------------- //
@@ -193,7 +193,7 @@ public class ParseurGPH implements ParseurGenerique
 	 * @return
 	 */
 	@Override
-	public Object[][] convertirListeVersTableau()
+	public Object[][] convertirListeVersTableau2D()
 	{
 		Object[][] tableauGPH = new Object[listeGPH.size()][7];
 

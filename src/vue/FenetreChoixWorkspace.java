@@ -8,44 +8,56 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import modele.WorkspaceModele;
 
 @SuppressWarnings("serial")
-public class FenetreChoixWorkspace extends JFrame {
+public class FenetreChoixWorkspace extends JFrame
+{
+
+	// ----------------------------------------- //
+	// --------------- CONSTANTES -------------- //
+	// ----------------------------------------- //
+
+	public static Integer	TAILLE_X					= 600;
+	public static Integer	TAILLE_Y					= 200;
+
+	public static String	TITRE						= "Selection du Workspace";
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-	private WorkspaceModele modeleWorkspace = null;
 
-	public static Integer TAILLE_X = 600;
-	public static Integer TAILLE_Y = 200;
+	private WorkspaceModele	modeleWorkspace				= null;
 
-	public static String TITRE = "Selection du Workspace";
+	private JPanel			containerPrincipal			= new JPanel();
+	private JPanel			containerInformation		= new JPanel();
+	private JPanel			containerSelectionWorkspace	= new JPanel();
 
-	private JPanel containerPrincipal = new JPanel();
-	private JPanel containerInformation = new JPanel();
-	private JPanel containerSelectionWorkspace = new JPanel();
+	private JLabel			iconeInformation			= new JLabel(new ImageIcon(
+																"src/images/icones/folder_explore.png"));
+	private JLabel			message1					= new JLabel(
+																"Dis'Toxic sauvegarde vos projets dans un dossier nommï¿½ DisToxicProjects.");
+	private JLabel			message2					= new JLabel(
+																"Choisissez le chemin de destination du dossier pour utiliser ce logiciel.");
+	private JLabel			workspaceLabel				= new JLabel("Workspace");
 
-	private JLabel iconeInformation = new JLabel(new ImageIcon(
-			"src/images/icones/folder_explore.png"));
-	private JLabel message1 = new JLabel(
-			"Dis'Toxic sauvegarde vos projets dans un dossier nommé DisToxicProjects.");
-	private JLabel message2 = new JLabel(
-			"Choisissez le chemin de destination du dossier pour utiliser ce logiciel.");
-	private JLabel workspaceLabel = new JLabel("Workspace");
+	private JTextField		PathWorkspaceTextField		= new JTextField("");
 
-	private JTextField PathWorkspaceTextField = new JTextField("");
+	private JButton			selection					= new JButton("Sï¿½lectionner");
+	private JButton			valider						= new JButton("Valider");
+	private JButton			annuler						= new JButton("Annuler");
 
-	private JButton selection = new JButton("Sélectionner");
-	private JButton valider = new JButton("Valider");
-	private JButton annuler = new JButton("Annuler");
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	public FenetreChoixWorkspace(WorkspaceModele modele) {
+	
+	public FenetreChoixWorkspace(WorkspaceModele modele)
+	{
 		this.modeleWorkspace = modele;
+		
 		init();
 
 		this.setTitle(TITRE);
@@ -60,7 +72,9 @@ public class FenetreChoixWorkspace extends JFrame {
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 
-	public void init() {
+	public void init()
+	{
+		buildLookAndFeel();
 		buildContainerInformation();
 		buildContainerSelectionChemin();
 		buildContainerPrincipal();
@@ -71,6 +85,35 @@ public class FenetreChoixWorkspace extends JFrame {
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 
+	private void buildLookAndFeel()
+	{
+		try
+		{
+			if (System.getProperty("os.name").toLowerCase().contains("linux"))
+				UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+			else if (System.getProperty("os.name").toLowerCase().contains("windows"))
+				UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			else
+				UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (InstantiationException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IllegalAccessException e)
+		{
+			e.printStackTrace();
+		}
+		catch (UnsupportedLookAndFeelException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
 	/*
 	 * private void initEcouteur() { EcouteurFenetreWorkspace e = new
 	 * EcouteurFenetreWorkspace(this);
@@ -81,9 +124,9 @@ public class FenetreChoixWorkspace extends JFrame {
 	/**
 	 * Creation du panneau d'information de la fenetre.
 	 */
-	private void buildContainerInformation() {
-		containerInformation.setPreferredSize(new Dimension(TAILLE_X,
-				TAILLE_Y / 3));
+	private void buildContainerInformation()
+	{
+		containerInformation.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y / 3));
 		containerInformation.add(iconeInformation);
 		containerInformation.add(message1);
 		containerInformation.add(message2);
@@ -93,9 +136,9 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * Creation du panneau de selection du chemin pour le 'workspace' et pour le
 	 * bouton valider.
 	 */
-	private void buildContainerSelectionChemin() {
-		PathWorkspaceTextField
-				.setPreferredSize(new Dimension(TAILLE_X / 2, 30));
+	private void buildContainerSelectionChemin()
+	{
+		PathWorkspaceTextField.setPreferredSize(new Dimension(TAILLE_X / 2, 30));
 		JPanel selectionWorkspacePath = new JPanel();
 		selectionWorkspacePath.setPreferredSize(new Dimension(TAILLE_X,
 				(TAILLE_Y - containerInformation.getHeight()) / 4));
@@ -103,19 +146,18 @@ public class FenetreChoixWorkspace extends JFrame {
 		selectionWorkspacePath.add(PathWorkspaceTextField);
 		selectionWorkspacePath.add(selection);
 
-		containerSelectionWorkspace.setPreferredSize(new Dimension(TAILLE_X,
-				(TAILLE_Y / 3) * 2));
-		containerSelectionWorkspace.add(selectionWorkspacePath,
-				BorderLayout.NORTH);
+		containerSelectionWorkspace.setPreferredSize(new Dimension(TAILLE_X, (TAILLE_Y / 3) * 2));
+		containerSelectionWorkspace.add(selectionWorkspacePath, BorderLayout.NORTH);
 		containerSelectionWorkspace.add(valider, BorderLayout.SOUTH);
 		containerSelectionWorkspace.add(annuler, BorderLayout.SOUTH);
 
 	}
 
 	/**
-	 * Creation de panneau principal à la fenetre.
+	 * Creation de panneau principal ï¿½ la fenetre.
 	 */
-	private void buildContainerPrincipal() {
+	private void buildContainerPrincipal()
+	{
 		containerPrincipal.add(containerInformation);
 		containerPrincipal.add(containerSelectionWorkspace);
 		this.setContentPane(containerPrincipal);
@@ -129,7 +171,8 @@ public class FenetreChoixWorkspace extends JFrame {
 	/**
 	 * @return the tITRE
 	 */
-	public static String getTITRE() {
+	public static String getTITRE()
+	{
 		return TITRE;
 	}
 
@@ -137,14 +180,16 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param tITRE
 	 *            the tITRE to set
 	 */
-	public static void setTITRE(String tITRE) {
+	public static void setTITRE(String tITRE)
+	{
 		TITRE = tITRE;
 	}
 
 	/**
 	 * @return the containerPrincipal
 	 */
-	public JPanel getContainerPrincipal() {
+	public JPanel getContainerPrincipal()
+	{
 		return containerPrincipal;
 	}
 
@@ -152,14 +197,16 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param containerPrincipal
 	 *            the containerPrincipal to set
 	 */
-	public void setContainerPrincipal(JPanel containerPrincipal) {
+	public void setContainerPrincipal(JPanel containerPrincipal)
+	{
 		this.containerPrincipal = containerPrincipal;
 	}
 
 	/**
 	 * @return the containerInformation
 	 */
-	public JPanel getContainerInformation() {
+	public JPanel getContainerInformation()
+	{
 		return containerInformation;
 	}
 
@@ -167,14 +214,16 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param containerInformation
 	 *            the containerInformation to set
 	 */
-	public void setContainerInformation(JPanel containerInformation) {
+	public void setContainerInformation(JPanel containerInformation)
+	{
 		this.containerInformation = containerInformation;
 	}
 
 	/**
 	 * @return the containerSelectionWorkspace
 	 */
-	public JPanel getContainerSelectionWorkspace() {
+	public JPanel getContainerSelectionWorkspace()
+	{
 		return containerSelectionWorkspace;
 	}
 
@@ -182,15 +231,16 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param containerSelectionWorkspace
 	 *            the containerSelectionWorkspace to set
 	 */
-	public void setContainerSelectionWorkspace(
-			JPanel containerSelectionWorkspace) {
+	public void setContainerSelectionWorkspace(JPanel containerSelectionWorkspace)
+	{
 		this.containerSelectionWorkspace = containerSelectionWorkspace;
 	}
 
 	/**
 	 * @return the iconeInformation
 	 */
-	public JLabel getIconeInformation() {
+	public JLabel getIconeInformation()
+	{
 		return iconeInformation;
 	}
 
@@ -198,14 +248,16 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param iconeInformation
 	 *            the iconeInformation to set
 	 */
-	public void setIconeInformation(JLabel iconeInformation) {
+	public void setIconeInformation(JLabel iconeInformation)
+	{
 		this.iconeInformation = iconeInformation;
 	}
 
 	/**
 	 * @return the message1
 	 */
-	public JLabel getMessage1() {
+	public JLabel getMessage1()
+	{
 		return message1;
 	}
 
@@ -213,14 +265,16 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param message1
 	 *            the message1 to set
 	 */
-	public void setMessage1(JLabel message1) {
+	public void setMessage1(JLabel message1)
+	{
 		this.message1 = message1;
 	}
 
 	/**
 	 * @return the message2
 	 */
-	public JLabel getMessage2() {
+	public JLabel getMessage2()
+	{
 		return message2;
 	}
 
@@ -228,14 +282,16 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param message2
 	 *            the message2 to set
 	 */
-	public void setMessage2(JLabel message2) {
+	public void setMessage2(JLabel message2)
+	{
 		this.message2 = message2;
 	}
 
 	/**
 	 * @return the workspaceLabel
 	 */
-	public JLabel getWorkspaceLabel() {
+	public JLabel getWorkspaceLabel()
+	{
 		return workspaceLabel;
 	}
 
@@ -243,14 +299,16 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param workspaceLabel
 	 *            the workspaceLabel to set
 	 */
-	public void setWorkspaceLabel(JLabel workspaceLabel) {
+	public void setWorkspaceLabel(JLabel workspaceLabel)
+	{
 		this.workspaceLabel = workspaceLabel;
 	}
 
 	/**
 	 * @return the pathWorkspaceTextField
 	 */
-	public JTextField getPathWorkspaceTextField() {
+	public JTextField getPathWorkspaceTextField()
+	{
 		return PathWorkspaceTextField;
 	}
 
@@ -258,14 +316,16 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param pathWorkspaceTextField
 	 *            the pathWorkspaceTextField to set
 	 */
-	public void setPathWorkspaceTextField(JTextField pathWorkspaceTextField) {
+	public void setPathWorkspaceTextField(JTextField pathWorkspaceTextField)
+	{
 		PathWorkspaceTextField = pathWorkspaceTextField;
 	}
 
 	/**
 	 * @return the selection
 	 */
-	public JButton getSelection() {
+	public JButton getSelection()
+	{
 		return selection;
 	}
 
@@ -273,14 +333,16 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param selection
 	 *            the selection to set
 	 */
-	public void setSelection(JButton selection) {
+	public void setSelection(JButton selection)
+	{
 		this.selection = selection;
 	}
 
 	/**
 	 * @return the valider
 	 */
-	public JButton getValider() {
+	public JButton getValider()
+	{
 		return valider;
 	}
 
@@ -288,7 +350,8 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param valider
 	 *            the valider to set
 	 */
-	public void setValider(JButton valider) {
+	public void setValider(JButton valider)
+	{
 		this.valider = valider;
 	}
 
@@ -299,7 +362,8 @@ public class FenetreChoixWorkspace extends JFrame {
 	/**
 	 * @return the modeleWorkspace
 	 */
-	public WorkspaceModele getModeleWorkspace() {
+	public WorkspaceModele getModeleWorkspace()
+	{
 		return modeleWorkspace;
 	}
 
@@ -307,21 +371,25 @@ public class FenetreChoixWorkspace extends JFrame {
 	 * @param modeleWorkspace
 	 *            the modeleWorkspace to set
 	 */
-	public void setModeleWorkspace(WorkspaceModele modeleWorkspace) {
+	public void setModeleWorkspace(WorkspaceModele modeleWorkspace)
+	{
 		this.modeleWorkspace = modeleWorkspace;
 	}
 
 	/**
 	 * @return the annuler
 	 */
-	public JButton getAnnuler() {
+	public JButton getAnnuler()
+	{
 		return annuler;
 	}
 
 	/**
-	 * @param annuler the annuler to set
+	 * @param annuler
+	 *            the annuler to set
 	 */
-	public void setAnnuler(JButton annuler) {
+	public void setAnnuler(JButton annuler)
+	{
 		this.annuler = annuler;
 	}
 }

@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import modele.composantsChimiques.Atome;
+import modele.composantsChimiques.Balise;
 import modele.composantsChimiques.FragmentMolecule;
 
 public class ParseurSDF implements ParseurGenerique
@@ -16,22 +17,21 @@ public class ParseurSDF implements ParseurGenerique
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
-	public final static Pattern				DEBUT		= Pattern.compile("^[ ]{2}[A-Z][A-Za-z0-9]+");
+	public final static Pattern				DEBUT		= Pattern.compile("^[ ]{2}[A-Z][A-Za-z0-9]{1,}+$");
 	public final static Pattern				RESUME		= Pattern
-																.compile("^[ ]([0-9]+( +)){6}( +)[0-9]{3}( +)[A-Z][0-9]{3}");
+																.compile("[0-9]{3}[ ][A-Z][0-9]{4}$");
 	public final static Pattern				ATOMES		= Pattern
-																.compile("^([ ]{3}( |-)[0-9][.][0-9]{4}){3}[ ][A-Z](( +)[0-9])+");
-	public final static Pattern				LIAISONS	= Pattern.compile("^([ ]( [0-9]|[0-9]{2}))+");
+																.compile("^([ ]{2,3}( |-)([0-9]+)[.]([0-9]{4})){3}[ ]([A-Za-z]+)(( +)[0-9])+$");
+	public final static Pattern				LIAISONS	= Pattern.compile("^([ ]( [0-9]|[0-9]{2})){4}$");
 	public final static Pattern				INFO		= Pattern.compile("^M[ ]{2}([A-Z]{3})");
 	public final static Pattern				BALISES		= Pattern.compile("<(.+)>");
-	public final static Pattern				FIN			= Pattern.compile("^[$]{4}");
+	public final static Pattern				FIN			= Pattern.compile("^[$]{4}$");
 
 	// ----------------------------------------- //
 	// ----------------ATTRIBUTS---------------- //
 	// ----------------------------------------- //
 
-	private LinkedList<FragmentMolecule>	molecules;
-	private Object[][]						tabMolecules;
+	private LinkedList<FragmentMolecule>	fragmentsMolecules;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -39,14 +39,15 @@ public class ParseurSDF implements ParseurGenerique
 
 	public ParseurSDF(String filePath)
 	{
-		molecules = new LinkedList<FragmentMolecule>();
+		fragmentsMolecules = new LinkedList<FragmentMolecule>();
 		lireFichier(filePath);
-		convertirListeVersTableau();
 	}
 
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
+
+	// ------- LISTE ------- //
 
 	@Override
 	public void lireFichier(String filePath)
@@ -59,13 +60,18 @@ public class ParseurSDF implements ParseurGenerique
 			{
 				String ligneActuelle;
 				FragmentMolecule fragmentActuel = null;
+				Integer cpt = 0;
 
 				while ((ligneActuelle = buff.readLine()) != null)
 				{
 					if (!ligneActuelle.isEmpty())
 					{
-						fragmentActuel = (FragmentMolecule) creationListe(ligneActuelle, fragmentActuel);
-						molecules.add(fragmentActuel);
+						fragmentActuel = (FragmentMolecule) creationListe(cpt, ligneActuelle, fragmentActuel);
+
+						cpt++;
+
+						if (FIN.matcher(ligneActuelle).find())
+							fragmentsMolecules.add(fragmentActuel);
 					}
 				}
 			}
@@ -80,9 +86,10 @@ public class ParseurSDF implements ParseurGenerique
 		}
 	}
 
-	public Object creationListe(String ligne, FragmentMolecule fragment)
+	private Object creationListe(Integer cpt, String ligne, FragmentMolecule fragment)
 	{
 		Matcher m;
+
 		if (DEBUT.matcher(ligne).find())
 		{
 			fragment = new FragmentMolecule();
@@ -90,7 +97,7 @@ public class ParseurSDF implements ParseurGenerique
 		}
 		else if (RESUME.matcher(ligne).find())
 		{
-			fragment.setResumeContenu(ligne.trim());
+			fragment.setResumeContenu(ligne.trim().split("( +)"));
 		}
 		else if (ATOMES.matcher(ligne).find())
 		{
@@ -98,7 +105,7 @@ public class ParseurSDF implements ParseurGenerique
 			Atome atome = new Atome();
 
 			for (int i = 0 ; i < tmp.length ; i++)
-			{							
+			{
 				if (i < 3)
 					atome.getInfos().add(Float.parseFloat(tmp[i]));
 				else if (i == 3)
@@ -107,7 +114,7 @@ public class ParseurSDF implements ParseurGenerique
 					atome.getDivers().add(Integer.parseInt(tmp[i]));
 			}
 
-			fragment.getAtomes().add(atome);			
+			fragment.getAtomes().add(atome);
 		}
 		else if (LIAISONS.matcher(ligne).find())
 		{
@@ -116,33 +123,87 @@ public class ParseurSDF implements ParseurGenerique
 
 			for (int i = 0 ; i < tmp.length ; i++)
 				content.add(tmp[i]);
-			
+
 			fragment.getLiaisons().add(content);
 		}
-		else if(BALISES.matcher(ligne).find())
+		else if (BALISES.matcher(ligne).find())
 		{
 			m = BALISES.matcher(ligne);
-			while(m.find())
-				fragment.getBalises().add(m.group(1));
+
+			while (m.find())
+				fragment.getBalises().addLast(new Balise(m.group(1)));
 		}
 		else if (INFO.matcher(ligne).find())
 		{
 			String[] tmp = ligne.trim().split("( +)");
 			LinkedList<String> content = new LinkedList<String>();
-			
+
 			for (int i = 2 ; i < tmp.length ; i++)
-					content.add(tmp[i]);
-			
+				content.add(tmp[i]);
+
 			fragment.getInfos().put(tmp[1], content);
 		}
-		else if (FIN.matcher(ligne).find());
-		else // BALISE_CONTENT
-		{			
-			fragment.getContenuBalises().add(ligne.trim());
+		else if (FIN.matcher(ligne).find())
+			;
+		else
+		{
+			fragment.getBalises().getLast().setValeur(ligne.trim());
 		}
-		
+
 		return fragment;
 	}
+
+	// ------- TABLEAU ------- //
+
+	@Override
+	// FIXME tableau des balises
+	public Object[][] convertirListeVersTableau2D()
+	{
+		Object[][] tableau = new Object[fragmentsMolecules.size()][calculerLargeurTableau()];
+
+		for (int i = 0 ; i < tableau.length ; i++)
+			tableau[i] = convertirMoleculeVersTableau(i, fragmentsMolecules.get(i));
+
+		return tableau;
+	}
+
+	private Integer calculerLargeurTableau()
+	{ // 1 pour l'indice du fragment, 1 pour le nombre d'atomes, 1 pour le
+		// nombre de liaisons
+		return 3 + recupererIntitulesBalises().size();
+	}
+
+	public LinkedList<String> recupererIntitulesBalises()
+	{
+		LinkedList<String> l = new LinkedList<String>();
+
+		for (int i = 0 ; i < fragmentsMolecules.size() ; i++)
+			for (int j = 0 ; j < fragmentsMolecules.get(i).getBalises().size() ; j++)
+				if (!l.contains(fragmentsMolecules.get(i).getBalises().get(j).getIntitule()))
+					l.add(fragmentsMolecules.get(i).getBalises().get(j).getIntitule());
+
+		return l;
+	}
+
+	private Object[] convertirMoleculeVersTableau(Integer indice, FragmentMolecule fragment)
+	{
+		Object[] tab = new Object[calculerLargeurTableau()];
+
+		tab[0] = indice + 1;
+		tab[1] = fragment.getAtomes().size();
+		tab[2] = fragment.getLiaisons().size();
+
+		LinkedList<String> listeBalises = recupererIntitulesBalises();
+
+		for (int i = 0 ; i < listeBalises.size() ; i++)
+			for (int j = 0 ; j < fragment.getBalises().size() ; j++)
+				if (listeBalises.get(i).equals(fragment.getBalises().get(j).getIntitule()))
+					tab[i + 3] = fragment.getBalises().get(j).getValeur();
+
+		return tab;
+	}
+
+	// ------- TRIS ------- //
 
 	@Override
 	public void trierListe()
@@ -150,48 +211,22 @@ public class ParseurSDF implements ParseurGenerique
 
 	}
 
-	@Override
-	public Object[][] convertirListeVersTableau()
-	{
-		Object [][] tableau = new Object[molecules.size()][calculerLargeurTableau()];
-		
-		return tableau;
-	}
-	
-	private Integer calculerLargeurTableau()
-	{
-		Integer taille = 0;
-		
-		
-		taille = molecules.getFirst().getAtomes().size()+
-				molecules.getFirst().getLiaisons().size();
-				
-		
-		return taille;
-	}
-
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
 
-	public Object[][] getTabMolecules()
+	public LinkedList<FragmentMolecule> getFragmentsMolecules()
 	{
-		return tabMolecules;
+		return fragmentsMolecules;
 	}
-	
+
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 
-	public void setTabMolecules(Object[][] tabMolecules)
+	public void setFragmentsMolecules(LinkedList<FragmentMolecule> molecules)
 	{
-		this.tabMolecules = tabMolecules;
+		this.fragmentsMolecules = molecules;
 	}
-}
-	// ----------------------------------------- //
 
-	public void setTabMolecules(Object[][] tabMolecules)
-	{
-		this.tabMolecules = tabMolecules;
-	}
 }

@@ -1,5 +1,7 @@
 package modele.editeurs;
 
+import java.util.LinkedList;
+
 import javax.swing.table.AbstractTableModel;
 
 @SuppressWarnings("serial")
@@ -16,11 +18,19 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
+	public ModeleTablesEditeurs(LinkedList<String> titresColonnes, Object[][] donneesTableau)
+	{
+	}
+
 	public ModeleTablesEditeurs(String[] titresColonnes, Object[][] donneesTableau)
 	{
 		this.titres = titresColonnes;
 		this.donnees = donneesTableau;
 	}
+
+	// ----------------------------------------- //
+	// ---------------- METHODES --------------- //
+	// ----------------------------------------- //
 
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //

@@ -20,7 +20,8 @@ public class EcouteurBarreOutils implements ActionListener
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
 
-	public EcouteurBarreOutils(BarreOutils f){
+	public EcouteurBarreOutils(BarreOutils f)
+	{
 		panel = f;
 		panel.getNouveau().addActionListener(this);
 		panel.getImporter().addActionListener(this);

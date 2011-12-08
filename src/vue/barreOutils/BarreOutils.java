@@ -19,8 +19,9 @@ public class BarreOutils extends JPanel
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-	private static String _ICON_PATH = "src"+File.separator+"images"+
-			File.separator+"icones"+File.separator;
+	
+	private static String		_ICON_PATH	= "src" + File.separator + "images" + File.separator + "icones"
+													+ File.separator;
 	public final static Integer	TAILLE_X	= FenetrePrincipale.TAILLE_X;
 	public final static Integer	TAILLE_Y	= FenetrePrincipale.TAILLE_Y / 20;
 
@@ -30,7 +31,7 @@ public class BarreOutils extends JPanel
 
 	private JToolBar			barreFichier;
 	private JButton				nouveau;
-	private JButton importer = new JButton();
+	private JButton				importer;	
 	private JButton				enregistrer;
 	private JButton				enregistrerSous;
 	private JButton				imprimer;
@@ -41,173 +42,170 @@ public class BarreOutils extends JPanel
 
 	public BarreOutils()
 	{
-		super(new BorderLayout());
-		initialiserBouton();
-		initialiserToolBar();
-		initialiserPanel();
+		setLayout(new BorderLayout());
+
+		initBoutons();
+		initBarreMenu();
+		initPanel();
 		initListener();
 	}
-
-	// ----------------------------------------- //
-	// -------------INITIALISEURS--------------- //
-	// ----------------------------------------- //
 	
 	// ----------------------------------------- //
 	// ----------------METHODES----------------- //
 	// ----------------------------------------- //
-	
-	private void initListener() {
-		EcouteurBarreOutils e = new EcouteurBarreOutils(this);
-		
-	}
-	
-	private void initialiserToolBar() {
-		barreFichier.add(nouveau);
-		barreFichier.add(importer);
-		barreFichier.add(enregistrer);
-		barreFichier.add(enregistrerSous);
-		barreFichier.add(imprimer);
-		barreFichier.addSeparator();
-		barreFichier.setRollover(true);
-	}
-	
-	private void initialiserBouton() {
-		nouveau = creerBouton("folder_add.png","Nouveau");
+
+	private void initBoutons()
+	{
+		nouveau = creerBouton("folder_add.png", "Nouveau");
 		importer = creerBouton("table_import.png", "Importer");
 		enregistrer = creerBouton("save_as.png", "Enregistrer");
 		enregistrerSous = creerBouton("save_as.png", "Enregistrer Tous");
 		imprimer = creerBouton("printer.png", "Imprimer");
 	}
-	
-	private JButton creerBouton(String path,String toolTip){
+
+	private void initBarreMenu()
+	{
+		barreFichier = new JToolBar();
 		
-		JButton button = new JButton();
-		button.setIcon(new ImageIcon(_ICON_PATH+path));
-		button.setToolTipText(toolTip);
-		button.setPreferredSize(new Dimension(30, 30));
-		return button;
-	}
-	
-	private void initialiserPanel() {
-		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		this.add(barreFichier,BorderLayout.PAGE_START);
+		barreFichier.add(nouveau);
+		barreFichier.add(importer);
+		barreFichier.add(enregistrer);
+		barreFichier.add(enregistrerSous);
+		barreFichier.add(imprimer);
 		
+		barreFichier.addSeparator();
+		barreFichier.setRollover(true);
 	}
 
-	
+	private JButton creerBouton(String path, String toolTip)
+	{
+		JButton button = new JButton();
+		button.setIcon(new ImageIcon(_ICON_PATH + path));
+		button.setToolTipText(toolTip);
+		button.setPreferredSize(new Dimension(30, 30));
+		
+		return button;
+	}
+
+	private void initListener()
+	{
+		@SuppressWarnings("unused")
+		EcouteurBarreOutils e = new EcouteurBarreOutils(this);
+	}
+
+	private void initPanel()
+	{
+		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+		this.add(barreFichier, BorderLayout.PAGE_START);
+	}
 
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
-	
-	
+
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
-	
+
 	/**
 	 * @return the toolbar
 	 */
-	public JToolBar getToolbar() {
+	public JToolBar getToolbar()
+	{
 		return barreFichier;
 	}
 
-
-
 	/**
-	 * @param toolbar the toolbar to set
+	 * @param toolbar
+	 *            the toolbar to set
 	 */
-	public void setToolbar(JToolBar toolbar) {
+	public void setToolbar(JToolBar toolbar)
+	{
 		this.barreFichier = toolbar;
 	}
-
-
 
 	/**
 	 * @return the nouveau
 	 */
-	public JButton getNouveau() {
+	public JButton getNouveau()
+	{
 		return nouveau;
 	}
 
-
-
 	/**
-	 * @param nouveau the nouveau to set
+	 * @param nouveau
+	 *            the nouveau to set
 	 */
-	public void setNouveau(JButton nouveau) {
+	public void setNouveau(JButton nouveau)
+	{
 		this.nouveau = nouveau;
 	}
-
-
 
 	/**
 	 * @return the importer
 	 */
-	public JButton getImporter() {
+	public JButton getImporter()
+	{
 		return importer;
 	}
 
-
-
 	/**
-	 * @param importer the importer to set
+	 * @param importer
+	 *            the importer to set
 	 */
-	public void setImporter(JButton importer) {
+	public void setImporter(JButton importer)
+	{
 		this.importer = importer;
 	}
-
-
 
 	/**
 	 * @return the enregistrer
 	 */
-	public JButton getEnregistrer() {
+	public JButton getEnregistrer()
+	{
 		return enregistrer;
 	}
 
-
-
 	/**
-	 * @param enregistrer the enregistrer to set
+	 * @param enregistrer
+	 *            the enregistrer to set
 	 */
-	public void setEnregistrer(JButton enregistrer) {
+	public void setEnregistrer(JButton enregistrer)
+	{
 		this.enregistrer = enregistrer;
 	}
-
-
 
 	/**
 	 * @return the enregistrerSous
 	 */
-	public JButton getEnregistrerSous() {
+	public JButton getEnregistrerSous()
+	{
 		return enregistrerSous;
 	}
 
-
-
 	/**
-	 * @param enregistrerSous the enregistrerSous to set
+	 * @param enregistrerSous
+	 *            the enregistrerSous to set
 	 */
-	public void setEnregistrerSous(JButton enregistrerSous) {
+	public void setEnregistrerSous(JButton enregistrerSous)
+	{
 		this.enregistrerSous = enregistrerSous;
 	}
-
-
 
 	/**
 	 * @return the imprimer
 	 */
-	public JButton getImprimer() {
+	public JButton getImprimer()
+	{
 		return imprimer;
 	}
 
-
-
 	/**
-	 * @param imprimer the imprimer to set
+	 * @param imprimer
+	 *            the imprimer to set
 	 */
-	public void setImprimer(JButton imprimer) {
+	public void setImprimer(JButton imprimer)
+	{
 		this.imprimer = imprimer;
 	}
 }

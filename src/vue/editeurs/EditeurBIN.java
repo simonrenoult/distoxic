@@ -72,12 +72,12 @@ public class EditeurBIN extends JPanel
 	private void initParseur()
 	{
 		// FIXME chemin à définir.
-		parseur = new ParseurBIN("./workspace/exemple_60_56/exemple_60_56.bin");
+		parseur = new ParseurBIN("./workspace/DisToxicProjects/exemple_60_56/exemple_60_56.bin");
 	}
 
 	private void initModeleEtTable()
 	{
-		modele = new ModeleTablesEditeurs(TITRES_TABLEAU, parseur.convertirListeVersTableau());
+		modele = new ModeleTablesEditeurs(TITRES_TABLEAU, parseur.convertirListeVersTableau2D());
 		tableauBIN = new JTable(modele);
 	}
 
