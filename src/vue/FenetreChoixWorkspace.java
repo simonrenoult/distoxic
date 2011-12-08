@@ -39,14 +39,14 @@ public class FenetreChoixWorkspace extends JFrame
 	private JLabel			iconeInformation			= new JLabel(new ImageIcon(
 																"src/images/icones/folder_explore.png"));
 	private JLabel			message1					= new JLabel(
-																"Dis'Toxic sauvegarde vos projets dans un dossier nomm� DisToxicProjects.");
+																"Dis'Toxic sauvegarde vos projets dans un dossier nomme DisToxicProjects.");
 	private JLabel			message2					= new JLabel(
 																"Choisissez le chemin de destination du dossier pour utiliser ce logiciel.");
 	private JLabel			workspaceLabel				= new JLabel("Workspace");
 
 	private JTextField		PathWorkspaceTextField		= new JTextField("");
 
-	private JButton			selection					= new JButton("S�lectionner");
+	private JButton			selection					= new JButton("Selectionner");
 	private JButton			valider						= new JButton("Valider");
 	private JButton			annuler						= new JButton("Annuler");
 

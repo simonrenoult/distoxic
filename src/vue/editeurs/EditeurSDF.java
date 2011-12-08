@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import modele.editeurs.ModeleTablesEditeurs;
+import modele.file.SDFFile;
 import modele.parseurs.ParseurGPH;
 import modele.parseurs.ParseurSDF;
 
@@ -41,14 +42,15 @@ public class EditeurSDF extends JPanel
 	private JTable					tableauSDF;
 	private ModeleTablesEditeurs	modele;
 
-	private ParseurSDF				parseur;
+	private SDFFile sdfFile;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
-	public EditeurSDF()
+	public EditeurSDF(SDFFile sdfFile)
 	{
+		this.sdfFile = sdfFile;
 		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		setBackground(BG_COLOR);
 
@@ -75,14 +77,20 @@ public class EditeurSDF extends JPanel
 
 	private void initParseur()
 	{
-		// FIXME chemin a definir.
-		parseur = new ParseurSDF("./workspace/DisToxicProjects/exemple_60_56/test.sdf");
+		try{
+			sdfFile.initParseur();
+		}
+		catch(Exception e){}
+		
 	}
 
 	private void initModeleEtTable()
 	{
-		modele = new ModeleTablesEditeurs(recupererTitresTableau(parseur), parseur.convertirListeVersTableau2D());
-		tableauSDF = new JTable(modele);
+		try{
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
+			tableauSDF = new JTable(modele);
+		}
+		catch (Exception e){}
 	}
 	
 	private void initScroll()

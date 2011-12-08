@@ -32,12 +32,13 @@ public class TripletFichier {
 	private String GPHPath = null;
 	private String SDFPath = null;
 	
+	private String DirectoryPath = null;
 // ----------------------------------------- //
 // --------------CONSTRUCTEURS-------------- //
 // ----------------------------------------- //
 	/**
 	 * Constructeur prenant les 3 chemins de fichiers (sdf,bin et gph).
-	 * On cr�� alors � partir de ces 3 chemins, 3 objets associ�s � l'extension.
+	 * On cree alors a partir de ces 3 chemins, 3 objets associes a l'extension.
 	 * @param Path1
 	 * @param Path2
 	 * @param Path3
@@ -76,14 +77,17 @@ public class TripletFichier {
 	private void initFile(String path) {
 		if(path.endsWith(extensionBIN)){
 			BINPath = path;
+			DirectoryPath = path;
 			BINinit();
 		}
 		else if (path.endsWith(extensionGPH)){
 			GPHPath = path;
+			DirectoryPath = path;
 			GPHinit();
 		}
 		else if (path.endsWith(extensionSDF)){
 			SDFPath = path;
+			DirectoryPath = path;
 			SDFinit();
 		}
 		else {System.out.println("Format inconnu");}
@@ -192,6 +196,20 @@ public class TripletFichier {
 	 */
 	public void setSDFPath(String sDFPath) {
 		SDFPath = sDFPath;
+	}
+	
+	/**
+	 * @return the directoryPath
+	 */
+	public String getDirectoryPath() {
+		return DirectoryPath;
+	}
+	
+	/**
+	 * @param directoryPath the directoryPath to set
+	 */
+	public void setDirectoryPath(String directoryPath) {
+		DirectoryPath = directoryPath;
 	}
 // ----------------------------------------- //
 // ----------------MUTATEURS---------------- //

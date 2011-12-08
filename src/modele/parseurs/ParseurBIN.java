@@ -21,7 +21,7 @@ public class ParseurBIN implements ParseurGenerique
 	// ----------------------------------------- //
 
 	/**
-	 * Lis le fichier passé en paramètre et créé une liste de lignes.
+	 * Lis le fichier passe en parametre et cree une liste de lignes.
 	 * Chaque ligne est une liste des 'mots' qu'elle contient.
 	 * 
 	 * @param filePath : chemin du fichier à lire.

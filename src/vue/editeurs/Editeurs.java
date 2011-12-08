@@ -3,6 +3,8 @@ package vue.editeurs;
 import java.awt.Dimension;
 import javax.swing.JSplitPane;
 
+import modele.TripletFichier;
+
 @SuppressWarnings("serial")
 public class Editeurs extends JSplitPane
 {
@@ -22,16 +24,18 @@ public class Editeurs extends JSplitPane
 	private EditeurBIN			edBin;
 	private EditeurGPH			edGph;
 
+	private TripletFichier tripletFichier;
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
 
-	public Editeurs()
+	public Editeurs(TripletFichier tripletFichier)
 	{
 		this.setSize(TAILLE_X, TAILLE_Y);
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		this.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		
+		this.tripletFichier = tripletFichier;
 		buildEditeurSdf();
 		buildEditeursGph_Bin();
 
@@ -46,13 +50,13 @@ public class Editeurs extends JSplitPane
 
 	private void buildEditeurSdf()
 	{
-		edSdf = new EditeurSDF();
+		edSdf = new EditeurSDF(tripletFichier.getSdfFile());
 	}
 
 	private void buildEditeursGph_Bin()
 	{
-		edBin = new EditeurBIN();
-		edGph = new EditeurGPH();
+		edBin = new EditeurBIN(tripletFichier.getBinFile());
+		edGph = new EditeurGPH(tripletFichier.getGphFile());
 		edGph_Bin = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, edGph, edBin);
 		edGph_Bin.setDividerLocation(EditeurGPH.TAILLE_X);
 	}

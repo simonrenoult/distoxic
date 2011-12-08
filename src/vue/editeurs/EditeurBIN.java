@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import modele.editeurs.ModeleTablesEditeurs;
+import modele.file.BINFile;
 import modele.parseurs.ParseurBIN;
 
 @SuppressWarnings("serial")
@@ -36,14 +37,15 @@ public class EditeurBIN extends JPanel
 
 	private JTable					tableauBIN;
 	private ModeleTablesEditeurs	modele;
-	private ParseurBIN				parseur;
+	private BINFile binFile;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
-	public EditeurBIN()
+	public EditeurBIN(BINFile binFile)
 	{
+		this.binFile = binFile;
 		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		setBackground(BG_COLOR);
 
@@ -71,14 +73,20 @@ public class EditeurBIN extends JPanel
 
 	private void initParseur()
 	{
-		// FIXME chemin à définir.
-		parseur = new ParseurBIN("./workspace/DisToxicProjects/exemple_60_56/exemple_60_56.bin");
+		System.out.println(binFile.getFilePath());
+		try{
+			binFile.initParseur();
+		}
+		catch (Exception e) {}
 	}
 
 	private void initModeleEtTable()
 	{
-		modele = new ModeleTablesEditeurs(TITRES_TABLEAU, parseur.convertirListeVersTableau2D());
-		tableauBIN = new JTable(modele);
+		try{
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, binFile.getParseurBIN().convertirListeVersTableau2D());
+			tableauBIN = new JTable(modele);
+		}
+		catch(Exception e){}
 	}
 
 	private void initScroll()

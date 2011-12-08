@@ -11,6 +11,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import modele.editeurs.ModeleTablesEditeurs;
+import modele.file.GPHFile;
 import modele.parseurs.ParseurGPH;
 
 @SuppressWarnings("serial")
@@ -39,14 +40,15 @@ public class EditeurGPH extends JPanel
 	private JTable					tableauGPH;
 	private ModeleTablesEditeurs	modele;
 
-	private ParseurGPH				parseur;
+	private GPHFile				gphFile;;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
-	public EditeurGPH()
+	public EditeurGPH(GPHFile gphFile)
 	{
+		this.gphFile = gphFile;
 		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		setBackground(BG_COLOR);
 
@@ -72,14 +74,19 @@ public class EditeurGPH extends JPanel
 
 	private void initParseur()
 	{
-		// FIXME chemin a definir.
-		parseur = new ParseurGPH("./workspace/DisToxicProjects/exemple_60_56/exemple_60.gph");
+		try{
+			gphFile.initParseur();
+		}
+		catch(Exception e){}
 	}
 
 	private void initModeleEtTable()
 	{
-		modele = new ModeleTablesEditeurs(TITRES_TABLEAU, parseur.convertirListeVersTableau2D());
-		tableauGPH = new JTable(modele);
+		try{
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, gphFile.getParseurGPH().convertirListeVersTableau2D());
+			tableauGPH = new JTable(modele);
+		}
+		catch (Exception e){}
 	}
 
 	private void initScroll()
@@ -117,9 +124,9 @@ public class EditeurGPH extends JPanel
 		return modele;
 	}
 
-	public ParseurGPH getParseur()
+	public GPHFile getGphFile()
 	{
-		return parseur;
+		return gphFile;
 	}
 
 	// ----------------------------------------- //
@@ -146,9 +153,9 @@ public class EditeurGPH extends JPanel
 		this.modele = modele;
 	}
 
-	public void setParseur(ParseurGPH parseur)
+	public void setGphFile(GPHFile file)
 	{
-		this.parseur = parseur;
+		this.gphFile = file;
 	}
 
 }
