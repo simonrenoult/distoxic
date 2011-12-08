@@ -3,6 +3,8 @@ package vue;
 import java.awt.Dimension;
 import javax.swing.JSplitPane;
 
+import controleur.EcouteurNavigateur;
+
 import vue.barreOutils.BarreOutils;
 import vue.editeurs.ConteneurEditeurs;
 import vue.menus.BarreMenu;
@@ -51,7 +53,8 @@ public class ConteneurGlobal extends JSplitPane
 
 	private void buildNavigateur()
 	{
-		setNavigateur(new NavigateurFichiers());
+		navigateur = new NavigateurFichiers();
+		EcouteurNavigateur e = new EcouteurNavigateur(this);
 		this.setLeftComponent(navigateur);
 	}
 

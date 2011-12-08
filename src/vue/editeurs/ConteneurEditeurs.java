@@ -32,7 +32,8 @@ public class ConteneurEditeurs extends JTabbedPane
 	// ----------------------------------------- //
 
 	private LinkedList<Editeurs>			editeurs;
-
+	private LinkedList<EnteteOnglet>			enteteEditeurs;
+	private EcouteurBarreMenu emt;
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
@@ -41,19 +42,20 @@ public class ConteneurEditeurs extends JTabbedPane
 	{
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 
-				
-		/*editeurs = new  LinkedList<Editeurs>();
-		String BINPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_39_45\\exemple_39_45.bin";
+		editeurs = new  LinkedList<Editeurs>();
+		enteteEditeurs = new  LinkedList<EnteteOnglet>();
+		/*String BINPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_39_45\\exemple_39_45.bin";
 		String GPHPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_39_45\\exemple_39.gph";
-		TripletFichier t = new TripletFichier(BINPath,GPHPath);
+		String SDFPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_39_45\\exemple_45.sdf";
+		TripletFichier t = new TripletFichier(BINPath,GPHPath,SDFPath);
 		addEditeur(t);
-		*/
 		
-		/*BINPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_70_34\\exemple_70_34.bin";
+		
+		BINPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_70_34\\exemple_70_34.bin";
 		//GPHPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_39_45\\exemple_39.gph";
 		TripletFichier t1 = new TripletFichier(BINPath);
 		addEditeur(t1);
-			*/	
+		*/
 		initListeners();
 	}
 
@@ -63,8 +65,9 @@ public class ConteneurEditeurs extends JTabbedPane
 
 	private void initListeners()
 	{
-		@SuppressWarnings("unused")
-		EcouteurBarreMenu emt = new EcouteurBarreMenu(this);
+		
+		 emt = new EcouteurBarreMenu(this);
+		
 	}
 
 	// ----------------------------------------- //
@@ -81,11 +84,12 @@ public class ConteneurEditeurs extends JTabbedPane
 	 * @param tripletFichier
 	 */
 		public void addEditeur(TripletFichier tripletFichier){
+			
 			Editeurs editeur = new Editeurs(tripletFichier);
 			editeurs.add(editeur);
 			this.add(editeurs.getLast());
 			buildPaneHead(tripletFichier,editeurs.size()-1);
-			
+			emt.raffraichir(this);
 		}
 		
 		/**
@@ -94,8 +98,10 @@ public class ConteneurEditeurs extends JTabbedPane
 		 * @param indiceOnglet
 		 */
 		private void buildPaneHead(TripletFichier tripletFichier,int indiceOnglet){
-			this.setTabComponentAt(indiceOnglet, new EnteteOnglet(nomEditeur(tripletFichier)));
-			}
+			EnteteOnglet eo =  new EnteteOnglet(nomEditeur(tripletFichier));
+			enteteEditeurs.addLast(eo);
+			this.setTabComponentAt(indiceOnglet,eo);
+		}
 		
 		/**
 		 * Creation du nom de l'onglet : nom du dossier contenant les fichiers.
@@ -124,6 +130,34 @@ public class ConteneurEditeurs extends JTabbedPane
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
+
+		/**
+		 * @return the editeurs
+		 */
+		public LinkedList<Editeurs> getEditeurs() {
+			return editeurs;
+		}
+
+		/**
+		 * @param editeurs the editeurs to set
+		 */
+		public void setEditeurs(LinkedList<Editeurs> editeurs) {
+			this.editeurs = editeurs;
+		}
+
+		/**
+		 * @return the enteteEditeurs
+		 */
+		public LinkedList<EnteteOnglet> getEnteteEditeurs() {
+			return enteteEditeurs;
+		}
+
+		/**
+		 * @param enteteEditeurs the enteteEditeurs to set
+		 */
+		public void setEnteteEditeurs(LinkedList<EnteteOnglet> enteteEditeurs) {
+			this.enteteEditeurs = enteteEditeurs;
+		}
 
 
 	

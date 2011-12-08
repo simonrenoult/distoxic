@@ -19,7 +19,6 @@
 
 ##Onglets :
 
-- **( 4 )** Offrir la possibilité de fermer un onglet.
 - **( 4 )** Onglet offrant la possibilité d'ouvrir un nouvel onglet :
 	+ Equivalent Fichier::Nouveau.
 		

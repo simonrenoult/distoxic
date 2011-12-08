@@ -9,7 +9,10 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import vue.ConteneurGlobal;
+
 import modele.FileInformation;
+import modele.TripletFichier;
 import modele.parseurs.ParseurBIN;
 import modele.parseurs.ParseurGPH;
 
@@ -18,11 +21,14 @@ public class EcouteurNavigateur implements TreeSelectionListener, MouseListener{
 // ----------------ATRIBUTS----------------- //
 // ----------------------------------------- //
 	private JTree tree = null;
+	private ConteneurGlobal cGlobal = null;
 // ----------------------------------------- //
 // --------------CONSTRUCTEURS-------------- //
 // ----------------------------------------- //
-	public EcouteurNavigateur(JTree tree) {
-		this.tree = tree;
+	public EcouteurNavigateur(ConteneurGlobal global) {
+		this.cGlobal = global;
+		this.tree = global.getNavigateur().getTree();
+		
 		tree.addTreeSelectionListener(this);
 		tree.addMouseListener(this);
 	}
@@ -81,17 +87,17 @@ public class EcouteurNavigateur implements TreeSelectionListener, MouseListener{
 			Object nodeInfo = node.getUserObject();
 	        if (node.isLeaf()) {
 	            FileInformation information = (FileInformation)nodeInfo;
-	            System.out.println(information.toString());
+	            System.out.println(information.getFilePath());
+	            
+	            
 	            if(information.toString().endsWith(".gph")){
-	            	ParseurGPH p = new ParseurGPH(information.getFilePath());
-	            	p.afficherTableau();
+	            	cGlobal.getEditeur().addEditeur(new TripletFichier(information.getFilePath()));
 	            }
 	            else if(information.toString().endsWith(".sdf")){
-	            	
+	            	cGlobal.getEditeur().addEditeur(new TripletFichier(information.getFilePath()));
 	            }
 	            else if(information.toString().endsWith(".bin")){
-	            	ParseurBIN p = new ParseurBIN(information.getFilePath());
-	            	p.afficherTableau();
+	            	cGlobal.getEditeur().addEditeur(new TripletFichier(information.getFilePath()));
 	            }
 	        }
 		}

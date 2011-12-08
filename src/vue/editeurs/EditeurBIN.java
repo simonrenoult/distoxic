@@ -73,7 +73,7 @@ public class EditeurBIN extends JPanel
 
 	private void initParseur()
 	{
-		System.out.println(binFile.getFilePath());
+		
 		try{
 			binFile.initParseur();
 		}

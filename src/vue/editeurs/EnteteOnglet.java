@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class EnteteOnglet extends JPanel {
 
 	// ----------------------------------------- //
@@ -22,6 +23,8 @@ public class EnteteOnglet extends JPanel {
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 	public EnteteOnglet(String title){
+		
+		
 		icon =  new ImageIcon(_ICON_PATH+"cross.png");
 		
 		label = new JLabel(title);
@@ -39,16 +42,56 @@ public class EnteteOnglet extends JPanel {
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
+	
 
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-
+	
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * @return the label
+	 */
+	public JLabel getLabel() {
+		return label;
+	}
+	/**
+	 * @param label the label to set
+	 */
+	public void setLabel(JLabel label) {
+		this.label = label;
+	}
+	/**
+	 * @return the button
+	 */
+	public JButton getButton() {
+		return button;
+	}
+	/**
+	 * @param button the button to set
+	 */
+	public void setButton(JButton button) {
+		this.button = button;
+	}
+	/**
+	 * @return the icon
+	 */
+	public ImageIcon getIcon() {
+		return icon;
+	}
+	/**
+	 * @param icon the icon to set
+	 */
+	public void setIcon(ImageIcon icon) {
+		this.icon = icon;
+	}
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
+
+
+
+
 }

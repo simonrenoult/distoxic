@@ -1,7 +1,6 @@
 
 package vue.naviguateur;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.io.File;
 
@@ -15,8 +14,6 @@ import javax.swing.tree.TreeSelectionModel;
 
 import vue.ConteneurGlobal;
 
-import controleur.EcouteurNavigateur;
-
 import modele.FileInformation;
 import modele.WorkspaceModele;
 
@@ -29,11 +26,9 @@ public class NavigateurFichiers extends JPanel
 	
 	public static Integer			TAILLE_X	= 200;
 	public static Integer			TAILLE_Y	= ConteneurGlobal.TAILLE_Y;
-	private static Color			COLOR_BG	= Color.GREEN;
 	
 	private DefaultMutableTreeNode	racine = new DefaultMutableTreeNode("");
 	private JTree tree = null;
-	private EcouteurNavigateur ecouteur= null;
 	
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -60,8 +55,7 @@ public class NavigateurFichiers extends JPanel
 		WorkspaceModele modele = new WorkspaceModele();
 		modele.workspaceExistant();
 		String workspacePath = modele.getWorkspacePath();
-		//String workspacePath = System.getProperty("user.dir");
-		//workspacePath = workspacePath+"\\workspace";
+		
 		File workspace = new File(workspacePath);
 		buildJtreeComponentList(workspace,racine);
 		tree = new JTree(racine);
@@ -81,10 +75,6 @@ public class NavigateurFichiers extends JPanel
 		    tree.setCellRenderer(renderer);
 		    tree.repaint();
 		}
-		
-		
-		//Ecoute du JTree
-		ecouteur = new EcouteurNavigateur(tree);
 		
 		JScrollPane treeView = new JScrollPane(tree);
 		treeView.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
@@ -116,13 +106,29 @@ public class NavigateurFichiers extends JPanel
 	
 	}
 
+
+	
+
+
+	
+
 	
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
-	
+	/**
+	 * @return the tree
+	 */
+	public JTree getTree() {
+		return tree;
+	}
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
-	
+	/**
+	 * @param tree the tree to set
+	 */
+	public void setTree(JTree tree) {
+		this.tree = tree;
+	}
 }
