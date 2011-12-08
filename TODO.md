@@ -3,6 +3,7 @@
 *Légende : ( Priorité de niveau 5 ) > ( Priorité de niveau 1 ).*
 
 ##Menus :
+
 - **( 2 )** : Menu permettant d'éditer les préférences :
 	+ Ouverture d'un fichier dans un nouvel onglet ou en écrasant l'onglet courant.
      
@@ -49,4 +50,5 @@
 - **( 5 )** Fusionner les versions.
 
 ##Finalité :
+
 - **( 3 )** Créer un jar exécutable.
