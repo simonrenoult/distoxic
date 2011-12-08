@@ -76,7 +76,7 @@ public class EditeurSDF extends JPanel
 	private void initParseur()
 	{
 		// FIXME chemin a definir.
-		parseur = new ParseurSDF("./workspace/DisToxicProjects/exemple_60_56/test.sdf");
+		parseur = new ParseurSDF("./workspace/DisToxicProjects/exemple_60_56/exemple_56.sdf");
 	}
 
 	private void initModeleEtTable()
