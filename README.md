@@ -16,3 +16,7 @@ Nous sommes deux étudiants en deuxième année de D.U.T. Informatique :
 *  G4llic4 ;
 *  Xelais ;
 
+TODO
+----
+
+Voir TODO.md ou les différents Issues.
