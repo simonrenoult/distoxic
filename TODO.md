@@ -25,7 +25,6 @@
 		
 ##Editeurs :
 
-- **( 5 )** Afficher la JTable issu du parseurSDF.
 - **( 4 )** Cases des JTables éditables.
 - **( 4 )** Ajouter lignes aux JTables.
 	+ Générer fichiers en conséquence.
