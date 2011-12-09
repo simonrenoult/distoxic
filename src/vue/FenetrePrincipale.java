@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import controleur.EcouteurBarreMenu;
 import controleur.EcouteurBarreOutils;
 
 import vue.barreOutils.BarreOutils;
@@ -96,6 +97,7 @@ public class FenetrePrincipale extends JFrame
 	{
 		menu = new BarreMenu();
 		this.setJMenuBar(menu);
+		EcouteurBarreMenu e = new EcouteurBarreMenu(this);
 	}
 	
 	private void buildConteneurGlobal()

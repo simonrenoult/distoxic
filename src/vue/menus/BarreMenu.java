@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
+import controleur.EcouteurBarreMenu;
+
 import vue.FenetrePrincipale;
 
 @SuppressWarnings("serial")
@@ -36,8 +38,8 @@ public class BarreMenu extends JMenuBar
 
 		menuAPropos = new MenuAPropos();
 		this.add(menuAPropos);
+		
 
-		// initEcouteurs();
 	}
 
 	// ----------------------------------------- //
