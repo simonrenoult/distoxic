@@ -53,7 +53,7 @@ public class EcouteurFenetreWorkspace implements ActionListener {
 			}
 		}
 		else if (e.getSource() == fenetre.getValider()){
-			System.out.println(" Creation complete du 'workspace' : "+modele.makeWorkspace(fichier.getAbsolutePath()));
+			//System.out.println(" Creation complete du 'workspace' : "+modele.makeWorkspace(fichier.getAbsolutePath()));
 			LancerFenetrePrincipale = true;
 			fenetre.setVisible(false);
 		}

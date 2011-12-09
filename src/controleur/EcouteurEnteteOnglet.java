@@ -54,11 +54,11 @@ public class EcouteurEnteteOnglet implements ActionListener,ChangeListener {
 			while(i < ce.countComponents()-1){
 				if((e.getSource() == ce.getEnteteEditeurs().get(i).getButton())&&
 							(!isEnregistrable())){
-						System.out.println("i :"+i);
+						//System.out.println("i :"+i);
 						ce.remove(i);
 						ce.getEditeurs().remove(i);
 						ce.getEnteteEditeurs().remove(i);
-						System.out.println("taille liste : "+ce.countComponents());
+						//System.out.println("taille liste : "+ce.countComponents());
 				}
 				i++;
 			}

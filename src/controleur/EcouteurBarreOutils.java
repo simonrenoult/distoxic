@@ -32,7 +32,6 @@ public class EcouteurBarreOutils implements ActionListener
 	{
 		panel = bo;
 		panel.getNouveau().addActionListener(this);
-		panel.getImporter().addActionListener(this);
 		panel.getEnregistrer().addActionListener(this);
 		panel.getEnregistrerSous().addActionListener(this);
 		panel.getImprimer().addActionListener(this);
@@ -47,9 +46,7 @@ public class EcouteurBarreOutils implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if(e.getSource() == panel.getImporter()){
-			fenetreImportation = new FenetreImportationTripletFichier(fenetrePrincipale);
-		}
+		
 	}
 
 	// ----------------------------------------- //

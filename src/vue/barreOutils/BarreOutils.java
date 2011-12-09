@@ -31,7 +31,6 @@ public class BarreOutils extends JPanel
 
 	private JToolBar			barreFichier;
 	private JButton				nouveau;
-	private JButton				importer;	
 	private JButton				enregistrer;
 	private JButton				enregistrerSous;
 	private JButton				imprimer;
@@ -57,7 +56,6 @@ public class BarreOutils extends JPanel
 	private void initBoutons()
 	{
 		nouveau = creerBouton("folder_add.png", "Nouveau");
-		importer = creerBouton("table_import.png", "Importer");
 		enregistrer = creerBouton("save_as.png", "Enregistrer");
 		enregistrerSous = creerBouton("save_as.png", "Enregistrer Tous");
 		imprimer = creerBouton("printer.png", "Imprimer");
@@ -68,7 +66,6 @@ public class BarreOutils extends JPanel
 		barreFichier = new JToolBar();
 		
 		barreFichier.add(nouveau);
-		barreFichier.add(importer);
 		barreFichier.add(enregistrer);
 		barreFichier.add(enregistrerSous);
 		barreFichier.add(imprimer);
@@ -141,22 +138,7 @@ public class BarreOutils extends JPanel
 		this.nouveau = nouveau;
 	}
 
-	/**
-	 * @return the importer
-	 */
-	public JButton getImporter()
-	{
-		return importer;
-	}
-
-	/**
-	 * @param importer
-	 *            the importer to set
-	 */
-	public void setImporter(JButton importer)
-	{
-		this.importer = importer;
-	}
+	
 
 	/**
 	 * @return the enregistrer

@@ -1,3 +1,4 @@
+
 package modele.zip;
 
 import java.io.BufferedInputStream;
@@ -11,24 +12,31 @@ import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import modele.WorkspaceModele;
+
 public class Zip {
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 	/**
-	 * Taille gï¿½nï¿½rique du tampon en lecture et ï¿½criture
+	 * Taille generique du tampon en lecture et ecriture
 	 */
 	static final int BUFFER = 2048;
-	private String zipNameFolder = null;
+	private String dest = null;
 	private String nameFolder = null;
+	private String workspace;
+	private String nomdossier = null;
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 	public Zip(String nameFolder,String nameZIPFile){
 		this.nameFolder = nameFolder;
-		this.zipNameFolder = nameZIPFile;
-		
+		this.nomdossier = nameFolder+File.separator;
+		this.dest = nameZIPFile;
+		WorkspaceModele modele = new WorkspaceModele(1);
+		modele.lireFichier();
+		this.workspace = modele.getWorkspacePath()+File.separator;
 	}
 	
 	// ----------------------------------------- //
@@ -40,55 +48,52 @@ public class Zip {
 	// ----------------------------------------- //
 	public boolean zipAction(){
 		try {
-			// crï¿½ation d'un flux d'ï¿½criture sur fichier
-			FileOutputStream dest = new FileOutputStream(zipNameFolder);
+			// creation d'un flux d'ecriture sur fichier
+			FileOutputStream dest = new FileOutputStream(this.dest+nameFolder+".zip");
 			
 			// calcul du checksum : Adler32 (plus rapide) ou CRC32
 			CheckedOutputStream checksum = new CheckedOutputStream(dest, new Adler32());
 			
-			// crï¿½ation d'un buffer d'ï¿½criture
+			// crï¿½ation d'un buffer d'ecriture
 			BufferedOutputStream buff = new BufferedOutputStream(checksum);
 			
-			// crï¿½ation d'un flux d'ï¿½criture Zip
+			// crï¿½ation d'un flux d'ecriture Zip
 			ZipOutputStream out = new ZipOutputStream(buff);
 			
-			// spï¿½cification de la mï¿½thode de compression
+			// spï¿½cification de la methode de compression
 			out.setMethod(ZipOutputStream.DEFLATED);
 			
-			// spï¿½cifier la qualitï¿½ de la compression 0..9
+			// spï¿½cifier la qualite de la compression 0..9
 			out.setLevel(Deflater.BEST_COMPRESSION);
 			 
-			// buffer temporaire des donnï¿½es ï¿½ ï¿½criture dans le flux de sortie
+			// buffer temporaire des donnees a ecriture dans le flux de sortie
 			byte data[] = new byte[BUFFER];
 			
-			// extraction de la liste des fichiers du rï¿½pertoire courant
-			File f = new File(nameFolder);
+			// extraction de la liste des fichiers du repertoire courant
+			File f = new File(workspace+nameFolder);
 			//String files[] = f.list();
 			File files[] = f.listFiles();
-			for (int i=0; i<files.length; i++) {
-				System.out.println("Adding: "+files[i].getAbsolutePath());
-			}
 			
 			// pour chacun des fichiers de la liste
 			for (int i=0; i<files.length; i++) {
 				
 				// en afficher le nom
-				System.out.println("Adding: "+files[i]);
+				System.out.println("Adding: "+nomdossier+files[i].getName());
 				
-				// crï¿½ation d'un flux de lecture
-				FileInputStream fi = new FileInputStream(files[i]);
+				// creation d'un flux de lecture
+				FileInputStream fi = new FileInputStream(files[i].getPath());
 				
-				// crï¿½ation d'un tampon de lecture sur ce flux
+				// creation d'un tampon de lecture sur ce flux
 				BufferedInputStream buffi = new BufferedInputStream(fi, BUFFER);
 				
-				// crï¿½ation d'en entrï¿½e Zip pour ce fichier
-				ZipEntry entry = new ZipEntry(files[i].getPath());
+				// creation d'en entrïee Zip pour ce fichier
+				ZipEntry entry = new ZipEntry(nomdossier+files[i].getName());
 				
-				// ajout de cette entrï¿½e dans le flux d'ï¿½criture de l'archive Zip
+				// ajout de cette entree dans le flux d'ecriture de l'archive Zip
 				out.putNextEntry(entry);
 				
-				// ï¿½criture du fichier par paquet de BUFFER octets
-				// dans le flux d'ï¿½criture
+				// ecriture du fichier par paquet de BUFFER octets
+				// dans le flux d'ecriture
 				int count;
 				while((count = buffi.read(data, 0, BUFFER)) != -1) {
 					out.write(data, 0, count);
@@ -100,7 +105,7 @@ public class Zip {
 				buffi.close();
 			}
 			
-			// fermeture du flux d'ï¿½criture
+			// fermeture du flux d'ecriture
 			out.close();
 			buff.close();
 			checksum.close();
@@ -121,3 +126,4 @@ public class Zip {
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 }
+
