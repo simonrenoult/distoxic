@@ -40,6 +40,49 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 		fenetre.getDossierBouton().setEnabled(false);
 		
 	}
+	
+	/**
+	 * Methode d'import d'une archive choisi vers le workspace
+	 */
+	private void importerArchiveWorkspace(){
+		jf = new JFileChooser();
+		jf.setCurrentDirectory(new File("."));
+		jf.addChoosableFileFilter(new FiltreZIP(".zip", "fichier zip"));
+		int resultat = jf.showOpenDialog(fenetre);
+		if (resultat == JFileChooser.APPROVE_OPTION){
+			File fichier;
+			fichier = jf.getSelectedFile();
+			WorkspaceModele conf = new WorkspaceModele(1);
+			conf.lireFichier();
+			UnZip fichierZip = new UnZip(fichier.getAbsolutePath(),conf.getWorkspacePath());
+			System.out.println("succes unzip :"+fichierZip.zipAction());
+			fenetreprincipale.getConteneurGlobal().buildNavigateur();
+			fenetre.repaint();
+		}
+		fenetre.setVisible(false);
+	}
+	
+	/**
+	 * Methode d'import d'un repertoire choisi vers le workspace
+	 */
+	private void importerDossierWorkspace(){
+		jf = new JFileChooser();
+		jf.setCurrentDirectory(new File("."));
+		jf.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		
+		int resultat1 = jf.showOpenDialog(fenetre);
+		if (resultat1 == JFileChooser.APPROVE_OPTION){
+			WorkspaceModele conf = new WorkspaceModele(1);
+			conf.lireFichier();
+			File fichier;
+			fichier = jf.getSelectedFile();
+			File f = new File(conf.getWorkspacePath()+File.separator+fichier.getName());
+			fichier.renameTo(f);
+			fenetreprincipale.getConteneurGlobal().buildNavigateur();
+			fenetre.repaint();
+		}
+		fenetre.setVisible(false);
+	}
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
@@ -58,42 +101,10 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 			fenetre.getArchiveBouton().setEnabled(false);
 		} 
 		else if(e.getSource() == fenetre.getDossierBouton()) {
-			//TODO : IMPORTER DOSSIER DEPUIS LE SYSTEME VERS LE WORKSPACE.
-			System.out.println("OK DOSSIER");
-			jf = new JFileChooser();
-			jf.setCurrentDirectory(new File("."));
-			jf.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-			int resultat1 = jf.showOpenDialog(fenetre);
-			if (resultat1 == JFileChooser.APPROVE_OPTION)
-			{
-				File fichier;
-				fichier = jf.getSelectedFile();
-				System.out.println(fichier.getAbsolutePath());
-			}
-			fenetre.setVisible(false);
-		}	
+			importerDossierWorkspace();
+		}
 		else if (e.getSource() == fenetre.getArchiveBouton()){
-			//TODO : IMPORTER ZIP DEPUIS LE SYSTEME VERS LE WORKSPACE.
-			jf = new JFileChooser();
-			jf.setCurrentDirectory(new File("."));
-			jf.addChoosableFileFilter(new FiltreZIP(".zip", "fichier zip"));
-			int resultat = jf.showOpenDialog(fenetre);
-			if (resultat == JFileChooser.APPROVE_OPTION)
-			{
-				File fichier;
-				fichier = jf.getSelectedFile();
-				WorkspaceModele conf = new WorkspaceModele(1);
-				conf.lireFichier();
-				
-				//System.out.println("fichier de depart : "+fichier.getAbsolutePath());
-				//System.out.println("dezzipage vars    : "+conf.getWorkspacePath());
-				
-				UnZip fichierZip = new UnZip(fichier.getAbsolutePath(),conf.getWorkspacePath());
-				System.out.println("succes unzip :"+fichierZip.zipAction());
-				fenetreprincipale.getConteneurGlobal().buildNavigateur();
-				fenetre.repaint();
-			}
-			fenetre.setVisible(false);
+			importerArchiveWorkspace();
 		}
 		
 	}
