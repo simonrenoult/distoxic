@@ -15,6 +15,7 @@ import javax.swing.JTabbedPane;
 
 import modele.TripletFichier;
 import controleur.EcouteurBarreMenu;
+import controleur.EcouteurEnteteOnglet;
 import vue.ConteneurGlobal;
 
 @SuppressWarnings("serial")
@@ -33,7 +34,7 @@ public class ConteneurEditeurs extends JTabbedPane
 
 	private LinkedList<Editeurs>			editeurs;
 	private LinkedList<EnteteOnglet>			enteteEditeurs;
-	private EcouteurBarreMenu emt;
+	private EcouteurEnteteOnglet emt;
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
@@ -66,7 +67,7 @@ public class ConteneurEditeurs extends JTabbedPane
 	private void initListeners()
 	{
 		
-		 emt = new EcouteurBarreMenu(this);
+		 emt = new EcouteurEnteteOnglet(this);
 		
 	}
 
