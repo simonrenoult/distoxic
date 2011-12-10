@@ -1,5 +1,7 @@
 package modele;
 
+import java.io.File;
+
 import modele.file.BINFile;
 import modele.file.GPHFile;
 import modele.file.SDFFile;
@@ -77,17 +79,17 @@ public class TripletFichier {
 	private void initFile(String path) {
 		if(path.endsWith(extensionBIN)){
 			BINPath = path;
-			DirectoryPath = path;
+			DirectoryPath = mkDirectoryPath(path);
 			BINinit();
 		}
 		else if (path.endsWith(extensionGPH)){
 			GPHPath = path;
-			DirectoryPath = path;
+			DirectoryPath  = mkDirectoryPath(path);
 			GPHinit();
 		}
 		else if (path.endsWith(extensionSDF)){
 			SDFPath = path;
-			DirectoryPath = path;
+			DirectoryPath  = mkDirectoryPath(path);
 			SDFinit();
 		}
 		else {System.out.println("Format inconnu");}
@@ -111,6 +113,26 @@ public class TripletFichier {
 	 */
 	public BINFile getBinFile() {
 		return binFile;
+	}
+	
+	public String mkDirectoryPath(String path){
+		
+		if (System.getProperty("os.name").toLowerCase().contains("linux") ||
+				(System.getProperty("os.name").toLowerCase().contains("mac"))){
+			String tab[] = path.split(File.separator);
+			String projetcsName = tab[tab.length-2];
+			return projetcsName;
+		}
+		else if (System.getProperty("os.name").toLowerCase().contains("windows")){
+			// Il faut echeper le caractere \ !
+			String tab[] = path.split(File.separator+File.separator);
+			String projetcsName = tab[tab.length-2];
+			return projetcsName;
+		}
+		
+		return "";
+	
+		
 	}
 
 // ----------------------------------------- //

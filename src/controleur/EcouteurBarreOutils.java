@@ -2,8 +2,6 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JToolBar;
-
 import vue.FenetreImportationTripletFichier;
 import vue.FenetrePrincipale;
 import vue.barreOutils.BarreOutils;
@@ -15,7 +13,9 @@ public class EcouteurBarreOutils implements ActionListener
 	// ----------------------------------------- //
 
 	private BarreOutils panel;
+	@SuppressWarnings("unused")
 	private FenetrePrincipale fenetrePrincipale;
+	@SuppressWarnings("unused")
 	private FenetreImportationTripletFichier fenetreImportation;
 
 	// ----------------------------------------- //

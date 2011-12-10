@@ -3,9 +3,6 @@ package vue.menus;
 import java.awt.Dimension;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-
-import controleur.EcouteurBarreMenu;
-
 import vue.FenetrePrincipale;
 
 @SuppressWarnings("serial")

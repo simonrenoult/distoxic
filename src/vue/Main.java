@@ -5,6 +5,7 @@ import modele.WorkspaceModele;
 
 public class Main
 {
+	@SuppressWarnings("unused")
 	public static void main(String[] args)
 	{
 		WorkspaceModele modele = new WorkspaceModele(0);
@@ -12,7 +13,7 @@ public class Main
 			//System.err.println("Le worspace n'a pas été trouvé");
 			
 			FenetreChoixWorkspace fe = new FenetreChoixWorkspace(modele);
-			EcouteurFenetreWorkspace e  = new EcouteurFenetreWorkspace(fe,modele);
+			EcouteurFenetreWorkspace e  = new EcouteurFenetreWorkspace(fe);
 			while(!e.isLancerFenetrePrincipale()){}
 			FenetrePrincipale f = new FenetrePrincipale();
 		}

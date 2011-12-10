@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JSplitPane;
+
 import modele.FiltreZIP;
 import modele.WorkspaceModele;
 import modele.zip.UnZip;
@@ -38,7 +40,6 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 		fenetre.getImpoterArchive().setSelected(true);
 		fenetre.getImpoterDossier().setSelected(false);
 		fenetre.getDossierBouton().setEnabled(false);
-		
 	}
 	
 	/**
@@ -57,6 +58,7 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 			UnZip fichierZip = new UnZip(fichier.getAbsolutePath(),conf.getWorkspacePath());
 			System.out.println("succes unzip :"+fichierZip.zipAction());
 			fenetreprincipale.getConteneurGlobal().buildNavigateur();
+			fenetreprincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 			fenetre.repaint();
 		}
 		fenetre.setVisible(false);
@@ -79,6 +81,7 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 			File f = new File(conf.getWorkspacePath()+File.separator+fichier.getName());
 			fichier.renameTo(f);
 			fenetreprincipale.getConteneurGlobal().buildNavigateur();
+			fenetreprincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 			fenetre.repaint();
 		}
 		fenetre.setVisible(false);

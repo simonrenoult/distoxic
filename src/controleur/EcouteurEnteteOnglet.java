@@ -46,6 +46,7 @@ public class EcouteurEnteteOnglet implements ActionListener,ChangeListener {
 // ----------------------------------------- //
 // -----------------METHODES---------------- //
 // ----------------------------------------- //
+	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try{

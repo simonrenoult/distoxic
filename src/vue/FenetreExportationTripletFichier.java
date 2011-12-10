@@ -1,9 +1,7 @@
 package vue;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,8 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 import controleur.EcouteurFenetreExportationTripletFichier;
-import controleur.EcouteurFenetreImportationTripletFichier;
 
+@SuppressWarnings("serial")
 public class FenetreExportationTripletFichier extends JFrame{
 
 	// ----------------------------------------- //
@@ -68,6 +66,7 @@ public class FenetreExportationTripletFichier extends JFrame{
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 
+		@SuppressWarnings("unused")
 		private void initEcouteur() {
 			EcouteurFenetreExportationTripletFichier e = new EcouteurFenetreExportationTripletFichier(this);
 		}

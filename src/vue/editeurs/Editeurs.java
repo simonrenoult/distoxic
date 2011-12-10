@@ -38,10 +38,7 @@ public class Editeurs extends JSplitPane
 		this.tripletFichier = tripletFichier;
 		buildEditeurSdf();
 		buildEditeursGph_Bin();
-
-		this.setTopComponent(edSdf);
-		this.setBottomComponent(edGph_Bin);
-		this.setDividerLocation(EditeurSDF.TAILLE_Y);
+		initPositionEditeurs();
 	}
 
 	// ----------------------------------------- //
@@ -53,12 +50,40 @@ public class Editeurs extends JSplitPane
 		edSdf = new EditeurSDF(tripletFichier.getSdfFile());
 	}
 
-	private void buildEditeursGph_Bin()
+	public void buildEditeursGph_Bin()
 	{
 		edBin = new EditeurBIN(tripletFichier.getBinFile());
 		edGph = new EditeurGPH(tripletFichier.getGphFile());
 		edGph_Bin = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, edGph, edBin);
 		edGph_Bin.setDividerLocation(EditeurGPH.TAILLE_X);
+	}
+	
+	private void initPositionEditeurs(){
+		this.setTopComponent(edSdf);
+		this.setBottomComponent(edGph_Bin);
+		this.setDividerLocation(EditeurSDF.TAILLE_Y);
+	}
+	
+	public void ajouterEditeurBin(TripletFichier tripletFichier, int indexEditeur){
+		this.tripletFichier.setBinFile(tripletFichier.getBinFile());
+		this.tripletFichier.setBINPath(tripletFichier.getBinFile().getFilePath());
+		buildEditeursGph_Bin();
+		initPositionEditeurs();
+	}
+	
+	public void ajouterEditeurGph(TripletFichier tripletFichier, int indexEditeur){
+		this.tripletFichier.setGphFile(tripletFichier.getGphFile());
+		this.tripletFichier.setGPHPath(tripletFichier.getGphFile().getFilePath());
+		buildEditeursGph_Bin();
+		initPositionEditeurs();
+	}
+	
+	public void ajouterEditeurSdf(TripletFichier tripletFichier, int indexEditeur){
+		this.tripletFichier.setSdfFile(tripletFichier.getSdfFile());
+		this.tripletFichier.setSDFPath(tripletFichier.getSdfFile().getFilePath());
+		buildEditeurSdf();
+		initPositionEditeurs();
+		
 	}
 
 	// ----------------------------------------- //

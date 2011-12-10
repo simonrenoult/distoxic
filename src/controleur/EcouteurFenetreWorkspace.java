@@ -3,11 +3,7 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
 import javax.swing.JFileChooser;
-
-import modele.WorkspaceModele;
-
 import vue.FenetreChoixWorkspace;
 
 public class EcouteurFenetreWorkspace implements ActionListener {
@@ -17,16 +13,14 @@ public class EcouteurFenetreWorkspace implements ActionListener {
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 	private FenetreChoixWorkspace fenetre;
-	private WorkspaceModele modele = null;
 	private File fichier = new File("");
 	private JFileChooser jf = null;
 	private boolean LancerFenetrePrincipale = false;
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	public EcouteurFenetreWorkspace(FenetreChoixWorkspace f,WorkspaceModele modele) {
+	public EcouteurFenetreWorkspace(FenetreChoixWorkspace f) {
 		this.fenetre = f;
-		this.modele = modele;
 		f.getSelection().addActionListener(this);
 		f.getValider().addActionListener(this);
 		f.getAnnuler().addActionListener(this);
@@ -53,7 +47,6 @@ public class EcouteurFenetreWorkspace implements ActionListener {
 			}
 		}
 		else if (e.getSource() == fenetre.getValider()){
-			//System.out.println(" Creation complete du 'workspace' : "+modele.makeWorkspace(fichier.getAbsolutePath()));
 			LancerFenetrePrincipale = true;
 			fenetre.setVisible(false);
 		}

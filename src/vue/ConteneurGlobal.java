@@ -33,10 +33,7 @@ public class ConteneurGlobal extends JSplitPane
 
 	public ConteneurGlobal()
 	{
-		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		this.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
-		this.setDividerLocation(NavigateurFichiers.TAILLE_X);
-
+		intiPositionConteneurGlobal();
 		buildConteneurEditeurs();
 		buildNavigateur();
 	}
@@ -44,13 +41,19 @@ public class ConteneurGlobal extends JSplitPane
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
-
+	public void intiPositionConteneurGlobal(){
+		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+		this.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+		this.setDividerLocation(NavigateurFichiers.TAILLE_X);
+	}
+	
 	private void buildConteneurEditeurs()
 	{
 		conteneurEditeurs = new ConteneurEditeurs();
 		this.setRightComponent(conteneurEditeurs);
 	}
 
+	@SuppressWarnings("unused")
 	public void buildNavigateur()
 	{
 		navigateur = new NavigateurFichiers();

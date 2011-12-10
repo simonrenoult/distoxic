@@ -93,6 +93,7 @@ public class FenetrePrincipale extends JFrame
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	private void buildMenuTop()
 	{
 		menu = new BarreMenu();
@@ -106,6 +107,7 @@ public class FenetrePrincipale extends JFrame
 		this.getContentPane().add(conteneurGlobal, BorderLayout.CENTER);
 	}
 	
+	@SuppressWarnings("unused")
 	private void buildBarreOutils()
 	{
 		barreOutils = new BarreOutils();

@@ -7,22 +7,17 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-
 import javax.swing.JFileChooser;
-import modele.FiltreZIP;
-import modele.TripletFichier;
 import modele.WorkspaceModele;
-import modele.zip.UnZip;
 import modele.zip.Zip;
 import vue.FenetreExportationTripletFichier;
-import vue.FenetreImportationTripletFichier;
 import vue.FenetrePrincipale;
-import vue.naviguateur.NavigateurFichiers;
 
 public class EcouteurFenetreExportationTripletFichier implements ActionListener {
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
+	@SuppressWarnings("unused")
 	private FenetrePrincipale fenetreprincipale;
 	private FenetreExportationTripletFichier fenetre = null;
 	private JFileChooser jf = null;
@@ -65,16 +60,12 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 		String cheminExportation = retournerCheminDestination();
 		WorkspaceModele modele = new WorkspaceModele(1);
 		modele.lireFichier();
-		
-		/*File tmp = new File(modele.getWorkspacePath()+File.separator+fenetre.getProjectName());
-		File dest = new File(cheminExportation+File.separator+fenetre.getProjectName());
-		tmp.renameTo(dest);
-		*/
+
 		String cheminSource = modele.getWorkspacePath()+File.separator+fenetre.getProjectName();
 		String cheminDestination = cheminExportation+File.separator+fenetre.getProjectName();
 		
-		System.out.println("chemin source : "+cheminSource);
-		System.out.println("chemin Destination : "+cheminDestination);
+		//System.out.println("chemin source : "+cheminSource);
+		//System.out.println("chemin Destination : "+cheminDestination);
 		
 		File dossier = new File(cheminDestination);
 		dossier.mkdir();

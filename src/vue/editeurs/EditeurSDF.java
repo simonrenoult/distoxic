@@ -5,16 +5,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.util.LinkedList;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.file.SDFFile;
-import modele.parseurs.ParseurGPH;
 import modele.parseurs.ParseurSDF;
 
 @SuppressWarnings("serial")
@@ -107,6 +103,7 @@ public class EditeurSDF extends JPanel
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
 	
+	@SuppressWarnings("unused")
 	private String[] recupererTitresTableau(ParseurSDF p)
 	{
 		LinkedList<String> l = p.recupererIntitulesBalises();

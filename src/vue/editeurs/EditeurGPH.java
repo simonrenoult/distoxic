@@ -4,15 +4,12 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.file.GPHFile;
-import modele.parseurs.ParseurGPH;
 
 @SuppressWarnings("serial")
 public class EditeurGPH extends JPanel

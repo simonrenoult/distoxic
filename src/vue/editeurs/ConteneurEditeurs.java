@@ -10,11 +10,8 @@ package vue.editeurs;
 import java.awt.Dimension;
 import java.io.File;
 import java.util.LinkedList;
-
 import javax.swing.JTabbedPane;
-
 import modele.TripletFichier;
-import controleur.EcouteurBarreMenu;
 import controleur.EcouteurEnteteOnglet;
 import vue.ConteneurGlobal;
 
@@ -45,18 +42,6 @@ public class ConteneurEditeurs extends JTabbedPane
 
 		editeurs = new  LinkedList<Editeurs>();
 		enteteEditeurs = new  LinkedList<EnteteOnglet>();
-		/*String BINPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_39_45\\exemple_39_45.bin";
-		String GPHPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_39_45\\exemple_39.gph";
-		String SDFPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_39_45\\exemple_45.sdf";
-		TripletFichier t = new TripletFichier(BINPath,GPHPath,SDFPath);
-		addEditeur(t);
-		
-		
-		BINPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_70_34\\exemple_70_34.bin";
-		//GPHPath = "C:\\Users\\alex\\Documents\\DisToxicProjects\\exemple_39_45\\exemple_39.gph";
-		TripletFichier t1 = new TripletFichier(BINPath);
-		addEditeur(t1);
-		*/
 		initListeners();
 	}
 
@@ -94,6 +79,28 @@ public class ConteneurEditeurs extends JTabbedPane
 		}
 		
 		/**
+		 * Permet de modifier directement un editeur en lui ajoutant le fichier selectionne.
+		 * @param tripletFichier
+		 * @param indexEditeur
+		 * @return
+		 */
+		public boolean modifierEditeur(TripletFichier tripletFichier,int indexEditeur){
+			if(tripletFichier.getBinFile() != null){
+				editeurs.get(indexEditeur).ajouterEditeurBin(tripletFichier, indexEditeur);
+				return true;
+			}
+			else if (tripletFichier.getGphFile() != null){
+				editeurs.get(indexEditeur).ajouterEditeurGph(tripletFichier, indexEditeur);
+				return true;
+			}
+			else if (tripletFichier.getSdfFile() != null){
+				editeurs.get(indexEditeur).ajouterEditeurSdf(tripletFichier, indexEditeur);
+				return true;
+			}
+			return false;
+		}
+		
+		/**
 		 * Permet de creer l'entete de l'onglet. 
 		 * @param tripletFichier
 		 * @param indiceOnglet
@@ -114,13 +121,13 @@ public class ConteneurEditeurs extends JTabbedPane
 			if (System.getProperty("os.name").toLowerCase().contains("linux") ||
 					(System.getProperty("os.name").toLowerCase().contains("mac"))){
 				String tab[] = tripletFichier.getDirectoryPath().split(File.separator);
-				String projetcsName = tab[tab.length-2];
+				String projetcsName = tab[tab.length-1];
 				return projetcsName;
 			}
 			else if (System.getProperty("os.name").toLowerCase().contains("windows")){
 				// Il faut echeper le caractere \ !
 				String tab[] = tripletFichier.getDirectoryPath().split(File.separator+File.separator);
-				String projetcsName = tab[tab.length-2];
+				String projetcsName = tab[tab.length-1];
 				return projetcsName;
 			}
 			
