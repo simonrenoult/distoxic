@@ -5,7 +5,6 @@
 ##Menus :
 
 - **( 2 )** : Menu permettant d'éditer les préférences :
-	+ Ouverture d'un fichier dans un nouvel onglet ou en écrasant l'onglet courant.
      
 ##BarreOutils :
 
@@ -15,7 +14,6 @@
 
 - **( 4 )** Rafraichissement automatique du workspace.
 - **( 1 )** Menu contextuel sur le clic droit :
-	+ Nouveau Workspace, Importer, Exporter, Renommer Fichier/Répertoire.
 
 ##Onglets :
 
