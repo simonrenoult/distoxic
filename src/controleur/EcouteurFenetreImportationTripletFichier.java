@@ -4,14 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.JFileChooser;
-import javax.swing.JSplitPane;
-
 import modele.FiltreZIP;
 import modele.WorkspaceModele;
 import modele.zip.UnZip;
 import vue.FenetreImportationTripletFichier;
 import vue.FenetrePrincipale;
-import vue.naviguateur.NavigateurFichiers;
 
 public class EcouteurFenetreImportationTripletFichier implements ActionListener {
 	// ----------------------------------------- //

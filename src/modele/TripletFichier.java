@@ -75,7 +75,10 @@ public class TripletFichier {
 // ----------------------------------------- //
 // -------------INITIALISEURS--------------- //
 // ----------------------------------------- //
-	
+	/**
+	 * On instancie un objet BIN, SDF ou GPH selon l'extension du path.
+	 * @param path
+	 */
 	private void initFile(String path) {
 		if(path.endsWith(extensionBIN)){
 			BINPath = path;
@@ -115,6 +118,11 @@ public class TripletFichier {
 		return binFile;
 	}
 	
+	/**
+	 * On recupere le nom du dossier du projet dans lequel se trouve les 3 fichiers.
+	 * @param path
+	 * @return
+	 */
 	public String mkDirectoryPath(String path){
 		
 		if (System.getProperty("os.name").toLowerCase().contains("linux") ||
