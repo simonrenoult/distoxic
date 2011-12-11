@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -50,6 +51,7 @@ public class FenetreExportationTripletFichier extends JFrame{
 			this.setLocationRelativeTo(null);
 			this.setResizable(false);
 			this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+			this.setAlwaysOnTop(true);
 			this.setVisible(true);
 		}
 	// ----------------------------------------- //
@@ -75,7 +77,7 @@ public class FenetreExportationTripletFichier extends JFrame{
 			containerInformation.setPreferredSize(new Dimension(TAILLE_X,TAILLE_Y/4));
 			containerInformation.add(iconeInformation);
 			containerInformation.add(message);
-			//containerInformation.setBackground(new Color(177, 212, 239));
+			containerInformation.setBackground(new Color(220, 228, 254));
 		}
 
 		private void buildContainerSelectionArchive() {
