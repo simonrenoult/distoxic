@@ -27,6 +27,9 @@ public class BarreOutils extends JPanel
 
 	private JToolBar			barreFichier;
 	private JButton				nouveau;
+	private JButton				importer;
+	private JButton				exporter;
+	private JButton				rafraichir;
 	private JButton				enregistrer;
 	private JButton				enregistrerSous;
 	private JButton				imprimer;
@@ -42,7 +45,6 @@ public class BarreOutils extends JPanel
 		initBoutons();
 		initBarreMenu();
 		initPanel();
-		initListener();
 	}
 	
 	// ----------------------------------------- //
@@ -52,6 +54,9 @@ public class BarreOutils extends JPanel
 	private void initBoutons()
 	{
 		nouveau = creerBouton("folder_add.png", "Nouveau");
+		importer = creerBouton("table_import.png","Importer un projet");
+		exporter = creerBouton("table_export.png","Exporter un projet");
+		rafraichir = creerBouton("arrow_refresh.png", "Rafraichîr l'espace de travail");
 		enregistrer = creerBouton("save_as.png", "Enregistrer");
 		enregistrerSous = creerBouton("save_as.png", "Enregistrer Tous");
 		imprimer = creerBouton("printer.png", "Imprimer");
@@ -62,10 +67,13 @@ public class BarreOutils extends JPanel
 		barreFichier = new JToolBar();
 		
 		barreFichier.add(nouveau);
+		barreFichier.add(importer);
+		barreFichier.add(exporter);
+		barreFichier.add(rafraichir);
+		barreFichier.addSeparator();
 		barreFichier.add(enregistrer);
 		barreFichier.add(enregistrerSous);
 		barreFichier.add(imprimer);
-		
 		barreFichier.addSeparator();
 		barreFichier.setRollover(true);
 	}
@@ -78,12 +86,6 @@ public class BarreOutils extends JPanel
 		button.setPreferredSize(new Dimension(30, 30));
 		
 		return button;
-	}
-
-	private void initListener()
-	{
-		//@SuppressWarnings("unused")
-		//EcouteurBarreOutils e = new EcouteurBarreOutils(this);
 	}
 
 	private void initPanel()
@@ -185,5 +187,47 @@ public class BarreOutils extends JPanel
 	public void setImprimer(JButton imprimer)
 	{
 		this.imprimer = imprimer;
+	}
+
+	/**
+	 * @return the importer
+	 */
+	public JButton getImporter() {
+		return importer;
+	}
+
+	/**
+	 * @param importer the importer to set
+	 */
+	public void setImporter(JButton importer) {
+		this.importer = importer;
+	}
+
+	/**
+	 * @return the exporter
+	 */
+	public JButton getExporter() {
+		return exporter;
+	}
+
+	/**
+	 * @param exporter the exporter to set
+	 */
+	public void setExporter(JButton exporter) {
+		this.exporter = exporter;
+	}
+
+	/**
+	 * @return the rafraichir
+	 */
+	public JButton getRafraichir() {
+		return rafraichir;
+	}
+
+	/**
+	 * @param rafraichir the rafraichir to set
+	 */
+	public void setRafraichir(JButton rafraichir) {
+		this.rafraichir = rafraichir;
 	}
 }

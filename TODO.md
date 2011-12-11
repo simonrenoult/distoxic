@@ -12,7 +12,6 @@
 
 ##Workspace :
 
-- **( 4 )** Rafraichissement automatique du workspace.
 - **( 1 )** Menu contextuel sur le clic droit :
 
 ##Onglets :
