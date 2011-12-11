@@ -1,7 +1,12 @@
 package vue.editeurs;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import javax.swing.BorderFactory;
 import javax.swing.JSplitPane;
+import javax.swing.border.Border;
+
+import controleur.EcouteurEditeurs;
 
 import modele.TripletFichier;
 
@@ -14,7 +19,7 @@ public class Editeurs extends JSplitPane
 
 	public final static Integer	TAILLE_X	= ConteneurEditeurs.TAILLE_X;
 	public final static Integer	TAILLE_Y	= ConteneurEditeurs.TAILLE_Y - 75;
-
+	public static int largeurBordure = 2;
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
@@ -24,6 +29,10 @@ public class Editeurs extends JSplitPane
 	private EditeurBIN			edBin;
 	private EditeurGPH			edGph;
 
+	private Border bordureVide = BorderFactory.createMatteBorder(largeurBordure, largeurBordure,
+			largeurBordure, largeurBordure, Color.white);
+	private Border bordureSelection = BorderFactory.createMatteBorder(largeurBordure, largeurBordure,
+			largeurBordure, largeurBordure, Color.red);
 	private TripletFichier tripletFichier;
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
@@ -48,12 +57,15 @@ public class Editeurs extends JSplitPane
 	private void buildEditeurSdf()
 	{
 		edSdf = new EditeurSDF(tripletFichier.getSdfFile());
+		edSdf.setBorder(bordureVide);
 	}
 
 	public void buildEditeursGph_Bin()
 	{
 		edBin = new EditeurBIN(tripletFichier.getBinFile());
+		edBin.setBorder(bordureVide);
 		edGph = new EditeurGPH(tripletFichier.getGphFile());
+		edGph.setBorder(bordureVide);
 		edGph_Bin = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, edGph, edBin);
 		edGph_Bin.setDividerLocation(EditeurGPH.TAILLE_X);
 	}
@@ -62,6 +74,8 @@ public class Editeurs extends JSplitPane
 		this.setTopComponent(edSdf);
 		this.setBottomComponent(edGph_Bin);
 		this.setDividerLocation(EditeurSDF.TAILLE_Y);
+		@SuppressWarnings("unused")
+		EcouteurEditeurs e = new EcouteurEditeurs(this);
 	}
 	
 	public void ajouterEditeurBin(TripletFichier tripletFichier, int indexEditeur){
@@ -115,7 +129,19 @@ public class Editeurs extends JSplitPane
 	public TripletFichier getTripletFichier() {
 		return tripletFichier;
 	}
+	/**
+	 * @return the bordureVide
+	 */
+	public Border getBordureVide() {
+		return bordureVide;
+	}
 
+	/**
+	 * @return the bordureSelection
+	 */
+	public Border getBordureSelection() {
+		return bordureSelection;
+	}
 	// ----------------------------------------- //
 	// --------------- MUTATEURS --------------- //
 	// ----------------------------------------- //
@@ -144,5 +170,22 @@ public class Editeurs extends JSplitPane
 	 */
 	public void setTripletFichier(TripletFichier tripletFichier) {
 		this.tripletFichier = tripletFichier;
+	}
+
+	
+
+	/**
+	 * @param bordureVide the bordureVide to set
+	 */
+	public void setBordureVide(Border bordureVide) {
+		this.bordureVide = bordureVide;
+	}
+
+
+	/**
+	 * @param bordureSelection the bordureSelection to set
+	 */
+	public void setBordureSelection(Border bordureSelection) {
+		this.bordureSelection = bordureSelection;
 	}
 }

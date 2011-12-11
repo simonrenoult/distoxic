@@ -21,7 +21,7 @@ public class EditeurBIN extends JPanel
 	public final static Integer		TAILLE_X		= 2 * Editeurs.TAILLE_X / 5 - 40;
 	public final static Integer		TAILLE_Y		= 3 * Editeurs.TAILLE_Y / 5;
 
-	public final static Color		BG_COLOR		= Color.WHITE;
+	public final static Color		BG_COLOR		= Color.white;
 
 	private final static String		CONTENU_TITRE	= "Editeur de fichiers *.bin";
 	private final static String[]	TITRES_TABLEAU	= { "Numero", "Classe", "Nombre de fragments" };
@@ -46,6 +46,7 @@ public class EditeurBIN extends JPanel
 		this.binFile = binFile;
 		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		setBackground(BG_COLOR);
+		
 
 		initTitre();
 		initParseur();
@@ -103,6 +104,9 @@ public class EditeurBIN extends JPanel
 		add(scroll, BorderLayout.CENTER);
 	}
 
+
+	
+
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
@@ -110,8 +114,20 @@ public class EditeurBIN extends JPanel
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
+	/**
+	 * @return the tableauBIN
+	 */
+	public JTable getTableauBIN() {
+		return tableauBIN;
+	}
 
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
+	/**
+	 * @param tableauBIN the tableauBIN to set
+	 */
+	public void setTableauBIN(JTable tableauBIN) {
+		this.tableauBIN = tableauBIN;
+	}
 }

@@ -126,6 +126,14 @@ public class EditeurSDF extends JPanel
 	{
 		return titre;
 	}
+	
+	/**
+	 * @return the tableauSDF
+	 */
+	public JTable getTableauSDF() {
+		return tableauSDF;
+	}
+
 
 	// ----------------------------------------- //
 	// --------------- MUTATEURS --------------- //
@@ -134,5 +142,13 @@ public class EditeurSDF extends JPanel
 	public void setTitre(JLabel titre)
 	{
 		this.titre = titre;
+	}
+
+	
+	/**
+	 * @param tableauSDF the tableauSDF to set
+	 */
+	public void setTableauSDF(JTable tableauSDF) {
+		this.tableauSDF = tableauSDF;
 	}
 }
