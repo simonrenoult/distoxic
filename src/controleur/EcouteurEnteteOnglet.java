@@ -31,7 +31,7 @@ public class EcouteurEnteteOnglet implements ActionListener,ChangeListener {
 	 * @return
 	 */
 	private boolean isEnregistrable() {
-		//TODO  Determiner l'etat d'enregistrement de chaque Jtable  grace à un booleen
+		//TODO  Determiner l'etat d'enregistrement de chaque Jtable  grace ï¿½ un booleen
 		return false;
 	}
 	
@@ -46,6 +46,7 @@ public class EcouteurEnteteOnglet implements ActionListener,ChangeListener {
 // ----------------------------------------- //
 // -----------------METHODES---------------- //
 // ----------------------------------------- //
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent e) {

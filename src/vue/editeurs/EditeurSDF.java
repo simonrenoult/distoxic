@@ -54,6 +54,7 @@ public class EditeurSDF extends JPanel
 
 		initParseur();
 		initModeleEtTable();
+		
 		initScroll();
 	}
 
@@ -84,10 +85,22 @@ public class EditeurSDF extends JPanel
 
 	private void initModeleEtTable()
 	{
-		TITRES_TABLEAU = recupererTitresTableau(this.sdfFile.getParseurSDF());
-
-		modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
-		tableauSDF = new JTable(modele);
+		/*FIXME
+		 * Pourquoi l'appel d'un fichier GPH appelle l'affichage d'un fichier SDF ?
+		 * --> NullPointerException
+		 */
+		try
+		{
+			TITRES_TABLEAU = recupererTitresTableau(sdfFile.getParseurSDF());
+			
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
+			tableauSDF = new JTable(modele);
+		}
+		catch(NullPointerException e)
+		{
+			e.printStackTrace();
+		}
+		
 	}
 
 	private void initScroll()

@@ -178,9 +178,6 @@ public class ParseurSDF implements ParseurGenerique
 			for (int j = 0 ; j < fragmentsMolecules.get(i).getBalises().size() ; j++)
 				if (!l.contains(fragmentsMolecules.get(i).getBalises().get(j).getIntitule()))
 					l.add(fragmentsMolecules.get(i).getBalises().get(j).getIntitule());
-
-		System.out.println(l);
-		System.out.println("################");
 		
 		return l;
 	}
@@ -198,7 +195,7 @@ public class ParseurSDF implements ParseurGenerique
 			for (int j = 0 ; j < fragment.getBalises().size() ; j++)
 				if (listeBalises.get(i).equals(fragment.getBalises().get(j).getIntitule()))
 					tab[i + 2] = fragment.getBalises().get(j).getValeur();
-
+		
 		return tab;
 	}
 
