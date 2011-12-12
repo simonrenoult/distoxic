@@ -13,7 +13,7 @@ public class Main
 			//System.err.println("Le worspace n'a pas été trouvé");
 			
 			FenetreChoixWorkspace fe = new FenetreChoixWorkspace(modele);
-			EcouteurFenetreWorkspace e  = new EcouteurFenetreWorkspace(fe);
+			EcouteurFenetreWorkspace e  = new EcouteurFenetreWorkspace(fe,modele);
 			while(!e.isLancerFenetrePrincipale()){}
 			FenetrePrincipale f = new FenetrePrincipale();
 		}
