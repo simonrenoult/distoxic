@@ -8,240 +8,286 @@ import modele.file.SDFFile;
 
 /**
  * 
- * Cette classe regroupe les 3 types de fichiers sous forme de tableaux d'objet 
- * qui permet de remplir le modele des JTable. Cette classe sera aussi utilis� 
+ * Cette classe regroupe les 3 types de fichiers sous forme de tableaux d'objet
+ * qui permet de remplir le modele des JTable. Cette classe sera aussi utilis�
  * pour l'export et l'import d'archive .zip (contenant les 3 fichiers).
  * 
  * 
  */
-public class TripletFichier {
-// ----------------------------------------- //
-// ----------------ATRIBUTS----------------- //
-// ----------------------------------------- //
-	
-	private static String extensionGPH = ".gph";
-	private static String extensionBIN = ".bin";
-	private static String extensionSDF = ".sdf";
-	
+public class TripletFichier
+{
+	// ----------------------------------------- //
+	// ----------------ATRIBUTS----------------- //
+	// ----------------------------------------- //
+
+	private static String	extensionGPH	= ".gph";
+	private static String	extensionBIN	= ".bin";
+	private static String	extensionSDF	= ".sdf";
+
 	/*
 	 * On utilise ces fichiers pour remplir les JTable d'un onglet.
 	 */
-	private BINFile binFile = null;
-	private GPHFile gphFile = null;
-	private SDFFile sdfFile = null;
+	private BINFile			binFile			= null;
+	private GPHFile			gphFile			= null;
+	private SDFFile			sdfFile			= null;
+
+	private String			BINPath			= null;
+	private String			GPHPath			= null;
+	private String			SDFPath			= null;
+
+	private String			DirectoryPath	= null;
+
+	// ----------------------------------------- //
+	// --------------CONSTRUCTEURS-------------- //
+	// ----------------------------------------- //
 	
-	private String BINPath = null;
-	private String GPHPath = null;
-	private String SDFPath = null;
-	
-	private String DirectoryPath = null;
-// ----------------------------------------- //
-// --------------CONSTRUCTEURS-------------- //
-// ----------------------------------------- //
 	/**
-	 * Constructeur prenant les 3 chemins de fichiers (sdf,bin et gph).
-	 * On cree alors a partir de ces 3 chemins, 3 objets associes a l'extension.
+	 * Constructeur prenant les 3 chemins de fichiers (sdf,bin et gph). On cree
+	 * alors a partir de ces 3 chemins, 3 objets associes a l'extension.
+	 * 
 	 * @param Path1
 	 * @param Path2
 	 * @param Path3
 	 */
-	public TripletFichier(String Path1,String Path2,String Path3){
+	public TripletFichier(String Path1, String Path2, String Path3)
+	{
 		initFile(Path1);
 		initFile(Path2);
 		initFile(Path3);
 	}
-	
+
 	/**
-	 * Constructeur prenant 2 chemins de fichiers parmis les formats sdf,bin et gph.
-	 * On cr�� alors � partir de ces 2 chemins, 2 objets associ�s � l'extension.
+	 * Constructeur prenant 2 chemins de fichiers parmis les formats sdf,bin et
+	 * gph. On cr�� alors � partir de ces 2 chemins, 2 objets associ�s �
+	 * l'extension.
+	 * 
 	 * @param Path1
 	 * @param Path2
 	 */
-	public TripletFichier(String Path1,String Path2){
+	public TripletFichier(String Path1, String Path2)
+	{
 		initFile(Path1);
 		initFile(Path2);
 	}
-	
+
 	/**
- 	 *Constructeur prenant 1 chemin de fichier parmis les formats sdf,bin et gph.
-	 * On cr�� alors � partir de ce 1 chemins, l'objet associ� � l'extension. 
+	 * Constructeur prenant 1 chemin de fichier parmis les formats sdf,bin et
+	 * gph. On cr�� alors � partir de ce 1 chemins, l'objet associ� �
+	 * l'extension.
+	 * 
 	 * @param Path1
 	 */
-	public TripletFichier(String Path1){
+	public TripletFichier(String Path1)
+	{
 		initFile(Path1);
 	}
 
-
-// ----------------------------------------- //
-// -------------INITIALISEURS--------------- //
-// ----------------------------------------- //
+	// ----------------------------------------- //
+	// -------------INITIALISEURS--------------- //
+	// ----------------------------------------- //
+	
 	/**
 	 * On instancie un objet BIN, SDF ou GPH selon l'extension du path.
+	 * 
 	 * @param path
 	 */
-	private void initFile(String path) {
-		if(path.endsWith(extensionBIN)){
+	private void initFile(String path)
+	{
+		if (path.endsWith(extensionBIN))
+		{
 			BINPath = path;
 			DirectoryPath = mkDirectoryPath(path);
 			BINinit();
 		}
-		else if (path.endsWith(extensionGPH)){
+		else if (path.endsWith(extensionGPH))
+		{
 			GPHPath = path;
-			DirectoryPath  = mkDirectoryPath(path);
+			DirectoryPath = mkDirectoryPath(path);
 			GPHinit();
 		}
-		else if (path.endsWith(extensionSDF)){
+		else if (path.endsWith(extensionSDF))
+		{
 			SDFPath = path;
-			DirectoryPath  = mkDirectoryPath(path);
+			DirectoryPath = mkDirectoryPath(path);
 			SDFinit();
 		}
-		else {System.out.println("Format inconnu");}
-		
+		else
+		{
+			System.out.println("Format inconnu");
+		}
+
 	}
-	
-	private void BINinit() {
+
+	private void BINinit()
+	{
 		binFile = new BINFile(BINPath);
 	}
-	
-	private void GPHinit() {
+
+	private void GPHinit()
+	{
 		gphFile = new GPHFile(GPHPath);
 	}
-	
-	private void SDFinit() {
+
+	private void SDFinit()
+	{
 		sdfFile = new SDFFile(SDFPath);
 	}
 
 	/**
 	 * @return the binFile
 	 */
-	public BINFile getBinFile() {
+	public BINFile getBinFile()
+	{
 		return binFile;
 	}
-	
+
 	/**
-	 * On recupere le nom du dossier du projet dans lequel se trouve les 3 fichiers.
+	 * On recupere le nom du dossier du projet dans lequel se trouve les 3
+	 * fichiers.
+	 * 
 	 * @param path
 	 * @return
 	 */
-	public String mkDirectoryPath(String path){
-		
-		if (System.getProperty("os.name").toLowerCase().contains("linux") ||
-				(System.getProperty("os.name").toLowerCase().contains("mac"))){
+	public String mkDirectoryPath(String path)
+	{
+
+		if (System.getProperty("os.name").toLowerCase().contains("linux")
+				|| (System.getProperty("os.name").toLowerCase().contains("mac")))
+		{
 			String tab[] = path.split(File.separator);
-			String projetcsName = tab[tab.length-2];
+			String projetcsName = tab[tab.length - 2];
 			return projetcsName;
 		}
-		else if (System.getProperty("os.name").toLowerCase().contains("windows")){
+		else if (System.getProperty("os.name").toLowerCase().contains("windows"))
+		{
 			// Il faut echeper le caractere \ !
-			String tab[] = path.split(File.separator+File.separator);
-			String projetcsName = tab[tab.length-2];
+			String tab[] = path.split(File.separator + File.separator);
+			String projetcsName = tab[tab.length - 2];
 			return projetcsName;
 		}
-		
+
 		return "";
-	
-		
+
 	}
 
-// ----------------------------------------- //
-// -----------------METHODES---------------- //
-// ----------------------------------------- //
+	// ----------------------------------------- //
+	// -----------------METHODES---------------- //
+	// ----------------------------------------- //
 
-	
-// ----------------------------------------- //
-// ---------------ACCESSEURS---------------- //
-// ----------------------------------------- //
+	// ----------------------------------------- //
+	// ---------------ACCESSEURS---------------- //
+	// ----------------------------------------- //
 	/**
-	 * @param binFile the binFile to set
+	 * @param binFile
+	 *            the binFile to set
 	 */
-	public void setBinFile(BINFile binFile) {
+	public void setBinFile(BINFile binFile)
+	{
 		this.binFile = binFile;
 	}
 
 	/**
 	 * @return the gphFile
 	 */
-	public GPHFile getGphFile() {
+	public GPHFile getGphFile()
+	{
 		return gphFile;
 	}
 
 	/**
-	 * @param gphFile the gphFile to set
+	 * @param gphFile
+	 *            the gphFile to set
 	 */
-	public void setGphFile(GPHFile gphFile) {
+	public void setGphFile(GPHFile gphFile)
+	{
 		this.gphFile = gphFile;
 	}
 
 	/**
 	 * @return the sdfFile
 	 */
-	public SDFFile getSdfFile() {
+	public SDFFile getSdfFile()
+	{
 		return sdfFile;
 	}
 
 	/**
-	 * @param sdfFile the sdfFile to set
+	 * @param sdfFile
+	 *            the sdfFile to set
 	 */
-	public void setSdfFile(SDFFile sdfFile) {
+	public void setSdfFile(SDFFile sdfFile)
+	{
 		this.sdfFile = sdfFile;
 	}
 
 	/**
 	 * @return the bINPath
 	 */
-	public String getBINPath() {
+	public String getBINPath()
+	{
 		return BINPath;
 	}
 
 	/**
-	 * @param bINPath the bINPath to set
+	 * @param bINPath
+	 *            the bINPath to set
 	 */
-	public void setBINPath(String bINPath) {
+	public void setBINPath(String bINPath)
+	{
 		BINPath = bINPath;
 	}
 
 	/**
 	 * @return the gPHPath
 	 */
-	public String getGPHPath() {
+	public String getGPHPath()
+	{
 		return GPHPath;
 	}
 
 	/**
-	 * @param gPHPath the gPHPath to set
+	 * @param gPHPath
+	 *            the gPHPath to set
 	 */
-	public void setGPHPath(String gPHPath) {
+	public void setGPHPath(String gPHPath)
+	{
 		GPHPath = gPHPath;
 	}
 
 	/**
 	 * @return the sDFPath
 	 */
-	public String getSDFPath() {
+	public String getSDFPath()
+	{
 		return SDFPath;
 	}
 
 	/**
-	 * @param sDFPath the sDFPath to set
+	 * @param sDFPath
+	 *            the sDFPath to set
 	 */
-	public void setSDFPath(String sDFPath) {
+	public void setSDFPath(String sDFPath)
+	{
 		SDFPath = sDFPath;
 	}
-	
+
 	/**
 	 * @return the directoryPath
 	 */
-	public String getDirectoryPath() {
+	public String getDirectoryPath()
+	{
 		return DirectoryPath;
 	}
-	
+
 	/**
-	 * @param directoryPath the directoryPath to set
+	 * @param directoryPath
+	 *            the directoryPath to set
 	 */
-	public void setDirectoryPath(String directoryPath) {
+	public void setDirectoryPath(String directoryPath)
+	{
 		DirectoryPath = directoryPath;
 	}
-// ----------------------------------------- //
-// ----------------MUTATEURS---------------- //
-// ----------------------------------------- //
+	// ----------------------------------------- //
+	// ----------------MUTATEURS---------------- //
+	// ----------------------------------------- //
 }
