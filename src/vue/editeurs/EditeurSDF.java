@@ -26,7 +26,7 @@ public class EditeurSDF extends JPanel
 	public final static Color		BG_COLOR		= Color.WHITE;
 
 	private final static String		TITRE			= "Editeur de fichiers *.sdf";
-	private static String[]			TITRES_TABLEAU	= {};
+	private static String[]			TITRES_TABLEAU	= {"Nb Liaisons", "Nb Atomes"};
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
@@ -114,7 +114,7 @@ public class EditeurSDF extends JPanel
 
 		for (int i = 0 ; i < intitulesBalises.size() ; i++)
 			titresTableau[TITRES_TABLEAU.length + i] = intitulesBalises.get(i);
-
+		
 		return titresTableau;
 	}
 
