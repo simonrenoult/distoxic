@@ -38,7 +38,7 @@ public class EditeurSDF extends JPanel
 	private JTable					tableauSDF;
 	private ModeleTablesEditeurs	modele;
 
-	private SDFFile sdfFile;
+	private SDFFile					sdfFile;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -73,22 +73,30 @@ public class EditeurSDF extends JPanel
 
 	private void initParseur()
 	{
-		try{
+		try
+		{
 			sdfFile.initParseur();
 		}
-		catch(Exception e){}
-		
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+
 	}
 
 	private void initModeleEtTable()
 	{
-		try{
+		try
+		{
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
 			tableauSDF = new JTable(modele);
 		}
-		catch (Exception e){}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
-	
+
 	private void initScroll()
 	{
 		remove(titre);
@@ -102,8 +110,7 @@ public class EditeurSDF extends JPanel
 	// ----------------------------------------- //
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
-	
-	@SuppressWarnings("unused")
+
 	private String[] recupererTitresTableau(ParseurSDF p)
 	{
 		LinkedList<String> l = p.recupererIntitulesBalises();
@@ -117,7 +124,7 @@ public class EditeurSDF extends JPanel
 
 		return s;
 	}
-	
+
 	// ----------------------------------------- //
 	// -------------- ACCESSEURS --------------- //
 	// ----------------------------------------- //
@@ -126,14 +133,14 @@ public class EditeurSDF extends JPanel
 	{
 		return titre;
 	}
-	
+
 	/**
 	 * @return the tableauSDF
 	 */
-	public JTable getTableauSDF() {
+	public JTable getTableauSDF()
+	{
 		return tableauSDF;
 	}
-
 
 	// ----------------------------------------- //
 	// --------------- MUTATEURS --------------- //
@@ -144,11 +151,12 @@ public class EditeurSDF extends JPanel
 		this.titre = titre;
 	}
 
-	
 	/**
-	 * @param tableauSDF the tableauSDF to set
+	 * @param tableauSDF
+	 *            the tableauSDF to set
 	 */
-	public void setTableauSDF(JTable tableauSDF) {
+	public void setTableauSDF(JTable tableauSDF)
+	{
 		this.tableauSDF = tableauSDF;
 	}
 }
