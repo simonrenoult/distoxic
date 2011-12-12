@@ -179,6 +179,9 @@ public class ParseurSDF implements ParseurGenerique
 				if (!l.contains(fragmentsMolecules.get(i).getBalises().get(j).getIntitule()))
 					l.add(fragmentsMolecules.get(i).getBalises().get(j).getIntitule());
 
+		System.out.println(l);
+		System.out.println("################");
+		
 		return l;
 	}
 
