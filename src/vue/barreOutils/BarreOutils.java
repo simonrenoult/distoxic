@@ -56,7 +56,7 @@ public class BarreOutils extends JPanel
 		nouveau = creerBouton("folder_add.png", "Nouveau");
 		importer = creerBouton("table_import.png","Importer un projet");
 		exporter = creerBouton("table_export.png","Exporter un projet");
-		rafraichir = creerBouton("arrow_refresh.png", "Rafraîchir l'espace de travail");
+		rafraichir = creerBouton("arrow_refresh.png", "Rafraï¿½chir l'espace de travail");
 		enregistrer = creerBouton("save_as.png", "Enregistrer");
 		enregistrerSous = creerBouton("save_as.png", "Enregistrer Tous");
 		imprimer = creerBouton("printer.png", "Imprimer");
