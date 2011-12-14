@@ -15,7 +15,7 @@ public class BarreOutils extends JPanel
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-	
+
 	private static String		_ICON_PATH	= "src" + File.separator + "images" + File.separator + "icones"
 													+ File.separator;
 	public final static Integer	TAILLE_X	= FenetrePrincipale.TAILLE_X;
@@ -26,6 +26,7 @@ public class BarreOutils extends JPanel
 	// ----------------------------------------- //
 
 	private JToolBar			barreFichier;
+	
 	private JButton				nouveau;
 	private JButton				importer;
 	private JButton				exporter;
@@ -46,7 +47,7 @@ public class BarreOutils extends JPanel
 		initBarreMenu();
 		initPanel();
 	}
-	
+
 	// ----------------------------------------- //
 	// ----------------METHODES----------------- //
 	// ----------------------------------------- //
@@ -54,9 +55,9 @@ public class BarreOutils extends JPanel
 	private void initBoutons()
 	{
 		nouveau = creerBouton("folder_add.png", "Nouveau");
-		importer = creerBouton("table_import.png","Importer un projet");
-		exporter = creerBouton("table_export.png","Exporter un projet");
-		rafraichir = creerBouton("arrow_refresh.png", "Rafraîchir l'espace de travail");
+		importer = creerBouton("table_import.png", "Importer un projet");
+		exporter = creerBouton("table_export.png", "Exporter un projet");
+		rafraichir = creerBouton("arrow_refresh.png", "Rafraichir l'espace de travail");
 		enregistrer = creerBouton("save_as.png", "Enregistrer");
 		enregistrerSous = creerBouton("save_as.png", "Enregistrer Tous");
 		imprimer = creerBouton("printer.png", "Imprimer");
@@ -65,7 +66,7 @@ public class BarreOutils extends JPanel
 	private void initBarreMenu()
 	{
 		barreFichier = new JToolBar();
-		
+
 		barreFichier.add(nouveau);
 		barreFichier.add(importer);
 		barreFichier.add(exporter);
@@ -84,7 +85,7 @@ public class BarreOutils extends JPanel
 		button.setIcon(new ImageIcon(_ICON_PATH + path));
 		button.setToolTipText(toolTip);
 		button.setPreferredSize(new Dimension(30, 30));
-		
+
 		return button;
 	}
 
@@ -135,8 +136,6 @@ public class BarreOutils extends JPanel
 	{
 		this.nouveau = nouveau;
 	}
-
-	
 
 	/**
 	 * @return the enregistrer
@@ -192,42 +191,51 @@ public class BarreOutils extends JPanel
 	/**
 	 * @return the importer
 	 */
-	public JButton getImporter() {
+	public JButton getImporter()
+	{
 		return importer;
 	}
 
 	/**
-	 * @param importer the importer to set
+	 * @param importer
+	 *            the importer to set
 	 */
-	public void setImporter(JButton importer) {
+	public void setImporter(JButton importer)
+	{
 		this.importer = importer;
 	}
 
 	/**
 	 * @return the exporter
 	 */
-	public JButton getExporter() {
+	public JButton getExporter()
+	{
 		return exporter;
 	}
 
 	/**
-	 * @param exporter the exporter to set
+	 * @param exporter
+	 *            the exporter to set
 	 */
-	public void setExporter(JButton exporter) {
+	public void setExporter(JButton exporter)
+	{
 		this.exporter = exporter;
 	}
 
 	/**
 	 * @return the rafraichir
 	 */
-	public JButton getRafraichir() {
+	public JButton getRafraichir()
+	{
 		return rafraichir;
 	}
 
 	/**
-	 * @param rafraichir the rafraichir to set
+	 * @param rafraichir
+	 *            the rafraichir to set
 	 */
-	public void setRafraichir(JButton rafraichir) {
+	public void setRafraichir(JButton rafraichir)
+	{
 		this.rafraichir = rafraichir;
 	}
 }

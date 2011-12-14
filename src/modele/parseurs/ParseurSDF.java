@@ -18,8 +18,7 @@ public class ParseurSDF implements ParseurGenerique
 	// ----------------------------------------- //
 
 	public final static Pattern				DEBUT		= Pattern.compile("^[ ]{2}[A-Z][A-Za-z0-9]{1,}+$");
-	public final static Pattern				RESUME		= Pattern
-																.compile("[0-9]{3}[ ][A-Z][0-9]{4}$");
+	public final static Pattern				RESUME		= Pattern.compile("[0-9]{3}[ ][A-Z][0-9]{4}$");
 	public final static Pattern				ATOMES		= Pattern
 																.compile("^([ ]{2,3}( |-)([0-9]+)[.]([0-9]{4})){3}[ ]([A-Za-z]+)(( +)[0-9])+$");
 	public final static Pattern				LIAISONS	= Pattern.compile("^([ ]( [0-9]|[0-9]{2})){4}$");
@@ -156,7 +155,6 @@ public class ParseurSDF implements ParseurGenerique
 	// ------- TABLEAU ------- //
 
 	@Override
-	// FIXME tableau des balises
 	public Object[][] convertirListeVersTableau2D()
 	{
 		Object[][] tableau = new Object[fragmentsMolecules.size()][calculerLargeurTableau()];
@@ -168,9 +166,8 @@ public class ParseurSDF implements ParseurGenerique
 	}
 
 	private Integer calculerLargeurTableau()
-	{ // 1 pour l'indice du fragment, 1 pour le nombre d'atomes, 1 pour le
-		// nombre de liaisons
-		return 3 + recupererIntitulesBalises().size();
+	{
+		return 2 + recupererIntitulesBalises().size();
 	}
 
 	public LinkedList<String> recupererIntitulesBalises()
@@ -181,7 +178,7 @@ public class ParseurSDF implements ParseurGenerique
 			for (int j = 0 ; j < fragmentsMolecules.get(i).getBalises().size() ; j++)
 				if (!l.contains(fragmentsMolecules.get(i).getBalises().get(j).getIntitule()))
 					l.add(fragmentsMolecules.get(i).getBalises().get(j).getIntitule());
-
+		
 		return l;
 	}
 
@@ -189,17 +186,16 @@ public class ParseurSDF implements ParseurGenerique
 	{
 		Object[] tab = new Object[calculerLargeurTableau()];
 
-		tab[0] = indice + 1;
-		tab[1] = fragment.getAtomes().size();
-		tab[2] = fragment.getLiaisons().size();
+		tab[0] = fragment.getAtomes().size();
+		tab[1] = fragment.getLiaisons().size();
 
 		LinkedList<String> listeBalises = recupererIntitulesBalises();
 
 		for (int i = 0 ; i < listeBalises.size() ; i++)
 			for (int j = 0 ; j < fragment.getBalises().size() ; j++)
 				if (listeBalises.get(i).equals(fragment.getBalises().get(j).getIntitule()))
-					tab[i + 3] = fragment.getBalises().get(j).getValeur();
-
+					tab[i + 2] = fragment.getBalises().get(j).getValeur();
+		
 		return tab;
 	}
 
