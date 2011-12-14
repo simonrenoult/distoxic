@@ -195,17 +195,16 @@ public class ParseurGPH implements ParseurGenerique
 	@Override
 	public Object[][] convertirListeVersTableau2D()
 	{
-		Object[][] tableauGPH = new Object[listeGPH.size()][7];
+		Object[][] tableauGPH = new Object[listeGPH.size()][6];
 
 		for (int i = 0 ; i < tableauGPH.length ; i++)
 		{
-			tableauGPH[i][0] = listeGPH.get(i).getNumero() + 1;
-			tableauGPH[i][1] = listeGPH.get(i).getListeAtome().size();
-			tableauGPH[i][2] = listeGPH.get(i).getListeLiaison().size();
-			tableauGPH[i][3] = listeGPH.get(i).getNumero();
-			tableauGPH[i][4] = listeGPH.get(i).getFrequence();
-			tableauGPH[i][5] = listeGPH.get(i).getToxicite();
-			tableauGPH[i][6] = listeGPH.get(i).getEmergence();
+			tableauGPH[i][0] = listeGPH.get(i).getListeAtome().size();
+			tableauGPH[i][1] = listeGPH.get(i).getListeLiaison().size();
+			tableauGPH[i][2] = listeGPH.get(i).getNumero();
+			tableauGPH[i][3] = listeGPH.get(i).getFrequence();
+			tableauGPH[i][4] = listeGPH.get(i).getToxicite();
+			tableauGPH[i][5] = listeGPH.get(i).getEmergence();
 		}
 
 		return tableauGPH;

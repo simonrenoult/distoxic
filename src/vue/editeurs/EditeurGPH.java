@@ -24,7 +24,7 @@ public class EditeurGPH extends JPanel
 	public final static Color		BG_COLOR		= Color.WHITE;
 
 	private final static String		TITRE			= "Editeur de fichiers *.gph";
-	private final static String[]	TITRES_TABLEAU	= { "Numero", "Nb atomes", "Nb liaisons", "Classe", "Frequece",
+	private final static String[]	TITRES_TABLEAU	= { "Nb atomes", "Nb liaisons", "Classe", "Frequece",
 			"Toxicite", "Emergence"				};
 
 	// ----------------------------------------- //

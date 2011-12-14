@@ -106,13 +106,12 @@ public class ParseurBIN implements ParseurGenerique
 	 */
 	public Object[][] convertirListeVersTableau2D()
 	{
-		Object[][] tmp = new Object[listeBIN.size()][3];
+		Object[][] tmp = new Object[listeBIN.size()][2];
 		
 		for (int i = 0 ; i < tmp.length ; i++)
 		{
-			tmp[i][0] = i + 1;
-			tmp[i][1] = listeBIN.get(i).get(0);
-			tmp[i][2] = listeBIN.get(i).size() - 1;
+			tmp[i][0] = listeBIN.get(i).get(0);
+			tmp[i][1] = listeBIN.get(i).size() - 1;
 		}
 		
 		return tmp;

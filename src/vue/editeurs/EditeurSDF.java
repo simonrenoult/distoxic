@@ -26,7 +26,7 @@ public class EditeurSDF extends JPanel
 	public final static Color		BG_COLOR		= Color.WHITE;
 
 	private final static String		TITRE			= "Editeur de fichiers *.sdf";
-	private static String[]			TITRES_TABLEAU	= {"Nb Liaisons", "Nb Atomes"};
+	private String[]				TITRES_TABLEAU	= { "Nb Liaisons", "Nb Atomes" };
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
@@ -54,7 +54,7 @@ public class EditeurSDF extends JPanel
 
 		initParseur();
 		initModeleEtTable();
-		
+
 		initScroll();
 	}
 
@@ -78,9 +78,9 @@ public class EditeurSDF extends JPanel
 		{
 			sdfFile.initParseur();
 		}
-		catch (Exception e)
+		catch (NullPointerException e)
 		{
-			e.printStackTrace();
+
 		}
 
 	}
@@ -91,27 +91,16 @@ public class EditeurSDF extends JPanel
 		{
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
 			tableauSDF = new JTable(modele);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		/*FIXME
-		 * Pourquoi l'appel d'un fichier GPH appelle l'affichage d'un fichier SDF ?
-		 * --> NullPointerException
-		 */
-		try
-		{
+		
 			TITRES_TABLEAU = recupererTitresTableau(sdfFile.getParseurSDF());
-			
+
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
 			tableauSDF = new JTable(modele);
 		}
-		catch(NullPointerException e)
+		catch (NullPointerException e)
 		{
-			e.printStackTrace();
 		}
-		
+
 	}
 
 	private void initScroll()
@@ -138,7 +127,7 @@ public class EditeurSDF extends JPanel
 
 		for (int i = 0 ; i < intitulesBalises.size() ; i++)
 			titresTableau[TITRES_TABLEAU.length + i] = intitulesBalises.get(i);
-		
+
 		return titresTableau;
 	}
 
