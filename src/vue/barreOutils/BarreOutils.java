@@ -16,7 +16,7 @@ public class BarreOutils extends JPanel
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 	
-	private static String		_ICON_PATH	= "src" + File.separator + "images" + File.separator + "icones"
+	private static String		_ICON_PATH	= "src" + File.separator +"images" + File.separator + "icones"
 													+ File.separator;
 	public final static Integer	TAILLE_X	= FenetrePrincipale.TAILLE_X;
 	public final static Integer	TAILLE_Y	= FenetrePrincipale.TAILLE_Y / 20;
@@ -81,6 +81,7 @@ public class BarreOutils extends JPanel
 	private JButton creerBouton(String path, String toolTip)
 	{
 		JButton button = new JButton();
+		//button.setIcon(new ImageIcon(getClass().getResource("/images/icones/"+path)));
 		button.setIcon(new ImageIcon(_ICON_PATH + path));
 		button.setToolTipText(toolTip);
 		button.setPreferredSize(new Dimension(30, 30));
