@@ -66,3 +66,8 @@ Nous sommes deux étudiants en deuxième année de D.U.T. Informatique :
 ##Finalité :
 
 - **( 3 )** Créer un jar exécutable.
+      
+
+<script src='http://gitlive.com/githublive.min.js'></script>
+<script>var GithubPush = {num_old:5,nodes:['distoxic/distoxic']}</script>
+<div id='commits'></div>
