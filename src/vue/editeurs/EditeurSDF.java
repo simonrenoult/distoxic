@@ -26,7 +26,7 @@ public class EditeurSDF extends JPanel
 	public final static Color		BG_COLOR		= Color.WHITE;
 
 	private final static String		TITRE			= "Editeur de fichiers *.sdf";
-	private final static String[]	TITRES_TABLEAU	= { "Indice", "Nb Atomes", "Nb Liaisons" };
+	private static String[]			TITRES_TABLEAU	= {"Nb Liaisons", "Nb Atomes"};
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
@@ -38,7 +38,7 @@ public class EditeurSDF extends JPanel
 	private JTable					tableauSDF;
 	private ModeleTablesEditeurs	modele;
 
-	private SDFFile sdfFile;
+	private SDFFile					sdfFile;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -54,6 +54,7 @@ public class EditeurSDF extends JPanel
 
 		initParseur();
 		initModeleEtTable();
+		
 		initScroll();
 	}
 
@@ -73,22 +74,46 @@ public class EditeurSDF extends JPanel
 
 	private void initParseur()
 	{
-		try{
+		try
+		{
 			sdfFile.initParseur();
 		}
-		catch(Exception e){}
-		
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+
 	}
 
 	private void initModeleEtTable()
 	{
-		try{
+		try
+		{
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
 			tableauSDF = new JTable(modele);
 		}
-		catch (Exception e){}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		/*FIXME
+		 * Pourquoi l'appel d'un fichier GPH appelle l'affichage d'un fichier SDF ?
+		 * --> NullPointerException
+		 */
+		try
+		{
+			TITRES_TABLEAU = recupererTitresTableau(sdfFile.getParseurSDF());
+			
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
+			tableauSDF = new JTable(modele);
+		}
+		catch(NullPointerException e)
+		{
+			e.printStackTrace();
+		}
+		
 	}
-	
+
 	private void initScroll()
 	{
 		remove(titre);
@@ -102,22 +127,21 @@ public class EditeurSDF extends JPanel
 	// ----------------------------------------- //
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
-	
-	@SuppressWarnings("unused")
-	private String[] recupererTitresTableau(ParseurSDF p)
+
+	private String[] recupererTitresTableau(ParseurSDF parseur)
 	{
-		LinkedList<String> l = p.recupererIntitulesBalises();
-		String[] s = new String[TITRES_TABLEAU.length + l.size()];
+		LinkedList<String> intitulesBalises = parseur.recupererIntitulesBalises();
+		String[] titresTableau = new String[TITRES_TABLEAU.length + intitulesBalises.size()];
 
 		for (int i = 0 ; i < TITRES_TABLEAU.length ; i++)
-			s[i] = TITRES_TABLEAU[i];
+			titresTableau[i] = TITRES_TABLEAU[i];
 
-		for (int i = 0 ; i < l.size() ; i++)
-			s[TITRES_TABLEAU.length + i] = l.get(i);
-
-		return s;
+		for (int i = 0 ; i < intitulesBalises.size() ; i++)
+			titresTableau[TITRES_TABLEAU.length + i] = intitulesBalises.get(i);
+		
+		return titresTableau;
 	}
-	
+
 	// ----------------------------------------- //
 	// -------------- ACCESSEURS --------------- //
 	// ----------------------------------------- //
@@ -126,14 +150,14 @@ public class EditeurSDF extends JPanel
 	{
 		return titre;
 	}
-	
+
 	/**
 	 * @return the tableauSDF
 	 */
-	public JTable getTableauSDF() {
+	public JTable getTableauSDF()
+	{
 		return tableauSDF;
 	}
-
 
 	// ----------------------------------------- //
 	// --------------- MUTATEURS --------------- //
@@ -144,11 +168,12 @@ public class EditeurSDF extends JPanel
 		this.titre = titre;
 	}
 
-	
 	/**
-	 * @param tableauSDF the tableauSDF to set
+	 * @param tableauSDF
+	 *            the tableauSDF to set
 	 */
-	public void setTableauSDF(JTable tableauSDF) {
+	public void setTableauSDF(JTable tableauSDF)
+	{
 		this.tableauSDF = tableauSDF;
 	}
 }

@@ -47,7 +47,6 @@ public class EditeurBIN extends JPanel
 		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		setBackground(BG_COLOR);
 		
-
 		initTitre();
 		initParseur();
 		initModeleEtTable();
