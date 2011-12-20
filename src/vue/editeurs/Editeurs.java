@@ -17,9 +17,10 @@ public class Editeurs extends JSplitPane
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
-	public final static Integer	TAILLE_X	= ConteneurEditeurs.TAILLE_X;
-	public final static Integer	TAILLE_Y	= ConteneurEditeurs.TAILLE_Y - 75;
-	public static int largeurBordure = 2;
+	public final static Integer	TAILLE_X			= ConteneurEditeurs.TAILLE_X;
+	public final static Integer	TAILLE_Y			= ConteneurEditeurs.TAILLE_Y - 75;
+	public static int			largeurBordure		= 2;
+	
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
@@ -29,11 +30,12 @@ public class Editeurs extends JSplitPane
 	private EditeurBIN			edBin;
 	private EditeurGPH			edGph;
 
-	private Border bordureVide = BorderFactory.createMatteBorder(largeurBordure, largeurBordure,
-			largeurBordure, largeurBordure, Color.white);
-	private Border bordureSelection = BorderFactory.createMatteBorder(largeurBordure, largeurBordure,
-			largeurBordure, largeurBordure, Color.red);
-	private TripletFichier tripletFichier;
+	private Border				bordureVide			= BorderFactory.createMatteBorder(largeurBordure, largeurBordure,
+															largeurBordure, largeurBordure, Color.white);
+	private Border				bordureSelection	= BorderFactory.createMatteBorder(largeurBordure, largeurBordure,
+															largeurBordure, largeurBordure, Color.red);
+	private TripletFichier		tripletFichier;
+
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
@@ -43,7 +45,8 @@ public class Editeurs extends JSplitPane
 		this.setSize(TAILLE_X, TAILLE_Y);
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		this.setOrientation(JSplitPane.VERTICAL_SPLIT);
-		
+		this.setDividerSize(6);
+		this.setOneTouchExpandable(true);
 		this.tripletFichier = tripletFichier;
 		buildEditeurSdf();
 		buildEditeursGph_Bin();
@@ -67,37 +70,43 @@ public class Editeurs extends JSplitPane
 		edGph = new EditeurGPH(tripletFichier.getGphFile());
 		edGph.setBorder(bordureVide);
 		edGph_Bin = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, edGph, edBin);
+		edGph_Bin.setDividerSize(6);
+		edGph_Bin.setOneTouchExpandable(true);
 		edGph_Bin.setDividerLocation(EditeurGPH.TAILLE_X);
 	}
-	
-	private void initPositionEditeurs(){
+
+	private void initPositionEditeurs()
+	{
 		this.setTopComponent(edSdf);
 		this.setBottomComponent(edGph_Bin);
 		this.setDividerLocation(EditeurSDF.TAILLE_Y);
 		@SuppressWarnings("unused")
 		EcouteurEditeurs e = new EcouteurEditeurs(this);
 	}
-	
-	public void ajouterEditeurBin(TripletFichier tripletFichier, int indexEditeur){
+
+	public void ajouterEditeurBin(TripletFichier tripletFichier, int indexEditeur)
+	{
 		this.tripletFichier.setBinFile(tripletFichier.getBinFile());
 		this.tripletFichier.setBINPath(tripletFichier.getBinFile().getFilePath());
 		buildEditeursGph_Bin();
 		initPositionEditeurs();
 	}
-	
-	public void ajouterEditeurGph(TripletFichier tripletFichier, int indexEditeur){
+
+	public void ajouterEditeurGph(TripletFichier tripletFichier, int indexEditeur)
+	{
 		this.tripletFichier.setGphFile(tripletFichier.getGphFile());
 		this.tripletFichier.setGPHPath(tripletFichier.getGphFile().getFilePath());
 		buildEditeursGph_Bin();
 		initPositionEditeurs();
 	}
-	
-	public void ajouterEditeurSdf(TripletFichier tripletFichier, int indexEditeur){
+
+	public void ajouterEditeurSdf(TripletFichier tripletFichier, int indexEditeur)
+	{
 		this.tripletFichier.setSdfFile(tripletFichier.getSdfFile());
 		this.tripletFichier.setSDFPath(tripletFichier.getSdfFile().getFilePath());
 		buildEditeurSdf();
 		initPositionEditeurs();
-		
+
 	}
 
 	// ----------------------------------------- //
@@ -123,25 +132,31 @@ public class Editeurs extends JSplitPane
 	{
 		return edGph;
 	}
+
 	/**
 	 * @return the tripletFichier
 	 */
-	public TripletFichier getTripletFichier() {
+	public TripletFichier getTripletFichier()
+	{
 		return tripletFichier;
 	}
+
 	/**
 	 * @return the bordureVide
 	 */
-	public Border getBordureVide() {
+	public Border getBordureVide()
+	{
 		return bordureVide;
 	}
 
 	/**
 	 * @return the bordureSelection
 	 */
-	public Border getBordureSelection() {
+	public Border getBordureSelection()
+	{
 		return bordureSelection;
 	}
+
 	// ----------------------------------------- //
 	// --------------- MUTATEURS --------------- //
 	// ----------------------------------------- //
@@ -165,27 +180,31 @@ public class Editeurs extends JSplitPane
 	{
 		this.edGph = edGph;
 	}
+
 	/**
-	 * @param tripletFichier the tripletFichier to set
+	 * @param tripletFichier
+	 *            the tripletFichier to set
 	 */
-	public void setTripletFichier(TripletFichier tripletFichier) {
+	public void setTripletFichier(TripletFichier tripletFichier)
+	{
 		this.tripletFichier = tripletFichier;
 	}
 
-	
-
 	/**
-	 * @param bordureVide the bordureVide to set
+	 * @param bordureVide
+	 *            the bordureVide to set
 	 */
-	public void setBordureVide(Border bordureVide) {
+	public void setBordureVide(Border bordureVide)
+	{
 		this.bordureVide = bordureVide;
 	}
 
-
 	/**
-	 * @param bordureSelection the bordureSelection to set
+	 * @param bordureSelection
+	 *            the bordureSelection to set
 	 */
-	public void setBordureSelection(Border bordureSelection) {
+	public void setBordureSelection(Border bordureSelection)
+	{
 		this.bordureSelection = bordureSelection;
 	}
 }

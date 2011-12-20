@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import modele.editeurs.ModeleTablesEditeurs;
+import modele.editeurs.TablesEditeurs;
 import modele.fichier.FichierBIN;
 
 @SuppressWarnings("serial")
@@ -35,7 +36,7 @@ public class EditeurBIN extends JPanel
 
 	private JTable					tableauBIN;
 	private ModeleTablesEditeurs	modele;
-	private FichierBIN binFile;
+	private FichierBIN				binFile;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -46,7 +47,7 @@ public class EditeurBIN extends JPanel
 		this.binFile = binFile;
 		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		setBackground(BG_COLOR);
-		
+
 		initTitre();
 		initParseur();
 		initModeleEtTable();
@@ -71,20 +72,26 @@ public class EditeurBIN extends JPanel
 
 	private void initParseur()
 	{
-		
-		try{
+
+		try
+		{
 			binFile.initParseur();
 		}
-		catch (Exception e) {}
+		catch (Exception e)
+		{
+		}
 	}
 
 	private void initModeleEtTable()
 	{
-		try{
+		try
+		{
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, binFile.getParseurBIN().convertirListeVersTableau2D());
-			tableauBIN = new JTable(modele);
+			tableauBIN = new TablesEditeurs(modele);
 		}
-		catch(Exception e){}
+		catch (Exception e)
+		{
+		}
 	}
 
 	private void initScroll()
@@ -103,9 +110,6 @@ public class EditeurBIN extends JPanel
 		add(scroll, BorderLayout.CENTER);
 	}
 
-
-	
-
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
@@ -116,7 +120,8 @@ public class EditeurBIN extends JPanel
 	/**
 	 * @return the tableauBIN
 	 */
-	public JTable getTableauBIN() {
+	public JTable getTableauBIN()
+	{
 		return tableauBIN;
 	}
 
@@ -124,9 +129,11 @@ public class EditeurBIN extends JPanel
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 	/**
-	 * @param tableauBIN the tableauBIN to set
+	 * @param tableauBIN
+	 *            the tableauBIN to set
 	 */
-	public void setTableauBIN(JTable tableauBIN) {
+	public void setTableauBIN(JTable tableauBIN)
+	{
 		this.tableauBIN = tableauBIN;
 	}
 }

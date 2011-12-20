@@ -30,11 +30,11 @@ public class FenetreAPropos extends JWindow
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
 	
-	private final static String VERSION = "v1.0";
-	private static final String	REVISON	= null;
+	private final static String VERSION = "v0.9";
+	private static final String	REVISON	= "4b59ee2079";
 	private static String	_ICON_PATH	= "/images/icones/";
 
-	private Dimension		dimension	= new Dimension(350, 330);
+	private Dimension		dimension	= new Dimension(450, 380);
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
@@ -50,7 +50,6 @@ public class FenetreAPropos extends JWindow
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		this.setAlwaysOnTop(true);
-		
 		initComponenent();
 	}
 
@@ -98,9 +97,9 @@ public class FenetreAPropos extends JWindow
 				"<html>" +
 						"<p style=\"text-align : justify\">" +
 							"Dis'Toxic (Display Toxicities) est un logiciel d'affichage " +
-							"et d'édition de fichiers contenant des fragments " +
-							"moléculaires dont un certain nombre représente " +
-							"des fragments catalyseurs de toxicités." +
+							"et d'Ã©dition de fichiers contenant des fragments " +
+							"molÃ©culaires dont un certain nombre reprÃ©sente " +
+							"des fragments catalyseurs de toxicitÃ©s." +
 						"</p>"+
 				"</html>"
 						
@@ -129,17 +128,17 @@ public class FenetreAPropos extends JWindow
 		version.setForeground(Color.GRAY);
 		JButton fermer = new JButton("Fermer");
 
-		JPanel bottom_left = new JPanel(new BorderLayout());
+		JPanel bottom_left = new JPanel(new FlowLayout());
 		bottom_left.setBackground(Color.WHITE);
-		bottom_left.add(revision, BorderLayout.WEST);
+		bottom_left.add(version);
 		
 		JPanel bottom_center = new JPanel();
 		bottom_center.setBackground(Color.WHITE);
-		bottom_center.add(fermer);
+		bottom_center.add(revision);
 
-		JPanel bottom_right = new JPanel(new BorderLayout());
+		JPanel bottom_right = new JPanel(new FlowLayout());
 		bottom_right.setBackground(Color.WHITE);
-		bottom_right.add(version, BorderLayout.EAST);
+		bottom_right.add(fermer);
 
 		JPanel bottom = new JPanel(new GridLayout(1,3));
 		bottom.setBackground(Color.WHITE);
