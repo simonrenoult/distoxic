@@ -20,7 +20,6 @@ public class FragmentMolecule
 	private LinkedList<LinkedList<String>>				liaisons;
 	private LinkedList<Liaison>							listeLiaison;
 	private LinkedList<Balise>							balises;
-	private LinkedList<String>							contenuBalises;
 	private LinkedHashMap<String, LinkedList<String>>	infos;
 
 	// ----------------------------------------- //
@@ -34,7 +33,6 @@ public class FragmentMolecule
 		setLiaisons(new LinkedList<LinkedList<String>>());
 		setListeLiaison(new LinkedList<Liaison>());
 		setBalises(new LinkedList<Balise>());
-		setContenuBalises(new LinkedList<String>());
 		setInfos(new LinkedHashMap<String, LinkedList<String>>());
 	}
 
@@ -104,11 +102,6 @@ public class FragmentMolecule
 		return balises;
 	}
 
-	public LinkedList<String> getContenuBalises()
-	{
-		return contenuBalises;
-	}
-
 	public String[] getResumeContenu()
 	{
 		return resumeContenu;
@@ -150,11 +143,6 @@ public class FragmentMolecule
 	public void setBalises(LinkedList<Balise> balises)
 	{
 		this.balises = balises;
-	}
-
-	public void setContenuBalises(LinkedList<String> contenuBalises)
-	{
-		this.contenuBalises = contenuBalises;
 	}
 
 	public void setResumeContenu(String[] resumeContenu)
