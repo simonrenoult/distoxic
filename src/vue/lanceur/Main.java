@@ -10,6 +10,8 @@ public class Main
 	@SuppressWarnings("unused")
 	public static void main(String[] args)
 	{
+		System.setProperty("file.encoding", "UTF-8");
+
 		WorkspaceModele modele = new WorkspaceModele(0);
 		if(!modele.workspaceExistant()){
 			//System.err.println("Le worspace n'a pas été trouvé");

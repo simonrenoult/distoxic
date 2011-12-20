@@ -32,8 +32,8 @@ public class FenetrePrincipale extends JFrame
 	// ----------------------------------------- //
 	
 	private BarreMenu			menu;
-	private ConteneurGlobal		conteneurGlobal;
 	private BarreOutils			barreOutils;
+	private ConteneurGlobal		conteneurGlobal;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //

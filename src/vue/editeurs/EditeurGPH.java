@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import modele.editeurs.ModeleTablesEditeurs;
+import modele.editeurs.TablesEditeurs;
 import modele.fichier.FichierGPH;
 
 @SuppressWarnings("serial")
@@ -37,7 +38,7 @@ public class EditeurGPH extends JPanel
 	private JTable					tableauGPH;
 	private ModeleTablesEditeurs	modele;
 
-	private FichierGPH					gphFile;
+	private FichierGPH				gphFile;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -85,11 +86,8 @@ public class EditeurGPH extends JPanel
 	{
 		try
 		{
-			System.out.println(gphFile);
-			System.out.println(gphFile.getParseurGPH());
-			System.out.println(gphFile.getParseurGPH().convertirListeVersTableau2D());
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, gphFile.getParseurGPH().convertirListeVersTableau2D());
-			tableauGPH = new JTable(modele);
+			tableauGPH = new TablesEditeurs(modele);
 		}
 		catch (Exception e)
 		{
