@@ -30,8 +30,8 @@ public class FenetreAPropos extends JWindow
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
 	
-	private final static String VERSION = "v1.0";
-	private static final String	REVISON	= null;
+	private final static String VERSION = "v0.9";
+	private static final String	REVISON	= "1";
 	private static String	_ICON_PATH	= "/images/icones/";
 
 	private Dimension		dimension	= new Dimension(350, 330);
@@ -129,17 +129,17 @@ public class FenetreAPropos extends JWindow
 		version.setForeground(Color.GRAY);
 		JButton fermer = new JButton("Fermer");
 
-		JPanel bottom_left = new JPanel(new BorderLayout());
+		JPanel bottom_left = new JPanel(new FlowLayout());
 		bottom_left.setBackground(Color.WHITE);
-		bottom_left.add(revision, BorderLayout.WEST);
+		bottom_left.add(version);
 		
 		JPanel bottom_center = new JPanel();
 		bottom_center.setBackground(Color.WHITE);
-		bottom_center.add(fermer);
+		bottom_center.add(revision);
 
-		JPanel bottom_right = new JPanel(new BorderLayout());
+		JPanel bottom_right = new JPanel(new FlowLayout());
 		bottom_right.setBackground(Color.WHITE);
-		bottom_right.add(version, BorderLayout.EAST);
+		bottom_right.add(fermer);
 
 		JPanel bottom = new JPanel(new GridLayout(1,3));
 		bottom.setBackground(Color.WHITE);
