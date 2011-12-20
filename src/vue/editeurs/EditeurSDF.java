@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import modele.editeurs.ModeleTablesEditeurs;
+import modele.editeurs.TablesEditeurs;
 import modele.fichier.FichierSDF;
 import modele.parseurs.ParseurSDF;
 
@@ -38,7 +39,7 @@ public class EditeurSDF extends JPanel
 	private JTable					tableauSDF;
 	private ModeleTablesEditeurs	modele;
 
-	private FichierSDF					sdfFile;
+	private FichierSDF				sdfFile;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -91,11 +92,11 @@ public class EditeurSDF extends JPanel
 		{
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
 			tableauSDF = new JTable(modele);
-		
+
 			TITRES_TABLEAU = recupererTitresTableau(sdfFile.getParseurSDF());
 
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
-			tableauSDF = new JTable(modele);
+			tableauSDF = new TablesEditeurs(modele);
 		}
 		catch (NullPointerException e)
 		{
