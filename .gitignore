@@ -1,23 +1,9 @@
-<<<<<<< HEAD
 # Do not consider bin files
 bin*
 
 # Ignore eclipse files
 .classpath
 .project
-.umlproject
 
 # Ignore temporay files
 *~
-=======
-# Do not consider bin/ files
-bin/
-
-# Ignore eclipse files
-.classpath
-.project
-.umlproject
-
-# Ignore temporay files
-*~
->>>>>>> fa8787d28072b8f656e2eeda3b22fc3084970fc9
