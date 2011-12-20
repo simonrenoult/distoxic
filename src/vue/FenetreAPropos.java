@@ -50,7 +50,6 @@ public class FenetreAPropos extends JWindow
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		this.setAlwaysOnTop(true);
-		
 		initComponenent();
 	}
 
