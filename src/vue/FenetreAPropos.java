@@ -31,10 +31,10 @@ public class FenetreAPropos extends JWindow
 	// ----------------------------------------- //
 	
 	private final static String VERSION = "v0.9";
-	private static final String	REVISON	= "1";
+	private static final String	REVISON	= "4b59ee2079";
 	private static String	_ICON_PATH	= "/images/icones/";
 
-	private Dimension		dimension	= new Dimension(350, 330);
+	private Dimension		dimension	= new Dimension(450, 380);
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
@@ -97,9 +97,9 @@ public class FenetreAPropos extends JWindow
 				"<html>" +
 						"<p style=\"text-align : justify\">" +
 							"Dis'Toxic (Display Toxicities) est un logiciel d'affichage " +
-							"et d'édition de fichiers contenant des fragments " +
-							"moléculaires dont un certain nombre représente " +
-							"des fragments catalyseurs de toxicités." +
+							"et d'Ã©dition de fichiers contenant des fragments " +
+							"molÃ©culaires dont un certain nombre reprÃ©sente " +
+							"des fragments catalyseurs de toxicitÃ©s." +
 						"</p>"+
 				"</html>"
 						
