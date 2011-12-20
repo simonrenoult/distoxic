@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-import modele.TripletFichier;
 import vue.FenetreAPropos;
 import vue.FenetreExportationTripletFichier;
 import vue.FenetreImportationTripletFichier;
@@ -18,12 +17,14 @@ public class EcouteurBarreMenu implements ActionListener
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
-	
+
 	private FenetrePrincipale	fenetrePrincipale;
 
 	private BarreMenu			bm;
 	private MenuFichier			mf;
 	private MenuAPropos			ma;
+
+	private FenetreAPropos		fenetreAPropos;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
@@ -33,7 +34,7 @@ public class EcouteurBarreMenu implements ActionListener
 	{
 		this.fenetrePrincipale = fenetrePrincipale;
 		this.bm = fenetrePrincipale.getMenu();
-		
+
 		initListenersMenuFichier();
 		initListenersMenuAPropos();
 	}
@@ -41,7 +42,7 @@ public class EcouteurBarreMenu implements ActionListener
 	// ----------------------------------------- //
 	// ------------ INITIALISEURS -------------- //
 	// ----------------------------------------- //
-	
+
 	private void initListenersMenuFichier()
 	{
 		mf = (MenuFichier) bm.getMenuFichier();
@@ -53,14 +54,14 @@ public class EcouteurBarreMenu implements ActionListener
 		mf.getExporter().addActionListener(this);
 		mf.getQuitter().addActionListener(this);
 	}
-	
+
 	private void initListenersMenuAPropos()
 	{
 		ma = (MenuAPropos) bm.getMenuAPropos();
 		ma.getAide().addActionListener(this);
 		ma.getAPropos().addActionListener(this);
 	}
-	
+
 	private void lancerMessageErreur(String message)
 	{
 		JOptionPane.showMessageDialog(null, message, "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -75,7 +76,7 @@ public class EcouteurBarreMenu implements ActionListener
 	{
 		if (e.getSource() == mf.getNouveau())
 		{
-			
+
 		}
 		else if (e.getSource() == mf.getOuvrir())
 		{
@@ -116,10 +117,21 @@ public class EcouteurBarreMenu implements ActionListener
 		{
 			System.exit(0);
 		}
-		else if(e.getSource() == ma.getAPropos())
+		else if (e.getSource() == ma.getAPropos())
 		{
-			FenetreAPropos f = new FenetreAPropos();
+			setFenetreAPropos(new FenetreAPropos(fenetrePrincipale));
+			fenetrePrincipale.setEnabled(false);
 		}
+	}
+
+	public FenetreAPropos getFenetreAPropos()
+	{
+		return fenetreAPropos;
+	}
+
+	public void setFenetreAPropos(FenetreAPropos fenetreAPropos)
+	{
+		this.fenetreAPropos = fenetreAPropos;
 	}
 
 }

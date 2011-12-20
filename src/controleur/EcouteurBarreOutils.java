@@ -16,23 +16,23 @@ public class EcouteurBarreOutils implements ActionListener
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
 
-	private BarreOutils panel;
-	private FenetrePrincipale fenetrePrincipale;
+	private BarreOutils							panel;
+	private FenetrePrincipale					fenetrePrincipale;
 	@SuppressWarnings("unused")
-	private FenetreImportationTripletFichier fenetreImportation;
+	private FenetreImportationTripletFichier	fenetreImportation;
 	@SuppressWarnings("unused")
-	private FenetreExportationTripletFichier fenetreExportation;
+	private FenetreExportationTripletFichier	fenetreExportation;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
+
 	public EcouteurBarreOutils(FenetrePrincipale fenetrePrincipale)
 	{
 		this(fenetrePrincipale.getBarreOutils());
 		this.fenetrePrincipale = fenetrePrincipale;
-		
 	}
-	
+
 	public EcouteurBarreOutils(BarreOutils bo)
 	{
 		panel = bo;
@@ -48,10 +48,11 @@ public class EcouteurBarreOutils implements ActionListener
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-	private void LancerMessageErreur(String message){
-		JOptionPane.showMessageDialog(null,message
-				, "Erreur",JOptionPane.ERROR_MESSAGE);
+	private void LancerMessageErreur(String message)
+	{
+		JOptionPane.showMessageDialog(null, message, "Erreur", JOptionPane.ERROR_MESSAGE);
 	}
+
 	// ----------------------------------------- //
 	// ---------------- LISTENERS -------------- //
 	// ----------------------------------------- //
@@ -61,44 +62,52 @@ public class EcouteurBarreOutils implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if(e.getSource() == panel.getNouveau()){
-			
+		if (e.getSource() == panel.getNouveau())
+		{
+
 		}
-		else if (e.getSource() == panel.getImporter()){
+		else if (e.getSource() == panel.getImporter())
+		{
 			fenetreImportation = new FenetreImportationTripletFichier(fenetrePrincipale);
 		}
-		else if (e.getSource() == panel.getExporter()){
-			try{
-				String dossier = fenetrePrincipale.getConteneurGlobal().getNavigateur().
-						getTree().getSelectionPath().toString();
-				dossier = dossier.substring(3, dossier.length()-1);
-				fenetreExportation = new FenetreExportationTripletFichier(fenetrePrincipale,dossier);
+		else if (e.getSource() == panel.getExporter())
+		{
+			try
+			{
+				String dossier = fenetrePrincipale.getConteneurGlobal().getNavigateur().getTree().getSelectionPath()
+						.toString();
+				dossier = dossier.substring(3, dossier.length() - 1);
+				fenetreExportation = new FenetreExportationTripletFichier(fenetrePrincipale, dossier);
 			}
-			catch(NullPointerException eo){
-				 LancerMessageErreur("Veuillez selectionner un projet avant de l'exporter");
+			catch (NullPointerException eo)
+			{
+				LancerMessageErreur("Veuillez selectionner un projet avant de l'exporter");
 			}
 		}
-		else if (e.getSource() == panel.getRafraichir()){
+		else if (e.getSource() == panel.getRafraichir())
+		{
 			this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
 			this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 		}
-		else if (e.getSource() == panel.getEnregistrer()){
-			
+		else if (e.getSource() == panel.getEnregistrer())
+		{
+
 		}
-		else if (e.getSource() == panel.getEnregistrerSous()){
-			
+		else if (e.getSource() == panel.getEnregistrerSous())
+		{
+
 		}
-		else if (e.getSource() == panel.getImprimer()){
-			
+		else if (e.getSource() == panel.getImprimer())
+		{
+
 		}
-		
+
 	}
 
 	// ----------------------------------------- //
 	// -------------- ACCESSEURS --------------- //
 	// ----------------------------------------- //
 
-	
 	// ----------------------------------------- //
 	// --------------- MUTATEURS --------------- //
 	// ----------------------------------------- //
