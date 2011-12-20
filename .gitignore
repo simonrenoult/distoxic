@@ -1,9 +1,5 @@
 # Do not consider bin files
 bin*
 
-# Ignore eclipse files
-.classpath
-.project
-
 # Ignore temporay files
 *~
