@@ -1,6 +1,6 @@
-package modele.fichier;
+package modele.fichiers;
 
-import modele.enregistreur.EnregistreurGPH;
+import modele.enregistreurs.EnregistreurGPH;
 import modele.parseurs.ParseurGPH;
 
 public class FichierGPH implements InitFichier

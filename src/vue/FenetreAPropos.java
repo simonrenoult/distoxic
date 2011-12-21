@@ -97,6 +97,7 @@ public class FenetreAPropos extends JWindow
 
 		JPanel top_left = new JPanel();
 		top_left.add(logo);
+		top_left.setBackground(Color.WHITE);
 		
 		JPanel top_right = new JPanel(new BorderLayout());
 		top_right.add(auteurs, BorderLayout.PAGE_START);

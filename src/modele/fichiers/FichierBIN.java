@@ -1,6 +1,6 @@
-package modele.fichier;
+package modele.fichiers;
 
-import modele.enregistreur.EnregistreurBIN;
+import modele.enregistreurs.EnregistreurBIN;
 import modele.parseurs.ParseurBIN;
 
 public class FichierBIN implements InitFichier {

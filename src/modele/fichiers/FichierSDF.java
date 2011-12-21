@@ -1,45 +1,48 @@
-package modele.fichier;
+package modele.fichiers;
 
-import modele.enregistreur.EnregistreurSDF;
+import modele.enregistreurs.EnregistreurSDF;
 import modele.parseurs.ParseurSDF;
 
-public class FichierSDF implements InitFichier {
+public class FichierSDF implements InitFichier
+{
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 
 	/*
-	 * REMETTRE TOUTES LES CONSTANTES DU PARSEUR DANS CETTE CLASSE.
-	 * ELLES SERVIRONT A L'ENREGISTREMENT.
+	 * REMETTRE TOUTES LES CONSTANTES DU PARSEUR DANS CETTE CLASSE. ELLES
+	 * SERVIRONT A L'ENREGISTREMENT.
 	 */
-	
-	private ParseurSDF parseurSDF = null;
-	private EnregistreurSDF enregistreurSDF = null;
-	private String filePath = null;
-	
+
+	private ParseurSDF		parseurSDF		= null;
+	private EnregistreurSDF	enregistreurSDF	= null;
+	private String			filePath		= null;
+
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
-	public FichierSDF(String path){
+	public FichierSDF(String path)
+	{
 		this.filePath = path;
 	}
+
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 	@Override
-	public void initParseur(){
+	public void initParseur()
+	{
 		parseurSDF = new ParseurSDF(filePath);
 	}
-	
+
 	@Override
-	public void initEnregistreur(){
-		enregistreurSDF = new EnregistreurSDF();
+	public void initEnregistreur()
+	{
+		enregistreurSDF = new EnregistreurSDF(parseurSDF.getFragmentsMolecules());
 	}
 
-	
-	
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
@@ -50,49 +53,55 @@ public class FichierSDF implements InitFichier {
 	/**
 	 * @return the parseurSDF
 	 */
-	public ParseurSDF getParseurSDF() {
+	public ParseurSDF getParseurSDF()
+	{
 		return parseurSDF;
 	}
-	
+
 	/**
 	 * @return the filePath
 	 */
-	public String getFilePath() {
+	public String getFilePath()
+	{
 		return filePath;
 	}
-	
 
 	/**
 	 * @return the enregistreurSDF
 	 */
-	public EnregistreurSDF getEnregistreurSDF() {
+	public EnregistreurSDF getEnregistreurSDF()
+	{
 		return enregistreurSDF;
 	}
-
 
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 	/**
-	 * @param parseurSDF the parseurSDF to set
+	 * @param parseurSDF
+	 *            the parseurSDF to set
 	 */
-	public void setParseurSDF(ParseurSDF parseurSDF) {
+	public void setParseurSDF(ParseurSDF parseurSDF)
+	{
 		this.parseurSDF = parseurSDF;
 	}
-	
+
 	/**
-	 * @param filePath the filePath to set
+	 * @param filePath
+	 *            the filePath to set
 	 */
-	public void setFilePath(String filePath) {
+	public void setFilePath(String filePath)
+	{
 		this.filePath = filePath;
 	}
 
 	/**
-	 * @param enregistreurSDF the enregistreurSDF to set
+	 * @param enregistreurSDF
+	 *            the enregistreurSDF to set
 	 */
-	public void setEnregistreurSDF(EnregistreurSDF enregistreurSDF) {
+	public void setEnregistreurSDF(EnregistreurSDF enregistreurSDF)
+	{
 		this.enregistreurSDF = enregistreurSDF;
 	}
 
-	
 }
