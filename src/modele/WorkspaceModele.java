@@ -12,7 +12,7 @@ public class WorkspaceModele {
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-	private static String _FICHIER_CONFIGURATION = "config.txt";
+	private static String _FICHIER_CONFIGURATION = "configWorkspace.txt";
 	private static String _SEPARATEUR = "<workspace>";
 	private static String _NOMREPERTOIRE_TRAVAIL = "DisToxicProjects";
 	
@@ -28,7 +28,7 @@ public class WorkspaceModele {
 		this.index = index;
 		//l'index est un marqueur utilise par la methode traitementLigne
 		//pour savoir si c'est qu'une simple lecture ou que l'on veuille
-		//la création d'un dossier.
+		//la crï¿½ation d'un dossier.
 	}
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
@@ -39,7 +39,7 @@ public class WorkspaceModele {
 	// ----------------------------------------- //
 	
 	/**
-	 * Lecture du fichier conf.txt pour determiner si le workspace doit être créé.
+	 * Lecture du fichier conf.txt pour determiner si le workspace doit ï¿½tre crï¿½ï¿½.
 	 * @return un boolean de confirmation 
 	 */
 	public boolean lireFichier() {
@@ -72,7 +72,7 @@ public class WorkspaceModele {
 		workspacePath = workspacePath+File.separator+_NOMREPERTOIRE_TRAVAIL;
 		workspaceFile = new File(workspacePath);
 		if(!(workspaceFile.exists() && workspaceFile.isDirectory()) && (index == 0)){
-			//System.out.println("le workspace n'existe pas à l'emplacement inscrit dans le fichier.");
+			//System.out.println("le workspace n'existe pas ï¿½ l'emplacement inscrit dans le fichier.");
 			//System.out.println("fichier : "+workspacePath);
 			return false;
 		}
@@ -88,7 +88,7 @@ public class WorkspaceModele {
 	}
 	
 	/**
-	 * Methode creant le dossier recensant tous les projets qu'on va y déposer après. la JTree se creera a partir de ce dossier.
+	 * Methode creant le dossier recensant tous les projets qu'on va y dï¿½poser aprï¿½s. la JTree se creera a partir de ce dossier.
 	 * @param path
 	 * @return un booleen de verification sur la creation du repertoire.
 	 */
@@ -117,7 +117,7 @@ public class WorkspaceModele {
 				//System.out.println("Echec de l'Ecriture sur fichier.");
 				return false;
 			}
-		//System.out.println("Ecriture sur fichier terminé avec succès");
+		//System.out.println("Ecriture sur fichier terminï¿½ avec succï¿½s");
 			return true;
 			
 		

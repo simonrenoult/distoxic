@@ -24,8 +24,7 @@ public class NavigateurFichiers extends JPanel
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-	private static String		_ICON_PATH	= "src" + File.separator + "images" + File.separator + "icones"
-			+ File.separator;
+	private static String		_ICON_PATH	= "/images/icones/";
 	public static Integer			TAILLE_X	= 200;
 	public static Integer			TAILLE_Y	= ConteneurGlobal.TAILLE_Y;
 	
@@ -62,7 +61,7 @@ public class NavigateurFichiers extends JPanel
 		buildJtreeComponentList(workspace,racine);
 		tree = new JTree(racine);
 		
-		//Une selection à la fois.
+		//Une selection ï¿½ la fois.
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		
 		//Customizer la JTree
@@ -70,7 +69,7 @@ public class NavigateurFichiers extends JPanel
 		tree.setShowsRootHandles(true);
 		tree.putClientProperty("JTree.lineStyle", "Angled");
 		
-		ImageIcon leafIcon = new ImageIcon(_ICON_PATH+"chart_stock.png");
+		ImageIcon leafIcon = new ImageIcon(getClass().getResource(_ICON_PATH+"chart_stock.png"));
 		if (leafIcon != null) {
 		    DefaultTreeCellRenderer renderer =  new DefaultTreeCellRenderer();
 		    renderer.setLeafIcon(leafIcon);

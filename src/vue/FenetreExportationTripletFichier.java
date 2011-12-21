@@ -28,7 +28,7 @@ public class FenetreExportationTripletFichier extends JFrame{
 		private JPanel containerPrincipal = new JPanel();
 		private JPanel containerInformation = new JPanel();
 		private JPanel containerSelectionArchive = new JPanel();
-		private JLabel iconeInformation = new JLabel(new ImageIcon("src/images/icones/folder_explore.png"));
+		private JLabel iconeInformation = new JLabel(new ImageIcon(getClass().getResource("/images/icones/folder_explore.png")));
 		private JLabel message = new JLabel("Select a directory to export the Dis'Toxic project.");
 		private JRadioButton exporterArchive = new JRadioButton("Exporter vers une archive .zip");
 		private JRadioButton exporterDossier = new JRadioButton("Exporter vers un repertoire   ");

@@ -27,13 +27,13 @@ public class FenetreImportationTripletFichier extends JFrame{
 		private JPanel containerPrincipal = new JPanel();
 		private JPanel containerInformation = new JPanel();
 		private JPanel containerSelectionArchive = new JPanel();
-		private JLabel iconeInformation = new JLabel(new ImageIcon("src/images/icones/folder_explore.png"));
+		private JLabel iconeInformation = new JLabel(new ImageIcon(getClass().getResource("/images/icones/folder_explore.png")));
 		private JLabel message = new JLabel("Select a directory to search for existing Dis'Toxic projects.");
-		private JRadioButton impoterArchive = new JRadioButton("Sélectionner une archive .zip");
-		private JRadioButton impoterDossier = new JRadioButton("Sélectionner un dossier         ");
+		private JRadioButton impoterArchive = new JRadioButton("Selectionner un archive .zip");
+		private JRadioButton impoterDossier = new JRadioButton("Selectionner un dossier         ");
 		private ButtonGroup groupeBouton = new ButtonGroup();
-		private JButton archiveBouton = new JButton("Sélectionner");
-		private JButton dossierBouton = new JButton("Sélectionner"); 
+		private JButton archiveBouton = new JButton("Selectionner");
+		private JButton dossierBouton = new JButton("Selectionner"); 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //

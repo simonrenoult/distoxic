@@ -11,21 +11,36 @@ public class Main
 	public static void main(String[] args)
 	{
 		System.setProperty("file.encoding", "UTF-8");
-
+			
+		
 		WorkspaceModele modele = new WorkspaceModele(0);
 		if(!modele.workspaceExistant()){
-			//System.err.println("Le worspace n'a pas été trouvé");
-			
-			FenetreChoixWorkspace fe = new FenetreChoixWorkspace(modele);
-			EcouteurFenetreWorkspace e  = new EcouteurFenetreWorkspace(fe,modele);
-			while(!e.isLancerFenetrePrincipale()){}
-			FenetrePrincipale f = new FenetrePrincipale();
+			//System.err.println("Le worspace n'a pas ï¿½tï¿½ trouvï¿½");
+			try{
+				FenetreChoixWorkspace fe = new FenetreChoixWorkspace(modele);
+				EcouteurFenetreWorkspace e  = new EcouteurFenetreWorkspace(fe,modele);
+				while(!e.isLancerFenetrePrincipale()){}
+				FenetrePrincipale f = new FenetrePrincipale();
+				f.setVisible(true);
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+			e.printStackTrace();
+			}
 		}
 		else{
-			//System.out.println("Le worspace a été trouvé");
+			//System.out.println("Le worspace a ï¿½tï¿½ trouvï¿½");
+		try{
 			FenetrePrincipale f = new FenetrePrincipale();
+			f.setVisible(true);
 		}
+		catch (Exception e) {
+			 e.printStackTrace();
+		}
+		}
+			
 		
-	}
+		}
+	
 		
 }

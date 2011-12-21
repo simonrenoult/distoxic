@@ -36,8 +36,8 @@ public class FenetreChoixWorkspace extends JFrame
 	private JPanel			containerInformation		= new JPanel();
 	private JPanel			containerSelectionWorkspace	= new JPanel();
 
-	private JLabel			iconeInformation			= new JLabel(new ImageIcon(
-																"src/images/icones/folder_explore.png"));
+	private JLabel			iconeInformation			= new JLabel(new ImageIcon(getClass().getResource(
+																"/images/icones/folder_explore.png")));
 	private JLabel			message1					= new JLabel(
 																"Dis'Toxic sauvegarde vos projets dans un dossier nomme DisToxicProjects.");
 	private JLabel			message2					= new JLabel(
