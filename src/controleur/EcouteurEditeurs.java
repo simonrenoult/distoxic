@@ -75,16 +75,26 @@ public void selectionBordure(MouseEvent e){
 		ed.getEdGph().setBorder(bordureVide);
 		ed.getEdBin().setBorder(bordureSelection);
 		ed.getEdSdf().setBorder(bordureVide);
+		ed.getEdGph().getGphFile().setFlank(false);
+		ed.getEdBin().getBinFile().setFlank(true);
+		ed.getEdSdf().getSdfFile().setFlank(false);
+		
 	}
 	if(e.getSource() == ed.getEdGph().getTableauGPH()){
 		ed.getEdGph().setBorder(bordureSelection);
 		ed.getEdBin().setBorder(bordureVide);
 		ed.getEdSdf().setBorder(bordureVide);
+		ed.getEdGph().getGphFile().setFlank(true);
+		ed.getEdBin().getBinFile().setFlank(false);
+		ed.getEdSdf().getSdfFile().setFlank(false);
 	}
 	if(e.getSource() == ed.getEdSdf().getTableauSDF()){
 		ed.getEdGph().setBorder(bordureVide);
 		ed.getEdBin().setBorder(bordureVide);
 		ed.getEdSdf().setBorder(bordureSelection);
+		ed.getEdGph().getGphFile().setFlank(false);
+		ed.getEdBin().getBinFile().setFlank(false);
+		ed.getEdSdf().getSdfFile().setFlank(true);
 	}
 }
 // ----------------------------------------- //

@@ -18,6 +18,7 @@ public class FichierGPH implements InitFichier
 	private ParseurGPH		parseurGPH;
 	private EnregistreurGPH	enregistreurGPH;
 	private String			filePath;
+	private boolean isFlank = false;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -73,7 +74,13 @@ public class FichierGPH implements InitFichier
 	{
 		return enregistreurGPH;
 	}
-
+	
+	/**
+	 * @return the isFlank
+	 */
+	public boolean isFlank() {
+		return isFlank;
+	}
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
@@ -102,6 +109,15 @@ public class FichierGPH implements InitFichier
 	public void setEnregistreurGPH(EnregistreurGPH enregistreurGPH)
 	{
 		this.enregistreurGPH = enregistreurGPH;
+	}
+
+	
+
+	/**
+	 * @param isFlank the isFlank to set
+	 */
+	public void setFlank(boolean isFlank) {
+		this.isFlank = isFlank;
 	}
 
 }

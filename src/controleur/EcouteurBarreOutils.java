@@ -40,9 +40,9 @@ public class EcouteurBarreOutils implements ActionListener
 		panel.getImporter().addActionListener(this);
 		panel.getExporter().addActionListener(this);
 		panel.getRafraichir().addActionListener(this);
-		panel.getEnregistrer().addActionListener(this);
+		panel.getEnregistrerSousTriplet().addActionListener(this);
 		panel.getEnregistrerSous().addActionListener(this);
-		panel.getImprimer().addActionListener(this);
+		//panel.getImprimer().addActionListener(this);
 	}
 
 	// ----------------------------------------- //
@@ -89,18 +89,30 @@ public class EcouteurBarreOutils implements ActionListener
 			this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
 			this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 		}
-		else if (e.getSource() == panel.getEnregistrer())
+		else if (e.getSource() == panel.getEnregistrerSousTriplet())
 		{
-
+			int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
+			System.out.println("Onglet : "+index);
+			System.out.println("Enregistrement de :");
+			System.out.println(fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index).getEdBin().getBinFile().getFilePath());
+			System.out.println(fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index).getEdGph().getGphFile().getFilePath());
+			System.out.println(fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index).getEdSdf().getSdfFile().getFilePath());
 		}
 		else if (e.getSource() == panel.getEnregistrerSous())
 		{
-
+			int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
+			System.out.println("Onglet : "+index);
+			System.out.println("panel BIN encadré : "+fenetrePrincipale.getConteneurGlobal().getEditeur().
+					getEditeurs().get(index).getEdBin().getBinFile().isFlank());
+			System.out.println("panel GPH encadré : "+fenetrePrincipale.getConteneurGlobal().getEditeur().
+					getEditeurs().get(index).getEdGph().getGphFile().isFlank());
+			System.out.println("panel DSF encadré : "+fenetrePrincipale.getConteneurGlobal().getEditeur().
+					getEditeurs().get(index).getEdSdf().getSdfFile().isFlank());
 		}
-		else if (e.getSource() == panel.getImprimer())
+		/*else if (e.getSource() == panel.getImprimer())
 		{
 
-		}
+		}*/
 
 	}
 

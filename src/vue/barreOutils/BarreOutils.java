@@ -2,7 +2,6 @@ package vue.barreOutils;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -30,9 +29,9 @@ public class BarreOutils extends JPanel
 	private JButton				importer;
 	private JButton				exporter;
 	private JButton				rafraichir;
-	private JButton				enregistrer;
+	private JButton				enregistrerSousTriplet;
 	private JButton				enregistrerSous;
-	private JButton				imprimer;
+	//private JButton				imprimer;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
@@ -57,9 +56,9 @@ public class BarreOutils extends JPanel
 		importer = creerBouton("table_import.png", "Importer un projet");
 		exporter = creerBouton("table_export.png", "Exporter un projet");
 		rafraichir = creerBouton("arrow_refresh.png", "Rafraichir l'espace de travail");
-		enregistrer = creerBouton("save_as.png", "Enregistrer");
-		enregistrerSous = creerBouton("save_as.png", "Enregistrer Tous");
-		imprimer = creerBouton("printer.png", "Imprimer");
+		enregistrerSousTriplet = creerBouton("save_all.png", "Enregistrer le triplet");
+		enregistrerSous = creerBouton("save_as.png", "Enregistrer un fichier");
+		//imprimer = creerBouton("printer.png", "Imprimer");
 	}
 
 	private void initBarreMenu()
@@ -71,9 +70,9 @@ public class BarreOutils extends JPanel
 		barreFichier.add(exporter);
 		barreFichier.add(rafraichir);
 		barreFichier.addSeparator();
-		barreFichier.add(enregistrer);
 		barreFichier.add(enregistrerSous);
-		barreFichier.add(imprimer);
+		barreFichier.add(enregistrerSousTriplet);
+		//barreFichier.add(imprimer);
 		barreFichier.addSeparator();
 		barreFichier.setRollover(true);
 	}
@@ -139,18 +138,18 @@ public class BarreOutils extends JPanel
 	/**
 	 * @return the enregistrer
 	 */
-	public JButton getEnregistrer()
+	public JButton getEnregistrerSousTriplet()
 	{
-		return enregistrer;
+		return enregistrerSousTriplet;
 	}
 
 	/**
 	 * @param enregistrer
 	 *            the enregistrer to set
 	 */
-	public void setEnregistrer(JButton enregistrer)
+	public void setEnregistrer(JButton enregistrerSousTriplet)
 	{
-		this.enregistrer = enregistrer;
+		this.enregistrerSousTriplet = enregistrerSousTriplet;
 	}
 
 	/**
@@ -173,19 +172,19 @@ public class BarreOutils extends JPanel
 	/**
 	 * @return the imprimer
 	 */
-	public JButton getImprimer()
+	/*public JButton getImprimer()
 	{
 		return imprimer;
-	}
+	}*/
 
 	/**
 	 * @param imprimer
 	 *            the imprimer to set
 	 */
-	public void setImprimer(JButton imprimer)
+	/*public void setImprimer(JButton imprimer)
 	{
 		this.imprimer = imprimer;
-	}
+	}*/
 
 	/**
 	 * @return the importer

@@ -17,6 +17,7 @@ public class FichierSDF implements InitFichier {
 	private ParseurSDF parseurSDF = null;
 	private EnregistreurSDF enregistreurSDF = null;
 	private String filePath = null;
+	private boolean isFlank = false;
 	
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -69,6 +70,12 @@ public class FichierSDF implements InitFichier {
 		return enregistreurSDF;
 	}
 
+	/**
+	 * @return the isFlank
+	 */
+	public boolean isFlank() {
+		return isFlank;
+	}
 
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
@@ -92,6 +99,13 @@ public class FichierSDF implements InitFichier {
 	 */
 	public void setEnregistreurSDF(EnregistreurSDF enregistreurSDF) {
 		this.enregistreurSDF = enregistreurSDF;
+	}
+	
+	/**
+	 * @param isFlank the isFlank to set
+	 */
+	public void setFlank(boolean isFlank) {
+		this.isFlank = isFlank;
 	}
 
 	

@@ -159,6 +159,12 @@ public class EditeurSDF extends JPanel
 		return tableauSDF;
 	}
 
+	/**
+	 * @return the sdfFile
+	 */
+	public FichierSDF getSdfFile() {
+		return sdfFile;
+	}
 	// ----------------------------------------- //
 	// --------------- MUTATEURS --------------- //
 	// ----------------------------------------- //
@@ -175,5 +181,14 @@ public class EditeurSDF extends JPanel
 	public void setTableauSDF(JTable tableauSDF)
 	{
 		this.tableauSDF = tableauSDF;
+	}
+
+	
+
+	/**
+	 * @param sdfFile the sdfFile to set
+	 */
+	public void setSdfFile(FichierSDF sdfFile) {
+		this.sdfFile = sdfFile;
 	}
 }

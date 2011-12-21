@@ -74,7 +74,7 @@ public class EcouteurNavigateur implements TreeSelectionListener, MouseListener{
 	}
 	
 	/**
-	 * On Regarde si le fichier selectionne par l'utilisateur n'est pas déjà ouvert ceux sur quoi il faudra regarder son etat d'enregistrement.
+	 * On Regarde si le fichier selectionne par l'utilisateur n'est pas dï¿½jï¿½ ouvert ceux sur quoi il faudra regarder son etat d'enregistrement.
 	 * @param filePath
 	 * @param tripletFichier
 	 * @return

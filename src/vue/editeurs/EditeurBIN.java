@@ -134,6 +134,13 @@ public class EditeurBIN extends JPanel
 	{
 		return tableauBIN;
 	}
+	
+	/**
+	 * @return the binFile
+	 */
+	public FichierBIN getBinFile() {
+		return binFile;
+	}
 
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
@@ -145,5 +152,14 @@ public class EditeurBIN extends JPanel
 	public void setTableauBIN(JTable tableauBIN)
 	{
 		this.tableauBIN = tableauBIN;
+	}
+
+	
+
+	/**
+	 * @param binFile the binFile to set
+	 */
+	public void setBinFile(FichierBIN binFile) {
+		this.binFile = binFile;
 	}
 }

@@ -17,7 +17,7 @@ public class FichierBIN implements InitFichier {
 	private ParseurBIN parseurBIN = null;
 	private EnregistreurBIN enregistreurBIN = null;
 	private String filePath = null;
-	
+	private boolean isFlank = false;
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
@@ -70,7 +70,12 @@ public class FichierBIN implements InitFichier {
 		return enregistreurBIN;
 	}
 
-
+	/**
+	 * @return the isFlank
+	 */
+	public boolean isFlank() {
+		return isFlank;
+	}
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
@@ -93,6 +98,15 @@ public class FichierBIN implements InitFichier {
 	 */
 	public void setEnregistreurBIN(EnregistreurBIN enregistreurBIN) {
 		this.enregistreurBIN = enregistreurBIN;
+	}
+
+	
+
+	/**
+	 * @param isFlank the isFlank to set
+	 */
+	public void setFlank(boolean isFlank) {
+		this.isFlank = isFlank;
 	}
 
 	
