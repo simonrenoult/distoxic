@@ -206,4 +206,3 @@ public class FenetreAPropos extends JWindow
 	{
 		this.lienSources = lienSources;
 	}
-}
