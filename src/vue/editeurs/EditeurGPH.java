@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
+import controleur.EcouteurJtable;
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.editeurs.TablesEditeurs;
 import modele.fichier.FichierGPH;
@@ -25,7 +27,7 @@ public class EditeurGPH extends JPanel
 	public final static Color		BG_COLOR		= Color.WHITE;
 
 	private final static String		TITRE			= "Editeur de fichiers *.gph";
-	private final static String[]	TITRES_TABLEAU	= { "Nb atomes", "Nb liaisons", "Classe", "Frequece", "Toxicite",
+	private final static String[]	TITRES_TABLEAU	= { "Nb atomes", "Nb liaisons", "Classe", "Frequence", "Toxicite",
 			"Emergence"							};
 
 	// ----------------------------------------- //
@@ -54,7 +56,10 @@ public class EditeurGPH extends JPanel
 		initParseur();
 		initModeleEtTable();
 		initScroll();
+		initEcouteur();
 	}
+
+	
 
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
@@ -99,11 +104,18 @@ public class EditeurGPH extends JPanel
 	{
 		remove(titre);
 		setLayout(new BorderLayout());
-
 		scroll = new JScrollPane(tableauGPH);
 		scroll.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 
 		add(scroll, BorderLayout.CENTER);
+	}
+	
+	private void initEcouteur() {
+		try{
+			EcouteurJtable e = new EcouteurJtable(tableauGPH);
+		}
+		catch (NullPointerException e){}
+		
 	}
 
 	// ----------------------------------------- //

@@ -201,7 +201,7 @@ public class ParseurGPH implements ParseurGenerique
 		{
 			tableauGPH[i][0] = listeGPH.get(i).getAtomes().size();
 			tableauGPH[i][1] = listeGPH.get(i).getListeLiaison().size();
-			tableauGPH[i][2] = Integer.parseInt(listeGPH.get(i).getBalise("Numero").getValeur());
+			tableauGPH[i][2] = Integer.parseInt(listeGPH.get(i).getBalise("Classe").getValeur());
 			tableauGPH[i][3] = Integer.parseInt(listeGPH.get(i).getBalise("Frequence").getValeur());
 			tableauGPH[i][4] = Float.parseFloat(listeGPH.get(i).getBalise("Toxicite").getValeur());
 			tableauGPH[i][5] = Float.parseFloat(listeGPH.get(i).getBalise("Emergence").getValeur());
@@ -234,7 +234,7 @@ public class ParseurGPH implements ParseurGenerique
 
 	}
 
-	public static void main(String[] args)
+	/*public static void main(String[] args)
 	{
 		ParseurGPH p = new ParseurGPH(".\\workspace\\DisToxicProjects\\exemple_39_45\\test.gph");
 		p.afficherTableau();
@@ -247,7 +247,7 @@ public class ParseurGPH implements ParseurGenerique
 				System.out.println(tmp[i][j]);
 			}
 		}
-	}
+	}*/
 
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //

@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
+import controleur.EcouteurJtable;
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.editeurs.TablesEditeurs;
 import modele.fichier.FichierBIN;
@@ -52,6 +54,7 @@ public class EditeurBIN extends JPanel
 		initParseur();
 		initModeleEtTable();
 		initScroll();
+		initEcouteur();
 	}
 
 	// ----------------------------------------- //
@@ -108,6 +111,13 @@ public class EditeurBIN extends JPanel
 		scroll.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 
 		add(scroll, BorderLayout.CENTER);
+	}
+	private void initEcouteur() {
+		try{
+			EcouteurJtable e = new EcouteurJtable(tableauBIN);
+		}
+		catch (NullPointerException e){}
+		
 	}
 
 	// ----------------------------------------- //
