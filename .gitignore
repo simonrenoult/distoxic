@@ -1,0 +1,5 @@
+# Do not consider bin files
+bin*
+
+# Ignore temporay files
+*~
