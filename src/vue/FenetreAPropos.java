@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -86,12 +85,12 @@ public class FenetreAPropos extends JWindow
 
 		JEditorPane auteurs = new JEditorPane("text/html", "<html>" + "<h3>" + "Auteurs :" + "</h3>"
 				+ " Alexis CHRETIENNE<br />" + " Simon RENOULT" + "</html>");
-		
+
 		lienSite = new JEditorPane("text/html", "<html>" + "<h3>"
 				+ "<a href=\"http://distoxic.github.com/distoxic/\">Page Web</a>" + "</h3>" + "</html>");
 		lienSite.setEditable(false);
-		
-		
+
+
 		lienSources = new JEditorPane("text/html", "<html>" + "<h3>"
 				+ "<a href=\"https://github.com/distoxic/distoxic\">Sources</a>" + "</h3>" + "</html>");
 		lienSources.setEditable(false);
