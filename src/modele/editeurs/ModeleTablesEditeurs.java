@@ -55,11 +55,11 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	}
 	
 	/**
-	 * Permet d'ajouter une ligne dans le tableau
+	 * Permet d'ajouter une ligne en debut de tableau
 	 * 
 	 * @param data
 	 */
-	public void ajouterLigne(Object [] data)
+	public void ajouterLigneDebut(Object [] data)
 	{
 		int cpt = 0;
 		int nbLigne = this.getRowCount(), nbColonne = this.getColumnCount();
@@ -68,13 +68,90 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 		
 		if (tmp != null)
 		{
-			for (Object [] value : tmp)
+			this.donnees[cpt] = data;
+			cpt++;
+			for (Object [] value : tmp){
 				this.donnees[cpt++] = value;
-			
+			}
+		}
+		this.fireTableDataChanged();
+	}
+	
+	/**
+	 * Permet d'ajouter une ligne en fin de tableau
+	 * 
+	 * @param data
+	 */
+	public void ajouterLigneFin(Object [] data)
+	{
+		int cpt = 0;
+		int nbLigne = this.getRowCount(), nbColonne = this.getColumnCount();
+		Object tmp[][] = this.donnees;
+		this.donnees = new Object [nbLigne + 1] [nbColonne];
+		
+		if (tmp != null)
+		{
+			for (Object [] value : tmp){
+				this.donnees[cpt++] = value;
+			}
 			this.donnees[cpt] = data;
 		}
 		this.fireTableDataChanged();
 	}
+	
+	/**
+	 * Peemet d'ajouter une ligne avant la ligne selectionne
+	 * @param data
+	 * @param position
+	 */
+	public void ajouterLigneAvant(Object [] data, int position)
+	{
+		int cpt = 0;
+		int nbLigne = this.getRowCount(), nbColonne = this.getColumnCount();
+		Object tmp[][] = this.donnees.clone();
+		this.donnees = new Object [nbLigne + 1] [nbColonne];
+		if (tmp != null)
+		{
+			for (Object [] value : tmp){
+				if(cpt == position){
+					this.donnees[cpt] = data;
+					cpt++;
+				}
+				this.donnees[cpt] = value;
+				cpt++;
+			}
+			
+		}
+		this.fireTableDataChanged();
+	}
+	
+	/**
+	 * Peemet d'ajouter une ligne apres la ligne selectionne
+	 * @param data
+	 * @param position
+	 */
+	public void ajouterLigneApres(Object [] data, int position)
+	{
+		int cpt = 0;
+		int nbLigne = this.getRowCount(), nbColonne = this.getColumnCount();
+		Object tmp[][] = this.donnees.clone();
+		this.donnees = new Object [nbLigne + 1] [nbColonne];
+		
+		if (tmp != null)
+		{
+			for (Object [] value : tmp){
+				this.donnees[cpt] = value;
+				if(cpt == position){
+					this.donnees[cpt+1] = data;
+					cpt++;
+				}
+				cpt++;
+			}
+			
+		}
+		this.fireTableDataChanged();
+	}
+	
 	
 	/**
 	 * Retourne si un champ spécifique est editable.

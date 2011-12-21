@@ -83,7 +83,7 @@ public class EditeurGPH extends JPanel
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 
@@ -96,7 +96,7 @@ public class EditeurGPH extends JPanel
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 
