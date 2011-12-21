@@ -14,7 +14,7 @@ public class EnteteOnglet extends JPanel {
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-	private static String _ICON_PATH = "src"+File.separator+"images"+File.separator+"icones"+File.separator;
+	private static String _ICON_PATH = "/images/icones/";
 	
 	private JLabel label;
 	private JButton button;
@@ -25,7 +25,7 @@ public class EnteteOnglet extends JPanel {
 	public EnteteOnglet(String title){
 		
 		
-		icon =  new ImageIcon(_ICON_PATH+"cross.png");
+		icon =  new ImageIcon(getClass().getResource(_ICON_PATH+"cross.png"));
 		
 		label = new JLabel(title);
 		this.add(label);
