@@ -95,14 +95,9 @@ public class FenetreAPropos extends JWindow
 				+ "<a href=\"https://github.com/distoxic/distoxic\">Sources</a>" + "</h3>" + "</html>");
 		lienSources.setEditable(false);
 
-		JEditorPane infos = new JEditorPane("text/html", "<html>" + "<p style=\"text-align : justify\">"
-				+ "Dis'Toxic (Display Toxicities) est un logiciel d'affichage "
-				+ "et d'édition de fichiers contenant des fragments "
-				+ "moléculaires dont un certain nombre représente " + "des fragments catalyseurs de toxicités."
-				+ "</p>" + "</html>"
-
-		);
-
+		JPanel top_left = new JPanel();
+		top_left.add(logo);
+		
 		JPanel top_right = new JPanel(new BorderLayout());
 		top_right.add(auteurs, BorderLayout.PAGE_START);
 		top_right.add(lienSite, BorderLayout.CENTER);
@@ -110,13 +105,21 @@ public class FenetreAPropos extends JWindow
 
 		JPanel top_top = new JPanel(new GridLayout(1, 3));
 
-		top_top.add(logo);
+		top_top.add(top_left);
 		top_top.add(top_right);
 		top_top.setBackground(Color.WHITE);
 
 		JPanel top = new JPanel(new BorderLayout());
 		top.setBackground(Color.WHITE);
 
+		JEditorPane infos = new JEditorPane("text/html", "<html>" + "<p style=\"text-align : justify\">"
+				+ "Dis'Toxic (Display Toxicities) est un logiciel d'affichage "
+				+ "et d'édition de fichiers contenant des fragments "
+				+ "moléculaires dont un certain nombre représente " + "des fragments catalyseurs de toxicités."
+				+ "</p>" + "</html>"
+
+		);
+		
 		top.add(top_top, BorderLayout.NORTH);
 		top.add(infos, BorderLayout.CENTER);
 
@@ -206,3 +209,4 @@ public class FenetreAPropos extends JWindow
 	{
 		this.lienSources = lienSources;
 	}
+}
