@@ -78,6 +78,7 @@ public class EcouteurBarreMenu implements ActionListener
 		{
 			String inputValue = JOptionPane.showInputDialog("Please input a value");
 			System.out.println(inputValue);
+			
 		}
 		
 		else if (e.getSource() == mf.getEnregistrer())

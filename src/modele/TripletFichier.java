@@ -1,6 +1,7 @@
 package modele;
 
 import java.io.File;
+import java.io.IOException;
 
 import modele.fichiers.FichierBIN;
 import modele.fichiers.FichierGPH;
@@ -171,6 +172,75 @@ public class TripletFichier
 
 		return "";
 
+	}
+	
+	public void creerNouveauProjetVierge(String directoryName){
+		String directoryPath = creerDossierViergeDansWorkspace(directoryName);
+		creerFichierGPH(directoryPath+File.separator+directoryName+".gph");
+		creerFichierSDF(directoryPath+File.separator+directoryName+".sdf");
+		creerFichierBIN(directoryPath+File.separator+directoryName+".bin");
+	}
+	
+	/**
+	 * Creation du fichier BIN lié à un répertoire donné dans le workspace
+	 * @param directoryName
+	 */
+	private boolean creerFichierBIN(String path) {
+		File binFile = new File(path);
+		try {
+			binFile.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * Creation du fichier SDF lié à un répertoire donné dans le workspace
+	 * @param directoryName
+	 */
+	private boolean creerFichierSDF(String path) {
+		File sdfFile = new File(path);
+		try {
+			sdfFile.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	/**
+	 * Creation du fichier GPH lié à un répertoire donné dans le workspace
+	 * @param directoryName
+	 */
+	private boolean creerFichierGPH(String path) {
+		File gphFile = new File(path);
+		try {
+			gphFile.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * Creation d'un dossier dans le dossier du workspace.
+	 * @param DirectoryName
+	 * @return
+	 */
+	public String creerDossierViergeDansWorkspace(String DirectoryName){
+		WorkspaceModele modele = new WorkspaceModele(1);
+		modele.lireFichier();
+		String DirectoryPath = modele.getWorkspacePath()+File.separator+DirectoryName;
+		File newDossier = new File(DirectoryPath);
+		newDossier.mkdir();
+		return DirectoryPath;
 	}
 
 	// ----------------------------------------- //

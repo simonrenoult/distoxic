@@ -52,7 +52,7 @@ public class BarreOutils extends JPanel
 
 	private void initBoutons()
 	{
-		nouveau = creerBouton("folder_add.png", "Nouveau");
+		nouveau = creerBouton("folder_add.png", "Nouveau projet");
 		importer = creerBouton("table_import.png", "Importer un projet");
 		exporter = creerBouton("table_export.png", "Exporter un projet");
 		rafraichir = creerBouton("arrow_refresh.png", "Rafraichir l'espace de travail");
