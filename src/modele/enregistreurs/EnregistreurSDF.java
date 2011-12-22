@@ -260,13 +260,6 @@ public class EnregistreurSDF implements EnregistreurGenerique
 		}
 	}
 
-	public static void main(String[] args)
-	{
-		ParseurSDF p = new ParseurSDF("./workspace/sdf.sdf");
-		@SuppressWarnings("unused")
-		EnregistreurSDF en = new EnregistreurSDF(p.getFragmentsMolecules(), "./workspace/fichier");
-	}
-
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
