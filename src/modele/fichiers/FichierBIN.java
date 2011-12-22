@@ -3,45 +3,49 @@ package modele.fichiers;
 import modele.enregistreurs.EnregistreurBIN;
 import modele.parseurs.ParseurBIN;
 
-public class FichierBIN implements InitFichier {
+public class FichierBIN implements InitFichier
+{
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 
 	/*
-	 * REMETTRE TOUTES LES CONSTANTES DU PARSEUR DANS CETTE CLASSE.
-	 * ELLES SERVIRONT A L'ENREGISTREMENT.
+	 * REMETTRE TOUTES LES CONSTANTES DU PARSEUR DANS CETTE CLASSE. ELLES
+	 * SERVIRONT A L'ENREGISTREMENT.
 	 */
-	
-	private ParseurBIN parseurBIN = null;
-	private EnregistreurBIN enregistreurBIN = null;
-	private String filePath = null;
-	private boolean isChanged = false;
-	private boolean isFlank = false;
+
+	private ParseurBIN		parseurBIN		= null;
+	private EnregistreurBIN	enregistreurBIN	= null;
+	private String			filePath		= null;
+	private boolean			isChanged		= false;
+	private boolean			isFlank			= false;
+
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
-	public FichierBIN(String path){
+	public FichierBIN(String path)
+	{
 		this.filePath = path;
 	}
+
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 
 	@Override
-	public void initParseur(){
+	public void initParseur()
+	{
 		parseurBIN = new ParseurBIN(filePath);
 	}
-	
+
 	@Override
-	public void initEnregistreur(){
+	public void initEnregistreur()
+	{
 		enregistreurBIN = new EnregistreurBIN();
 	}
 
-	
-	
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
@@ -52,78 +56,89 @@ public class FichierBIN implements InitFichier {
 	/**
 	 * @return the parseurBIN
 	 */
-	public ParseurBIN getParseurBIN() {
+	public ParseurBIN getParseurBIN()
+	{
 		return parseurBIN;
 	}
-	
+
 	/**
 	 * @return the filePath
 	 */
-	public String getFilePath() {
+	public String getFilePath()
+	{
 		return filePath;
 	}
-	
 
 	/**
 	 * @return the enregistreurBIN
 	 */
-	public EnregistreurBIN getEnregistreurBIN() {
+	public EnregistreurBIN getEnregistreurBIN()
+	{
 		return enregistreurBIN;
 	}
 
 	/**
 	 * @return the isFlank
 	 */
-	public boolean isFlank() {
+	public boolean isFlank()
+	{
 		return isFlank;
 	}
+
 	/**
 	 * @return the isChanged
 	 */
-	public boolean isChanged() {
+	public boolean isChanged()
+	{
 		return isChanged;
 	}
+
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 	/**
-	 * @param parseurBIN the parseurBIN to set
+	 * @param parseurBIN
+	 *            the parseurBIN to set
 	 */
-	public void setParseurBIN(ParseurBIN parseurBIN) {
+	public void setParseurBIN(ParseurBIN parseurBIN)
+	{
 		this.parseurBIN = parseurBIN;
 	}
-	
+
 	/**
-	 * @param filePath the filePath to set
+	 * @param filePath
+	 *            the filePath to set
 	 */
-	public void setFilePath(String filePath) {
+	public void setFilePath(String filePath)
+	{
 		this.filePath = filePath;
 	}
 
 	/**
-	 * @param enregistreurBIN the enregistreurBIN to set
+	 * @param enregistreurBIN
+	 *            the enregistreurBIN to set
 	 */
-	public void setEnregistreurBIN(EnregistreurBIN enregistreurBIN) {
+	public void setEnregistreurBIN(EnregistreurBIN enregistreurBIN)
+	{
 		this.enregistreurBIN = enregistreurBIN;
 	}
 
-	
-
 	/**
-	 * @param isFlank the isFlank to set
+	 * @param isFlank
+	 *            the isFlank to set
 	 */
-	public void setFlank(boolean isFlank) {
+	public void setFlank(boolean isFlank)
+	{
 		this.isFlank = isFlank;
 	}
 
-	
-
 	/**
-	 * @param isChanged the isChanged to set
+	 * @param isChanged
+	 *            the isChanged to set
 	 */
-	public void setChanged(boolean isChanged) {
+	public void setChanged(boolean isChanged)
+	{
 		this.isChanged = isChanged;
 	}
 
-	
 }

@@ -6,10 +6,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import modele.composantsChimiques.Atome;
 import modele.composantsChimiques.FragmentMolecule;
-import modele.parseurs.ParseurGPH;
-import modele.parseurs.ParseurSDF;
 
 public class EnregistreurSDF implements EnregistreurGenerique
 {

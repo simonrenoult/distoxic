@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-//import controleur.EcouteurJtable;
+import controleur.EcouteurJtable;
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.editeurs.TablesEditeurs;
 import modele.fichiers.FichierBIN;
@@ -38,7 +38,7 @@ public class EditeurBIN extends JPanel
 
 	private JTable					tableauBIN;
 	private ModeleTablesEditeurs	modele;
-	private FichierBIN				binFile;
+	private FichierBIN				fichierBIN;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -46,7 +46,7 @@ public class EditeurBIN extends JPanel
 
 	public EditeurBIN(FichierBIN binFile)
 	{
-		this.binFile = binFile;
+		this.fichierBIN = binFile;
 		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		setBackground(BG_COLOR);
 
@@ -75,7 +75,7 @@ public class EditeurBIN extends JPanel
 	{
 		try
 		{
-			binFile.initParseur();
+			fichierBIN.initParseur();
 		}
 		catch (NullPointerException e)
 		{
@@ -87,7 +87,7 @@ public class EditeurBIN extends JPanel
 	{
 		try
 		{
-			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, binFile.getParseurBIN().convertirListeVersTableau2D());
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierBIN.getParseurBIN().convertirListeVersTableau2D());
 			tableauBIN = new TablesEditeurs(modele);
 			tableauBIN.setAutoCreateRowSorter(true);
 		}
@@ -112,7 +112,8 @@ public class EditeurBIN extends JPanel
 	{
 		try
 		{
-			//EcouteurJtable e = new EcouteurJtable(tableauBIN, binFile, null, null);
+			@SuppressWarnings("unused")
+			EcouteurJtable e = new EcouteurJtable(tableauBIN, fichierBIN, null, null);
 		}
 		catch (NullPointerException e)
 		{
@@ -140,7 +141,7 @@ public class EditeurBIN extends JPanel
 	 */
 	public FichierBIN getBinFile()
 	{
-		return binFile;
+		return fichierBIN;
 	}
 
 	// ----------------------------------------- //
@@ -161,6 +162,6 @@ public class EditeurBIN extends JPanel
 	 */
 	public void setBinFile(FichierBIN binFile)
 	{
-		this.binFile = binFile;
+		this.fichierBIN = binFile;
 	}
 }

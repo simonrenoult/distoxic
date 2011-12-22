@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-//import controleur.EcouteurJtable;
+import controleur.EcouteurJtable;
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.editeurs.TablesEditeurs;
 import modele.fichiers.FichierGPH;
@@ -114,7 +114,8 @@ public class EditeurGPH extends JPanel
 	{
 		try
 		{
-			//EcouteurJtable e = new EcouteurJtable(tableauGPH, null, gphFile, null);
+			@SuppressWarnings("unused")
+			EcouteurJtable e = new EcouteurJtable(tableauGPH, null, fichierGPH, null);
 		}
 		catch (NullPointerException e)
 		{

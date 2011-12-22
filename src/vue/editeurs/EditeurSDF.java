@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-//import controleur.EcouteurJtable;
+import controleur.EcouteurJtable;
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.editeurs.TablesEditeurs;
 import modele.fichiers.FichierSDF;
@@ -41,7 +41,7 @@ public class EditeurSDF extends JPanel
 	private JTable					tableauSDF;
 	private ModeleTablesEditeurs	modele;
 
-	private FichierSDF				sdfFile;
+	private FichierSDF				fichierSDF;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -49,7 +49,7 @@ public class EditeurSDF extends JPanel
 
 	public EditeurSDF(FichierSDF sdfFile)
 	{
-		this.sdfFile = sdfFile;
+		this.fichierSDF = sdfFile;
 		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		setBackground(BG_COLOR);
 
@@ -80,7 +80,7 @@ public class EditeurSDF extends JPanel
 	{
 		try
 		{
-			sdfFile.initParseur();
+			fichierSDF.initParseur();
 		}
 		catch (NullPointerException e)
 		{
@@ -93,9 +93,9 @@ public class EditeurSDF extends JPanel
 	{
 		try
 		{
-			TITRES_TABLEAU = recupererTitresTableau(sdfFile.getParseurSDF());
+			TITRES_TABLEAU = recupererTitresTableau(fichierSDF.getParseurSDF());
 
-			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierSDF.getParseurSDF().convertirListeVersTableau2D());
 			tableauSDF = new TablesEditeurs(modele);
 			tableauSDF.setAutoCreateRowSorter(true);
 		}
@@ -120,7 +120,8 @@ public class EditeurSDF extends JPanel
 	{
 		try
 		{
-			//EcouteurJtable e = new EcouteurJtable(tableauSDF, null, null, sdfFile);
+			@SuppressWarnings("unused")
+			EcouteurJtable e = new EcouteurJtable(tableauSDF, null, null, fichierSDF);
 		}
 		catch (NullPointerException e)
 		{
@@ -167,7 +168,7 @@ public class EditeurSDF extends JPanel
 	 */
 	public FichierSDF getSdfFile()
 	{
-		return sdfFile;
+		return fichierSDF;
 	}
 
 	// ----------------------------------------- //
@@ -194,6 +195,6 @@ public class EditeurSDF extends JPanel
 	 */
 	public void setSdfFile(FichierSDF sdfFile)
 	{
-		this.sdfFile = sdfFile;
+		this.fichierSDF = sdfFile;
 	}
 }
