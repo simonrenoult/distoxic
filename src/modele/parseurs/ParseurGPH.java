@@ -199,6 +199,7 @@ public class ParseurGPH implements ParseurGenerique
 
 		for (int i = 0 ; i < tableauGPH.length ; i++)
 		{
+			//tableauGPH[i][0] = i ;
 			tableauGPH[i][0] = listeGPH.get(i).getAtomes().size();
 			tableauGPH[i][1] = listeGPH.get(i).getListeLiaison().size();
 			tableauGPH[i][2] = Integer.parseInt(listeGPH.get(i).getBalise("Classe").getValeur());

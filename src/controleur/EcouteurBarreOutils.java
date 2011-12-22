@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import vue.FenetreExportationTripletFichier;
 import vue.FenetreImportationTripletFichier;
@@ -48,6 +49,74 @@ public class EcouteurBarreOutils implements ActionListener
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
+	/**
+	 * Permet d'enregistrer l'ensemble des tableaux d'un onglet (de 1 à 3).
+	 */
+	private void enregistrerSousTriplet() {
+		int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
+		//System.out.println("Onglet : "+index);
+		System.out.println("Enregistrement de :");
+		
+		if(fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(index).getEdBin().getBinFile() != null){
+			System.out.println("Enregistrement BIN de l'onglet "+index);
+			System.out.println("Adresse mère du fichier :"+fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().
+									get(index).getEdBin().getBinFile().getFilePath());
+		}
+		
+		if(fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(index).getEdGph().getGphFile() != null){
+			System.out.println("Enregistrement GPH de l'onglet "+index);
+			System.out.println("Adresse mère du fichier :"+fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().
+					get(index).getEdGph().getGphFile().getFilePath());
+		}
+		
+		if(fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(index).getEdSdf().getSdfFile() != null){
+			System.out.println("Enregistrement SDF de l'onglet "+index);
+			System.out.println("Adresse mère du fichier :"+fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().
+					get(index).getEdSdf().getSdfFile().getFilePath());
+		}
+		
+	}
+
+	/**
+	 * Permet d'enregistrer un fichier à la fois (le tableau encadré).
+	 */
+	private void enregistrerSousUniteTriplet() {
+		int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
+		//System.out.println("Onglet : "+index);
+		
+		if(fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(index).getEdBin().getBinFile() != null &&
+				fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(index).getEdBin().getBinFile().isFlank()
+					){
+			System.out.println("Enregistrement BIN de l'onglet "+index);
+		}
+		else if(fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(index).getEdGph().getGphFile() != null &&
+			fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(index).getEdGph().getGphFile().isFlank())  
+				{
+			System.out.println("Enregistrement GPH de l'onglet "+index);
+		}
+		else if (fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(index).getEdSdf().getSdfFile() != null &&
+				fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(index).getEdSdf().getSdfFile().isFlank()
+				){
+			System.out.println("Enregistrement SDF de l'onglet "+index);
+		}
+		else{
+			System.out.println("Aucun tableau n'a été sélectionné");
+		}
+	}
+	
+	/**
+	 * Permet de lancer un message d'erreur
+	 * @param message : contenu du message d'erreur.
+	 */
 	private void LancerMessageErreur(String message)
 	{
 		JOptionPane.showMessageDialog(null, message, "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -91,31 +160,28 @@ public class EcouteurBarreOutils implements ActionListener
 		}
 		else if (e.getSource() == panel.getEnregistrerSousTriplet())
 		{
-			int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
-			System.out.println("Onglet : "+index);
-			System.out.println("Enregistrement de :");
-			System.out.println(fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index).getEdBin().getBinFile().getFilePath());
-			System.out.println(fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index).getEdGph().getGphFile().getFilePath());
-			System.out.println(fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index).getEdSdf().getSdfFile().getFilePath());
+			try{
+				enregistrerSousTriplet();
+			}
+			catch (IndexOutOfBoundsException arg0) {
+				LancerMessageErreur("Aucun tableau n'a été selectionné depuis l'espace de travail.");
+				
+			}
+			
 		}
 		else if (e.getSource() == panel.getEnregistrerSous())
 		{
-			int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
-			System.out.println("Onglet : "+index);
-			System.out.println("panel BIN encadré : "+fenetrePrincipale.getConteneurGlobal().getEditeur().
-					getEditeurs().get(index).getEdBin().getBinFile().isFlank());
-			System.out.println("panel GPH encadré : "+fenetrePrincipale.getConteneurGlobal().getEditeur().
-					getEditeurs().get(index).getEdGph().getGphFile().isFlank());
-			System.out.println("panel DSF encadré : "+fenetrePrincipale.getConteneurGlobal().getEditeur().
-					getEditeurs().get(index).getEdSdf().getSdfFile().isFlank());
+			try{
+				enregistrerSousUniteTriplet();
+			}
+			catch (IndexOutOfBoundsException arg0) {
+				LancerMessageErreur("Aucun tableau n'a été selectionné depuis l'espace de travail.");
+			}
 		}
-		/*else if (e.getSource() == panel.getImprimer())
-		{
-
-		}*/
+		
 
 	}
-
+	
 	// ----------------------------------------- //
 	// -------------- ACCESSEURS --------------- //
 	// ----------------------------------------- //

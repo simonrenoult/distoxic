@@ -93,6 +93,7 @@ public class EditeurGPH extends JPanel
 		{
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, gphFile.getParseurGPH().convertirListeVersTableau2D());
 			tableauGPH = new TablesEditeurs(modele);
+			tableauGPH.setAutoCreateRowSorter(true);
 		}
 		catch (Exception e)
 		{

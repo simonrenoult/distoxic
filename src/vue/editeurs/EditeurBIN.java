@@ -91,6 +91,7 @@ public class EditeurBIN extends JPanel
 		{
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, binFile.getParseurBIN().convertirListeVersTableau2D());
 			tableauBIN = new TablesEditeurs(modele);
+			tableauBIN.setAutoCreateRowSorter(true);
 		}
 		catch (Exception e)
 		{

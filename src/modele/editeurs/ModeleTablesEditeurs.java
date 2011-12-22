@@ -175,6 +175,10 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 		return data;
 	}
 	
+	public void sort(int colonne){
+		System.out.println("tri colonne "+colonne);
+	}
+	
 	
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //

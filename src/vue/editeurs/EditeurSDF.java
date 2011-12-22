@@ -100,6 +100,7 @@ public class EditeurSDF extends JPanel
 
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
 			tableauSDF = new TablesEditeurs(modele);
+			tableauSDF.setAutoCreateRowSorter(true);
 		}
 		catch (NullPointerException e)
 		{
