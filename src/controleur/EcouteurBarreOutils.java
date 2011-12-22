@@ -83,7 +83,7 @@ public class EcouteurBarreOutils implements ActionListener
 			}
 		}
 		catch (IndexOutOfBoundsException arg0) {
-			LancerMessageErreur("Aucun tableau n'a été selectionné depuis l'espace de travail.");
+			lancerMessageErreur("Aucun tableau n'a été selectionné depuis l'espace de travail.");
 		}
 	}
 
@@ -115,11 +115,11 @@ public class EcouteurBarreOutils implements ActionListener
 				System.out.println("Enregistrement SDF de l'onglet "+index);
 			}
 			else{
-				LancerMessageErreur("Aucun tableau n'a été sélectionné");
+				lancerMessageErreur("Aucun tableau n'a été sélectionné");
 			}
 		}
 		catch (IndexOutOfBoundsException arg0) {
-			LancerMessageErreur("Aucun tableau n'a été selectionné depuis l'espace de travail.");
+			lancerMessageErreur("Aucun tableau n'a été selectionné depuis l'espace de travail.");
 			
 		}
 	}
@@ -128,7 +128,7 @@ public class EcouteurBarreOutils implements ActionListener
 	 * Permet de lancer un message d'erreur
 	 * @param message : contenu du message d'erreur.
 	 */
-	private void LancerMessageErreur(String message)
+	private void lancerMessageErreur(String message)
 	{
 		JOptionPane.showMessageDialog(null, message, "Erreur", JOptionPane.ERROR_MESSAGE);
 	}
@@ -146,7 +146,7 @@ public class EcouteurBarreOutils implements ActionListener
 		}
 		catch (NullPointerException eo)
 		{
-			LancerMessageErreur("Veuillez selectionner un projet avant de l'exporter");
+			lancerMessageErreur("Veuillez selectionner un projet avant de l'exporter");
 		}
 	}
 	

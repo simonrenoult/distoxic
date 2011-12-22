@@ -53,7 +53,7 @@ public class MenuFichier extends Menu
 
 	private void buildItems()
 	{
-		nouveau = buildMenuItem(nouveau, TITRE_NOUVEAU, KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_MASK));
+		nouveau = buildMenuItem(nouveau, TITRE_NOUVEAU, KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_MASK),"folder_add.png");
 		this.add(nouveau);
 
 		/*ouvrir = buildMenuItem(ouvrir, TITRE_OUVRIR, KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_MASK));
@@ -62,24 +62,24 @@ public class MenuFichier extends Menu
 		this.addSeparator();
 
 		enregistrer = buildMenuItem(enregistrer, TITRE_ENREGISTRER,
-				KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_MASK));
+				KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_MASK),"save_as.png");
 		this.add(enregistrer);
 
 		enregistrerSous = buildMenuItem(enregistrerSous, TITRE_ENREGISTRER_SOUS,
-				KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK | ActionEvent.SHIFT_MASK));
+				KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK | ActionEvent.SHIFT_MASK),"save_all.png");
 		this.add(enregistrerSous);
 
 		this.addSeparator();
 
-		importer = buildMenuItem(importer, TITRE_IMPORTER, KeyStroke.getKeyStroke(KeyEvent.VK_I, KeyEvent.CTRL_MASK));
+		importer = buildMenuItem(importer, TITRE_IMPORTER, KeyStroke.getKeyStroke(KeyEvent.VK_I, KeyEvent.CTRL_MASK),"table_import.png");
 		this.add(importer);
 
-		exporter = buildMenuItem(exporter, TITRE_EXPORTER, KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_MASK));
+		exporter = buildMenuItem(exporter, TITRE_EXPORTER, KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_MASK),"table_export.png");
 		this.add(exporter);
 
 		this.addSeparator();
 
-		quitter = buildMenuItem(quitter, TITRE_QUITTER, KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_MASK));
+		quitter = buildMenuItem(quitter, TITRE_QUITTER, KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_MASK), "");
 		this.add(quitter);
 	}
 
