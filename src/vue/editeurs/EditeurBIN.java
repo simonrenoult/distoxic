@@ -27,7 +27,7 @@ public class EditeurBIN extends JPanel
 	public final static Color		BG_COLOR		= Color.white;
 
 	private final static String		CONTENU_TITRE	= "Editeur de fichiers *.bin";
-	private final static String[]	TITRES_TABLEAU	= { "Classe", "Nombre de fragments" };
+	private final static String[]	TITRES_TABLEAU	= { "Id molécule","Classe", "Nombre de fragments" };
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //

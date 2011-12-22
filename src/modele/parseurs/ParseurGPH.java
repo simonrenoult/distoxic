@@ -195,17 +195,17 @@ public class ParseurGPH implements ParseurGenerique
 	@Override
 	public Object[][] convertirListeVersTableau2D()
 	{
-		Object[][] tableauGPH = new Object[listeGPH.size()][6];
+		Object[][] tableauGPH = new Object[listeGPH.size()][7];
 
 		for (int i = 0 ; i < tableauGPH.length ; i++)
 		{
-			//tableauGPH[i][0] = i ;
-			tableauGPH[i][0] = listeGPH.get(i).getAtomes().size();
-			tableauGPH[i][1] = listeGPH.get(i).getListeLiaison().size();
-			tableauGPH[i][2] = Integer.parseInt(listeGPH.get(i).getBalise("Classe").getValeur());
-			tableauGPH[i][3] = Integer.parseInt(listeGPH.get(i).getBalise("Frequence").getValeur());
-			tableauGPH[i][4] = Float.parseFloat(listeGPH.get(i).getBalise("Toxicite").getValeur());
-			tableauGPH[i][5] = Float.parseFloat(listeGPH.get(i).getBalise("Emergence").getValeur());
+			tableauGPH[i][0] = i ;
+			tableauGPH[i][1] = listeGPH.get(i).getAtomes().size();
+			tableauGPH[i][2] = listeGPH.get(i).getListeLiaison().size();
+			tableauGPH[i][3] = Integer.parseInt(listeGPH.get(i).getBalise("Classe").getValeur());
+			tableauGPH[i][4] = Integer.parseInt(listeGPH.get(i).getBalise("Frequence").getValeur());
+			tableauGPH[i][5] = Float.parseFloat(listeGPH.get(i).getBalise("Toxicite").getValeur());
+			tableauGPH[i][6] = Float.parseFloat(listeGPH.get(i).getBalise("Emergence").getValeur());
 		}
 
 		return tableauGPH;

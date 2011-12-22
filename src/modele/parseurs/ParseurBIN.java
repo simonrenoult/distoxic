@@ -106,12 +106,13 @@ public class ParseurBIN implements ParseurGenerique
 	 */
 	public Object[][] convertirListeVersTableau2D()
 	{
-		Object[][] tmp = new Object[listeBIN.size()][2];
+		Object[][] tmp = new Object[listeBIN.size()][3];
 		
 		for (int i = 0 ; i < tmp.length ; i++)
 		{
-			tmp[i][0] = listeBIN.get(i).get(0);
-			tmp[i][1] = listeBIN.get(i).size() - 1;
+			tmp[i][0] = i;
+			tmp[i][1] = listeBIN.get(i).get(0);
+			tmp[i][2] = listeBIN.get(i).size()-1;
 		}
 		
 		return tmp;
@@ -148,6 +149,20 @@ public class ParseurBIN implements ParseurGenerique
 				System.out.print(liste.get(i).toString()+" ");
 			}
 		}
+	}
+	
+	public String afficherListeFragmentAssociee(int indexMolecule){
+		String line = "";
+		//on echappe 0 car c'est la classe representative de la molecule.
+		for (int i = 1; i< listeBIN.get(indexMolecule).size(); i++){
+			if(i+1 == listeBIN.get(indexMolecule).size()){
+				line = line + listeBIN.get(indexMolecule).get(i).toString();
+			}
+			else{
+				line = line + listeBIN.get(indexMolecule).get(i).toString()+",";
+			}
+		}
+		return line;
 	}
 	// ----------------------------------------- //
 	// -------------- ACCESSEURS --------------- //

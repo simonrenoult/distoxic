@@ -157,7 +157,7 @@ public class ParseurSDF implements ParseurGenerique
 	@Override
 	public Object[][] convertirListeVersTableau2D()
 	{
-		Object[][] tableau = new Object[fragmentsMolecules.size()][calculerLargeurTableau()];
+		Object[][] tableau = new Object[fragmentsMolecules.size()][calculerLargeurTableau()+1];
 
 		for (int i = 0 ; i < tableau.length ; i++)
 			tableau[i] = convertirMoleculeVersTableau(i, fragmentsMolecules.get(i));
@@ -184,17 +184,17 @@ public class ParseurSDF implements ParseurGenerique
 
 	private Object[] convertirMoleculeVersTableau(Integer indice, FragmentMolecule fragment)
 	{
-		Object[] tab = new Object[calculerLargeurTableau()];
-
-		tab[0] = fragment.getAtomes().size();
-		tab[1] = fragment.getLiaisons().size();
+		Object[] tab = new Object[calculerLargeurTableau()+1];
+		tab[0] = indice;
+		tab[1] = fragment.getAtomes().size();
+		tab[2] = fragment.getLiaisons().size();
 
 		LinkedList<String> listeBalises = recupererIntitulesBalises();
 
 		for (int i = 0 ; i < listeBalises.size() ; i++)
 			for (int j = 0 ; j < fragment.getBalises().size() ; j++)
 				if (listeBalises.get(i).equals(fragment.getBalises().get(j).getIntitule()))
-					tab[i + 2] = fragment.getBalises().get(j).getValeur();
+					tab[i + 3] = fragment.getBalises().get(j).getValeur();
 		
 		return tab;
 	}
