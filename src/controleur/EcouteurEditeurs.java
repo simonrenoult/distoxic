@@ -42,7 +42,8 @@ public class EcouteurEditeurs implements MouseListener{
 // ----------------------------------------- //
 @Override
 public void mouseClicked(MouseEvent e) {
-	selectionBordure(e);
+	
+	
 }
 @Override
 public void mouseEntered(MouseEvent e) {
@@ -61,7 +62,13 @@ public void mousePressed(MouseEvent e) {
 }
 @Override
 public void mouseReleased(MouseEvent e) {
-	// TODO Auto-generated method stub
+	// Si on applique la methode directement perte de l'encadrement.
+	if(e.isPopupTrigger()){
+		selectionBordure(e);
+	}
+	else{
+		selectionBordure(e);
+	}
 	
 }
 
@@ -69,38 +76,77 @@ public void mouseReleased(MouseEvent e) {
 // ----------------------------------------- //
 // -----------------METHODES---------------- //
 // ----------------------------------------- //
-public void selectionBordure(MouseEvent e){
-
-	if(e.getSource() == ed.getEdBin().getTableauBIN()){
-		ed.getEdGph().setBorder(bordureVide);
-		ed.getEdBin().setBorder(bordureSelection);
-		ed.getEdSdf().setBorder(bordureVide);
-		ed.getEdGph().getGphFile().setFlank(false);
-		ed.getEdBin().getBinFile().setFlank(true);
-		ed.getEdSdf().getSdfFile().setFlank(false);
-		
+/**
+ * Redirection de l'évenement en fonction du du fichier destinataire.
+ * @param e
+ */
+	public void selectionBordure(MouseEvent e){
+	
+		if(e.getSource() == ed.getEdBin().getTableauBIN()){
+			selectionTableauBin();
+		}
+		if(e.getSource() == ed.getEdGph().getTableauGPH()){
+			selectionTableauGph();
+			
+		}
+		if(e.getSource() == ed.getEdSdf().getTableauSDF()){
+			selectionTableauSdf();
+			
+		}
 	}
-	if(e.getSource() == ed.getEdGph().getTableauGPH()){
+
+
+	/**
+	 * Selection de la bordure et MAJ du cadre graphique pour le BIN.
+	 */
+	private void selectionTableauBin() {
+		ed.getEdBin().setBorder(bordureSelection);
+		ed.getEdGph().setBorder(bordureVide);
+		ed.getEdSdf().setBorder(bordureVide);
+		ed.getEdBin().getBinFile().setFlank(true);
+		if (ed.getEdGph().getGphFile() != null){
+			ed.getEdGph().getGphFile().setFlank(false);
+		}
+		if (ed.getEdSdf().getSdfFile() != null){
+			ed.getEdSdf().getSdfFile().setFlank(false);
+		}
+	}
+	/**
+	 *  Selection de la bordure et MAJ du cadre graphique pour le GPH.
+	 */
+	private void selectionTableauGph() {
 		ed.getEdGph().setBorder(bordureSelection);
 		ed.getEdBin().setBorder(bordureVide);
 		ed.getEdSdf().setBorder(bordureVide);
 		ed.getEdGph().getGphFile().setFlank(true);
-		ed.getEdBin().getBinFile().setFlank(false);
-		ed.getEdSdf().getSdfFile().setFlank(false);
+		if (ed.getEdBin().getBinFile() != null){
+			ed.getEdBin().getBinFile().setFlank(false);
+		}
+		if (ed.getEdSdf().getSdfFile() != null){
+			ed.getEdSdf().getSdfFile().setFlank(false);
+			
+		}
 	}
-	if(e.getSource() == ed.getEdSdf().getTableauSDF()){
+	/**
+	 *  Selection de la bordure et MAJ du cadre graphique pour le SDF.
+	 */
+	private void selectionTableauSdf() {
 		ed.getEdGph().setBorder(bordureVide);
 		ed.getEdBin().setBorder(bordureVide);
 		ed.getEdSdf().setBorder(bordureSelection);
-		ed.getEdGph().getGphFile().setFlank(false);
-		ed.getEdBin().getBinFile().setFlank(false);
 		ed.getEdSdf().getSdfFile().setFlank(true);
+		if (ed.getEdBin().getBinFile() != null){
+			ed.getEdBin().getBinFile().setFlank(false);
+		}
+		if (ed.getEdGph().getGphFile() != null){
+			ed.getEdGph().getGphFile().setFlank(false);
+		}
+		
+		
 	}
-}
 // ----------------------------------------- //
 // ---------------ACCESSEURS---------------- //
 // ----------------------------------------- //
-
 // ----------------------------------------- //
 // ----------------MUTATEURS---------------- //
 // ----------------------------------------- //

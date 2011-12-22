@@ -4,9 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableModel;
 
 @SuppressWarnings("serial")
-public class ModeleTablesEditeurs extends AbstractTableModel
+public class ModeleTablesEditeurs extends AbstractTableModel 
 {
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
@@ -27,11 +28,16 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	{
 		this.titres = titresColonnes;
 		this.donnees = donneesTableau;
+		
 	}
 
 	// ----------------------------------------- //
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
+	public void fireTableCellUpdated(int row,int column){
+		super.fireTableCellUpdated(row, column);
+	}
+	
 	/**
 	 * Methode permettant de retirer une ligne du tableau
 	 * 
@@ -168,6 +174,8 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 		}
 		return data;
 	}
+	
+	
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
@@ -202,5 +210,6 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	public void setValueAt(Object value, int indiceLigne, int indiceColonne)
 	{
 		this.donnees[indiceLigne][indiceColonne] = value;
+        fireTableCellUpdated(indiceLigne, indiceColonne);
 	}
 }

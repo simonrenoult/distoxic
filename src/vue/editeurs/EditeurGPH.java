@@ -112,7 +112,7 @@ public class EditeurGPH extends JPanel
 	
 	private void initEcouteur() {
 		try{
-			EcouteurJtable e = new EcouteurJtable(tableauGPH);
+			EcouteurJtable e = new EcouteurJtable(tableauGPH, null, gphFile, null);
 		}
 		catch (NullPointerException e){}
 		

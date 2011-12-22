@@ -119,7 +119,7 @@ public class EditeurSDF extends JPanel
 	
 	private void initEcouteur() {
 		try{
-			EcouteurJtable e = new EcouteurJtable(tableauSDF);
+			EcouteurJtable e = new EcouteurJtable(tableauSDF, null, null, sdfFile);
 		}
 		catch (NullPointerException e){}
 	}

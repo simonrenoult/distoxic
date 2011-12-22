@@ -114,7 +114,7 @@ public class EditeurBIN extends JPanel
 	}
 	private void initEcouteur() {
 		try{
-			EcouteurJtable e = new EcouteurJtable(tableauBIN);
+			EcouteurJtable e = new EcouteurJtable(tableauBIN, binFile, null, null);
 		}
 		catch (NullPointerException e){}
 		
