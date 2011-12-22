@@ -2,8 +2,12 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JOptionPane;
+
+import modele.WorkspaceModele;
 import vue.FenetreExportationTripletFichier;
 import vue.FenetreImportationTripletFichier;
 import vue.FenetrePrincipale;
@@ -107,7 +111,7 @@ public class EcouteurBarreOutils implements ActionListener
 			System.out.println("Enregistrement SDF de l'onglet "+index);
 		}
 		else{
-			System.out.println("Aucun tableau n'a été sélectionné");
+			LancerMessageErreur("Aucun tableau n'a été sélectionné");
 		}
 	}
 	
@@ -131,7 +135,36 @@ public class EcouteurBarreOutils implements ActionListener
 	{
 		if (e.getSource() == panel.getNouveau())
 		{
-
+			String inputValue = JOptionPane.showInputDialog("Nom du dossier à créer :");
+			System.out.println(inputValue);
+			WorkspaceModele modele = new WorkspaceModele(1);
+			modele.lireFichier();
+			String path = modele.getWorkspacePath()+File.separator+inputValue;
+			
+			
+			File newDossier = new File(path);
+			newDossier.mkdir();
+			File gphFile = new File(path+File.separator+inputValue+".gph");
+			try {
+				gphFile.createNewFile();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			File sdfFile = new File(path+File.separator+inputValue+".sdf");
+			try {
+				sdfFile.createNewFile();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			File binFile = new File(path+File.separator+inputValue+".bin");
+			try {
+				binFile.createNewFile();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		else if (e.getSource() == panel.getImporter())
 		{

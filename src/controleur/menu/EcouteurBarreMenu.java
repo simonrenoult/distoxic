@@ -47,7 +47,7 @@ public class EcouteurBarreMenu implements ActionListener
 	{
 		mf = (MenuFichier) bm.getMenuFichier();
 		mf.getNouveau().addActionListener(this);
-		mf.getOuvrir().addActionListener(this);
+		//mf.getOuvrir().addActionListener(this);
 		mf.getEnregistrer().addActionListener(this);
 		mf.getEnregistrerSous().addActionListener(this);
 		mf.getImporter().addActionListener(this);
@@ -76,12 +76,10 @@ public class EcouteurBarreMenu implements ActionListener
 	{
 		if (e.getSource() == mf.getNouveau())
 		{
-
+			String inputValue = JOptionPane.showInputDialog("Please input a value");
+			System.out.println(inputValue);
 		}
-		else if (e.getSource() == mf.getOuvrir())
-		{
-
-		}
+		
 		else if (e.getSource() == mf.getEnregistrer())
 		{
 

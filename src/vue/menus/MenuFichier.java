@@ -16,7 +16,7 @@ public class MenuFichier extends Menu
 	private final static String	TITRE_MENU				= "Fichier";
 
 	private final static String	TITRE_NOUVEAU			= "Nouveau";
-	private final static String	TITRE_OUVRIR			= "Ouvrir";
+	//private final static String	TITRE_OUVRIR			= "Ouvrir";
 	private final static String	TITRE_ENREGISTRER		= "Enregistrer";
 	private final static String	TITRE_ENREGISTRER_SOUS	= "Enregistrer Sous";
 	private final static String	TITRE_IMPORTER			= "Importer";
@@ -56,9 +56,9 @@ public class MenuFichier extends Menu
 		nouveau = buildMenuItem(nouveau, TITRE_NOUVEAU, KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_MASK));
 		this.add(nouveau);
 
-		ouvrir = buildMenuItem(ouvrir, TITRE_OUVRIR, KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_MASK));
+		/*ouvrir = buildMenuItem(ouvrir, TITRE_OUVRIR, KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_MASK));
 		this.add(ouvrir);
-
+		*/
 		this.addSeparator();
 
 		enregistrer = buildMenuItem(enregistrer, TITRE_ENREGISTRER,
@@ -92,10 +92,10 @@ public class MenuFichier extends Menu
 		return nouveau;
 	}
 
-	public JMenuItem getOuvrir()
+	/*public JMenuItem getOuvrir()
 	{
 		return ouvrir;
-	}
+	}*/
 
 	public JMenuItem getEnregistrer()
 	{
@@ -131,10 +131,10 @@ public class MenuFichier extends Menu
 		this.nouveau = nouveau;
 	}
 
-	public void setOuvrir(JMenuItem ouvrir)
+	/*public void setOuvrir(JMenuItem ouvrir)
 	{
 		this.ouvrir = ouvrir;
-	}
+	}*/
 
 	public void setEnregistrer(JMenuItem enregistrer)
 	{
