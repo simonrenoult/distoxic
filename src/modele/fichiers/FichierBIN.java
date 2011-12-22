@@ -1,9 +1,9 @@
-package modele.fichier;
+package modele.fichiers;
 
-import modele.enregistreur.EnregistreurSDF;
-import modele.parseurs.ParseurSDF;
+import modele.enregistreurs.EnregistreurBIN;
+import modele.parseurs.ParseurBIN;
 
-public class FichierSDF implements InitFichier {
+public class FichierBIN implements InitFichier {
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
@@ -14,30 +14,30 @@ public class FichierSDF implements InitFichier {
 	 * ELLES SERVIRONT A L'ENREGISTREMENT.
 	 */
 	
-	private ParseurSDF parseurSDF = null;
-	private EnregistreurSDF enregistreurSDF = null;
+	private ParseurBIN parseurBIN = null;
+	private EnregistreurBIN enregistreurBIN = null;
 	private String filePath = null;
 	private boolean isChanged = false;
 	private boolean isFlank = false;
-	
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
-	public FichierSDF(String path){
+	public FichierBIN(String path){
 		this.filePath = path;
 	}
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
+
 	@Override
 	public void initParseur(){
-		parseurSDF = new ParseurSDF(filePath);
+		parseurBIN = new ParseurBIN(filePath);
 	}
 	
 	@Override
 	public void initEnregistreur(){
-		enregistreurSDF = new EnregistreurSDF();
+		enregistreurBIN = new EnregistreurBIN();
 	}
 
 	
@@ -50,10 +50,10 @@ public class FichierSDF implements InitFichier {
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
 	/**
-	 * @return the parseurSDF
+	 * @return the parseurBIN
 	 */
-	public ParseurSDF getParseurSDF() {
-		return parseurSDF;
+	public ParseurBIN getParseurBIN() {
+		return parseurBIN;
 	}
 	
 	/**
@@ -65,10 +65,10 @@ public class FichierSDF implements InitFichier {
 	
 
 	/**
-	 * @return the enregistreurSDF
+	 * @return the enregistreurBIN
 	 */
-	public EnregistreurSDF getEnregistreurSDF() {
-		return enregistreurSDF;
+	public EnregistreurBIN getEnregistreurBIN() {
+		return enregistreurBIN;
 	}
 
 	/**
@@ -87,10 +87,10 @@ public class FichierSDF implements InitFichier {
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 	/**
-	 * @param parseurSDF the parseurSDF to set
+	 * @param parseurBIN the parseurBIN to set
 	 */
-	public void setParseurSDF(ParseurSDF parseurSDF) {
-		this.parseurSDF = parseurSDF;
+	public void setParseurBIN(ParseurBIN parseurBIN) {
+		this.parseurBIN = parseurBIN;
 	}
 	
 	/**
@@ -101,19 +101,23 @@ public class FichierSDF implements InitFichier {
 	}
 
 	/**
-	 * @param enregistreurSDF the enregistreurSDF to set
+	 * @param enregistreurBIN the enregistreurBIN to set
 	 */
-	public void setEnregistreurSDF(EnregistreurSDF enregistreurSDF) {
-		this.enregistreurSDF = enregistreurSDF;
+	public void setEnregistreurBIN(EnregistreurBIN enregistreurBIN) {
+		this.enregistreurBIN = enregistreurBIN;
 	}
+
 	
+
 	/**
 	 * @param isFlank the isFlank to set
 	 */
 	public void setFlank(boolean isFlank) {
 		this.isFlank = isFlank;
 	}
+
 	
+
 	/**
 	 * @param isChanged the isChanged to set
 	 */

@@ -1,4 +1,4 @@
-package modele.fichier;
+package modele.fichiers;
 
 public interface InitFichier {
 

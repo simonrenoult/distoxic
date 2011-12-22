@@ -9,10 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import controleur.EcouteurJtable;
+//import controleur.EcouteurJtable;
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.editeurs.TablesEditeurs;
-import modele.fichier.FichierBIN;
+import modele.fichiers.FichierBIN;
 
 @SuppressWarnings("serial")
 public class EditeurBIN extends JPanel
@@ -21,7 +21,7 @@ public class EditeurBIN extends JPanel
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
-	public final static Integer		TAILLE_X		= 2 * Editeurs.TAILLE_X / 5 - 40;
+	public final static Integer		TAILLE_X		= 2 * Editeurs.TAILLE_X / 5;
 	public final static Integer		TAILLE_Y		= 3 * Editeurs.TAILLE_Y / 5;
 
 	public final static Color		BG_COLOR		= Color.white;
@@ -63,8 +63,6 @@ public class EditeurBIN extends JPanel
 
 	private void initTitre()
 	{
-		// FlowLayout afin de centrer le titre quand aucune table n'est
-		// affichee.
 		setLayout(new FlowLayout());
 
 		titre = new JLabel(CONTENU_TITRE);
@@ -75,13 +73,13 @@ public class EditeurBIN extends JPanel
 
 	private void initParseur()
 	{
-
 		try
 		{
 			binFile.initParseur();
 		}
-		catch (Exception e)
+		catch (NullPointerException e)
 		{
+			System.out.println("Tentative d'initialisation du parseur BIN avortée.");
 		}
 	}
 
@@ -93,19 +91,15 @@ public class EditeurBIN extends JPanel
 			tableauBIN = new TablesEditeurs(modele);
 			tableauBIN.setAutoCreateRowSorter(true);
 		}
-		catch (Exception e)
+		catch (NullPointerException e)
 		{
+			System.out.println("Tentative d'initialisation du modele de parseur BIN avortée.");
 		}
 	}
 
 	private void initScroll()
 	{
 		remove(titre);
-		/*
-		 * BordeLayout quand une table est affichee afin de permettre le
-		 * centrage de la table lors d'une modification de la taille de la
-		 * fenetre
-		 */
 		setLayout(new BorderLayout());
 
 		scroll = new JScrollPane(tableauBIN);
@@ -113,12 +107,17 @@ public class EditeurBIN extends JPanel
 
 		add(scroll, BorderLayout.CENTER);
 	}
-	private void initEcouteur() {
-		try{
-			EcouteurJtable e = new EcouteurJtable(tableauBIN, binFile, null, null);
+
+	private void initEcouteur()
+	{
+		try
+		{
+			//EcouteurJtable e = new EcouteurJtable(tableauBIN, binFile, null, null);
 		}
-		catch (NullPointerException e){}
-		
+		catch (NullPointerException e)
+		{
+		}
+
 	}
 
 	// ----------------------------------------- //
@@ -135,11 +134,12 @@ public class EditeurBIN extends JPanel
 	{
 		return tableauBIN;
 	}
-	
+
 	/**
 	 * @return the binFile
 	 */
-	public FichierBIN getBinFile() {
+	public FichierBIN getBinFile()
+	{
 		return binFile;
 	}
 
@@ -155,12 +155,12 @@ public class EditeurBIN extends JPanel
 		this.tableauBIN = tableauBIN;
 	}
 
-	
-
 	/**
-	 * @param binFile the binFile to set
+	 * @param binFile
+	 *            the binFile to set
 	 */
-	public void setBinFile(FichierBIN binFile) {
+	public void setBinFile(FichierBIN binFile)
+	{
 		this.binFile = binFile;
 	}
 }

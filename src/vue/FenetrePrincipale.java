@@ -73,7 +73,7 @@ public class FenetrePrincipale extends JFrame
 			else if (System.getProperty("os.name").toLowerCase().contains("windows"))
 				UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 			else
-				UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+				UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		}
 		catch (ClassNotFoundException e)
 		{

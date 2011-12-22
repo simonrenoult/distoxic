@@ -2,9 +2,9 @@ package modele;
 
 import java.io.File;
 
-import modele.fichier.FichierBIN;
-import modele.fichier.FichierGPH;
-import modele.fichier.FichierSDF;
+import modele.fichiers.FichierBIN;
+import modele.fichiers.FichierGPH;
+import modele.fichiers.FichierSDF;
 
 /**
  * 

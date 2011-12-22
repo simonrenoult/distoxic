@@ -9,10 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import controleur.EcouteurJtable;
+//import controleur.EcouteurJtable;
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.editeurs.TablesEditeurs;
-import modele.fichier.FichierGPH;
+import modele.fichiers.FichierGPH;
 
 @SuppressWarnings("serial")
 public class EditeurGPH extends JPanel
@@ -40,7 +40,7 @@ public class EditeurGPH extends JPanel
 	private JTable					tableauGPH;
 	private ModeleTablesEditeurs	modele;
 
-	private FichierGPH				gphFile;
+	private FichierGPH				fichierGPH;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -48,7 +48,7 @@ public class EditeurGPH extends JPanel
 
 	public EditeurGPH(FichierGPH gphFile)
 	{
-		this.gphFile = gphFile;
+		this.fichierGPH = gphFile;
 		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		setBackground(BG_COLOR);
 
@@ -58,8 +58,6 @@ public class EditeurGPH extends JPanel
 		initScroll();
 		initEcouteur();
 	}
-
-	
 
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
@@ -79,11 +77,11 @@ public class EditeurGPH extends JPanel
 	{
 		try
 		{
-			gphFile.initParseur();
+			fichierGPH.initParseur();
 		}
-		catch (Exception e)
+		catch (NullPointerException e)
 		{
-			//e.printStackTrace();
+			System.out.println("Tentative d'initialisation du parseur GPH avortée.");
 		}
 	}
 
@@ -91,13 +89,14 @@ public class EditeurGPH extends JPanel
 	{
 		try
 		{
-			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, gphFile.getParseurGPH().convertirListeVersTableau2D());
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierGPH.getParseurGPH().convertirListeVersTableau2D());
 			tableauGPH = new TablesEditeurs(modele);
 			tableauGPH.setAutoCreateRowSorter(true);
 		}
-		catch (Exception e)
+		catch (NullPointerException e)
 		{
-			//e.printStackTrace();
+			// e.printStackTrace();
+			System.out.println("Tentative d'initialisation du modèle de parseur GPH avortée.");
 		}
 	}
 
@@ -110,13 +109,17 @@ public class EditeurGPH extends JPanel
 
 		add(scroll, BorderLayout.CENTER);
 	}
-	
-	private void initEcouteur() {
-		try{
-			EcouteurJtable e = new EcouteurJtable(tableauGPH, null, gphFile, null);
+
+	private void initEcouteur()
+	{
+		try
+		{
+			//EcouteurJtable e = new EcouteurJtable(tableauGPH, null, gphFile, null);
 		}
-		catch (NullPointerException e){}
-		
+		catch (NullPointerException e)
+		{
+		}
+
 	}
 
 	// ----------------------------------------- //
@@ -145,7 +148,7 @@ public class EditeurGPH extends JPanel
 
 	public FichierGPH getGphFile()
 	{
-		return gphFile;
+		return fichierGPH;
 	}
 
 	// ----------------------------------------- //
@@ -174,7 +177,7 @@ public class EditeurGPH extends JPanel
 
 	public void setGphFile(FichierGPH file)
 	{
-		this.gphFile = file;
+		this.fichierGPH = file;
 	}
 
 }

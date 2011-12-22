@@ -1,9 +1,9 @@
-package modele.fichier;
+package modele.fichiers;
 
-import modele.enregistreur.EnregistreurGPH;
-import modele.parseurs.ParseurGPH;
+import modele.enregistreurs.EnregistreurSDF;
+import modele.parseurs.ParseurSDF;
 
-public class FichierGPH implements InitFichier
+public class FichierSDF implements InitFichier
 {
 
 	// ----------------------------------------- //
@@ -14,18 +14,17 @@ public class FichierGPH implements InitFichier
 	 * REMETTRE TOUTES LES CONSTANTES DU PARSEUR DANS CETTE CLASSE. ELLES
 	 * SERVIRONT A L'ENREGISTREMENT.
 	 */
-
-	private ParseurGPH		parseurGPH;
-	private EnregistreurGPH	enregistreurGPH;
-	private String			filePath;
-	private boolean isChanged = false;
-	private boolean isFlank = false;
+	private ParseurSDF		parseurSDF		= null;
+	private EnregistreurSDF	enregistreurSDF	= null;
+	private String			filePath		= null;
+	private boolean			isChanged		= false;
+	private boolean			isFlank			= false;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
-	public FichierGPH(String path)
+	public FichierSDF(String path)
 	{
 		this.filePath = path;
 	}
@@ -36,13 +35,13 @@ public class FichierGPH implements InitFichier
 	@Override
 	public void initParseur()
 	{
-		parseurGPH = new ParseurGPH(filePath);
+		parseurSDF = new ParseurSDF(filePath);
 	}
 
 	@Override
 	public void initEnregistreur()
 	{
-		enregistreurGPH = new EnregistreurGPH();
+		enregistreurSDF = new EnregistreurSDF(parseurSDF.getFragmentsMolecules());
 	}
 
 	// ----------------------------------------- //
@@ -53,11 +52,11 @@ public class FichierGPH implements InitFichier
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
 	/**
-	 * @return the parseurGPH
+	 * @return the parseurSDF
 	 */
-	public ParseurGPH getParseurGPH()
+	public ParseurSDF getParseurSDF()
 	{
-		return parseurGPH;
+		return parseurSDF;
 	}
 
 	/**
@@ -69,35 +68,39 @@ public class FichierGPH implements InitFichier
 	}
 
 	/**
-	 * @return the enregistreurGPH
+	 * @return the enregistreurSDF
 	 */
-	public EnregistreurGPH getEnregistreurGPH()
+	public EnregistreurSDF getEnregistreurSDF()
 	{
-		return enregistreurGPH;
+		return enregistreurSDF;
 	}
-	
+
 	/**
 	 * @return the isFlank
 	 */
-	public boolean isFlank() {
+	public boolean isFlank()
+	{
 		return isFlank;
 	}
+
 	/**
 	 * @return the isChanged
 	 */
-	public boolean isChanged() {
+	public boolean isChanged()
+	{
 		return isChanged;
 	}
+
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 	/**
-	 * @param parseurGPH
-	 *            the parseurGPH to set
+	 * @param parseurSDF
+	 *            the parseurSDF to set
 	 */
-	public void setParseurGPH(ParseurGPH parseurGPH)
+	public void setParseurSDF(ParseurSDF parseurSDF)
 	{
-		this.parseurGPH = parseurGPH;
+		this.parseurSDF = parseurSDF;
 	}
 
 	/**
@@ -110,29 +113,29 @@ public class FichierGPH implements InitFichier
 	}
 
 	/**
-	 * @param enregistreurGPH
-	 *            the enregistreurGPH to set
+	 * @param enregistreurSDF
+	 *            the enregistreurSDF to set
 	 */
-	public void setEnregistreurGPH(EnregistreurGPH enregistreurGPH)
+	public void setEnregistreurSDF(EnregistreurSDF enregistreurSDF)
 	{
-		this.enregistreurGPH = enregistreurGPH;
+		this.enregistreurSDF = enregistreurSDF;
 	}
 
-	
-
 	/**
-	 * @param isFlank the isFlank to set
+	 * @param isFlank
+	 *            the isFlank to set
 	 */
-	public void setFlank(boolean isFlank) {
+	public void setFlank(boolean isFlank)
+	{
 		this.isFlank = isFlank;
 	}
 
-	
-
 	/**
-	 * @param isChanged the isChanged to set
+	 * @param isChanged
+	 *            the isChanged to set
 	 */
-	public void setChanged(boolean isChanged) {
+	public void setChanged(boolean isChanged)
+	{
 		this.isChanged = isChanged;
 	}
 

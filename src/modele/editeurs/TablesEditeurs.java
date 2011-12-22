@@ -2,6 +2,7 @@ package modele.editeurs;
 
 import javax.swing.JTable;
 
+@SuppressWarnings("serial")
 public class TablesEditeurs extends JTable
 {
 	// ----------------------------------------- //
@@ -15,8 +16,7 @@ public class TablesEditeurs extends JTable
 	public TablesEditeurs(ModeleTablesEditeurs modele)
 	{
 		super(modele);
-		TablesEditeursCellRenderer cellRenderer = new TablesEditeursCellRenderer();
-		setDefaultRenderer(Object.class, cellRenderer);
+		setDefaultRenderer(Object.class, new TablesEditeursCellRenderer());
 	}
 	
 	// ----------------------------------------- //

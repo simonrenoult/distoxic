@@ -10,10 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import controleur.EcouteurJtable;
+//import controleur.EcouteurJtable;
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.editeurs.TablesEditeurs;
-import modele.fichier.FichierSDF;
+import modele.fichiers.FichierSDF;
 import modele.parseurs.ParseurSDF;
 
 @SuppressWarnings("serial")
@@ -84,7 +84,7 @@ public class EditeurSDF extends JPanel
 		}
 		catch (NullPointerException e)
 		{
-
+			System.out.println("Tentative d'initialisation du parseur SDF avortée.");
 		}
 
 	}
@@ -93,9 +93,6 @@ public class EditeurSDF extends JPanel
 	{
 		try
 		{
-			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
-			tableauSDF = new JTable(modele);
-
 			TITRES_TABLEAU = recupererTitresTableau(sdfFile.getParseurSDF());
 
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, sdfFile.getParseurSDF().convertirListeVersTableau2D());
@@ -104,6 +101,7 @@ public class EditeurSDF extends JPanel
 		}
 		catch (NullPointerException e)
 		{
+			System.out.println("Tentative d'initialisation du modele de arseur SDF avortée.");
 		}
 
 	}
@@ -117,12 +115,16 @@ public class EditeurSDF extends JPanel
 		scroll.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		add(scroll, BorderLayout.CENTER);
 	}
-	
-	private void initEcouteur() {
-		try{
-			EcouteurJtable e = new EcouteurJtable(tableauSDF, null, null, sdfFile);
+
+	private void initEcouteur()
+	{
+		try
+		{
+			//EcouteurJtable e = new EcouteurJtable(tableauSDF, null, null, sdfFile);
 		}
-		catch (NullPointerException e){}
+		catch (NullPointerException e)
+		{
+		}
 	}
 
 	// ----------------------------------------- //
@@ -163,9 +165,11 @@ public class EditeurSDF extends JPanel
 	/**
 	 * @return the sdfFile
 	 */
-	public FichierSDF getSdfFile() {
+	public FichierSDF getSdfFile()
+	{
 		return sdfFile;
 	}
+
 	// ----------------------------------------- //
 	// --------------- MUTATEURS --------------- //
 	// ----------------------------------------- //
@@ -184,12 +188,12 @@ public class EditeurSDF extends JPanel
 		this.tableauSDF = tableauSDF;
 	}
 
-	
-
 	/**
-	 * @param sdfFile the sdfFile to set
+	 * @param sdfFile
+	 *            the sdfFile to set
 	 */
-	public void setSdfFile(FichierSDF sdfFile) {
+	public void setSdfFile(FichierSDF sdfFile)
+	{
 		this.sdfFile = sdfFile;
 	}
 }

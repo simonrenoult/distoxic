@@ -1,47 +1,50 @@
-package modele.fichier;
+package modele.fichiers;
 
-import modele.enregistreur.EnregistreurBIN;
-import modele.parseurs.ParseurBIN;
+import modele.enregistreurs.EnregistreurGPH;
+import modele.parseurs.ParseurGPH;
 
-public class FichierBIN implements InitFichier {
+public class FichierGPH implements InitFichier
+{
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 
 	/*
-	 * REMETTRE TOUTES LES CONSTANTES DU PARSEUR DANS CETTE CLASSE.
-	 * ELLES SERVIRONT A L'ENREGISTREMENT.
+	 * REMETTRE TOUTES LES CONSTANTES DU PARSEUR DANS CETTE CLASSE. ELLES
+	 * SERVIRONT A L'ENREGISTREMENT.
 	 */
-	
-	private ParseurBIN parseurBIN = null;
-	private EnregistreurBIN enregistreurBIN = null;
-	private String filePath = null;
+
+	private ParseurGPH		parseurGPH;
+	private EnregistreurGPH	enregistreurGPH;
+	private String			filePath;
 	private boolean isChanged = false;
 	private boolean isFlank = false;
+
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
-	public FichierBIN(String path){
+	public FichierGPH(String path)
+	{
 		this.filePath = path;
 	}
+
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
-
 	@Override
-	public void initParseur(){
-		parseurBIN = new ParseurBIN(filePath);
-	}
-	
-	@Override
-	public void initEnregistreur(){
-		enregistreurBIN = new EnregistreurBIN();
+	public void initParseur()
+	{
+		parseurGPH = new ParseurGPH(filePath);
 	}
 
-	
-	
+	@Override
+	public void initEnregistreur()
+	{
+		enregistreurGPH = new EnregistreurGPH();
+	}
+
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
@@ -50,27 +53,29 @@ public class FichierBIN implements InitFichier {
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
 	/**
-	 * @return the parseurBIN
+	 * @return the parseurGPH
 	 */
-	public ParseurBIN getParseurBIN() {
-		return parseurBIN;
+	public ParseurGPH getParseurGPH()
+	{
+		return parseurGPH;
 	}
-	
+
 	/**
 	 * @return the filePath
 	 */
-	public String getFilePath() {
+	public String getFilePath()
+	{
 		return filePath;
 	}
-	
 
 	/**
-	 * @return the enregistreurBIN
+	 * @return the enregistreurGPH
 	 */
-	public EnregistreurBIN getEnregistreurBIN() {
-		return enregistreurBIN;
+	public EnregistreurGPH getEnregistreurGPH()
+	{
+		return enregistreurGPH;
 	}
-
+	
 	/**
 	 * @return the isFlank
 	 */
@@ -87,24 +92,30 @@ public class FichierBIN implements InitFichier {
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 	/**
-	 * @param parseurBIN the parseurBIN to set
+	 * @param parseurGPH
+	 *            the parseurGPH to set
 	 */
-	public void setParseurBIN(ParseurBIN parseurBIN) {
-		this.parseurBIN = parseurBIN;
+	public void setParseurGPH(ParseurGPH parseurGPH)
+	{
+		this.parseurGPH = parseurGPH;
 	}
-	
+
 	/**
-	 * @param filePath the filePath to set
+	 * @param filePath
+	 *            the filePath to set
 	 */
-	public void setFilePath(String filePath) {
+	public void setFilePath(String filePath)
+	{
 		this.filePath = filePath;
 	}
 
 	/**
-	 * @param enregistreurBIN the enregistreurBIN to set
+	 * @param enregistreurGPH
+	 *            the enregistreurGPH to set
 	 */
-	public void setEnregistreurBIN(EnregistreurBIN enregistreurBIN) {
-		this.enregistreurBIN = enregistreurBIN;
+	public void setEnregistreurGPH(EnregistreurGPH enregistreurGPH)
+	{
+		this.enregistreurGPH = enregistreurGPH;
 	}
 
 	
@@ -125,5 +136,4 @@ public class FichierBIN implements InitFichier {
 		this.isChanged = isChanged;
 	}
 
-	
 }

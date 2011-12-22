@@ -1,4 +1,4 @@
-package modele.enregistreur;
+package modele.enregistreurs;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
