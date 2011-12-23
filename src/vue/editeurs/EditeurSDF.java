@@ -29,7 +29,7 @@ public class EditeurSDF extends JPanel
 	public final static Color		BG_COLOR		= Color.WHITE;
 
 	private final static String		TITRE			= "Editeur de fichiers *.sdf";
-	private String[]				TITRES_TABLEAU	= { "Nb Liaisons", "Nb Atomes" };
+	private String[]				TITRES_TABLEAU	= { "Id molécule","Nb Liaisons", "Nb Atomes" };
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
@@ -98,6 +98,7 @@ public class EditeurSDF extends JPanel
 			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierSDF.getParseurSDF().convertirListeVersTableau2D());
 			tableauSDF = new TablesEditeurs(modele);
 			tableauSDF.setAutoCreateRowSorter(true);
+			tableauSDF.getTableHeader().setReorderingAllowed(false);
 		}
 		catch (NullPointerException e)
 		{

@@ -1,5 +1,6 @@
 package vue.menus;
 
+import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
@@ -22,7 +23,7 @@ public class Menu extends JMenu
 	// ----------------------------------------- //
 	// ----------------ATTRIBUTS---------------- //
 	// ----------------------------------------- //
-
+	private static String		_ICON_PATH	= "/images/icones/";
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
@@ -37,9 +38,10 @@ public class Menu extends JMenu
 	 * @param titre : titre a affecte au JMenuItem passe en parametre.
 	 * @return : le JMenuItem ainsi cree.
 	 */
-	public JMenuItem buildMenuItem(JMenuItem item, String titre)
+	public JMenuItem buildMenuItem(JMenuItem item, String titre, String iconPath)
 	{
 		item = new JMenuItem(titre);
+		item.setIcon(new ImageIcon(getClass().getResource(_ICON_PATH+iconPath)));
 		item.setName(titre);
 		
 		return item;
@@ -52,9 +54,9 @@ public class Menu extends JMenu
 	 * @param ks : affecte un raccourci clavier au JMenuItem passe en parametre.
 	 * @return : le JMenuItem ainsi cree.
 	 */
-	public JMenuItem buildMenuItem(JMenuItem item, String titre, KeyStroke ks)
+	public JMenuItem buildMenuItem(JMenuItem item, String titre, KeyStroke ks,String iconPath)
 	{
-		item = buildMenuItem(item, titre);
+		item = buildMenuItem(item, titre, iconPath);
 		item.setAccelerator(ks);
 		
 		return item;

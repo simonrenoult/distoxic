@@ -12,21 +12,32 @@ public class MenuContextuel extends JPopupMenu {
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 	private static String		_ICON_PATH	= "/images/icones/";
+	private static int _GPH_MENU = 1;
 	private JMenu ajouter ;
 	private JMenuItem ajouterDebutTableau;
 	private JMenuItem ajouterAvantLigneSelection;
 	private JMenuItem ajouterApresLigneSelection;
 	private JMenuItem ajouterFinTableau;
+	private JMenuItem ajouterFragmentBin;
 	
 	private JMenuItem supprimer ;
+	
+	/**
+	 * selon la Jtable selectionne, l'affichage sera different. 
+	 * Si c'est la JtableGPH(index == "gph"), ajout d'un menuItem ajouter le fragment au bin associe.
+	 * 
+	 */
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	 public MenuContextuel(){
+	 public MenuContextuel(int index){
 		 super();
 		 initBoutons();
-		 
+		 if(index == _GPH_MENU){
+			 initBoutonGPH();
+		 }
 	 }
+	
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
@@ -50,6 +61,12 @@ public class MenuContextuel extends JPopupMenu {
 		supprimer = creerItem("Supprimer la ligne", "delete.png");
 		this.add(ajouter);
 		this.add(supprimer);
+		
+	}
+	
+	private void initBoutonGPH() {
+		ajouterFragmentBin = creerItem("Ajouter le fragment à la molecule", "arrow_right.png");
+		this.add(ajouterFragmentBin);
 	}
 	
 	private JMenuItem creerItem(String name, String iconPath)
@@ -151,6 +168,20 @@ public class MenuContextuel extends JPopupMenu {
 	 */
 	public void setSupprimer(JMenuItem supprimer) {
 		this.supprimer = supprimer;
+	}
+
+	/**
+	 * @return the ajouterFragmentBin
+	 */
+	public JMenuItem getAjouterFragmentBin() {
+		return ajouterFragmentBin;
+	}
+
+	/**
+	 * @param ajouterFragmentBin the ajouterFragmentBin to set
+	 */
+	public void setAjouterFragmentBin(JMenuItem ajouterFragmentBin) {
+		this.ajouterFragmentBin = ajouterFragmentBin;
 	}
 
 	

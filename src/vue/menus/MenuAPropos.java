@@ -44,12 +44,12 @@ public class MenuAPropos extends Menu
 
 	private void buildItems()
 	{
-		aide = buildMenuItem(aide, TITRE_AIDE, KeyStroke.getKeyStroke(F1_KEY, 0));
+		aide = buildMenuItem(aide, TITRE_AIDE, KeyStroke.getKeyStroke(F1_KEY, 0), "help.png");
 		this.add(aide);
 
 		this.addSeparator();
 
-		aPropos = buildMenuItem(aPropos, TITRE_APROPOS);
+		aPropos = buildMenuItem(aPropos, TITRE_APROPOS, "information.png");
 		this.add(aPropos);
 	}
 

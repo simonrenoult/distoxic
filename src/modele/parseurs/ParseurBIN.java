@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class ParseurBIN implements ParseurGenerique
 {
@@ -14,7 +15,7 @@ public class ParseurBIN implements ParseurGenerique
 	public static int						_CLASSEMAX	= 6;
 	public static int						_CLASSEMIN	= 1;
 
-	private ArrayList<ArrayList<Integer>>	listeBIN	= null;
+	private LinkedList<LinkedList<Integer>>	listeBIN	= null;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
@@ -28,7 +29,7 @@ public class ParseurBIN implements ParseurGenerique
 	 */
 	public ParseurBIN(String filePath)
 	{
-		listeBIN = new ArrayList<ArrayList<Integer>>();
+		listeBIN = new LinkedList<LinkedList<Integer>>();
 		lireFichier(filePath);
 		convertirListeVersTableau2D();
 	}
@@ -73,10 +74,10 @@ public class ParseurBIN implements ParseurGenerique
 	 *            : Ligne du fichier
 	 * @return : Liste des mots de Line.
 	 */
-	private ArrayList<Integer> creationListe(String ligne)
+	private LinkedList<Integer> creationListe(String ligne)
 	{
 		String[] tab = ligne.split(" ");
-		ArrayList<Integer> listeTemp = new ArrayList<Integer>();
+		LinkedList<Integer> listeTemp = new LinkedList<Integer>();
 		
 		for (int i = 0 ; i < tab.length ; i++)
 			listeTemp.add(Integer.parseInt(tab[i]));
@@ -89,7 +90,7 @@ public class ParseurBIN implements ParseurGenerique
 	 */
 	public void trierListe()
 	{
-		ArrayList<ArrayList<Integer>> ListeTemp = new ArrayList<ArrayList<Integer>>();
+		LinkedList<LinkedList<Integer>> ListeTemp = new LinkedList<LinkedList<Integer>>();
 
 		for (int i = 0, cpt = 1 ; i < _CLASSEMAX ; i++, cpt++)
 			for (int j = 0 ; j < listeBIN.size() ; j++)
@@ -106,12 +107,13 @@ public class ParseurBIN implements ParseurGenerique
 	 */
 	public Object[][] convertirListeVersTableau2D()
 	{
-		Object[][] tmp = new Object[listeBIN.size()][2];
+		Object[][] tmp = new Object[listeBIN.size()][3];
 		
 		for (int i = 0 ; i < tmp.length ; i++)
 		{
-			tmp[i][0] = listeBIN.get(i).get(0);
-			tmp[i][1] = listeBIN.get(i).size() - 1;
+			tmp[i][0] = i;
+			tmp[i][1] = listeBIN.get(i).get(0);
+			tmp[i][2] = listeBIN.get(i).size()-1;
 		}
 		
 		return tmp;
@@ -126,7 +128,7 @@ public class ParseurBIN implements ParseurGenerique
 	 */
 	public void afficherListeBIN()
 	{
-		for (ArrayList<Integer> liste : listeBIN)
+		for (LinkedList<Integer> liste : listeBIN)
 		{
 			System.out.println();
 			System.out.println("________________________________");
@@ -141,7 +143,7 @@ public class ParseurBIN implements ParseurGenerique
 	 * Permet d'afficher le tableau 2D � partir de la liste
 	 */
 	public void afficherTableau() {
-		for(ArrayList<Integer> liste : listeBIN){
+		for(LinkedList<Integer> liste : listeBIN){
 			System.out.println();
 			System.out.println("\n_______________NOUVELLE LIGNE BIN______________");
 			for (int i = 0; i< liste.size(); i++){
@@ -149,11 +151,13 @@ public class ParseurBIN implements ParseurGenerique
 			}
 		}
 	}
+	
+	
 	// ----------------------------------------- //
 	// -------------- ACCESSEURS --------------- //
 	// ----------------------------------------- //
 	
-	public ArrayList<ArrayList<Integer>> getListeBIN()
+	public LinkedList<LinkedList<Integer>> getListeBIN()
 	{
 		return listeBIN;
 	}
@@ -162,7 +166,7 @@ public class ParseurBIN implements ParseurGenerique
 	// --------------- MUTATEURS --------------- //
 	// ----------------------------------------- //
 
-	public void setListeBIN(ArrayList<ArrayList<Integer>> listeBIN)
+	public void setListeBIN(LinkedList<LinkedList<Integer>> listeBIN)
 	{
 		this.listeBIN = listeBIN;
 	}
