@@ -205,10 +205,10 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	/*@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Class getColumnClass(int columnIndex){
 		return Integer.class;
-	}
+	}*/
 	
 	public String getColumnName(int indiceColonne)
 	{
