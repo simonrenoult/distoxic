@@ -5,6 +5,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import modele.TripletFichier;
+import modele.enregistreurs.EnregistreurBIN;
+import modele.enregistreurs.EnregistreurGPH;
+import modele.enregistreurs.EnregistreurSDF;
+import modele.fichiers.FichierBIN;
+import modele.fichiers.FichierGPH;
+import modele.fichiers.FichierSDF;
 
 import vue.FenetreAPropos;
 import vue.FenetreExportationTripletFichier;
@@ -80,24 +86,20 @@ public class EcouteurBarreMenu implements ActionListener
 		try{
 			if(fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdBin().getBinFile() != null){
-				System.out.println("Enregistrement BIN de l'onglet "+index);
-				System.out.println("Adresse mère du fichier :"+fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().
-										get(index).getEdBin().getBinFile().getFilePath());
+				enregistrerBIN(index);
 			}
 			
 			if(fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdGph().getGphFile() != null){
-				System.out.println("Enregistrement GPH de l'onglet "+index);
-				System.out.println("Adresse mère du fichier :"+fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().
-						get(index).getEdGph().getGphFile().getFilePath());
+				enregistrerGPH(index);
 			}
 			
 			if(fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdSdf().getSdfFile() != null){
-				System.out.println("Enregistrement SDF de l'onglet "+index);
-				System.out.println("Adresse mère du fichier :"+fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().
-						get(index).getEdSdf().getSdfFile().getFilePath());
+				//enregistrerSDF(index);
 			}
+			this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
+			this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 		}
 		catch (IndexOutOfBoundsException arg0) {
 			lancerMessageErreur("Aucun tableau n'a été selectionné depuis l'espace de travail.");
@@ -115,31 +117,73 @@ public class EcouteurBarreMenu implements ActionListener
 					fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdBin().getBinFile().isFlank()
 						){
-				System.out.println("Enregistrement BIN de l'onglet "+index);
+				enregistrerBIN(index);
 			}
 			else if(fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdGph().getGphFile() != null &&
 				fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdGph().getGphFile().isFlank())  
 					{
-				System.out.println("Enregistrement GPH de l'onglet "+index);
+				enregistrerGPH(index);
 			}
 			else if (fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdSdf().getSdfFile() != null &&
 					fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdSdf().getSdfFile().isFlank()
 					){
-				System.out.println("Enregistrement SDF de l'onglet "+index);
+				//enregistrerSDF(index);
 			}
 			else{
 				lancerMessageErreur("Aucun tableau n'a été sélectionné");
 			}
+			this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
+			this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 		}
 		catch (IndexOutOfBoundsException arg0) {
 			lancerMessageErreur("Aucun tableau n'a été selectionné depuis l'espace de travail.");
 			
 		}
 	}
+	
+	
+	/**
+	 * Methode d'enregistrement du fichier SDF de l'onglet selectionne
+	 * @param indexOnglet
+	 */
+	private void enregistrerSDF(int indexOnglet){
+		FichierSDF fichierSdf =  fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(indexOnglet).getEdSdf().getSdfFile();
+		String path = fichierSdf.getFichierSdfTmp().creerCheminNouveauFichier(fichierSdf.getFilePath());
+		System.out.println(path);
+		fichierSdf.setEnregistreurSDF(new EnregistreurSDF(fichierSdf.getFichierSdfTmp().getFragmentsMolecules(),path));
+		
+	}
+	
+	/**
+	 * Methode d'enregistrement du fichier BIN de l'onglet selectionne
+	 * @param indexOnglet
+	 */
+	private void enregistrerBIN(int indexOnglet){
+		FichierBIN fichierBin =  fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(indexOnglet).getEdBin().getBinFile();
+		String path = fichierBin.getFichierBinTmp().creerCheminNouveauFichier(fichierBin.getFilePath());
+		System.out.println(path);
+		fichierBin.setEnregistreurBIN(new EnregistreurBIN(fichierBin.getFichierBinTmp().getListeBINTmp(),path));
+	}
+	
+	/**
+	 * Methode d'enregistrement du fichier GPH de l'onglet selectionne
+	 * @param indexOnglet
+	 */
+	private void enregistrerGPH(int indexOnglet){
+		FichierGPH fichierGph =  fenetrePrincipale.getConteneurGlobal().getEditeur().
+				getEditeurs().get(indexOnglet).getEdGph().getGphFile();
+		String path = fichierGph.getFichierGphTmp().creerCheminNouveauFichier(fichierGph.getFilePath());
+		System.out.println(path);
+		fichierGph.setEnregistreurGPH(new EnregistreurGPH(fichierGph.getFichierGphTmp().getListeGPH(),path));
+	}
+	
+	
 	
 	/**
 	 * Methode D'appel à la fenetre d'exportation d'un projet.

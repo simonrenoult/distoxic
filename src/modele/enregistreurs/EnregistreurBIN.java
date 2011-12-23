@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class EnregistreurBIN implements EnregistreurGenerique
 {
@@ -15,7 +16,7 @@ public class EnregistreurBIN implements EnregistreurGenerique
 	public static int						_CLASSEMIN		= 1;
 	public static String					_SEPARATEURBIN	= " ";
 
-	private ArrayList<ArrayList<Integer>>	listeBIN		= null;
+	private LinkedList<LinkedList<Integer>>	listeBIN		= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -26,7 +27,7 @@ public class EnregistreurBIN implements EnregistreurGenerique
 
 	}
 
-	public EnregistreurBIN(ArrayList<ArrayList<Integer>> liste, String path)
+	public EnregistreurBIN(LinkedList<LinkedList<Integer>> liste, String path)
 	{
 		System.out.println("enregistrment du fichier BIN");
 		listeBIN = liste;
@@ -34,7 +35,7 @@ public class EnregistreurBIN implements EnregistreurGenerique
 
 	}
 
-	public EnregistreurBIN(ArrayList<ArrayList<Integer>> liste)
+	public EnregistreurBIN(LinkedList<LinkedList<Integer>> liste)
 	{
 		System.out.println("enregistrment du fichier BIN");
 		listeBIN = liste;

@@ -1,5 +1,6 @@
 package modele.fichiers;
 
+import modele.FichierTmp.FichierGphTmp;
 import modele.enregistreurs.EnregistreurGPH;
 import modele.parseurs.ParseurGPH;
 
@@ -17,6 +18,7 @@ public class FichierGPH implements InitFichier
 
 	private ParseurGPH		parseurGPH;
 	private EnregistreurGPH	enregistreurGPH;
+	private FichierGphTmp fichierGphTmp = null;
 	private String			filePath;
 	private boolean isChanged = false;
 	private boolean isFlank = false;
@@ -37,6 +39,7 @@ public class FichierGPH implements InitFichier
 	public void initParseur()
 	{
 		parseurGPH = new ParseurGPH(filePath);
+		fichierGphTmp = new FichierGphTmp(parseurGPH.getListeGPH());
 	}
 
 	@Override
@@ -44,6 +47,8 @@ public class FichierGPH implements InitFichier
 	{
 		enregistreurGPH = new EnregistreurGPH();
 	}
+	
+	
 
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
@@ -134,6 +139,20 @@ public class FichierGPH implements InitFichier
 	 */
 	public void setChanged(boolean isChanged) {
 		this.isChanged = isChanged;
+	}
+
+	/**
+	 * @return the fichierGphTmp
+	 */
+	public FichierGphTmp getFichierGphTmp() {
+		return fichierGphTmp;
+	}
+
+	/**
+	 * @param fichierGphTmp the fichierGphTmp to set
+	 */
+	public void setFichierGphTmp(FichierGphTmp fichierGphTmp) {
+		this.fichierGphTmp = fichierGphTmp;
 	}
 
 }

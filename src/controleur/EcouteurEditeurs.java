@@ -1,7 +1,6 @@
 package controleur;
 
 import java.awt.Event;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -546,12 +545,12 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 		if(e.getModifiers()== Event.META_MASK){
 			selectionBordure(e);
 			if(ed.getEdGph().getGphFile() != null && ed.getEdGph().getGphFile().isFlank()){
-				initMenuContextuel(1);
+				//initMenuContextuel(1);
 			}
 			else{
-				initMenuContextuel(0);
+				//initMenuContextuel(0);
 			}
-			menuContextuel.show(e.getComponent(), e.getX(), e.getY());
+			//menuContextuel.show(e.getComponent(), e.getX(), e.getY());
 		}
 		else{
 			selectionBordure(e);

@@ -1,5 +1,6 @@
 package modele.FichierTmp;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -16,7 +17,7 @@ public class FichierGphTmp {
 // --------------CONSTRUCTEURS-------------- //
 // ----------------------------------------- //
 	public FichierGphTmp(LinkedList<FragmentMolecule> listeGPH) {
-		listeGPH = listeGPH;
+		this.listeGPH = listeGPH;
 	}
 // ----------------------------------------- //
 // -------------INITIALISEURS--------------- //
@@ -36,13 +37,41 @@ public class FichierGphTmp {
 		
 	}
 	
-	public void mofifierValeur( int positionLigne, int positionColonne, int valeur){
+	public void mofifierValeur( int positionLigne, int positionColonne, String valeur){
 		
 		switch(positionColonne){
 		
-		
+		case 3 : listeGPH.get(positionLigne).getBalise("Classe").setValeur(valeur);
+		break;
+		case 4 : listeGPH.get(positionLigne).getBalise("Frequence").setValeur(valeur);
+		break;
+		case 5 : listeGPH.get(positionLigne).getBalise("Toxicite").setValeur(valeur);
+		break;
+		case 6 : listeGPH.get(positionLigne).getBalise("Emergence").setValeur(valeur);
+		break; 
 		
 		}
+	}
+	
+	public String creerCheminNouveauFichier(String path){
+		File fichierReference = new File(path);
+		String nomFichier = fichierReference.getName();
+		System.out.println(nomFichier);
+		String tabNomFichier[] = nomFichier.split(".gph");
+		
+		File dossier = fichierReference.getParentFile();
+		String listeDossier[] = dossier.list();
+		int cpt = 0;
+		for (int i = 0; i< listeDossier.length; i++){
+			if (listeDossier[i].endsWith("gph")){
+				cpt++;
+			}
+		}
+		
+		
+		nomFichier = tabNomFichier[0]+"_("+cpt+")"+".gph";
+		
+		return dossier.getPath()+File.separator+nomFichier;
 	}
 	
 	/**

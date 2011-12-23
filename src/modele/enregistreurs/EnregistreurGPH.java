@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
+
 import modele.composantsChimiques.FragmentMolecule;
 
 public class EnregistreurGPH implements EnregistreurGenerique
@@ -39,7 +41,7 @@ public class EnregistreurGPH implements EnregistreurGenerique
 	/**
 	 * Indice de l'objet FragmentMoleculaire sur lequel on travail.
 	 */
-	private ArrayList<FragmentMolecule>	listeGPH				= null;
+	private LinkedList<FragmentMolecule>	listeGPH				= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -50,13 +52,13 @@ public class EnregistreurGPH implements EnregistreurGenerique
 
 	}
 
-	public EnregistreurGPH(ArrayList<FragmentMolecule> liste, String path)
+	public EnregistreurGPH(LinkedList<FragmentMolecule> liste, String path)
 	{
 		listeGPH = liste;
 		ecrireFichier(path);
 	}
 
-	public EnregistreurGPH(ArrayList<FragmentMolecule> liste)
+	public EnregistreurGPH(LinkedList<FragmentMolecule> liste)
 	{
 		listeGPH = liste;
 	}

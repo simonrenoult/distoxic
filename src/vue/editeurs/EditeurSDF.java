@@ -95,7 +95,7 @@ public class EditeurSDF extends JPanel
 		{
 			TITRES_TABLEAU = recupererTitresTableau(fichierSDF.getParseurSDF());
 
-			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierSDF.getParseurSDF().convertirListeVersTableau2D());
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierSDF.getParseurSDF().convertirListeVersTableau2D(),1);
 			tableauSDF = new TablesEditeurs(modele);
 			tableauSDF.setAutoCreateRowSorter(true);
 			tableauSDF.getTableHeader().setReorderingAllowed(false);

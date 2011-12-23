@@ -15,6 +15,12 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	private static String _INITIALISATION_CHAMPS = "";
 	private Object[][]	donnees;
 	private String[]	titres;
+	
+	/*
+	 * Comme les 3 jtables différente se serve du même modèle, les cellules non éditables 
+	 * ne sont pas les même. 0 pour GPH, 1 pour SDF. Toutes les colonnes du Bin ne sont pas édiatbles.
+	 */
+	private int indexJTable;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -24,11 +30,11 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	{
 	}
 
-	public ModeleTablesEditeurs(String[] titresColonnes, Object[][] donneesTableau)
+	public ModeleTablesEditeurs(String[] titresColonnes, Object[][] donneesTableau, int indexJtable)
 	{
 		this.titres = titresColonnes;
 		this.donnees = donneesTableau;
-		
+		this.indexJTable = indexJtable;
 	}
 
 	// ----------------------------------------- //
@@ -174,7 +180,14 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	 */
 	public boolean isCellEditable(int row, int col)
 	{
-		return true;
+		
+		if(indexJTable == 0 && (col >= 3)){
+				return true;
+		}
+		if(indexJTable == 1 && (col >= 3)){
+			return true;
+		}
+		return false;
 	}
 	
 	public Object [] creerLigneVierge(int columnCount) {
@@ -193,7 +206,12 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
-
+	@SuppressWarnings("unchecked")
+	@Override
+	public Class getColumnClass(int columnIndex){
+		return Integer.class;
+	}
+	
 	public String getColumnName(int indiceColonne)
 	{
 		return this.titres[indiceColonne];

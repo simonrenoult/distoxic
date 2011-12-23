@@ -27,7 +27,7 @@ public class EditeurGPH extends JPanel
 	public final static Color		BG_COLOR		= Color.WHITE;
 
 	private final static String		TITRE			= "Editeur de fichiers *.gph";
-	private final static String[]	TITRES_TABLEAU	= { "Id fragment","Nb atomes", "Nb liaisons", "Classe", "Frequence", "Toxicite",
+	private final static String[]	TITRES_TABLEAU	= { "IndFrag","Nb atomes", "Nb liaisons", "IndTox", "Frequence", "Toxicite",
 	"Emergence"							};
 
 	// ----------------------------------------- //
@@ -89,7 +89,7 @@ public class EditeurGPH extends JPanel
 	{
 		try
 		{
-			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierGPH.getParseurGPH().convertirListeVersTableau2D());
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierGPH.getParseurGPH().convertirListeVersTableau2D(),0);
 			tableauGPH = new TablesEditeurs(modele);
 			tableauGPH.setAutoCreateRowSorter(true);
 			tableauGPH.getTableHeader().setReorderingAllowed(false);
