@@ -1,6 +1,7 @@
 package controleur;
 
 import java.awt.Event;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -33,7 +34,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 		this.ed = ed;
 		bordureSelection = ed.getBordureSelection();
 		bordureVide = ed.getBordureVide();
-		initMenuContextuel();
+		initMenuContextuel(0);
 		
 		try{
 			ed.getEdBin().getTableauBIN().addMouseListener(this);
@@ -63,8 +64,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 // ----------------------------------------- //
 // --------------INITIALISEURS-------------- //
 // ----------------------------------------- //
-	private void initMenuContextuel(){
-		menuContextuel = new MenuContextuel();
+	private void initMenuContextuel(int index){
+		menuContextuel = new MenuContextuel(index);
 		menuContextuel.getAjouterDebutTableau().addActionListener(this);
 		menuContextuel.getAjouterAvantLigneSelection().addActionListener(this);
 		menuContextuel.getAjouterApresLigneSelection().addActionListener(this);
@@ -518,10 +519,25 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 		// Si on applique la methode directement perte de l'encadrement.
 		if(e.getModifiers()== Event.META_MASK){
 			selectionBordure(e);
-			menuContextuel.show(e.getComponent(), e.getX(), e.getY());
+			if(ed.getEdGph().getGphFile() != null && ed.getEdGph().getGphFile().isFlank()){
+				initMenuContextuel(1);
+				menuContextuel.show(e.getComponent(), e.getX(), e.getY());
+			}
+			else{
+				initMenuContextuel(0);
+				menuContextuel.show(e.getComponent(), e.getX(), e.getY());
+			}
+			
 		}
 		else{
 			selectionBordure(e);
+			if(ed.getEdBin().getBinFile() != null){
+				Point p = e.getPoint(); 
+		        int colonne = JtableBin.columnAtPoint(p);
+		        if(colonne == 2){
+		        	System.out.println("lancer fenetre");
+		        }
+			}
 		}
 		
 	}

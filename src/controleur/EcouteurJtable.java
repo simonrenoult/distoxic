@@ -75,13 +75,17 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 
 	@Override
 	public void tableChanged(TableModelEvent e) {
-		
-		
+		int positionLigne;
+		int positionColonne;
 		
 		if(binFile != null){
-			//System.out.println("BIN avant : "+binFile.isChanged());
 			binFile.setChanged(true);
-			//System.out.println("BIN apres : "+binFile.isChanged());
+			positionLigne = tableau.getSelectedRow();
+			positionColonne = tableau.getSelectedColumn();
+			int valeur =Integer.parseInt(String.valueOf(tableau.getValueAt(positionLigne, positionColonne)));
+			binFile.getFichierBinTmp().mofifierValeur(positionLigne, positionColonne,valeur );
+			binFile.getFichierBinTmp().afficherListeBIN();
+			
 		}
 		else if (gphFile != null){
 			//System.out.println("GPH avant : "+gphFile.isChanged());
@@ -124,9 +128,7 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 			SelectionLigneClicDroit(e);
 			//menuContextuel.show(e.getComponent(), e.getX(), e.getY());
 		}
-		else{
-			//System.out.println("Clic Gauche");
-		}
+		
 		
 	}
 	
@@ -140,7 +142,7 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 	public void mouseMoved(MouseEvent e) {
 		Point p = e.getPoint(); 
         int row = tableau.rowAtPoint(p);
-        tableau.setToolTipText(binFile.getParseurBIN().afficherListeFragmentAssociee(row));
+        tableau.setToolTipText(binFile.getFichierBinTmp().afficherListeFragmentAssociee(row));
     }
 
 	
