@@ -119,7 +119,7 @@ public class EcouteurBarreOutils implements ActionListener
 		}
 		catch (IndexOutOfBoundsException arg0) {
 			lancerMessageErreur("Aucun tableau n'a été selectionné depuis l'espace de travail.");
-			arg0.printStackTrace();
+			//arg0.printStackTrace();
 			
 		}
 	}
