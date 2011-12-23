@@ -1,6 +1,5 @@
 package modele.fichiers;
 
-
 import modele.enregistreurs.EnregistreurBIN;
 import modele.fichiersTmp.FichierBinTmp;
 import modele.parseurs.ParseurBIN;
@@ -19,11 +18,11 @@ public class FichierBIN implements InitFichier
 
 	private ParseurBIN		parseurBIN		= null;
 	private EnregistreurBIN	enregistreurBIN	= null;
-	private FichierBinTmp fichierBinTmp = null;
+	private FichierBinTmp	fichierBinTmp	= null;
 	private String			filePath		= null;
 	private boolean			isChanged		= false;
 	private boolean			isFlank			= false;
-	
+
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
@@ -41,7 +40,7 @@ public class FichierBIN implements InitFichier
 	public void initParseur()
 	{
 		parseurBIN = new ParseurBIN(filePath);
-		fichierBinTmp = new FichierBinTmp(parseurBIN.getListeBIN()); 
+		fichierBinTmp = new FichierBinTmp(parseurBIN.getListeBIN());
 	}
 
 	@Override
@@ -53,11 +52,7 @@ public class FichierBIN implements InitFichier
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-	
-	
-	
-	
-	
+
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
@@ -100,12 +95,15 @@ public class FichierBIN implements InitFichier
 	{
 		return isChanged;
 	}
+
 	/**
 	 * @return the fichierBinTmp
 	 */
-	public FichierBinTmp getFichierBinTmp() {
+	public FichierBinTmp getFichierBinTmp()
+	{
 		return fichierBinTmp;
 	}
+
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
@@ -154,12 +152,12 @@ public class FichierBIN implements InitFichier
 		this.isChanged = isChanged;
 	}
 
-	
-
 	/**
-	 * @param fichierBinTmp the fichierBinTmp to set
+	 * @param fichierBinTmp
+	 *            the fichierBinTmp to set
 	 */
-	public void setFichierBinTmp(FichierBinTmp fichierBinTmp) {
+	public void setFichierBinTmp(FichierBinTmp fichierBinTmp)
+	{
 		this.fichierBinTmp = fichierBinTmp;
 	}
 
