@@ -161,4 +161,18 @@ public class MenuFichier extends Menu
 		this.quitter = quitter;
 	}
 
+	/**
+	 * @return the ouvrir
+	 */
+	public JMenuItem getOuvrir() {
+		return ouvrir;
+	}
+
+	/**
+	 * @param ouvrir the ouvrir to set
+	 */
+	public void setOuvrir(JMenuItem ouvrir) {
+		this.ouvrir = ouvrir;
+	}
+
 }

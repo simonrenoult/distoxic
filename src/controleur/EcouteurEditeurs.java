@@ -63,6 +63,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 // ----------------------------------------- //
 // --------------INITIALISEURS-------------- //
 // ----------------------------------------- //
+	@SuppressWarnings("unused")
 	private void initMenuContextuel(int index){
 		menuContextuel = new MenuContextuel(index);
 		menuContextuel.getAjouterDebutTableau().addActionListener(this);
@@ -424,6 +425,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 	/**
 	 * Ajout d'une ligne apres la ligne choisi par l'utilisateur dans les tableaux SDF et BIN
 	 */
+	@SuppressWarnings("unused")
 	private void ajouterLigneApresTableauSdfBin() {
 		if(JtableBin != null){
 			int positionLigne = JtableSdf.getSelectedRow();
@@ -444,6 +446,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 	/**
 	 * Ajout d'une ligne apres la ligne choisi par l'utilisateur dans le tableau GPH
 	 */
+	@SuppressWarnings("unused")
 	private void ajouterLigneApresTableauGph() {
 		int positionLigne = JtableGph.getSelectedRow();
 		((ModeleTablesEditeurs)JtableGph.getModel()).
@@ -456,6 +459,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 	/**
 	 * Ajout d'une ligne apres la ligne choisi par l'utilisateur dans les tableaux BIN et SDF
 	 */
+	@SuppressWarnings("unused")
 	private void ajouterLigneApresTableauBinSdf() {
 		if(JtableSdf != null){
 			int positionLigne = JtableBin.getSelectedRow();

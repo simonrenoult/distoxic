@@ -1,11 +1,10 @@
 package modele.fichiersTmp;
 
+import java.io.File;
 import java.util.LinkedList;
 
 import modele.composantsChimiques.Balise;
 import modele.composantsChimiques.FragmentMolecule;
-import modele.editeurs.TablesEditeurs;
-import modele.parseurs.ParseurSDF;
 
 public class FichierSdfTmp
 {
@@ -49,10 +48,45 @@ public class FichierSdfTmp
 			listeSDF.get(positionLigne).getBalises().add(new Balise(intituleColonne, contenuCellule));
 		
 	}
+	
+	public String creerCheminNouveauFichier(String path){
+		File fichierReference = new File(path);
+		String nomFichier = fichierReference.getName();
+		System.out.println(nomFichier);
+		String tabNomFichier[] = nomFichier.split(".sdf");
+		
+		File dossier = fichierReference.getParentFile();
+		String listeDossier[] = dossier.list();
+		int cpt = 0;
+		for (int i = 0; i< listeDossier.length; i++){
+			if (listeDossier[i].endsWith("sdf")){
+				cpt++;
+			}
+		}
+		
+		
+		nomFichier = tabNomFichier[0]+"_("+cpt+")"+".sdf";
+		
+		return dossier.getPath()+File.separator+nomFichier;
+	}
 
 	// ----------------------------------------- //
 	// -------------- ACCESSEURS --------------- //
 	// -------------- MUTATEURS --------------- //
 	// ----------------------------------------- //
+	/**
+	 * @return the fragmentsMolecules
+	 */
+	public LinkedList<FragmentMolecule> getListeSDF() {
+		return listeSDF;
+	}
+
+	/**
+	 * @param fragmentsMolecules the fragmentsMolecules to set
+	 */
+	public void setListeSDF(
+			LinkedList<FragmentMolecule> listeSDF) {
+		this.listeSDF = listeSDF;
+	}
 
 }

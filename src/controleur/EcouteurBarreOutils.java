@@ -2,15 +2,8 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
 import javax.swing.JOptionPane;
-
-import com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException;
-
 import modele.TripletFichier;
-import modele.WorkspaceModele;
 import modele.enregistreurs.EnregistreurBIN;
 import modele.enregistreurs.EnregistreurGPH;
 import modele.enregistreurs.EnregistreurSDF;
@@ -80,7 +73,7 @@ public class EcouteurBarreOutils implements ActionListener
 			
 			if(fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdSdf().getSdfFile() != null){
-				//enregistrerSDF(index);
+				enregistrerSDF(index);
 			}
 			this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
 			this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
@@ -115,7 +108,7 @@ public class EcouteurBarreOutils implements ActionListener
 					fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdSdf().getSdfFile().isFlank()
 					){
-				//enregistrerSDF(index);
+				enregistrerSDF(index);
 			this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
 			this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 		}
@@ -140,7 +133,7 @@ public class EcouteurBarreOutils implements ActionListener
 				getEditeurs().get(indexOnglet).getEdSdf().getSdfFile();
 		String path = fichierSdf.getFichierSdfTmp().creerCheminNouveauFichier(fichierSdf.getFilePath());
 		System.out.println(path);
-		fichierSdf.setEnregistreurSDF(new EnregistreurSDF(fichierSdf.getFichierSdfTmp().getFragmentsMolecules(),path));
+		fichierSdf.setEnregistreurSDF(new EnregistreurSDF(fichierSdf.getFichierSdfTmp().getListeSDF(),path));
 		
 	}
 	

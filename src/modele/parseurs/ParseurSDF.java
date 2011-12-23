@@ -6,13 +6,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.swing.JTable;
-
 import modele.composantsChimiques.Atome;
 import modele.composantsChimiques.Balise;
 import modele.composantsChimiques.FragmentMolecule;
-import modele.editeurs.TablesEditeurs;
 
 public class ParseurSDF implements ParseurGenerique
 {
@@ -202,24 +198,6 @@ public class ParseurSDF implements ParseurGenerique
 		return tab;
 	}
 
-	// ------- TABLEAU->LISTE ------- //
-
-	public LinkedList<FragmentMolecule> convertirTableau2DVersListe(TablesEditeurs tab)
-	{
-		LinkedList<FragmentMolecule> l = new LinkedList<FragmentMolecule>();
-		
-		for (int i = 0 ; i < tab.getRowCount() ; i++)
-		{
-			FragmentMolecule f = new FragmentMolecule();
-			
-			for (int j = 0 ; j < tab.getColumnCount() ; j++)
-			{
-				
-			}
-		}
-		
-		return null;
-	}
 	
 	// ------- TRIS ------- //
 

@@ -96,7 +96,7 @@ public class EcouteurBarreMenu implements ActionListener
 			
 			if(fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdSdf().getSdfFile() != null){
-				//enregistrerSDF(index);
+				enregistrerSDF(index);
 			}
 			this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
 			this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
@@ -131,7 +131,7 @@ public class EcouteurBarreMenu implements ActionListener
 					fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdSdf().getSdfFile().isFlank()
 					){
-				//enregistrerSDF(index);
+				enregistrerSDF(index);
 			}
 			else{
 				lancerMessageErreur("Aucun tableau n'a été sélectionné");
@@ -155,7 +155,7 @@ public class EcouteurBarreMenu implements ActionListener
 				getEditeurs().get(indexOnglet).getEdSdf().getSdfFile();
 		String path = fichierSdf.getFichierSdfTmp().creerCheminNouveauFichier(fichierSdf.getFilePath());
 		System.out.println(path);
-		fichierSdf.setEnregistreurSDF(new EnregistreurSDF(fichierSdf.getFichierSdfTmp().getFragmentsMolecules(),path));
+		fichierSdf.setEnregistreurSDF(new EnregistreurSDF(fichierSdf.getFichierSdfTmp().getListeSDF(),path));
 		
 	}
 	

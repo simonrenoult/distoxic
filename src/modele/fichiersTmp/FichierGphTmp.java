@@ -1,10 +1,6 @@
 package modele.fichiersTmp;
 
-<<<<<<< HEAD
 import java.io.File;
-import java.util.ArrayList;
-=======
->>>>>>> 71c4962a9aa83a3d1fd9e00f5765a44f2b1f33db
 import java.util.LinkedList;
 
 import modele.composantsChimiques.FragmentMolecule;
@@ -18,21 +14,12 @@ public class FichierGphTmp
 	
 	private LinkedList<FragmentMolecule>	listeGPH	= null;
 
-<<<<<<< HEAD
+
 // ----------------------------------------- //
 // --------------CONSTRUCTEURS-------------- //
 // ----------------------------------------- //
 	public FichierGphTmp(LinkedList<FragmentMolecule> listeGPH) {
 		this.listeGPH = listeGPH;
-=======
-	// ----------------------------------------- //
-	// --------------CONSTRUCTEURS-------------- //
-	// ----------------------------------------- //
-	
-	public FichierGphTmp(LinkedList<FragmentMolecule> listeGPH)
-	{
-		listeGPH = listeGPH;
->>>>>>> 71c4962a9aa83a3d1fd9e00f5765a44f2b1f33db
 	}
 
 	// ----------------------------------------- //
@@ -52,7 +39,6 @@ public class FichierGphTmp
 	{
 
 	}
-<<<<<<< HEAD
 	
 	public void mofifierValeur( int positionLigne, int positionColonne, String valeur){
 		
@@ -83,18 +69,7 @@ public class FichierGphTmp
 			if (listeDossier[i].endsWith("gph")){
 				cpt++;
 			}
-=======
-
-	public void mofifierValeur(int positionLigne, int positionColonne, int valeur)
-	{
-
-		switch (positionColonne)
-		{
-
->>>>>>> 71c4962a9aa83a3d1fd9e00f5765a44f2b1f33db
 		}
-		
-		
 		nomFichier = tabNomFichier[0]+"_("+cpt+")"+".gph";
 		
 		return dossier.getPath()+File.separator+nomFichier;

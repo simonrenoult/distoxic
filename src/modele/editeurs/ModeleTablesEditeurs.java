@@ -1,10 +1,8 @@
 package modele.editeurs;
 
-import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableModel;
 
 @SuppressWarnings("serial")
 public class ModeleTablesEditeurs extends AbstractTableModel 
@@ -206,8 +204,8 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
-	@SuppressWarnings("unchecked")
-	@Override
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Class getColumnClass(int columnIndex){
 		return Integer.class;
 	}

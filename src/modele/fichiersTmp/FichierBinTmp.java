@@ -1,5 +1,6 @@
 package modele.fichiersTmp;
 
+import java.io.File;
 import java.util.LinkedList;
 
 public class FichierBinTmp
@@ -104,6 +105,24 @@ public class FichierBinTmp
 		}
 	}
 
+	public String creerCheminNouveauFichier(String path){
+		File fichierReference = new File(path);
+		String nomFichier = fichierReference.getName();
+		System.out.println(nomFichier);
+		String tabNomFichier[] = nomFichier.split(".bin");
+		
+		File dossier = fichierReference.getParentFile();
+		String listeDossier[] = dossier.list();
+		int cpt = 0;
+		for (int i = 0; i< listeDossier.length; i++){
+			if (listeDossier[i].endsWith("bin")){
+				cpt++;
+			}
+		}
+		nomFichier = tabNomFichier[0]+"_("+cpt+")"+".bin";
+		
+		return dossier.getPath()+File.separator+nomFichier;
+	}
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
