@@ -34,7 +34,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 		this.ed = ed;
 		bordureSelection = ed.getBordureSelection();
 		bordureVide = ed.getBordureVide();
-		initMenuContextuel(0);
+		
 		
 		try{
 			ed.getEdBin().getTableauBIN().addMouseListener(this);
@@ -71,6 +71,9 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 		menuContextuel.getAjouterApresLigneSelection().addActionListener(this);
 		menuContextuel.getAjouterFinTableau().addActionListener(this);
 		menuContextuel.getSupprimer().addActionListener(this);
+		if (index == 1){
+			menuContextuel.getAjouterFragmentBin().addActionListener(this);
+		}
 	}
 
 // ----------------------------------------- //
@@ -408,13 +411,13 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 	 
 	private void ajouterLigneApresTableau() {
 		if(ed.getEdBin().getBinFile() != null && ed.getEdBin().getBinFile().isFlank()){
-			ajouterLigneApresTableauBinSdf();
-		}
-		else if (ed.getEdGph().getGphFile() != null && ed.getEdGph().getGphFile().isFlank()){
-			ajouterLigneApresTableauGph();
+			
 		}
 		else if (ed.getEdSdf().getSdfFile() != null && ed.getEdSdf().getSdfFile().isFlank()){
-			ajouterLigneApresTableauSdfBin();
+			
+		}
+		else{
+			lancerMessageErreur("Aucune molecule n'a ete selectionne pour l'ajout du fragment.");
 		}
 		
 	}
@@ -492,8 +495,31 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 		else if (e.getSource() == menuContextuel.getSupprimer()){
 			suppressionLigne();
 		}
+		else if (e.getSource() ==  menuContextuel.getAjouterFragmentBin()){
+			AjoutFragmentMolecule();
+		}
 	}
 	
+	private void AjoutFragmentMolecule() {
+	if (ed.getEdSdf().getSdfFile() != null && JtableSdf.getSelectedRow() != -1){
+		if(ed.getEdBin().getBinFile() != null){
+			int positionLigne = JtableSdf.getSelectedRow();
+			int numeroFragment = JtableGph.getSelectedRow();
+			ed.getEdBin().getBinFile().getFichierBinTmp().ajoutFragment(positionLigne, numeroFragment);
+			int nbFragment = (Integer) (JtableBin.getValueAt(positionLigne, 2));
+			JtableBin.setValueAt(nbFragment+1, positionLigne, 2);
+		}
+		else{
+			lancerMessageErreur("Ajout impossible : aucun tableau BIN n'est present.");
+		}
+	}
+	else{
+		lancerMessageErreur("Vous n'avez pas selectionne de molecule pour l'ajout du fragment");
+	}
+		
+	}
+
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
@@ -521,23 +547,14 @@ public class EcouteurEditeurs implements MouseListener, ActionListener{
 			selectionBordure(e);
 			if(ed.getEdGph().getGphFile() != null && ed.getEdGph().getGphFile().isFlank()){
 				initMenuContextuel(1);
-				menuContextuel.show(e.getComponent(), e.getX(), e.getY());
 			}
 			else{
 				initMenuContextuel(0);
-				menuContextuel.show(e.getComponent(), e.getX(), e.getY());
 			}
-			
+			menuContextuel.show(e.getComponent(), e.getX(), e.getY());
 		}
 		else{
 			selectionBordure(e);
-			if(ed.getEdBin().getBinFile() != null){
-				Point p = e.getPoint(); 
-		        int colonne = JtableBin.columnAtPoint(p);
-		        if(colonne == 2){
-		        	System.out.println("lancer fenetre");
-		        }
-			}
 		}
 		
 	}

@@ -170,6 +170,20 @@ public class MenuContextuel extends JPopupMenu {
 		this.supprimer = supprimer;
 	}
 
+	/**
+	 * @return the ajouterFragmentBin
+	 */
+	public JMenuItem getAjouterFragmentBin() {
+		return ajouterFragmentBin;
+	}
+
+	/**
+	 * @param ajouterFragmentBin the ajouterFragmentBin to set
+	 */
+	public void setAjouterFragmentBin(JMenuItem ajouterFragmentBin) {
+		this.ajouterFragmentBin = ajouterFragmentBin;
+	}
+
 	
 
 	// ----------------------------------------- //

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import modele.composantsChimiques.Atome;
 import modele.composantsChimiques.Balise;
@@ -50,7 +51,7 @@ public class ParseurGPH implements ParseurGenerique
 	 */
 	private static int					indiceFragment			= 0;
 
-	private ArrayList<FragmentMolecule>	listeGPH				= null;
+	private LinkedList<FragmentMolecule>	listeGPH				= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -58,7 +59,7 @@ public class ParseurGPH implements ParseurGenerique
 
 	public ParseurGPH(String filePath)
 	{
-		listeGPH = new ArrayList<FragmentMolecule>();
+		listeGPH = new LinkedList<FragmentMolecule>();
 		lireFichier(filePath);
 		convertirListeVersTableau2D();
 	}
@@ -229,32 +230,34 @@ public class ParseurGPH implements ParseurGenerique
 		}
 	}
 
+	
 	@Override
 	public void trierListe()
 	{
 
 	}
 
-	/*public static void main(String[] args)
-	{
-		ParseurGPH p = new ParseurGPH(".\\workspace\\DisToxicProjects\\exemple_39_45\\test.gph");
-		p.afficherTableau();
-		Object[][] tmp = p.convertirListeVersTableau2D();
-
-		for (int i = 0 ; i < tmp.length ; i++)
-		{
-			for (int j = 0 ; j < tmp[0].length ; j++)
-			{
-				System.out.println(tmp[i][j]);
-			}
-		}
-	}*/
-
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
+	
+
+	/**
+	 * @return the listeGPH
+	 */
+	public LinkedList<FragmentMolecule> getListeGPH() {
+		return listeGPH;
+	}
+
+	
 
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
+	/**
+	 * @param listeGPH the listeGPH to set
+	 */
+	public void setListeGPH(LinkedList<FragmentMolecule> listeGPH) {
+		this.listeGPH = listeGPH;
+	}
 }

@@ -1,7 +1,7 @@
 package modele.fichiers;
 
-import FichierTmp.FichierBinTmp;
 
+import modele.FichierTmp.FichierBinTmp;
 import modele.enregistreurs.EnregistreurBIN;
 import modele.parseurs.ParseurBIN;
 

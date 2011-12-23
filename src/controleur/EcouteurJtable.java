@@ -75,16 +75,20 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 
 	@Override
 	public void tableChanged(TableModelEvent e) {
-		int positionLigne;
-		int positionColonne;
+		
+		int positionLigne ;
+		int positionColonne; 
 		
 		if(binFile != null){
 			binFile.setChanged(true);
 			positionLigne = tableau.getSelectedRow();
 			positionColonne = tableau.getSelectedColumn();
-			int valeur =Integer.parseInt(String.valueOf(tableau.getValueAt(positionLigne, positionColonne)));
-			binFile.getFichierBinTmp().mofifierValeur(positionLigne, positionColonne,valeur );
-			binFile.getFichierBinTmp().afficherListeBIN();
+			if(positionColonne == 1){
+				int valeur =Integer.parseInt(String.valueOf(tableau.getValueAt(positionLigne, positionColonne)));
+				binFile.getFichierBinTmp().mofifierValeurClasse(positionLigne, positionColonne,valeur );
+				binFile.getFichierBinTmp().afficherListeBIN();
+				
+			}
 			
 		}
 		else if (gphFile != null){
