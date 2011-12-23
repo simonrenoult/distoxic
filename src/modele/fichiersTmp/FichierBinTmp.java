@@ -7,7 +7,7 @@ public class FichierBinTmp
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-	
+
 	private LinkedList<LinkedList<Integer>>	listeBINTmp	= null;
 
 	// ----------------------------------------- //
@@ -32,13 +32,12 @@ public class FichierBinTmp
 		listeBINTmp.remove(position);
 	}
 
-	public void AjouterLigneLigneFichierBinTmp(int position, int numéro)
+	public void ajouterLigneLigneFichierBinTmp(int position, int num)
 	{
 		LinkedList<Integer> element = new LinkedList<Integer>();
 		element.add(-1);
 		element.add(-2);
 		listeBINTmp.add(position, element);
-
 	}
 
 	public void mofifierValeurClasse(int positionLigne, int positionColonne, int valeur)

@@ -1,6 +1,7 @@
 package modele.fichiers;
 
 import modele.enregistreurs.EnregistreurSDF;
+import modele.fichiersTmp.FichierSdfTmp;
 import modele.parseurs.ParseurSDF;
 
 public class FichierSDF implements InitFichier
@@ -16,6 +17,8 @@ public class FichierSDF implements InitFichier
 	 */
 	private ParseurSDF		parseurSDF		= null;
 	private EnregistreurSDF	enregistreurSDF	= null;
+	private FichierSdfTmp	fichierSdfTmp	= null;
+
 	private String			filePath		= null;
 	private boolean			isChanged		= false;
 	private boolean			isFlank			= false;
@@ -36,6 +39,7 @@ public class FichierSDF implements InitFichier
 	public void initParseur()
 	{
 		parseurSDF = new ParseurSDF(filePath);
+		fichierSdfTmp = new FichierSdfTmp(parseurSDF.getFragmentsMolecules());
 	}
 
 	@Override
@@ -137,6 +141,16 @@ public class FichierSDF implements InitFichier
 	public void setChanged(boolean isChanged)
 	{
 		this.isChanged = isChanged;
+	}
+
+	public FichierSdfTmp getFichierSdfTmp()
+	{
+		return fichierSdfTmp;
+	}
+
+	public void setFichierSdfTmp(FichierSdfTmp fichierSdfTmp)
+	{
+		this.fichierSdfTmp = fichierSdfTmp;
 	}
 
 }
