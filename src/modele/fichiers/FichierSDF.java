@@ -2,6 +2,7 @@ package modele.fichiers;
 
 import modele.FichierTmp.FichierSDFTmp;
 import modele.enregistreurs.EnregistreurSDF;
+import modele.fichiersTmp.FichierSdfTmp;
 import modele.parseurs.ParseurSDF;
 
 public class FichierSDF implements InitFichier
@@ -17,7 +18,12 @@ public class FichierSDF implements InitFichier
 	 */
 	private ParseurSDF		parseurSDF		= null;
 	private EnregistreurSDF	enregistreurSDF	= null;
+<<<<<<< HEAD
 	private FichierSDFTmp fichierSdfTmp = null;
+=======
+	private FichierSdfTmp	fichierSdfTmp	= null;
+
+>>>>>>> 71c4962a9aa83a3d1fd9e00f5765a44f2b1f33db
 	private String			filePath		= null;
 	private boolean			isChanged		= false;
 	private boolean			isFlank			= false;
@@ -38,7 +44,11 @@ public class FichierSDF implements InitFichier
 	public void initParseur()
 	{
 		parseurSDF = new ParseurSDF(filePath);
+<<<<<<< HEAD
 		fichierSdfTmp = new FichierSDFTmp();
+=======
+		fichierSdfTmp = new FichierSdfTmp(parseurSDF.getFragmentsMolecules());
+>>>>>>> 71c4962a9aa83a3d1fd9e00f5765a44f2b1f33db
 	}
 
 	@Override
@@ -142,6 +152,7 @@ public class FichierSDF implements InitFichier
 		this.isChanged = isChanged;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @return the fichierSdfTmp
 	 */
@@ -153,6 +164,15 @@ public class FichierSDF implements InitFichier
 	 * @param fichierSdfTmp the fichierSdfTmp to set
 	 */
 	public void setFichierSdfTmp(FichierSDFTmp fichierSdfTmp) {
+=======
+	public FichierSdfTmp getFichierSdfTmp()
+	{
+		return fichierSdfTmp;
+	}
+
+	public void setFichierSdfTmp(FichierSdfTmp fichierSdfTmp)
+	{
+>>>>>>> 71c4962a9aa83a3d1fd9e00f5765a44f2b1f33db
 		this.fichierSdfTmp = fichierSdfTmp;
 	}
 

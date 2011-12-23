@@ -1,41 +1,58 @@
-package modele.FichierTmp;
+package modele.fichiersTmp;
 
+<<<<<<< HEAD
 import java.io.File;
 import java.util.ArrayList;
+=======
+>>>>>>> 71c4962a9aa83a3d1fd9e00f5765a44f2b1f33db
 import java.util.LinkedList;
 
 import modele.composantsChimiques.FragmentMolecule;
 
-public class FichierGphTmp {
+public class FichierGphTmp
+{
 
-// ----------------------------------------- //
-// ----------------ATRIBUTS----------------- //
-// ----------------------------------------- //
-	private LinkedList<FragmentMolecule>	listeGPH				= null;
+	// ----------------------------------------- //
+	// ----------------ATRIBUTS----------------- //
+	// ----------------------------------------- //
+	
+	private LinkedList<FragmentMolecule>	listeGPH	= null;
 
+<<<<<<< HEAD
 // ----------------------------------------- //
 // --------------CONSTRUCTEURS-------------- //
 // ----------------------------------------- //
 	public FichierGphTmp(LinkedList<FragmentMolecule> listeGPH) {
 		this.listeGPH = listeGPH;
+=======
+	// ----------------------------------------- //
+	// --------------CONSTRUCTEURS-------------- //
+	// ----------------------------------------- //
+	
+	public FichierGphTmp(LinkedList<FragmentMolecule> listeGPH)
+	{
+		listeGPH = listeGPH;
+>>>>>>> 71c4962a9aa83a3d1fd9e00f5765a44f2b1f33db
 	}
-// ----------------------------------------- //
-// -------------INITIALISEURS--------------- //
-// ----------------------------------------- //
-	
-	
 
-// ----------------------------------------- //
-// -----------------METHODES---------------- //
-// ----------------------------------------- //
-	
-	public void suppressionLigneLigneFichierBinTmp(int position){
+	// ----------------------------------------- //
+	// -------------INITIALISEURS--------------- //
+	// ----------------------------------------- //
+
+	// ----------------------------------------- //
+	// -----------------METHODES---------------- //
+	// ----------------------------------------- //
+
+	public void suppressionLigneLigneFichierBinTmp(int position)
+	{
 		listeGPH.remove(position);
 	}
-	
-	public void AjouterLigneLigneFichierBinTmp(int position,int numéro ){
-		
+
+	public void AjouterLigneLigneFichierBinTmp(int position, int numéro)
+	{
+
 	}
+<<<<<<< HEAD
 	
 	public void mofifierValeur( int positionLigne, int positionColonne, String valeur){
 		
@@ -66,6 +83,15 @@ public class FichierGphTmp {
 			if (listeDossier[i].endsWith("gph")){
 				cpt++;
 			}
+=======
+
+	public void mofifierValeur(int positionLigne, int positionColonne, int valeur)
+	{
+
+		switch (positionColonne)
+		{
+
+>>>>>>> 71c4962a9aa83a3d1fd9e00f5765a44f2b1f33db
 		}
 		
 		
@@ -73,7 +99,7 @@ public class FichierGphTmp {
 		
 		return dossier.getPath()+File.separator+nomFichier;
 	}
-	
+
 	/**
 	 * Permet d'afficher le tableau 2D � partir de la liste
 	 */
@@ -91,27 +117,28 @@ public class FichierGphTmp {
 			System.out.println("Emergence : " + fragment.getBalise("Emergence").getValeur());
 		}
 	}
+
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
-	
 
 	/**
 	 * @return the listeGPH
 	 */
-	public LinkedList<FragmentMolecule> getListeGPH() {
+	public LinkedList<FragmentMolecule> getListeGPH()
+	{
 		return listeGPH;
 	}
-
-	
 
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 	/**
-	 * @param listeGPH the listeGPH to set
+	 * @param listeGPH
+	 *            the listeGPH to set
 	 */
-	public void setListeGPH(LinkedList<FragmentMolecule> listeGPH) {
+	public void setListeGPH(LinkedList<FragmentMolecule> listeGPH)
+	{
 		this.listeGPH = listeGPH;
 	}
 }
