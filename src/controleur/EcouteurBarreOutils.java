@@ -1,43 +1,84 @@
-package controleur;
+package src.controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import modele.TripletFichier;
-import modele.enregistreurs.EnregistreurBIN;
-import modele.enregistreurs.EnregistreurGPH;
-import modele.enregistreurs.EnregistreurSDF;
-import modele.fichiers.FichierBIN;
-import modele.fichiers.FichierGPH;
-import modele.fichiers.FichierSDF;
-import vue.FenetreExportationTripletFichier;
-import vue.FenetreImportationTripletFichier;
-import vue.FenetrePrincipale;
-import vue.barreOutils.BarreOutils;
+
+import src.modele.TripletFichier;
+import src.modele.enregistreurs.EnregistreurBIN;
+import src.modele.enregistreurs.EnregistreurGPH;
+import src.modele.enregistreurs.EnregistreurSDF;
+import src.modele.fichiers.FichierBIN;
+import src.modele.fichiers.FichierGPH;
+import src.modele.fichiers.FichierSDF;
+import src.vue.FenetreExportationTripletFichier;
+import src.vue.FenetreImportationTripletFichier;
+import src.vue.FenetrePrincipale;
+import src.vue.barreOutils.BarreOutils;
 
 public class EcouteurBarreOutils implements ActionListener
 {
+	
+	/**
+	 * <b>EcouteurBarreOutils est la classe qui represente l'ecouteur de la classe BarreOutils</b>
+	 * <p>
+	 * Cette classe contient : 
+	 * <ul>
+	 * <li>une instance de classe BarreOutils</li>
+	 * <li>une instance de classe de FenetrePrincipale, afin d'avoir acces à l'ensemble des tableaux.</li>
+	 * <li>une instance de classe de FenetreImportationTriplet, fenetre d'importation d'un projet.</li>
+	 * <li>une instance de classe de FenetreExportationTriplet, fenetre d'exportation d'un projet.</li>
+	 * </ul>
+	 * </p>
+	 * 
+	 * @see BarreOutils
+	 * 
+	 * @author Alexis CHRETIENNE
+	 */
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
-
+	/**
+     * La barre d'outil graphique, utile pour l'acces aux different attributs de la classe.
+     * @see BarreOutils
+     */
 	private BarreOutils							panel;
+	/**
+	 * La fenetre principale, utile dans l'accès aux informations concernant les tableaux.
+	 * @see FenetrePrincipale
+     */
 	private FenetrePrincipale					fenetrePrincipale;
 	@SuppressWarnings("unused")
+	/**
+     * La fenetre d'importation d'un projet, lancee a chaque clic sur le bouton "Importer" de la barre d'outil 
+   	 * @see FenetreImportationTripletFichier
+     */
 	private FenetreImportationTripletFichier	fenetreImportation;
 	@SuppressWarnings("unused")
+	/**
+     * La fenetre d'exportation d'un projet, lancee a chaque clic sur le bouton "Exporter" de la barre d'outil
+     * @see FenetreExportationTripletFichier
+     */
 	private FenetreExportationTripletFichier	fenetreExportation;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Constructeur de la classe EcouteurBarreOutils.
+	 * @param fenetrePrincipale la fenetre principale du programme.
+	 */
 	public EcouteurBarreOutils(FenetrePrincipale fenetrePrincipale)
 	{
 		this(fenetrePrincipale.getBarreOutils());
 		this.fenetrePrincipale = fenetrePrincipale;
 	}
 
+	/**
+	 * Constructeur de la classe EcouteurBarreOutils.
+	 * @param bo la barre d'outil du programme.
+	 */
 	public EcouteurBarreOutils(BarreOutils bo)
 	{
 		panel = bo;
@@ -54,7 +95,7 @@ public class EcouteurBarreOutils implements ActionListener
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 	/**
-	 * Permet d'enregistrer l'ensemble des tableaux d'un onglet (de 1 à 3).
+	 * Methode Permettant d'enregistrer l'ensemble des tableaux d'un onglet (de 1 à 3).
 	 */
 	private void enregistrerSousTriplet() {
 		
@@ -84,7 +125,7 @@ public class EcouteurBarreOutils implements ActionListener
 	}
 
 	/**
-	 * Permet d'enregistrer un fichier à la fois (le tableau encadré).
+	 * Methode Permettant d'enregistrer un fichier à la fois (le tableau encadre).
 	 */
 	private void enregistrerSousUniteTriplet() {
 		int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
@@ -126,7 +167,7 @@ public class EcouteurBarreOutils implements ActionListener
 	
 	/**
 	 * Methode d'enregistrement du fichier SDF de l'onglet selectionne
-	 * @param indexOnglet
+	 * @param indexOnglet l'indice de l'onglet selectionne
 	 */
 	private void enregistrerSDF(int indexOnglet){
 		FichierSDF fichierSdf =  fenetrePrincipale.getConteneurGlobal().getEditeur().
@@ -139,7 +180,7 @@ public class EcouteurBarreOutils implements ActionListener
 	
 	/**
 	 * Methode d'enregistrement du fichier BIN de l'onglet selectionne
-	 * @param indexOnglet
+	 * @param indexOnglet l'indice de l'onglet selectionne
 	 */
 	private void enregistrerBIN(int indexOnglet){
 		FichierBIN fichierBin =  fenetrePrincipale.getConteneurGlobal().getEditeur().
@@ -154,7 +195,7 @@ public class EcouteurBarreOutils implements ActionListener
 	
 	/**
 	 * Methode d'enregistrement du fichier GPH de l'onglet selectionne
-	 * @param indexOnglet
+	 * @param indexOnglet l'indice de l'onglet selectionne
 	 */
 	private void enregistrerGPH(int indexOnglet){
 		FichierGPH fichierGph =  fenetrePrincipale.getConteneurGlobal().getEditeur().
@@ -166,8 +207,8 @@ public class EcouteurBarreOutils implements ActionListener
 	}
 	
 	/**
-	 * Permet de lancer un message d'erreur
-	 * @param message : contenu du message d'erreur.
+	 * Methode Permettant de lancer un message d'erreur
+	 * @param message contenu du message d'erreur.
 	 */
 	private void lancerMessageErreur(String message)
 	{
@@ -175,7 +216,7 @@ public class EcouteurBarreOutils implements ActionListener
 	}
 	
 	/**
-	 * Methode D'appel à la fenetre d'exportation d'un projet.
+	 * Methode d'appel à la fenetre d'exportation d'un projet.
 	 */
 	private void exporterProjet(){
 		try
@@ -192,7 +233,7 @@ public class EcouteurBarreOutils implements ActionListener
 	}
 	
 	/**
-	 * Methode creant la un nouveau projet, puis rafraichissment du Jtree.
+	 * Methode creant un nouveau projet (creation d'un dossier et des 3 fichiers vierges), puis rafraichissment du Jtree.
 	 */
 	private void creerNouveauProjet(){
 		String nomDossier = JOptionPane.showInputDialog("Nom du dossier à créer :");
@@ -209,6 +250,10 @@ public class EcouteurBarreOutils implements ActionListener
 	// ------- ACTION ------- //
 
 	@Override
+	/**
+	 * Methode permettant de capter les evenements de type ActionEvent sur la barre d'outil du programme.
+	 * @param e evenement d'un objet graphique provenant de la barre d'outil.
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == panel.getNouveau())

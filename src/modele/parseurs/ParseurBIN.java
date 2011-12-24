@@ -1,4 +1,4 @@
-package modele.parseurs;
+package src.modele.parseurs;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

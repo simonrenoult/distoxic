@@ -1,4 +1,4 @@
-package modele.parseurs;
+package src.modele.parseurs;
 
 /**
  * <h4>Parseur générique des fichiers *.bin, *.sdf  et *.gph.</h4>

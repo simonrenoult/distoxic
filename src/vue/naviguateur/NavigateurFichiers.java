@@ -1,4 +1,4 @@
-package vue.naviguateur;
+package src.vue.naviguateur;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -12,10 +12,10 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeSelectionModel;
 
-import vue.ConteneurGlobal;
+import src.modele.InformationFichier;
+import src.modele.WorkspaceModele;
+import src.vue.ConteneurGlobal;
 
-import modele.InformationFichier;
-import modele.WorkspaceModele;
 
 @SuppressWarnings("serial")
 public class NavigateurFichiers extends JPanel

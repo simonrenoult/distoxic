@@ -1,4 +1,4 @@
-package controleur;
+package src.controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,10 +8,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 import javax.swing.JFileChooser;
-import modele.WorkspaceModele;
-import modele.zip.Zipper;
-import vue.FenetreExportationTripletFichier;
-import vue.FenetrePrincipale;
+
+import src.modele.WorkspaceModele;
+import src.modele.zip.Zipper;
+import src.vue.FenetreExportationTripletFichier;
+import src.vue.FenetrePrincipale;
 
 public class EcouteurFenetreExportationTripletFichier implements ActionListener {
 	// ----------------------------------------- //
@@ -80,7 +81,7 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	 * @param dossier
 	 */
 	public void copieFichier(File[] fichiers,String dossier){
-		FileChannel in = null; // canal d'entrée
+		FileChannel in = null; // canal d'entrï¿½e
 		FileChannel out = null; // canal de sortie
 		for(int i = 0; i<fichiers.length; i++){
 			try {

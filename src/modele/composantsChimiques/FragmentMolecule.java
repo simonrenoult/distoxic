@@ -1,4 +1,4 @@
-package modele.composantsChimiques;
+package src.modele.composantsChimiques;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;

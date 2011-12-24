@@ -1,4 +1,4 @@
-package controleur;
+package src.controleur;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -6,9 +6,10 @@ import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import vue.ConteneurGlobal;
-import modele.InformationFichier;
-import modele.TripletFichier;
+
+import src.modele.InformationFichier;
+import src.modele.TripletFichier;
+import src.vue.ConteneurGlobal;
 
 public class EcouteurNavigateur implements TreeSelectionListener, MouseListener
 {

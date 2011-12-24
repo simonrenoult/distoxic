@@ -1,8 +1,8 @@
-package modele.fichiers;
+package src.modele.fichiers;
 
-import modele.enregistreurs.EnregistreurSDF;
-import modele.fichiersTmp.FichierSdfTmp;
-import modele.parseurs.ParseurSDF;
+import src.modele.enregistreurs.EnregistreurSDF;
+import src.modele.fichiersTmp.FichierSdfTmp;
+import src.modele.parseurs.ParseurSDF;
 
 public class FichierSDF implements InitFichier
 {

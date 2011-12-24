@@ -1,4 +1,4 @@
-package vue.barreOutils;
+package src.vue.barreOutils;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -6,7 +6,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
-import vue.FenetrePrincipale;
+
+import src.vue.FenetrePrincipale;
 
 @SuppressWarnings("serial")
 public class BarreOutils extends JPanel

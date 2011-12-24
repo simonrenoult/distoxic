@@ -1,4 +1,4 @@
-package modele.fichiersTmp;
+package src.modele.fichiersTmp;
 
 import java.io.File;
 import java.util.LinkedList;

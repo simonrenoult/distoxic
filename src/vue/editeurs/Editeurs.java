@@ -1,4 +1,4 @@
-package vue.editeurs;
+package src.vue.editeurs;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -6,9 +6,10 @@ import javax.swing.BorderFactory;
 import javax.swing.JSplitPane;
 import javax.swing.border.Border;
 
-import controleur.EcouteurEditeurs;
+import src.controleur.EcouteurEditeurs;
+import src.modele.TripletFichier;
 
-import modele.TripletFichier;
+
 
 @SuppressWarnings("serial")
 public class Editeurs extends JSplitPane

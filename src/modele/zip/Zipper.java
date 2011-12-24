@@ -1,4 +1,4 @@
-package modele.zip;
+package src.modele.zip;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -11,7 +11,8 @@ import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import modele.WorkspaceModele;
+import src.modele.WorkspaceModele;
+
 
 public class Zipper
 {

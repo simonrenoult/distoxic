@@ -1,4 +1,4 @@
-package vue;
+package src.vue;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -11,7 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import modele.WorkspaceModele;
+import src.modele.WorkspaceModele;
+
 
 @SuppressWarnings("serial")
 public class FenetreChoixWorkspace extends JFrame

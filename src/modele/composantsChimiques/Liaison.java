@@ -1,4 +1,4 @@
-package modele.composantsChimiques;
+package src.modele.composantsChimiques;
 
 public class Liaison
 {

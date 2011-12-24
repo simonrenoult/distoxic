@@ -1,4 +1,4 @@
-package vue;
+package src.vue;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,7 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JWindow;
 
-import controleur.EcouteurFenetreAPropos;
+import src.controleur.EcouteurFenetreAPropos;
+
 
 @SuppressWarnings("serial")
 public class FenetreAPropos extends JWindow

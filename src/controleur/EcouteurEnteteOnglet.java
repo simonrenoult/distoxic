@@ -1,10 +1,11 @@
-package controleur;
+package src.controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import vue.editeurs.ConteneurEditeurs;
+
+import src.vue.editeurs.ConteneurEditeurs;
 
 public class EcouteurEnteteOnglet implements ActionListener,ChangeListener {
 

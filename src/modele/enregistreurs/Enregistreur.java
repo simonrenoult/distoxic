@@ -1,4 +1,4 @@
-package modele.enregistreurs;
+package src.modele.enregistreurs;
 
 public interface Enregistreur {
 

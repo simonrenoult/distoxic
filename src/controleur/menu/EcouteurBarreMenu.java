@@ -1,24 +1,24 @@
-package controleur.menu;
+package src.controleur.menu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-import modele.TripletFichier;
-import modele.enregistreurs.EnregistreurBIN;
-import modele.enregistreurs.EnregistreurGPH;
-import modele.enregistreurs.EnregistreurSDF;
-import modele.fichiers.FichierBIN;
-import modele.fichiers.FichierGPH;
-import modele.fichiers.FichierSDF;
 
-import vue.FenetreAPropos;
-import vue.FenetreExportationTripletFichier;
-import vue.FenetreImportationTripletFichier;
-import vue.FenetrePrincipale;
-import vue.menus.BarreMenu;
-import vue.menus.MenuAPropos;
-import vue.menus.MenuFichier;
+import src.modele.TripletFichier;
+import src.modele.enregistreurs.EnregistreurBIN;
+import src.modele.enregistreurs.EnregistreurGPH;
+import src.modele.enregistreurs.EnregistreurSDF;
+import src.modele.fichiers.FichierBIN;
+import src.modele.fichiers.FichierGPH;
+import src.modele.fichiers.FichierSDF;
+import src.vue.FenetreAPropos;
+import src.vue.FenetreExportationTripletFichier;
+import src.vue.FenetreImportationTripletFichier;
+import src.vue.FenetrePrincipale;
+import src.vue.menus.BarreMenu;
+import src.vue.menus.MenuAPropos;
+import src.vue.menus.MenuFichier;
 
 public class EcouteurBarreMenu implements ActionListener
 {

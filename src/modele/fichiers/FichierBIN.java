@@ -1,8 +1,8 @@
-package modele.fichiers;
+package src.modele.fichiers;
 
-import modele.enregistreurs.EnregistreurBIN;
-import modele.fichiersTmp.FichierBinTmp;
-import modele.parseurs.ParseurBIN;
+import src.modele.enregistreurs.EnregistreurBIN;
+import src.modele.fichiersTmp.FichierBinTmp;
+import src.modele.parseurs.ParseurBIN;
 
 public class FichierBIN implements InitFichier
 {

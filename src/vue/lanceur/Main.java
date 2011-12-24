@@ -1,9 +1,9 @@
-package vue.lanceur;
+package src.vue.lanceur;
 
-import vue.FenetreChoixWorkspace;
-import vue.FenetrePrincipale;
-import controleur.EcouteurFenetreWorkspace;
-import modele.WorkspaceModele;
+import src.controleur.EcouteurFenetreWorkspace;
+import src.modele.WorkspaceModele;
+import src.vue.FenetreChoixWorkspace;
+import src.vue.FenetrePrincipale;
 
 public class Main
 {

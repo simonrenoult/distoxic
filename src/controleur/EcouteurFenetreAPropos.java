@@ -1,4 +1,4 @@
-package controleur;
+package src.controleur;
 
 import java.awt.Cursor;
 import java.awt.Desktop;
@@ -8,8 +8,9 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
-import vue.FenetreAPropos;
-import vue.FenetrePrincipale;
+
+import src.vue.FenetreAPropos;
+import src.vue.FenetrePrincipale;
 
 public class EcouteurFenetreAPropos implements ActionListener, HyperlinkListener
 {

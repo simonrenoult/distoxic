@@ -1,9 +1,10 @@
-package modele.fichiersTmp;
+package src.modele.fichiersTmp;
 
 import java.io.File;
 import java.util.LinkedList;
 
-import modele.composantsChimiques.FragmentMolecule;
+import src.modele.composantsChimiques.FragmentMolecule;
+
 
 public class FichierGphTmp
 {

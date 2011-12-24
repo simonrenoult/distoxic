@@ -1,4 +1,4 @@
-package modele.editeurs;
+package src.modele.editeurs;
 
 import java.util.LinkedList;
 

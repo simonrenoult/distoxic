@@ -1,4 +1,4 @@
-package vue.editeurs;
+package src.vue.editeurs;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,10 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import controleur.EcouteurJtable;
-import modele.editeurs.ModeleTablesEditeurs;
-import modele.editeurs.TablesEditeurs;
-import modele.fichiers.FichierBIN;
+import src.controleur.EcouteurJtable;
+import src.modele.editeurs.ModeleTablesEditeurs;
+import src.modele.editeurs.TablesEditeurs;
+import src.modele.fichiers.FichierBIN;
+
 
 @SuppressWarnings("serial")
 public class EditeurBIN extends JPanel

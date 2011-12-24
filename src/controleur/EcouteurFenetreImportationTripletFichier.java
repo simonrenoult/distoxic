@@ -1,14 +1,15 @@
-package controleur;
+package src.controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.JFileChooser;
-import modele.FiltreZIP;
-import modele.WorkspaceModele;
-import modele.zip.Dezipper;
-import vue.FenetreImportationTripletFichier;
-import vue.FenetrePrincipale;
+
+import src.modele.FiltreZIP;
+import src.modele.WorkspaceModele;
+import src.modele.zip.Dezipper;
+import src.vue.FenetreImportationTripletFichier;
+import src.vue.FenetrePrincipale;
 
 public class EcouteurFenetreImportationTripletFichier implements ActionListener {
 	// ----------------------------------------- //
