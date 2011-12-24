@@ -66,7 +66,6 @@ public class EditeurBIN extends JPanel
 		setLayout(new FlowLayout());
 
 		titre = new JLabel(CONTENU_TITRE);
-		titre.setName("titre");
 
 		add(titre, BorderLayout.BEFORE_FIRST_LINE);
 	}
@@ -121,10 +120,6 @@ public class EditeurBIN extends JPanel
 		}
 
 	}
-
-	// ----------------------------------------- //
-	// -----------------METHODES---------------- //
-	// ----------------------------------------- //
 
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //

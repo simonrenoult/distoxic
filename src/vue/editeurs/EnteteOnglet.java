@@ -8,89 +8,102 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class EnteteOnglet extends JPanel {
+public class EnteteOnglet extends JPanel
+{
+	// ----------------------------------------- //
+	// --------------- CONSTANTES -------------- //
+	// ----------------------------------------- //
+
+	private final static String		_ICON_PATH		= "/images/icones/";
+	private final static String		_ICON_NAME		= "cross.png";
+	private final static Dimension	BUTTON_SIZE		= new Dimension(16, 16);
+	private final static String		BUTTON_TOOLTIP	= "Fermer";
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-	private static String _ICON_PATH = "/images/icones/";
-	
-	private JLabel label;
-	private JButton button;
-	private ImageIcon icon;
+
+	private JLabel					label;
+	private JButton					button;
+	private ImageIcon				icon;
+
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	public EnteteOnglet(String title){
-		
-		
-		icon =  new ImageIcon(getClass().getResource(_ICON_PATH+"cross.png"));
-		
+
+	public EnteteOnglet(String title)
+	{
+		icon = new ImageIcon(getClass().getResource(_ICON_PATH + _ICON_NAME));
+
 		label = new JLabel(title);
 		this.add(label);
-		
+
 		button = new JButton(icon);
-		button.setPreferredSize(new Dimension(16,16));
+		button.setPreferredSize(BUTTON_SIZE);
 		button.setRolloverEnabled(true);
 		button.setFocusPainted(false);
 		button.setBorderPainted(false);
 		button.setContentAreaFilled(false);
-		button.setToolTipText("Fermer");
+		button.setToolTipText(BUTTON_TOOLTIP);
 		this.add(button);
 	}
-	// ----------------------------------------- //
-	// -------------INITIALISEURS--------------- //
-	// ----------------------------------------- //
-	
 
-	// ----------------------------------------- //
-	// -----------------METHODES---------------- //
-	// ----------------------------------------- //
-	
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
+
 	/**
 	 * @return the label
 	 */
-	public JLabel getLabel() {
+	public JLabel getLabel()
+	{
 		return label;
 	}
+
 	/**
-	 * @param label the label to set
+	 * @param label
+	 *            the label to set
 	 */
-	public void setLabel(JLabel label) {
+	public void setLabel(JLabel label)
+	{
 		this.label = label;
 	}
+
 	/**
 	 * @return the button
 	 */
-	public JButton getButton() {
+	public JButton getButton()
+	{
 		return button;
 	}
+
 	/**
-	 * @param button the button to set
+	 * @param button
+	 *            the button to set
 	 */
-	public void setButton(JButton button) {
+	public void setButton(JButton button)
+	{
 		this.button = button;
 	}
+
 	/**
 	 * @return the icon
 	 */
-	public ImageIcon getIcon() {
+	public ImageIcon getIcon()
+	{
 		return icon;
 	}
+
 	/**
-	 * @param icon the icon to set
+	 * @param icon
+	 *            the icon to set
 	 */
-	public void setIcon(ImageIcon icon) {
+	public void setIcon(ImageIcon icon)
+	{
 		this.icon = icon;
 	}
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
-
-
-
 
 }

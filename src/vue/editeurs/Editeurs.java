@@ -17,24 +17,28 @@ public class Editeurs extends JSplitPane
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
-	public final static Integer	TAILLE_X			= ConteneurEditeurs.TAILLE_X;
-	public final static Integer	TAILLE_Y			= ConteneurEditeurs.TAILLE_Y - 75;
-	public static int			largeurBordure		= 2;
-	
+	public final static Integer		TAILLE_X			= ConteneurEditeurs.TAILLE_X;
+	public final static Integer		TAILLE_Y			= ConteneurEditeurs.TAILLE_Y - 75;
+
+	private final static Integer	LARGEUR_BORDURE		= 2;
+	private final static Integer	LARGEUR_DIVIDER		= 6;
+
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
 
-	private EditeurSDF			edSdf;
-	private JSplitPane			edGph_Bin;
-	private EditeurBIN			edBin;
-	private EditeurGPH			edGph;
+	private EditeurSDF				edSdf;
+	private JSplitPane				edGph_Bin;
+	private EditeurBIN				edBin;
+	private EditeurGPH				edGph;
 
-	private Border				bordureVide			= BorderFactory.createMatteBorder(largeurBordure, largeurBordure,
-															largeurBordure, largeurBordure, Color.white);
-	private Border				bordureSelection	= BorderFactory.createMatteBorder(largeurBordure, largeurBordure,
-															largeurBordure, largeurBordure, Color.red);
-	private TripletFichier		tripletFichier;
+	private Border					bordureVide			= BorderFactory.createMatteBorder(LARGEUR_BORDURE,
+																LARGEUR_BORDURE, LARGEUR_BORDURE, LARGEUR_BORDURE,
+																Color.white);
+	private Border					bordureSelection	= BorderFactory.createMatteBorder(LARGEUR_BORDURE,
+																LARGEUR_BORDURE, LARGEUR_BORDURE, LARGEUR_BORDURE,
+																Color.GREEN);
+	private TripletFichier			tripletFichier;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
@@ -45,7 +49,7 @@ public class Editeurs extends JSplitPane
 		this.setSize(TAILLE_X, TAILLE_Y);
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		this.setOrientation(JSplitPane.VERTICAL_SPLIT);
-		this.setDividerSize(6);
+		this.setDividerSize(LARGEUR_DIVIDER);
 		this.setOneTouchExpandable(true);
 		this.tripletFichier = tripletFichier;
 		buildEditeurSdf();
@@ -55,6 +59,19 @@ public class Editeurs extends JSplitPane
 
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
+	// ----------------------------------------- //
+
+	private void initPositionEditeurs()
+	{
+		this.setTopComponent(edSdf);
+		this.setBottomComponent(edGph_Bin);
+		this.setDividerLocation(EditeurSDF.TAILLE_Y);
+		@SuppressWarnings("unused")
+		EcouteurEditeurs e = new EcouteurEditeurs(this);
+	}
+	
+	// ----------------------------------------- //
+	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
 
 	private void buildEditeurSdf()
@@ -70,20 +87,11 @@ public class Editeurs extends JSplitPane
 		edGph = new EditeurGPH(tripletFichier.getGphFile());
 		edGph.setBorder(bordureVide);
 		edGph_Bin = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, edGph, edBin);
-		edGph_Bin.setDividerSize(6);
+		edGph_Bin.setDividerSize(LARGEUR_DIVIDER);
 		edGph_Bin.setOneTouchExpandable(true);
 		edGph_Bin.setDividerLocation(EditeurGPH.TAILLE_X);
 	}
-
-	private void initPositionEditeurs()
-	{
-		this.setTopComponent(edSdf);
-		this.setBottomComponent(edGph_Bin);
-		this.setDividerLocation(EditeurSDF.TAILLE_Y);
-		@SuppressWarnings("unused")
-		EcouteurEditeurs e = new EcouteurEditeurs(this);
-	}
-
+	
 	public void ajouterEditeurBin(TripletFichier tripletFichier, int indexEditeur)
 	{
 		this.tripletFichier.setBinFile(tripletFichier.getBinFile());

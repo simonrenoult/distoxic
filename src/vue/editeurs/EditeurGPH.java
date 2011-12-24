@@ -68,7 +68,6 @@ public class EditeurGPH extends JPanel
 		setLayout(new FlowLayout());
 
 		titre = new JLabel(TITRE);
-		titre.setName("titre");
 
 		add(titre);
 	}
@@ -96,7 +95,6 @@ public class EditeurGPH extends JPanel
 		}
 		catch (NullPointerException e)
 		{
-			// e.printStackTrace();
 			System.out.println("Tentative d'initialisation du modèle de parseur GPH avortée.");
 		}
 	}

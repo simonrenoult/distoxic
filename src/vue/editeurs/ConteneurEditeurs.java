@@ -52,28 +52,22 @@ public class ConteneurEditeurs extends JTabbedPane
 
 	private void initListeners()
 	{
-
 		emt = new EcouteurEnteteOnglet(this);
-
 	}
-
-	// ----------------------------------------- //
-	// -------------INITIALISEURS--------------- //
-	// ----------------------------------------- //
-
+	
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
+
 	/**
-	 * On cr�� un nouvel onglet. On envoi un triplet un objet de tripletFichier
+	 * On créé un nouvel onglet. On envoi un triplet un objet de tripletFichier
 	 * afin que chaque JPANEL descendant constuise sa JTable. On ajoute l'onglet
-	 * cr�� aux tableaux d'onglet et on ajoute ce dernier onglet au graphique.
+	 * créé aux tableaux d'onglet et on ajoute ce dernier onglet au graphique.
 	 * 
 	 * @param tripletFichier
 	 */
 	public void addEditeur(TripletFichier tripletFichier)
 	{
-
 		Editeurs editeur = new Editeurs(tripletFichier);
 
 		editeurs.add(editeur);
@@ -81,7 +75,7 @@ public class ConteneurEditeurs extends JTabbedPane
 		this.add(editeurs.getLast());
 
 		buildPaneHead(tripletFichier, editeurs.size() - 1);
-		emt.raffraichir(this);
+		emt.rafraichir(this);
 	}
 
 	/**
@@ -133,7 +127,6 @@ public class ConteneurEditeurs extends JTabbedPane
 	 */
 	public String nomEditeur(TripletFichier tripletFichier)
 	{
-
 		if (System.getProperty("os.name").toLowerCase().contains("linux")
 				|| (System.getProperty("os.name").toLowerCase().contains("mac")))
 		{

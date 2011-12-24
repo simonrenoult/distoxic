@@ -55,7 +55,7 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 
-	private void SelectionLigneClicDroit(MouseEvent e)
+	private void selectionLigneClicDroit(MouseEvent e)
 	{
 		tableau.getSelectionModel().addSelectionInterval(tableau.getSelectedRow(), tableau.getSelectedRow());
 		tableau.setRowSelectionAllowed(true);
@@ -104,21 +104,18 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 	@Override
 	public void mouseEntered(MouseEvent e)
 	{
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e)
 	{
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e)
 	{
-		// TODO Auto-generated method stub
 
 	}
 
@@ -127,7 +124,7 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 	{
 		if (e.getModifiers() == Event.META_MASK)
 		{
-			SelectionLigneClicDroit(e);
+			selectionLigneClicDroit(e);
 			// menuContextuel.show(e.getComponent(), e.getX(), e.getY());
 		}
 
@@ -136,7 +133,6 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 	@Override
 	public void mouseDragged(MouseEvent e)
 	{
-		// TODO Auto-generated method stub
 
 	}
 
@@ -149,6 +145,47 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 	}
 
 	// ----------------------------------------- //
-	// ----------------MUTATEURS---------------- //
+	// -------------- ACCESSEURS --------------- //
+	// -------------- MUTATEURS  --------------- //
 	// ----------------------------------------- //
+	
+	public JTable getTableau()
+	{
+		return tableau;
+	}
+
+	public FichierBIN getBinFile()
+	{
+		return binFile;
+	}
+
+	public FichierGPH getGphFile()
+	{
+		return gphFile;
+	}
+
+	public FichierSDF getSdfFile()
+	{
+		return sdfFile;
+	}
+
+	public void setTableau(JTable tableau)
+	{
+		this.tableau = tableau;
+	}
+
+	public void setBinFile(FichierBIN binFile)
+	{
+		this.binFile = binFile;
+	}
+
+	public void setGphFile(FichierGPH gphFile)
+	{
+		this.gphFile = gphFile;
+	}
+
+	public void setSdfFile(FichierSDF sdfFile)
+	{
+		this.sdfFile = sdfFile;
+	}
 }

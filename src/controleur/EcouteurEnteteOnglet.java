@@ -35,7 +35,7 @@ public class EcouteurEnteteOnglet implements ActionListener,ChangeListener {
 		return false;
 	}
 	
-	public void raffraichir(ConteneurEditeurs ce){
+	public void rafraichir(ConteneurEditeurs ce){
 		
 		this.ce =ce;
 		for(int i = 0; i< ce.getEnteteEditeurs().size(); i++){

@@ -19,10 +19,10 @@ public class TablesEditeursCellRenderer extends DefaultTableCellRenderer
 			int row, int column)
 	{
 		Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-		if(table.getSelectedRow() == row)
+		if (table.getSelectedRow() == row)
 		{
 			component.setBackground(Color.GREEN);
-			component.setForeground(Color.BLACK);			
+			component.setForeground(Color.BLACK);
 		}
 		else if ((row & 1) == 0)
 		{
@@ -34,7 +34,7 @@ public class TablesEditeursCellRenderer extends DefaultTableCellRenderer
 			component.setBackground(Color.LIGHT_GRAY);
 			component.setForeground(Color.BLACK);
 		}
-		
+
 		return component;
 	}
 }
