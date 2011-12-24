@@ -17,11 +17,13 @@ public class Editeurs extends JSplitPane
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
-	public final static Integer		TAILLE_X			= ConteneurEditeurs.TAILLE_X;
-	public final static Integer		TAILLE_Y			= ConteneurEditeurs.TAILLE_Y - 75;
+	public final static Integer		TAILLE_X				= ConteneurEditeurs.TAILLE_X;
+	public final static Integer		TAILLE_Y				= ConteneurEditeurs.TAILLE_Y - 75;
 
-	private final static Integer	LARGEUR_BORDURE		= 2;
-	private final static Integer	LARGEUR_DIVIDER		= 6;
+	private final static Integer	LARGEUR_BORDURE			= 2;
+	private final static Integer	LARGEUR_DIVIDER			= 6;
+	private final static Color		COULEUR_BORDURE_SELECT	= Color.GREEN;
+	private final static Color		COULEUR_BORDURE_VIDE	= Color.WHITE;
 
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
@@ -32,12 +34,12 @@ public class Editeurs extends JSplitPane
 	private EditeurBIN				edBin;
 	private EditeurGPH				edGph;
 
-	private Border					bordureVide			= BorderFactory.createMatteBorder(LARGEUR_BORDURE,
-																LARGEUR_BORDURE, LARGEUR_BORDURE, LARGEUR_BORDURE,
-																Color.white);
-	private Border					bordureSelection	= BorderFactory.createMatteBorder(LARGEUR_BORDURE,
-																LARGEUR_BORDURE, LARGEUR_BORDURE, LARGEUR_BORDURE,
-																Color.GREEN);
+	private Border					bordureVide				= BorderFactory.createMatteBorder(LARGEUR_BORDURE,
+																	LARGEUR_BORDURE, LARGEUR_BORDURE, LARGEUR_BORDURE,
+																	COULEUR_BORDURE_VIDE);
+	private Border					bordureSelection		= BorderFactory.createMatteBorder(LARGEUR_BORDURE,
+																	LARGEUR_BORDURE, LARGEUR_BORDURE, LARGEUR_BORDURE,
+																	COULEUR_BORDURE_SELECT);
 	private TripletFichier			tripletFichier;
 
 	// ----------------------------------------- //
@@ -69,7 +71,7 @@ public class Editeurs extends JSplitPane
 		@SuppressWarnings("unused")
 		EcouteurEditeurs e = new EcouteurEditeurs(this);
 	}
-	
+
 	// ----------------------------------------- //
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
@@ -91,7 +93,7 @@ public class Editeurs extends JSplitPane
 		edGph_Bin.setOneTouchExpandable(true);
 		edGph_Bin.setDividerLocation(EditeurGPH.TAILLE_X);
 	}
-	
+
 	public void ajouterEditeurBin(TripletFichier tripletFichier, int indexEditeur)
 	{
 		this.tripletFichier.setBinFile(tripletFichier.getBinFile());
