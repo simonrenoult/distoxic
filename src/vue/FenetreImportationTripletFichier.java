@@ -1,4 +1,4 @@
-package src.vue;
+package vue;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-import src.controleur.EcouteurFenetreImportationTripletFichier;
+import controleur.EcouteurFenetreImportationTripletFichier;
 
 @SuppressWarnings("serial")
 public class FenetreImportationTripletFichier extends JFrame

@@ -1,4 +1,4 @@
-package src.vue;
+package vue;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JWindow;
 
-import src.controleur.EcouteurFenetreAPropos;
+import controleur.EcouteurFenetreAPropos;
 
 
 @SuppressWarnings("serial")

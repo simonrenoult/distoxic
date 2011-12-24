@@ -1,4 +1,4 @@
-package src.vue.editeurs;
+package vue.editeurs;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,10 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import src.controleur.EcouteurJtable;
-import src.modele.editeurs.ModeleTablesEditeurs;
-import src.modele.editeurs.TablesEditeurs;
-import src.modele.fichiers.FichierBIN;
+import controleur.EcouteurJtable;
+import modele.editeurs.ModeleTablesEditeurs;
+import modele.editeurs.TablesEditeurs;
+import modele.fichiers.FichierBIN;
 
 
 @SuppressWarnings("serial")
@@ -51,7 +51,6 @@ public class EditeurBIN extends JPanel
 		setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		setBackground(BG_COLOR);
 
-		initTitre();
 		initParseur();
 		initModeleEtTable();
 		initScroll();
@@ -80,6 +79,7 @@ public class EditeurBIN extends JPanel
 		catch (NullPointerException e)
 		{
 			System.out.println("Tentative d'initialisation du parseur BIN avortée.");
+			initTitre();
 		}
 	}
 
@@ -117,7 +117,7 @@ public class EditeurBIN extends JPanel
 			EcouteurJtable e = new EcouteurJtable(tableauBIN, fichierBIN, null, null);
 		}
 		catch (NullPointerException e)
-		{
+		{			
 		}
 
 	}

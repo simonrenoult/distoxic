@@ -1,10 +1,10 @@
-package src.vue.menus;
+package vue.menus;
 
 import java.awt.Dimension;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
-import src.vue.FenetrePrincipale;
+import vue.FenetrePrincipale;
 
 @SuppressWarnings("serial")
 public class BarreMenu extends JMenuBar

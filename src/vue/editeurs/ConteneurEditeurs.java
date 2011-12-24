@@ -5,16 +5,16 @@
  *				- GPH ;
  *				- BIN ;
  */
-package src.vue.editeurs;
+package vue.editeurs;
 
 import java.awt.Dimension;
 import java.io.File;
 import java.util.LinkedList;
 import javax.swing.JTabbedPane;
 
-import src.controleur.EcouteurEnteteOnglet;
-import src.modele.TripletFichier;
-import src.vue.ConteneurGlobal;
+import controleur.EcouteurEnteteOnglet;
+import modele.TripletFichier;
+import vue.ConteneurGlobal;
 
 @SuppressWarnings("serial")
 public class ConteneurEditeurs extends JTabbedPane

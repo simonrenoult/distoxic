@@ -1,8 +1,8 @@
-package src.modele.fichiers;
+package modele.fichiers;
 
-import src.modele.enregistreurs.EnregistreurGPH;
-import src.modele.fichiersTmp.FichierGphTmp;
-import src.modele.parseurs.ParseurGPH;
+import modele.enregistreurs.EnregistreurGPH;
+import modele.fichiersTmp.FichierGphTmp;
+import modele.parseurs.ParseurGPH;
 
 public class FichierGPH implements InitFichier
 {

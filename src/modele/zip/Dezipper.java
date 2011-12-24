@@ -1,4 +1,4 @@
-package src.modele.zip;
+package modele.zip;
 
 import java.io.File;
 import java.io.FileInputStream;

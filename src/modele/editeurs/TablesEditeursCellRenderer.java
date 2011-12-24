@@ -1,4 +1,4 @@
-package src.modele.editeurs;
+package modele.editeurs;
 
 import java.awt.Color;
 import java.awt.Component;

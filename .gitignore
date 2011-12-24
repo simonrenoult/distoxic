@@ -5,6 +5,3 @@ configWorkspace.txt
 # Ignore temporay files
 *~
 
-# Eclipse
-.project
-.classpath

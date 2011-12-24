@@ -1,4 +1,4 @@
-package src.vue.menus;
+package vue.menus;
 
 import javax.swing.ImageIcon;
 import javax.swing.JMenu;

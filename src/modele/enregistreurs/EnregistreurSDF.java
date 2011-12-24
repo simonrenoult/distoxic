@@ -1,4 +1,4 @@
-package src.modele.enregistreurs;
+package modele.enregistreurs;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import src.modele.composantsChimiques.FragmentMolecule;
+import modele.composantsChimiques.FragmentMolecule;
 
 
 public class EnregistreurSDF implements EnregistreurGenerique

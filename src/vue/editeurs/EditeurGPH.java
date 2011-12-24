@@ -1,4 +1,4 @@
-package src.vue.editeurs;
+package vue.editeurs;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,11 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import src.controleur.EcouteurJtable;
-import src.modele.editeurs.ModeleTablesEditeurs;
-import src.modele.editeurs.TablesEditeurs;
-import src.modele.fichiers.FichierGPH;
-
+import controleur.EcouteurJtable;
+import modele.editeurs.ModeleTablesEditeurs;
+import modele.editeurs.TablesEditeurs;
+import modele.fichiers.FichierGPH;
 
 @SuppressWarnings("serial")
 public class EditeurGPH extends JPanel
@@ -28,8 +27,8 @@ public class EditeurGPH extends JPanel
 	public final static Color		BG_COLOR		= Color.WHITE;
 
 	private final static String		TITRE			= "Editeur de fichiers *.gph";
-	private final static String[]	TITRES_TABLEAU	= { "IndFrag","Nb atomes", "Nb liaisons", "IndTox", "Frequence", "Toxicite",
-	"Emergence"							};
+	private final static String[]	TITRES_TABLEAU	= { "IndFrag", "Nb atomes", "Nb liaisons", "IndTox", "Frequence",
+			"Toxicite", "Emergence"				};
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
@@ -89,7 +88,8 @@ public class EditeurGPH extends JPanel
 	{
 		try
 		{
-			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierGPH.getParseurGPH().convertirListeVersTableau2D(),0);
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierGPH.getParseurGPH().convertirListeVersTableau2D(),
+					0);
 			tableauGPH = new TablesEditeurs(modele);
 			tableauGPH.setAutoCreateRowSorter(true);
 			tableauGPH.getTableHeader().setReorderingAllowed(false);

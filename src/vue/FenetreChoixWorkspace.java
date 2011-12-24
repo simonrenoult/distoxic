@@ -1,4 +1,4 @@
-package src.vue;
+package vue;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import src.modele.WorkspaceModele;
+import modele.WorkspaceModele;
 
 
 @SuppressWarnings("serial")

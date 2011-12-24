@@ -1,4 +1,4 @@
-package src.modele;
+package modele;
 
 public class InformationFichier
 {

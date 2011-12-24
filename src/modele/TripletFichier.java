@@ -1,11 +1,11 @@
-package src.modele;
+package modele;
 
 import java.io.File;
 import java.io.IOException;
 
-import src.modele.fichiers.FichierBIN;
-import src.modele.fichiers.FichierGPH;
-import src.modele.fichiers.FichierSDF;
+import modele.fichiers.FichierBIN;
+import modele.fichiers.FichierGPH;
+import modele.fichiers.FichierSDF;
 
 
 /**

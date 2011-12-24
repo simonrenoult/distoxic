@@ -1,4 +1,4 @@
-package src.vue.editeurs;
+package vue.editeurs;
 
 import java.awt.Dimension;
 

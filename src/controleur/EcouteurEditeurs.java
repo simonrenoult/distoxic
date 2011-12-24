@@ -1,4 +1,4 @@
-package src.controleur;
+package controleur;
 
 import java.awt.Event;
 import java.awt.event.ActionEvent;
@@ -11,9 +11,9 @@ import javax.swing.JTable;
 import javax.swing.border.Border;
 
 
-import src.modele.editeurs.ModeleTablesEditeurs;
-import src.vue.MenuContextuel;
-import src.vue.editeurs.Editeurs;
+import modele.editeurs.ModeleTablesEditeurs;
+import vue.MenuContextuel;
+import vue.editeurs.Editeurs;
 
 public class EcouteurEditeurs implements MouseListener, ActionListener
 {

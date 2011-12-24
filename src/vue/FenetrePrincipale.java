@@ -1,4 +1,4 @@
-package src.vue;
+package vue;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -9,10 +9,10 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 
-import src.controleur.EcouteurBarreOutils;
-import src.controleur.menu.EcouteurBarreMenu;
-import src.vue.barreOutils.BarreOutils;
-import src.vue.menus.BarreMenu;
+import controleur.EcouteurBarreOutils;
+import controleur.menu.EcouteurBarreMenu;
+import vue.barreOutils.BarreOutils;
+import vue.menus.BarreMenu;
 
 @SuppressWarnings("serial")
 public class FenetrePrincipale extends JFrame

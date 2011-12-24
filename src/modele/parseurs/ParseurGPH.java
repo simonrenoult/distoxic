@@ -1,14 +1,14 @@
-package src.modele.parseurs;
+package modele.parseurs;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
-import src.modele.composantsChimiques.Atome;
-import src.modele.composantsChimiques.Balise;
-import src.modele.composantsChimiques.FragmentMolecule;
-import src.modele.composantsChimiques.Liaison;
+import modele.composantsChimiques.Atome;
+import modele.composantsChimiques.Balise;
+import modele.composantsChimiques.FragmentMolecule;
+import modele.composantsChimiques.Liaison;
 
 
 /**

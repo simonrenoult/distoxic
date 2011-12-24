@@ -1,14 +1,14 @@
-package src.vue;
+package vue;
 
 import java.awt.Dimension;
 import javax.swing.JSplitPane;
 
 
-import src.controleur.EcouteurNavigateur;
-import src.vue.barreOutils.BarreOutils;
-import src.vue.editeurs.ConteneurEditeurs;
-import src.vue.menus.BarreMenu;
-import src.vue.naviguateur.NavigateurFichiers;
+import controleur.EcouteurNavigateur;
+import vue.barreOutils.BarreOutils;
+import vue.editeurs.ConteneurEditeurs;
+import vue.menus.BarreMenu;
+import vue.naviguateur.NavigateurFichiers;
 
 @SuppressWarnings("serial")
 public class ConteneurGlobal extends JSplitPane

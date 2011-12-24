@@ -1,4 +1,4 @@
-package src.vue.editeurs;
+package vue.editeurs;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,11 +10,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import src.controleur.EcouteurJtable;
-import src.modele.editeurs.ModeleTablesEditeurs;
-import src.modele.editeurs.TablesEditeurs;
-import src.modele.fichiers.FichierSDF;
-import src.modele.parseurs.ParseurSDF;
+import controleur.EcouteurJtable;
+import modele.editeurs.ModeleTablesEditeurs;
+import modele.editeurs.TablesEditeurs;
+import modele.fichiers.FichierSDF;
+import modele.parseurs.ParseurSDF;
 
 
 @SuppressWarnings("serial")

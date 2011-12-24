@@ -1,4 +1,4 @@
-package src.vue.naviguateur;
+package vue.naviguateur;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -12,9 +12,9 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeSelectionModel;
 
-import src.modele.InformationFichier;
-import src.modele.WorkspaceModele;
-import src.vue.ConteneurGlobal;
+import modele.InformationFichier;
+import modele.WorkspaceModele;
+import vue.ConteneurGlobal;
 
 
 @SuppressWarnings("serial")

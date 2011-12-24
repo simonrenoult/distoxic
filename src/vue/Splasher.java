@@ -1,4 +1,4 @@
-package src.vue;
+package vue;
 
 import java.awt.Dimension;
 import java.io.File;

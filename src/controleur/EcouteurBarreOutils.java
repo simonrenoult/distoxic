@@ -1,20 +1,20 @@
-package src.controleur;
+package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-import src.modele.TripletFichier;
-import src.modele.enregistreurs.EnregistreurBIN;
-import src.modele.enregistreurs.EnregistreurGPH;
-import src.modele.enregistreurs.EnregistreurSDF;
-import src.modele.fichiers.FichierBIN;
-import src.modele.fichiers.FichierGPH;
-import src.modele.fichiers.FichierSDF;
-import src.vue.FenetreExportationTripletFichier;
-import src.vue.FenetreImportationTripletFichier;
-import src.vue.FenetrePrincipale;
-import src.vue.barreOutils.BarreOutils;
+import modele.TripletFichier;
+import modele.enregistreurs.EnregistreurBIN;
+import modele.enregistreurs.EnregistreurGPH;
+import modele.enregistreurs.EnregistreurSDF;
+import modele.fichiers.FichierBIN;
+import modele.fichiers.FichierGPH;
+import modele.fichiers.FichierSDF;
+import vue.FenetreExportationTripletFichier;
+import vue.FenetreImportationTripletFichier;
+import vue.FenetrePrincipale;
+import vue.barreOutils.BarreOutils;
 
 public class EcouteurBarreOutils implements ActionListener
 {

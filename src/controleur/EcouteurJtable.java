@@ -1,4 +1,4 @@
-package src.controleur;
+package controleur;
 
 import java.awt.Event;
 import java.awt.Point;
@@ -9,10 +9,10 @@ import javax.swing.JTable;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 
-import src.modele.editeurs.ModeleTablesEditeurs;
-import src.modele.fichiers.FichierBIN;
-import src.modele.fichiers.FichierGPH;
-import src.modele.fichiers.FichierSDF;
+import modele.editeurs.ModeleTablesEditeurs;
+import modele.fichiers.FichierBIN;
+import modele.fichiers.FichierGPH;
+import modele.fichiers.FichierSDF;
 
 
 public class EcouteurJtable implements TableModelListener, MouseListener, MouseMotionListener
