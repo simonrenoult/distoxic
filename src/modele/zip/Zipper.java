@@ -17,20 +17,26 @@ public class Zipper
 {
 
 	// ----------------------------------------- //
-	// ----------------ATRIBUTS----------------- //
+	// --------------- CONSTANTES -------------- //
+	// ----------------------------------------- //
+
+	private final static int	BUFFER		= 2048;
+
+	// ----------------------------------------- //
+	// ----------------ATTRIBUTS----------------- //
 	// ----------------------------------------- //
 	/**
 	 * Taille generique du tampon en lecture et ecriture
 	 */
-	static final int	BUFFER		= 2048;
-	private String		dest		= null;
-	private String		nameFolder	= null;
-	private String		workspace;
-	private String		nomdossier	= null;
+	private String				dest		= null;
+	private String				nameFolder	= null;
+	private String				workspace;
+	private String				nomdossier	= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
+	
 	public Zipper(String nameFolder, String nameZIPFile)
 	{
 		this.nameFolder = nameFolder;
@@ -48,6 +54,7 @@ public class Zipper
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
+	
 	public boolean zipAction()
 	{
 		try
@@ -91,7 +98,7 @@ public class Zipper
 				// creation d'un tampon de lecture sur ce flux
 				BufferedInputStream buffi = new BufferedInputStream(fi, BUFFER);
 
-				// creation d'en entrïee Zip pour ce fichier
+				// creation d'en entrï¿½ee Zip pour ce fichier
 				ZipEntry entry = new ZipEntry(nomdossier + files[i].getName());
 
 				// ajout de cette entree dans le flux d'ecriture de l'archive
@@ -128,11 +135,4 @@ public class Zipper
 		}
 		return true;
 	}
-	// ----------------------------------------- //
-	// ---------------ACCESSEURS---------------- //
-	// ----------------------------------------- //
-
-	// ----------------------------------------- //
-	// ----------------MUTATEURS---------------- //
-	// ----------------------------------------- //
 }

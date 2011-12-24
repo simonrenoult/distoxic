@@ -1,4 +1,3 @@
-
 package vue.naviguateur;
 
 import java.awt.BorderLayout;
@@ -22,114 +21,122 @@ import modele.WorkspaceModele;
 public class NavigateurFichiers extends JPanel
 {
 	// ----------------------------------------- //
-	// ----------------ATRIBUTS----------------- //
+	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-	private static String		_ICON_PATH	= "/images/icones/";
+	
+	private static String			_ICON_PATH	= "/images/icones/";
 	public static Integer			TAILLE_X	= 200;
 	public static Integer			TAILLE_Y	= ConteneurGlobal.TAILLE_Y;
+
+	// ----------------------------------------- //
+	// ----------------ATRIBUTS----------------- //
+	// ----------------------------------------- //
 	
-	private DefaultMutableTreeNode	racine = new DefaultMutableTreeNode("");
-	private JTree tree = null;
-	
+	private DefaultMutableTreeNode	racine		= new DefaultMutableTreeNode("");
+	private JTree					tree		= null;
+
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	
-	public NavigateurFichiers(){
+
+	public NavigateurFichiers()
+	{
 		super();
 		this.setLayout(new BorderLayout());
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		buildTree();
 	}
-	
-	
-	// ----------------------------------------- //
-	// -------------INITIALISEURS--------------- //
-	// ----------------------------------------- //
-	
+
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-	
-	public void buildTree(){
-		
+
+	public void buildTree()
+	{
+
 		WorkspaceModele modele = new WorkspaceModele(0);
 		modele.workspaceExistant();
 		String workspacePath = modele.getWorkspacePath();
-		
+
 		File workspace = new File(workspacePath);
-		buildJtreeComponentList(workspace,racine);
+		buildJtreeComponentList(workspace, racine);
 		tree = new JTree(racine);
-		
-		//Une selection � la fois.
+
+		// Une selection � la fois.
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-		
-		//Customizer la JTree
+
+		// Customizer la JTree
 		tree.setRootVisible(true);
 		tree.setShowsRootHandles(true);
 		tree.putClientProperty("JTree.lineStyle", "Angled");
-		
-		ImageIcon leafIcon = new ImageIcon(getClass().getResource(_ICON_PATH+"chart_stock.png"));
-		if (leafIcon != null) {
-		    DefaultTreeCellRenderer renderer =  new DefaultTreeCellRenderer();
-		    renderer.setLeafIcon(leafIcon);
-		    tree.setCellRenderer(renderer);
-		    tree.repaint();
+
+		ImageIcon leafIcon = new ImageIcon(getClass().getResource(_ICON_PATH + "chart_stock.png"));
+		if (leafIcon != null)
+		{
+			DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
+			renderer.setLeafIcon(leafIcon);
+			tree.setCellRenderer(renderer);
+			tree.repaint();
 		}
-		
+
 		JScrollPane treeView = new JScrollPane(tree);
 		treeView.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		this.add(treeView,BorderLayout.CENTER);
+		this.add(treeView, BorderLayout.CENTER);
 	}
 
-	private void buildJtreeComponentList(File file,DefaultMutableTreeNode node){
-		if(file.isDirectory()){
+	private void buildJtreeComponentList(File file, DefaultMutableTreeNode node)
+	{
+		if (file.isDirectory())
+		{
 			File[] contenu = file.listFiles();
-			if(contenu != null){
-				for(int i = 0; i<contenu.length; i++){
-					if(contenu[i].isDirectory()){
-						InformationFichier f = new InformationFichier("directory",contenu[i].getAbsolutePath() , contenu[i].getName());
+			if (contenu != null)
+			{
+				for (int i = 0 ; i < contenu.length ; i++)
+				{
+					if (contenu[i].isDirectory())
+					{
+						InformationFichier f = new InformationFichier("directory", contenu[i].getAbsolutePath(),
+								contenu[i].getName());
 						DefaultMutableTreeNode directoryNode = new DefaultMutableTreeNode(f);
 						node.add(directoryNode);
-						buildJtreeComponentList(contenu[i],directoryNode);
+						buildJtreeComponentList(contenu[i], directoryNode);
 					}
-					else{
-						buildJtreeComponentList(contenu[i],node);
+					else
+					{
+						buildJtreeComponentList(contenu[i], node);
 					}
 				}
 			}
 		}
-		else{
-			InformationFichier f = new InformationFichier("file",file.getAbsolutePath() , file.getName());
+		else
+		{
+			InformationFichier f = new InformationFichier("file", file.getAbsolutePath(), file.getName());
 			DefaultMutableTreeNode fileNode = new DefaultMutableTreeNode(f);
 			node.add(fileNode);
 		}
-	
+
 	}
 
-
-	
-
-
-	
-
-	
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
 	/**
 	 * @return the tree
 	 */
-	public JTree getTree() {
+	public JTree getTree()
+	{
 		return tree;
 	}
+
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 	/**
-	 * @param tree the tree to set
+	 * @param tree
+	 *            the tree to set
 	 */
-	public void setTree(JTree tree) {
+	public void setTree(JTree tree)
+	{
 		this.tree = tree;
 	}
 }

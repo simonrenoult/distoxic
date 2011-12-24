@@ -23,10 +23,13 @@ public class FenetreAPropos extends JWindow
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
-	private final static String		VERSION		= "v0.9";
-	private final static String		REVISON		= "4b59ee2079";
-	private final static String		_ICON_PATH	= "/images/icones/";
-	private final static Dimension	dimension	= new Dimension(420, 320);
+	private final static String		_ICON_PATH		= "/images/icones/";
+
+	private final static Color		COULEUR_BORDURE	= Color.BLACK;
+
+	private final static String		VERSION			= "v0.9";
+	private final static String		REVISON			= "4b59ee2079";
+	private final static Dimension	dimension		= new Dimension(420, 320);
 
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
@@ -68,7 +71,7 @@ public class FenetreAPropos extends JWindow
 	{
 		JPanel container = new JPanel();
 		container.setLayout(new BorderLayout());
-		container.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		container.setBorder(BorderFactory.createLineBorder(COULEUR_BORDURE));
 
 		container.add(top(), BorderLayout.CENTER);
 		container.add(bottom(), BorderLayout.PAGE_END);
@@ -90,7 +93,6 @@ public class FenetreAPropos extends JWindow
 				+ "<a href=\"http://distoxic.github.com/distoxic/\">Page Web</a>" + "</h3>" + "</html>");
 		lienSite.setEditable(false);
 
-
 		lienSources = new JEditorPane("text/html", "<html>" + "<h3>"
 				+ "<a href=\"https://github.com/distoxic/distoxic\">Sources</a>" + "</h3>" + "</html>");
 		lienSources.setEditable(false);
@@ -98,7 +100,7 @@ public class FenetreAPropos extends JWindow
 		JPanel top_left = new JPanel();
 		top_left.add(logo);
 		top_left.setBackground(Color.WHITE);
-		
+
 		JPanel top_right = new JPanel(new BorderLayout());
 		top_right.add(auteurs, BorderLayout.PAGE_START);
 		top_right.add(lienSite, BorderLayout.CENTER);
@@ -120,7 +122,7 @@ public class FenetreAPropos extends JWindow
 				+ "</p>" + "</html>"
 
 		);
-		
+
 		top.add(top_top, BorderLayout.NORTH);
 		top.add(infos, BorderLayout.CENTER);
 

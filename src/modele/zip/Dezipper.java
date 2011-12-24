@@ -8,20 +8,27 @@ import java.util.zip.ZipInputStream;
 
 public class Dezipper
 {
+	// ----------------------------------------- //
+	// --------------- CONSTANTES -------------- //
+	// ----------------------------------------- //
+
+	/**
+	 * Taille g�n�rique du tampon en lecture et �criture
+	 */
+	@SuppressWarnings("unused")
+	private final static int	BUFFER	= 2048;
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-	/**
-	 * Taille g�n�rique du tampon en lecture et �criture
-	 */
-	static final int	BUFFER	= 2048;
-	private File		zipfile	= null;
-	private File		dest	= null;
+
+	private File				zipfile	= null;
+	private File				dest	= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
+
 	public Dezipper(String zipfile, String dest)
 	{
 		this.zipfile = new File(zipfile);
@@ -30,12 +37,9 @@ public class Dezipper
 	}
 
 	// ----------------------------------------- //
-	// -------------INITIALISEURS--------------- //
-	// ----------------------------------------- //
-
-	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
+
 	public boolean zipAction()
 	{
 		try
@@ -74,6 +78,7 @@ public class Dezipper
 		}
 		return true;
 	}
+	
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //

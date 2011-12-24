@@ -13,253 +13,298 @@ import javax.swing.JRadioButton;
 import controleur.EcouteurFenetreImportationTripletFichier;
 
 @SuppressWarnings("serial")
-public class FenetreImportationTripletFichier extends JFrame{
+public class FenetreImportationTripletFichier extends JFrame
+{
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-		public static Integer	TAILLE_X	= 400;
-		public static Integer	TAILLE_Y	= 200;
-		public static String	TITRE		= "Import project";
-		
-		private FenetrePrincipale fenetrePrincipale;
-		
-		private JPanel containerPrincipal = new JPanel();
-		private JPanel containerInformation = new JPanel();
-		private JPanel containerSelectionArchive = new JPanel();
-		private JLabel iconeInformation = new JLabel(new ImageIcon(getClass().getResource("/images/icones/folder_explore.png")));
-		private JLabel message = new JLabel("Select a directory to search for existing Dis'Toxic projects.");
-		private JRadioButton impoterArchive = new JRadioButton("Selectionner un archive .zip");
-		private JRadioButton impoterDossier = new JRadioButton("Selectionner un dossier         ");
-		private ButtonGroup groupeBouton = new ButtonGroup();
-		private JButton archiveBouton = new JButton("Selectionner");
-		private JButton dossierBouton = new JButton("Selectionner"); 
+	
+	public static Integer		TAILLE_X					= 500;
+	public static Integer		TAILLE_Y					= 250;
+	public static String		TITRE						= "Import project";
+
+	private FenetrePrincipale	fenetrePrincipale;
+
+	private JPanel				containerPrincipal			= new JPanel();
+	private JPanel				containerInformation		= new JPanel();
+	private JPanel				containerSelectionArchive	= new JPanel();
+	private JLabel				iconeInformation			= new JLabel(new ImageIcon(getClass().getResource(
+																	"/images/icones/folder_explore.png")));
+	private JLabel				message						= new JLabel(
+																	"Sélectionnez un répertoire dans lequel chercher un projet Dis'Toxic.");
+	private JRadioButton		impoterArchive				= new JRadioButton("Selectionner un archive .zip");
+	private JRadioButton		impoterDossier				= new JRadioButton("Selectionner un dossier         ");
+	private ButtonGroup			groupeBouton				= new ButtonGroup();
+	private JButton				archiveBouton				= new JButton("Selectionner");
+	private JButton				dossierBouton				= new JButton("Selectionner");
+
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-		public FenetreImportationTripletFichier(FenetrePrincipale fenetrePrincipale){
-			this.fenetrePrincipale = fenetrePrincipale;
-			init();
-			
-			this.setTitle(TITRE);
-			this.setSize(new Dimension(TAILLE_X, TAILLE_Y));
-			//this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-			this.setLocationRelativeTo(null);
-			this.setResizable(false);
-			this.setDefaultCloseOperation(HIDE_ON_CLOSE);
-			this.setAlwaysOnTop(true);
-			this.setVisible(true);
-		}
+	public FenetreImportationTripletFichier(FenetrePrincipale fenetrePrincipale)
+	{
+		this.fenetrePrincipale = fenetrePrincipale;
+		init();
+
+		this.setTitle(TITRE);
+		this.setSize(new Dimension(TAILLE_X, TAILLE_Y));
+		// this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
+		this.setLocationRelativeTo(null);
+		this.setResizable(false);
+		this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+		this.setAlwaysOnTop(true);
+		this.setVisible(true);
+	}
+
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 
-		public void init(){
-			buildContainerInformation();
-			buildContainerSelectionArchive();
-			buildContainerPrincipal();
-			initEcouteur();
-		}
+	public void init()
+	{
+		buildContainerInformation();
+		buildContainerSelectionArchive();
+		buildContainerPrincipal();
+		initEcouteur();
+	}
+
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 
-		@SuppressWarnings("unused")
-		private void initEcouteur() {
-			EcouteurFenetreImportationTripletFichier e = new EcouteurFenetreImportationTripletFichier(this);
-			
-		}
+	@SuppressWarnings("unused")
+	private void initEcouteur()
+	{
+		EcouteurFenetreImportationTripletFichier e = new EcouteurFenetreImportationTripletFichier(this);
 
-		private void buildContainerInformation() {
-			containerInformation.setPreferredSize(new Dimension(TAILLE_X,TAILLE_Y/4));
-			containerInformation.add(iconeInformation);
-			containerInformation.add(message);
-			containerInformation.setBackground(new Color(220, 228, 254));
-			
-		}
+	}
 
-		private void buildContainerSelectionArchive() {
-			groupeBouton.add(archiveBouton);
-			groupeBouton.add(dossierBouton);
-			
-			
-			JPanel archive = new JPanel();
-			archive.add(impoterArchive);
-			archive.add(archiveBouton);
-			
-			JPanel dossier = new JPanel();
-			dossier.add(impoterDossier);
-			dossier.add(dossierBouton);
-			
-			containerSelectionArchive.setPreferredSize(new Dimension(TAILLE_X, (TAILLE_Y/3)*2));
-			containerSelectionArchive.add(archive,BorderLayout.NORTH);
-			containerSelectionArchive.add(dossier,BorderLayout.SOUTH);
-			
-		}
+	private void buildContainerInformation()
+	{
+		containerInformation.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y / 4));
+		containerInformation.add(iconeInformation);
+		containerInformation.add(message);
+		containerInformation.setBackground(new Color(220, 228, 254));
 
-		private void buildContainerPrincipal() {
-			containerPrincipal.add(containerInformation);
-			containerPrincipal.add(containerSelectionArchive);
-			this.setContentPane(containerPrincipal);
-			
-		}
+	}
 
-		
+	private void buildContainerSelectionArchive()
+	{
+		groupeBouton.add(archiveBouton);
+		groupeBouton.add(dossierBouton);
+
+		JPanel archive = new JPanel();
+		archive.add(impoterArchive);
+		archive.add(archiveBouton);
+
+		JPanel dossier = new JPanel();
+		dossier.add(impoterDossier);
+		dossier.add(dossierBouton);
+
+		containerSelectionArchive.setPreferredSize(new Dimension(TAILLE_X, (TAILLE_Y / 3) * 2));
+		containerSelectionArchive.add(archive, BorderLayout.NORTH);
+		containerSelectionArchive.add(dossier, BorderLayout.SOUTH);
+
+	}
+
+	private void buildContainerPrincipal()
+	{
+		containerPrincipal.add(containerInformation);
+		containerPrincipal.add(containerSelectionArchive);
+		this.setContentPane(containerPrincipal);
+
+	}
+
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
-		/**
-		 * @return the containerPrincipal
-		 */
-		public JPanel getContainerPrincipal() {
-			return containerPrincipal;
-		}
+	/**
+	 * @return the containerPrincipal
+	 */
+	public JPanel getContainerPrincipal()
+	{
+		return containerPrincipal;
+	}
 
-		/**
-		 * @param containerPrincipal the containerPrincipal to set
-		 */
-		public void setContainerPrincipal(JPanel containerPrincipal) {
-			this.containerPrincipal = containerPrincipal;
-		}
+	/**
+	 * @param containerPrincipal
+	 *            the containerPrincipal to set
+	 */
+	public void setContainerPrincipal(JPanel containerPrincipal)
+	{
+		this.containerPrincipal = containerPrincipal;
+	}
 
-		/**
-		 * @return the containerInformation
-		 */
-		public JPanel getContainerInformation() {
-			return containerInformation;
-		}
+	/**
+	 * @return the containerInformation
+	 */
+	public JPanel getContainerInformation()
+	{
+		return containerInformation;
+	}
 
-		/**
-		 * @param containerInformation the containerInformation to set
-		 */
-		public void setContainerInformation(JPanel containerInformation) {
-			this.containerInformation = containerInformation;
-		}
+	/**
+	 * @param containerInformation
+	 *            the containerInformation to set
+	 */
+	public void setContainerInformation(JPanel containerInformation)
+	{
+		this.containerInformation = containerInformation;
+	}
 
-		/**
-		 * @return the containerSelectionArchive
-		 */
-		public JPanel getContainerSelectionArchive() {
-			return containerSelectionArchive;
-		}
+	/**
+	 * @return the containerSelectionArchive
+	 */
+	public JPanel getContainerSelectionArchive()
+	{
+		return containerSelectionArchive;
+	}
 
-		/**
-		 * @param containerSelectionArchive the containerSelectionArchive to set
-		 */
-		public void setContainerSelectionArchive(JPanel containerSelectionArchive) {
-			this.containerSelectionArchive = containerSelectionArchive;
-		}
+	/**
+	 * @param containerSelectionArchive
+	 *            the containerSelectionArchive to set
+	 */
+	public void setContainerSelectionArchive(JPanel containerSelectionArchive)
+	{
+		this.containerSelectionArchive = containerSelectionArchive;
+	}
 
-		/**
-		 * @return the iconeInformation
-		 */
-		public JLabel getIconeInformation() {
-			return iconeInformation;
-		}
+	/**
+	 * @return the iconeInformation
+	 */
+	public JLabel getIconeInformation()
+	{
+		return iconeInformation;
+	}
 
-		/**
-		 * @param iconeInformation the iconeInformation to set
-		 */
-		public void setIconeInformation(JLabel iconeInformation) {
-			this.iconeInformation = iconeInformation;
-		}
+	/**
+	 * @param iconeInformation
+	 *            the iconeInformation to set
+	 */
+	public void setIconeInformation(JLabel iconeInformation)
+	{
+		this.iconeInformation = iconeInformation;
+	}
 
-		/**
-		 * @return the message
-		 */
-		public JLabel getMessage() {
-			return message;
-		}
+	/**
+	 * @return the message
+	 */
+	public JLabel getMessage()
+	{
+		return message;
+	}
 
-		/**
-		 * @param message the message to set
-		 */
-		public void setMessage(JLabel message) {
-			this.message = message;
-		}
+	/**
+	 * @param message
+	 *            the message to set
+	 */
+	public void setMessage(JLabel message)
+	{
+		this.message = message;
+	}
 
-		/**
-		 * @return the impoterArchive
-		 */
-		public JRadioButton getImpoterArchive() {
-			return impoterArchive;
-		}
+	/**
+	 * @return the impoterArchive
+	 */
+	public JRadioButton getImpoterArchive()
+	{
+		return impoterArchive;
+	}
 
-		/**
-		 * @param impoterArchive the impoterArchive to set
-		 */
-		public void setImpoterArchive(JRadioButton impoterArchive) {
-			this.impoterArchive = impoterArchive;
-		}
+	/**
+	 * @param impoterArchive
+	 *            the impoterArchive to set
+	 */
+	public void setImpoterArchive(JRadioButton impoterArchive)
+	{
+		this.impoterArchive = impoterArchive;
+	}
 
-		/**
-		 * @return the impoterDossier
-		 */
-		public JRadioButton getImpoterDossier() {
-			return impoterDossier;
-		}
+	/**
+	 * @return the impoterDossier
+	 */
+	public JRadioButton getImpoterDossier()
+	{
+		return impoterDossier;
+	}
 
-		/**
-		 * @param impoterDossier the impoterDossier to set
-		 */
-		public void setImpoterDossier(JRadioButton impoterDossier) {
-			this.impoterDossier = impoterDossier;
-		}
+	/**
+	 * @param impoterDossier
+	 *            the impoterDossier to set
+	 */
+	public void setImpoterDossier(JRadioButton impoterDossier)
+	{
+		this.impoterDossier = impoterDossier;
+	}
 
-		/**
-		 * @return the groupeBouton
-		 */
-		public ButtonGroup getGroupeBouton() {
-			return groupeBouton;
-		}
+	/**
+	 * @return the groupeBouton
+	 */
+	public ButtonGroup getGroupeBouton()
+	{
+		return groupeBouton;
+	}
 
-		/**
-		 * @param groupeBouton the groupeBouton to set
-		 */
-		public void setGroupeBouton(ButtonGroup groupeBouton) {
-			this.groupeBouton = groupeBouton;
-		}
+	/**
+	 * @param groupeBouton
+	 *            the groupeBouton to set
+	 */
+	public void setGroupeBouton(ButtonGroup groupeBouton)
+	{
+		this.groupeBouton = groupeBouton;
+	}
 
-		/**
-		 * @return the archiveBouton
-		 */
-		public JButton getArchiveBouton() {
-			return archiveBouton;
-		}
+	/**
+	 * @return the archiveBouton
+	 */
+	public JButton getArchiveBouton()
+	{
+		return archiveBouton;
+	}
 
-		/**
-		 * @param archiveBouton the archiveBouton to set
-		 */
-		public void setArchiveBouton(JButton archiveBouton) {
-			this.archiveBouton = archiveBouton;
-		}
+	/**
+	 * @param archiveBouton
+	 *            the archiveBouton to set
+	 */
+	public void setArchiveBouton(JButton archiveBouton)
+	{
+		this.archiveBouton = archiveBouton;
+	}
 
-		/**
-		 * @return the dossierBouton
-		 */
-		public JButton getDossierBouton() {
-			return dossierBouton;
-		}
+	/**
+	 * @return the dossierBouton
+	 */
+	public JButton getDossierBouton()
+	{
+		return dossierBouton;
+	}
 
-		/**
-		 * @param dossierBouton the dossierBouton to set
-		 */
-		public void setDossierBouton(JButton dossierBouton) {
-			this.dossierBouton = dossierBouton;
-		}
-		/**
-		 * @return the fenetrePrincipale
-		 */
-		public FenetrePrincipale getFenetrePrincipale() {
-			return fenetrePrincipale;
-		}
+	/**
+	 * @param dossierBouton
+	 *            the dossierBouton to set
+	 */
+	public void setDossierBouton(JButton dossierBouton)
+	{
+		this.dossierBouton = dossierBouton;
+	}
 
-		/**
-		 * @param fenetrePrincipale the fenetrePrincipale to set
-		 */
-		public void setFenetrePrincipale(FenetrePrincipale fenetrePrincipale) {
-			this.fenetrePrincipale = fenetrePrincipale;
-		}
+	/**
+	 * @return the fenetrePrincipale
+	 */
+	public FenetrePrincipale getFenetrePrincipale()
+	{
+		return fenetrePrincipale;
+	}
+
+	/**
+	 * @param fenetrePrincipale
+	 *            the fenetrePrincipale to set
+	 */
+	public void setFenetrePrincipale(FenetrePrincipale fenetrePrincipale)
+	{
+		this.fenetrePrincipale = fenetrePrincipale;
+	}
 
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //

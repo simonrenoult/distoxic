@@ -8,21 +8,21 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JWindow;
 
-public class Splasher extends Thread{
-
+public class Splasher extends Thread
+{
 
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
-	
-	private JWindow		window		= new JWindow();
-	private Dimension	dimension	= new Dimension(550, 425);
-	private static String path = "src"+File.separator+"images"+File.separator;
+
+	private JWindow			window		= new JWindow();
+	private Dimension		dimension	= new Dimension(550, 425);
+	private static String	path		= "src" + File.separator + "images" + File.separator;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
-	
+
 	/**
 	 * Constructeur principal de la classe Splasher
 	 * 
@@ -31,7 +31,7 @@ public class Splasher extends Thread{
 	{
 
 		window.setSize(dimension);
-		window.add(new JLabel(new ImageIcon(path+"splasher.png")));
+		window.add(new JLabel(new ImageIcon(path + "splasher.png")));
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
 
@@ -40,7 +40,7 @@ public class Splasher extends Thread{
 	// ----------------------------------------- //
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
-	
+
 	@SuppressWarnings("unused")
 	private ImageIcon createImageIcon(String path, String description)
 	{

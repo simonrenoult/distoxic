@@ -53,11 +53,11 @@ public class FenetreChoixWorkspace extends JFrame
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	
+
 	public FenetreChoixWorkspace(WorkspaceModele modele)
 	{
 		this.modeleWorkspace = modele;
-		
+
 		init();
 
 		this.setTitle(TITRE);
@@ -113,7 +113,7 @@ public class FenetreChoixWorkspace extends JFrame
 			e.printStackTrace();
 		}
 	}
-	
+
 	/*
 	 * private void initEcouteur() { EcouteurFenetreWorkspace e = new
 	 * EcouteurFenetreWorkspace(this);
