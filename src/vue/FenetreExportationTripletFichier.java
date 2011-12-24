@@ -18,11 +18,16 @@ public class FenetreExportationTripletFichier extends JFrame
 {
 
 	// ----------------------------------------- //
-	// ----------------ATRIBUTS----------------- //
+	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-	public static Integer		TAILLE_X					= 500;
-	public static Integer		TAILLE_Y					= 250;
-	public static String		TITRE						= "Export project";
+
+	public final static Integer	TAILLE_X					= 500;
+	public final static Integer	TAILLE_Y					= 250;
+	public final static String	TITRE						= "Export project";
+
+	// ----------------------------------------- //
+	// --------------- ATTRIBUTS --------------- //
+	// ----------------------------------------- //
 
 	private FenetrePrincipale	fenetrePrincipale;
 
@@ -44,6 +49,7 @@ public class FenetreExportationTripletFichier extends JFrame
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
+	
 	public FenetreExportationTripletFichier(FenetrePrincipale fenetrePrincipale, String projectPath)
 	{
 		this.fenetrePrincipale = fenetrePrincipale;
@@ -52,7 +58,6 @@ public class FenetreExportationTripletFichier extends JFrame
 
 		this.setTitle(TITRE);
 		this.setSize(new Dimension(TAILLE_X, TAILLE_Y));
-		// this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(HIDE_ON_CLOSE);
