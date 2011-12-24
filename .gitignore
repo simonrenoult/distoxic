@@ -1,5 +1,10 @@
 # Do not consider bin files
 bin*
+configWorkspace.txt
 
 # Ignore temporay files
 *~
+
+# Eclipse
+.project
+.classpath
