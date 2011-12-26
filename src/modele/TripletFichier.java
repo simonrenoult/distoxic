@@ -18,33 +18,58 @@ import src.modele.fichiers.FichierSDF;
  */
 public class TripletFichier
 {
+	/**
+	 * <h4>TripletFichier est la classe (modele) ou sont associes les trois type de fichiers : SDF, BIN et GPH.</h4>
+	 * 
+	 * <p>
+	 * Remarque : Chaque fichier appartient au même projet, cette classe sert de modele quant à la création d'onglet.<br>
+	 * De plus, Chaque modele de Jtable fera reference aux donnees comprises dans chaque fichier : 
+	 * <ul>
+	 * <li>FichierBIN</li>
+	 * <li>FichierGPH</li>
+	 * <li>FichierSDF</li>
+	 * </ul>
+	 * </p>
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Contantes regoupant les extensions acceptees par cette classe.
+	 */
 	private static String	extensionGPH	= ".gph";
 	private static String	extensionBIN	= ".bin";
 	private static String	extensionSDF	= ".sdf";
 
-	/*
-	 * On utilise ces fichiers pour remplir les JTable d'un onglet.
+	/**
+	 * Chaque type de Fichier$$$ sera la source pour parser, enregistrer, recuperer/editer des donnes concerant les tableaux graphiques.
+	 * @see FichierBIN
+	 * @see FichierGPH
+	 * @see FichierSDF
 	 */
 	private FichierBIN		binFile			= null;
 	private FichierGPH		gphFile			= null;
 	private FichierSDF		sdfFile			= null;
 
+	/**
+	 * Chemin absolu des trois fichiers BIN, GPH et SDF.
+	 */
 	private String			BINPath			= null;
 	private String			GPHPath			= null;
 	private String			SDFPath			= null;
 
+	/**
+	 * Chemin absolu du repertoire dans lequel sont stockes les trois fichiers BIN, GPH et SDF.
+	 */
 	private String			DirectoryPath	= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 	/**
-	 * Constructeur prenant les 3 chemins de fichiers (sdf,bin et gph). On cree
-	 * alors a partir de ces 3 chemins, 3 objets associes a l'extension.
+	 * Constructeur prenant les trois chemins de fichiers (sdf,bin et gph). On cree
+	 * alors a partir de ces trois chemins, trois objets associes a l'extension.
 	 * 
 	 * @param Path1
 	 * @param Path2
@@ -58,9 +83,9 @@ public class TripletFichier
 	}
 
 	/**
-	 * Constructeur prenant 2 chemins de fichiers parmis les formats sdf,bin et
-	 * gph. On cr�� alors � partir de ces 2 chemins, 2 objets associ�s
-	 * � l'extension.
+	 * Constructeur prenant deux chemins de fichiers parmis les formats sdf,bin et
+	 * gph. On cree alors a partir de ces deux chemins, deux objets associes
+	 * a l'extension.
 	 * 
 	 * @param Path1
 	 * @param Path2
@@ -72,8 +97,8 @@ public class TripletFichier
 	}
 
 	/**
-	 * Constructeur prenant 1 chemin de fichier parmis les formats sdf,bin et
-	 * gph. On cr�� alors � partir de ce 1 chemins, l'objet associ� �
+	 * Constructeur prenant un chemin de fichier parmis les formats sdf,bin et
+	 * gph. On cree alors a partir de ce chemin, l'objet associe a
 	 * l'extension.
 	 * 
 	 * @param Path1
@@ -92,7 +117,7 @@ public class TripletFichier
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 	/**
-	 * On instancie un objet BIN, SDF ou GPH selon l'extension du path.
+	 * Methode d'instance d'un objet BIN, SDF ou GPH selon l'extension du path.
 	 * 
 	 * @param path
 	 */
@@ -122,36 +147,36 @@ public class TripletFichier
 		}
 
 	}
-
+	/**
+	 * Methode d'instance d'un objet BIN.
+	 */
 	private void BINinit()
 	{
 		binFile = new FichierBIN(BINPath);
 	}
-
+	/**
+	 * Methode d'instance d'un objet GPH.
+	 */
 	private void GPHinit()
 	{
 		gphFile = new FichierGPH(GPHPath);
 	}
-
+	/**
+	 * Methode d'instance d'un objet SDF.
+	 */
 	private void SDFinit()
 	{
 		sdfFile = new FichierSDF(SDFPath);
 	}
 
-	/**
-	 * @return the binFile
-	 */
-	public FichierBIN getBinFile()
-	{
-		return binFile;
-	}
+	
 
 	/**
-	 * On recupere le nom du dossier du projet dans lequel se trouve les 3
+	 * Methode recuperant le nom du dossier du projet dans lequel se trouve les 3
 	 * fichiers.
 	 * 
-	 * @param path
-	 * @return
+	 * @param path le chemin absolu d'un des fichiers
+	 * @return le chemin absolu du dossier du projet.
 	 */
 	public String mkDirectoryPath(String path)
 	{
@@ -175,6 +200,10 @@ public class TripletFichier
 
 	}
 	
+	/**
+	 * Methode permattant de creer un nouveau projet vierge
+	 * @param directoryName le nom du dossier du projet.
+	 */
 	public void creerNouveauProjetVierge(String directoryName){
 		String directoryPath = creerDossierViergeDansWorkspace(directoryName);
 		creerFichierGPH(directoryPath+File.separator+directoryName+".gph");
@@ -183,8 +212,8 @@ public class TripletFichier
 	}
 	
 	/**
-	 * Creation du fichier BIN lié à un répertoire donné dans le workspace
-	 * @param directoryName
+	 * Methode de creation du fichier BIN lié à un répertoire donné dans le workspace
+	 * @param directoryName le nom du doosier du projet
 	 */
 	private boolean creerFichierBIN(String path) {
 		File binFile = new File(path);
@@ -200,8 +229,8 @@ public class TripletFichier
 	}
 
 	/**
-	 * Creation du fichier SDF lié à un répertoire donné dans le workspace
-	 * @param directoryName
+	 * Methode de creation du fichier SDF lié à un répertoire donné dans le workspace
+	 * @param directoryName le nom du doosier du projet
 	 */
 	private boolean creerFichierSDF(String path) {
 		File sdfFile = new File(path);
@@ -215,8 +244,8 @@ public class TripletFichier
 		return true;
 	}
 	/**
-	 * Creation du fichier GPH lié à un répertoire donné dans le workspace
-	 * @param directoryName
+	 * Methode de creation du fichier GPH lié à un répertoire donné dans le workspace
+	 * @param directoryName le nom du doosier du projet
 	 */
 	private boolean creerFichierGPH(String path) {
 		File gphFile = new File(path);
@@ -231,9 +260,9 @@ public class TripletFichier
 	}
 	
 	/**
-	 * Creation d'un dossier dans le dossier du workspace.
-	 * @param DirectoryName
-	 * @return
+	 * Methode de creation d'un dossier dans le dossier du workspace.
+	 * @param DirectoryName le nom du dossier
+	 * @return le chemin absolu du dossier du projet.
 	 */
 	public String creerDossierViergeDansWorkspace(String DirectoryName){
 		WorkspaceModele modele = new WorkspaceModele(1);
@@ -360,6 +389,14 @@ public class TripletFichier
 	public void setDirectoryPath(String directoryPath)
 	{
 		DirectoryPath = directoryPath;
+	}
+	
+	/**
+	 * @return the binFile
+	 */
+	public FichierBIN getBinFile()
+	{
+		return binFile;
 	}
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //

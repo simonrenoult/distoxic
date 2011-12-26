@@ -20,6 +20,27 @@ import src.modele.parseurs.ParseurSDF;
 @SuppressWarnings("serial")
 public class EditeurSDF extends JPanel
 {
+	/**
+	 * <h4>EcouteurEditeurs est la classe qui represente l'ecouteur des classes EditeursSDF, EditeursGPH, EditeurBIN</h4>
+	 * <p>
+	 * Cette classe contient : 
+	 * <ul>
+	 * <li>Une instance de classe MenuContextuel, representant la vue lie au clic droit.</li>
+	 * <li>Une instance de classe de Editeurs, afin d'avoir acces à l'ensemble des editeurs DSF, BIN, et GPH.</li>
+	 * <li>Trois instance de classe de Jtable, referant les Jtables associe aux editeurs.</li>
+	 * <li>Deux instance de classe de Border, Permettant de connaître la Jtable selectionne par l'utilisateur..</li>
+	 * </ul>
+	 * </p>
+	 * 
+	 * <p>
+	 * Remarque : Les 3 Jtables ne sont pas instanciees au même moment, l'editeur peut donc comporter des Jtables null.
+	 * </p>
+	 * @see EditeurSDF
+	 * @see EditeurSGPH
+	 * @see EditeurBIN
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //

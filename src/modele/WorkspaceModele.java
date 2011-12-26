@@ -9,26 +9,47 @@ import java.io.IOException;
 
 public class WorkspaceModele {
 
+	/**
+	 * <h4>WorkspaceModele est la classe permettant de lire/editer le chemin de configuration du workspace.</h4>
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
+	/**
+	 * Constantes de classe.
+	 */
 	private static String _FICHIER_CONFIGURATION = "configWorkspace.txt";
 	private static String _SEPARATEUR = "<workspace>";
 	private static String _NOMREPERTOIRE_TRAVAIL = "DisToxicProjects";
 	
+	/**
+	 * le chemin du workspace contenu dans le fichier de configuration configWorkspace.txt
+	 */
 	private String workspacePath = null;
+	/**
+	 * le chemin du workspace desire par l'utilisateur
+	 */
 	private String workspacePathDesire =null;
+	/**
+	 * le fichier de configuration de chemin workspacePath.
+	 */
 	private File workspaceFile = null;
 	
+	/**
+	 * Selon la valeur, on lit (1) seulement ou on ecrit (0) en plus dans le fichier de configuration.
+	 */
 	private int index ;
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
+	/**
+	 * Constructeur principal de la classe WorkspaceModele
+	 * @param index l'indice de lecture ou lecture/ecriture sur le fichier de configuration.
+	 */
 	public WorkspaceModele(int index){
 		this.index = index;
-		//l'index est un marqueur utilise par la methode traitementLigne
-		//pour savoir si c'est qu'une simple lecture ou que l'on veuille
-		//la cr�ation d'un dossier.
 	}
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
@@ -39,8 +60,8 @@ public class WorkspaceModele {
 	// ----------------------------------------- //
 	
 	/**
-	 * Lecture du fichier conf.txt pour determiner si le workspace doit �tre cr��.
-	 * @return un boolean de confirmation 
+	 * Methode de lecture du fichier onfigWorkspace.txt pour determiner si le workspace doit etre cree.
+	 * @return un boolean de confirmation de lecture du fichier.
 	 */
 	public boolean lireFichier() {
 		boolean b = true;
@@ -62,9 +83,9 @@ public class WorkspaceModele {
 	}
 	
 	/**
-	 * On regarde si le chemin du workspace du fichier existe reelement dans le systeme. 
-	 * @param line
-	 * @return si le chemin du workspace existe.
+	 * Methode pour determiner si le chemin du workspace du fichier existe reelement dans le systeme. 
+	 * @param line la ligne du fichier (une seule dans configWorkspace.txt).
+	 * @return booleen retournant l'existance du chemin dans le SGF.
 	 */
 	private boolean traitementLigne(String line) {
 		String [] tab = line.split(_SEPARATEUR);
@@ -88,8 +109,8 @@ public class WorkspaceModele {
 	}
 	
 	/**
-	 * Methode creant le dossier recensant tous les projets qu'on va y d�poser apr�s. la JTree se creera a partir de ce dossier.
-	 * @param path
+	 * Methode creant le dossier recensant tous les projets qu'on va y deposer apres. la JTree se creera a partir de ce dossier.
+	 * @param path le chemin absolu du repertoire contenant tous les projets sur le SGF.
 	 * @return un booleen de verification sur la creation du repertoire.
 	 */
 	public boolean makeWorkspace(String path){
@@ -100,9 +121,9 @@ public class WorkspaceModele {
 	}
 	
 	/**
-	 * Reecriture sur fichier conf.txt du nouveau chemin du workspace defini.
-	 * @param path
-	 * @return
+	 * Methode de reecriture sur fichier configWorkspace.txt du nouveau chemin du workspace defini.
+	 * @param path le chemin du repertoire.
+	 * @return booleen d'ecriture sur fichier. 
 	 */
 	private boolean RedefinirConfigurationFichier(String path){
 		String chaine = path+_SEPARATEUR;

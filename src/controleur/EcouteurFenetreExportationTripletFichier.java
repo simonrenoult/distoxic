@@ -15,16 +15,46 @@ import src.vue.FenetreExportationTripletFichier;
 import src.vue.FenetrePrincipale;
 
 public class EcouteurFenetreExportationTripletFichier implements ActionListener {
+	/**
+	 * <h4>EcouteurFenetreExportationTripletFichier est la classe qui represente l'ecouteur de la classe ExportationTripletFichier</h4>
+	 * <p>
+	 * Cette classe contient : 
+	 * <ul>
+	 * <li>une instance de classe de FenetrePrincipale</li>
+	 * <li>une instance de classe de FenetreExportationTriplet, fenetre d'exportation d'un projet.</li>
+	 * <li>une instance de classe de JFileChooser, permettant la selection du dossier dans lequel ajouter l'export.</li>
+	 * </ul>
+	 * </p>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 	@SuppressWarnings("unused")
+	/**
+	 * Fenetre principale du programme.
+	 * @see FenetrePrincipale
+	 */
 	private FenetrePrincipale fenetreprincipale;
+	/**
+	 * Fenetre d'export d'un projet.
+	 * @see FenetreExportationTripletFichier
+	 */
 	private FenetreExportationTripletFichier fenetre = null;
+	/**
+	 * Fenetre de selection de l'emplacement pour l'export.
+	 * @see JFileChooser
+	 */
 	private JFileChooser jf = null;
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
+	/**
+	 * Constructeur principal de la classe EcouteurFenetreExportationTripletFichier
+	 * @param f fenetre d'export d'un projet.
+	 */
 	public EcouteurFenetreExportationTripletFichier(FenetreExportationTripletFichier f){
 		fenetre = f;
 		fenetreprincipale = fenetre.getFenetrePrincipale();
@@ -38,6 +68,9 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
+	/**
+	 * Methode d'initialisation de la fenetre d'export. L'export se fait par archive ou dossier. On privilegie l'archive.
+	 */
 	private void init() {
 		fenetre.getExporterArchive().setSelected(true);
 		fenetre.getExporterDossier().setSelected(false);
@@ -46,7 +79,7 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	}
 	
 	/**
-	 * Export d'un projet archive contenu dans le workspace vers un repertoire choisi
+	 * Methode d'export d'un projet archive contenu dans le workspace vers un repertoire choisi
 	 */
 	private void exoprterArchive(){
 		String cheminExportation = retournerCheminDestination()+File.separator;
@@ -55,7 +88,7 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	}
 	
 	/**
-	 * Export d'un projet contenu dans le workspace vers un repertoire choisi
+	 * Methode d'export d'un projet contenu dans le workspace vers un repertoire choisi
 	 */
 	private void exoprterDossier(){
 		String cheminExportation = retournerCheminDestination();
@@ -76,12 +109,12 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	}
 	
 	/**
-	 * Copie d'un contenu d'un repertoire vers un repertoire donne.
-	 * @param fichiers
-	 * @param dossier
+	 * Methode de copie d'un contenu d'un repertoire vers un repertoire donne.
+	 * @param fichiers les fichiers a copier.
+	 * @param dossier le dossier de destination.
 	 */
 	public void copieFichier(File[] fichiers,String dossier){
-		FileChannel in = null; // canal d'entr�e
+		FileChannel in = null; // canal d'entree
 		FileChannel out = null; // canal de sortie
 		for(int i = 0; i<fichiers.length; i++){
 			try {
@@ -109,7 +142,7 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	}
 	
 	/**
-	 * retourne le chemin d'enregistrement.
+	 * Methode retournant le chemin d'enregistrement grace a la selection du repertoire de destination.
 	 * @return
 	 */
 	public String retournerCheminDestination(){
@@ -131,6 +164,10 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 	@Override
+	/**
+	 * Methode permettant de capter les evenements de type ActionEvent sur la fenetre d'exportation de projet.
+	 * @param e evenement d'un objet graphique provenant de la fenetre d'exportation de projet.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == fenetre.getExporterArchive()){
 			fenetre.getExporterArchive().setSelected(true);

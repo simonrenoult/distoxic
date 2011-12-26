@@ -13,17 +13,41 @@ import src.vue.ConteneurGlobal;
 
 public class EcouteurNavigateur implements TreeSelectionListener, MouseListener
 {
+	/**
+	 * <h4>EcouteurNavigateur est la classe qui represente l'ecouteur de la classe Navigateur</h4>
+	 * <p>
+	 * Cette classe contient : 
+	 * <ul>
+	 * <li>une instance de classe de JTree, arbre rescensant tous les projets contenus dans le workspace.</li>
+	 * <li>une instance de classe de ConteneurGlobal, permettant l'acces aux diffentes ressources graphiques dont celui de la classe Navigateur</li>
+	 * </ul>
+	 * </p>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-	
+	/**
+	 * arbre rescensant tous les projets contenus dans le workspace.
+	 * @see JTree
+	 */
 	private JTree			tree	= null;
+	/**
+	 * De type JSplitPane, il permet l'acces aux ressources graphiques dont celles de l'arbre.
+	 * @see ConteneurGlobal
+	 */
 	private ConteneurGlobal	cGlobal	= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 	
+	/**
+	 * Constructeur principal de la classe EcouteurNavigateur
+	 * @param global conteneur principal(JSplitPane) de la fenetre principale.
+	 */
 	public EcouteurNavigateur(ConteneurGlobal global)
 	{
 		this.cGlobal = global;
@@ -37,6 +61,9 @@ public class EcouteurNavigateur implements TreeSelectionListener, MouseListener
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 	
+	/**
+	 * Methode permettant l'ajout d'un tableau graphique à un onglet lors du double clic sur un fichier de l'arbre.
+	 */
 	private void traitementClicFichier()
 	{
 		DefaultMutableTreeNode node = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
@@ -94,7 +121,7 @@ public class EcouteurNavigateur implements TreeSelectionListener, MouseListener
 	}
 
 	/**
-	 * On Regarde si le fichier selectionne par l'utilisateur n'est pas d�j�
+	 * On Regarde si le fichier selectionne par l'utilisateur n'est pas deja
 	 * ouvert ceux sur quoi il faudra regarder son etat d'enregistrement.
 	 * 
 	 * @param filePath
@@ -165,6 +192,10 @@ public class EcouteurNavigateur implements TreeSelectionListener, MouseListener
 	}
 
 	@Override
+	/**
+	 * Methode permettant de capter les evenements de type MouseEvent sur un fichier de l'arbre.
+	 * @param e evenement (double clic) d'un fichier de l'arbre.
+	 */
 	public void mouseReleased(MouseEvent e)
 	{
 		if ((e.getClickCount() == 2))

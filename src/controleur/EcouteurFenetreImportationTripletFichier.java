@@ -12,15 +12,45 @@ import src.vue.FenetreImportationTripletFichier;
 import src.vue.FenetrePrincipale;
 
 public class EcouteurFenetreImportationTripletFichier implements ActionListener {
+	/**
+	 * <h4>EcouteurFenetreImportationTripletFichier est la classe qui represente l'ecouteur de la classe ImportationTripletFichier</h4>
+	 * <p>
+	 * Cette classe contient : 
+	 * <ul>
+	 * <li>une instance de classe de FenetrePrincipale</li>
+	 * <li>une instance de classe de ImportationTripletFichier, fenetre d'importation d'un projet.</li>
+	 * <li>une instance de classe de JFileChooser, permettant la selection d'une archive/ dossier vers le l'espace de travail (workspace)</li>
+	 * </ul>
+	 * </p>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
+	/**
+	 * Fenetre principale du programme.
+	 * @see FenetrePrincipale
+	 */
 	private FenetrePrincipale fenetreprincipale;
+	/**
+	 * Fenetre d'import d'un projet.
+	 * @see FenetreImportationTripletFichier
+	 */
 	private FenetreImportationTripletFichier fenetre = null;
+	/**
+	 * Fenetre de selection de l'emplacement pour l'export.
+	 * @see JFileChooser
+	 */
 	private JFileChooser jf = null;
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
+	/**
+	 * Constructeur principal de la classe EcouteurFenetreImportationTripletFichier
+	 * @param f fenetre d'import d'un projet.
+	 */
 	public EcouteurFenetreImportationTripletFichier(FenetreImportationTripletFichier f){
 		fenetre = f;
 		fenetreprincipale = fenetre.getFenetrePrincipale();
@@ -34,6 +64,9 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
+	/**
+	 * Methode d'initialisation de la fenetre d'import. L'import se fait par archive ou dossier. On privilegie l'archive.
+	 */
 	private void init() {
 		fenetre.getImpoterArchive().setSelected(true);
 		fenetre.getImpoterDossier().setSelected(false);
@@ -41,7 +74,7 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 	}
 	
 	/**
-	 * Methode d'import d'une archive choisi vers le workspace
+	 * Methode d'import d'une archive choisi vers le workspace. Un filtre .zip a ete mis en place.
 	 */
 	private void importerArchiveWorkspace(){
 		jf = new JFileChooser();
@@ -63,7 +96,7 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 	}
 	
 	/**
-	 * Methode d'import d'un repertoire choisi vers le workspace
+	 * Methode d'import d'un repertoire choisi vers le workspace.
 	 */
 	private void importerDossierWorkspace(){
 		jf = new JFileChooser();
@@ -88,6 +121,10 @@ public class EcouteurFenetreImportationTripletFichier implements ActionListener 
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 	@Override
+	/**
+	 * Methode permettant de capter les evenements de type ActionEvent sur la fenetre d'importation de projet.
+	 * @param e evenement d'un objet graphique provenant de la fenetre d'importation de projet.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == fenetre.getImpoterArchive()){
 			fenetre.getImpoterArchive().setSelected(true);
