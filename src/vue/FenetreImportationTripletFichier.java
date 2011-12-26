@@ -16,15 +16,24 @@ import src.controleur.EcouteurFenetreImportationTripletFichier;
 @SuppressWarnings("serial")
 public class FenetreImportationTripletFichier extends JFrame
 {
-
+	/**
+	 * <h4>FenetreImportationTripletFichier est la classe permettant de decrire la fenetre d'importation d'un projet.</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
-	// ----------------ATRIBUTS----------------- //
-	// ----------------------------------------- //
-	
+		// --------------- CONSTANTES -------------- //
+		// ----------------------------------------- //
+	/**
+	 * Constantes de classe
+	 */
 	public static Integer		TAILLE_X					= 500;
 	public static Integer		TAILLE_Y					= 250;
 	public static String		TITRE						= "Import project";
-
+	// ----------------------------------------- //
+	// ----------------ATRIBUTS----------------- //
+	// ----------------------------------------- //
 	private FenetrePrincipale	fenetrePrincipale;
 
 	private JPanel				containerPrincipal			= new JPanel();
@@ -43,6 +52,10 @@ public class FenetreImportationTripletFichier extends JFrame
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
+	/**
+	 * Constructeur principal de la classe FenetreImportationTripletFichier
+	 * @param fenetrePrincipale la fenetre principale du programme
+	 */
 	public FenetreImportationTripletFichier(FenetrePrincipale fenetrePrincipale)
 	{
 		this.fenetrePrincipale = fenetrePrincipale;
@@ -61,7 +74,9 @@ public class FenetreImportationTripletFichier extends JFrame
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Methode d'initialisation de la fenetre
+	 */
 	public void init()
 	{
 		buildContainerInformation();
@@ -80,7 +95,9 @@ public class FenetreImportationTripletFichier extends JFrame
 		EcouteurFenetreImportationTripletFichier e = new EcouteurFenetreImportationTripletFichier(this);
 
 	}
-
+	/**
+	 * Creation du conteneur d'information de la fenetre
+	 */
 	private void buildContainerInformation()
 	{
 		containerInformation.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y / 4));
@@ -89,7 +106,9 @@ public class FenetreImportationTripletFichier extends JFrame
 		containerInformation.setBackground(new Color(220, 228, 254));
 
 	}
-
+	/**
+	 * Creation du conteneur de selection du mode d'export de la fenetre
+	 */
 	private void buildContainerSelectionArchive()
 	{
 		groupeBouton.add(archiveBouton);
@@ -108,7 +127,9 @@ public class FenetreImportationTripletFichier extends JFrame
 		containerSelectionArchive.add(dossier, BorderLayout.SOUTH);
 
 	}
-
+	/**
+	 * Creation du conteneur principal
+	 */
 	private void buildContainerPrincipal()
 	{
 		containerPrincipal.add(containerInformation);

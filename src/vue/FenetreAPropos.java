@@ -20,10 +20,19 @@ import src.controleur.EcouteurFenetreAPropos;
 @SuppressWarnings("serial")
 public class FenetreAPropos extends JWindow
 {
+	/**
+	 * <h4>FenetreAPropos est la classe permettant de decrire la fenetre d'information du fichier.</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Constantes de classe
+	 */
 	private final static String		_ICON_PATH		= "/images/icones/";
 
 	private final static Color		COULEUR_BORDURE	= Color.BLACK;
@@ -49,7 +58,8 @@ public class FenetreAPropos extends JWindow
 	// ----------------------------------------- //
 
 	/**
-	 * Constructeur principal de la classe Splasher
+	 * Constructeur principal de la classe FenetreAPropos
+	 * @param fp la fenetre principale du programme.
 	 * 
 	 */
 	public FenetreAPropos(FenetrePrincipale fp)
@@ -67,7 +77,9 @@ public class FenetreAPropos extends JWindow
 	// ----------------------------------------- //
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Methode d'initialisation du conteneur principal a la fenetre A propos
+	 */
 	private void initComponenent()
 	{
 		JPanel container = new JPanel();
@@ -80,6 +92,10 @@ public class FenetreAPropos extends JWindow
 		getContentPane().add(container);
 	}
 
+	/**
+	 * Methode de creation du panneau d'information du haut
+	 * @return le panneau d'information
+	 */
 	private JPanel top()
 	{
 		JLabel logo = new JLabel(new ImageIcon(getClass().getResource(_ICON_PATH + "logo_150.png")));
@@ -130,6 +146,10 @@ public class FenetreAPropos extends JWindow
 		return top;
 	}
 
+	/**
+	 * Methode de creation du panneau d'information du bas
+	 * @return le panneau d'information
+	 */
 	private JPanel bottom()
 	{
 		JLabel revision = new JLabel("Revision " + REVISON);

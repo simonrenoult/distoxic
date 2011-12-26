@@ -6,27 +6,48 @@ import src.modele.parseurs.ParseurGPH;
 
 public class FichierGPH implements InitFichier
 {
-
+	/**
+	 * <h4>FichierGPH est la classe principale d'une ressource pour un fichier GPH</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 
-	/*
-	 * REMETTRE TOUTES LES CONSTANTES DU PARSEUR DANS CETTE CLASSE. ELLES
-	 * SERVIRONT A L'ENREGISTREMENT.
+	
+	/**
+	 * Parseur GPH afin de recuperer les donnees pour les inserer dans le tableau graphique GPH.
+	 * @see ParseurGPH
 	 */
-
 	private ParseurGPH		parseurGPH;
+	/**
+	 * Permet l'enregistrement d'une source de donnees GPH (liste provenant de FichierGphTmp)
+	 */
 	private EnregistreurGPH	enregistreurGPH;
+	/**
+	 * Des qu'il y a modification dans le tableau graphique GPH, on modifie la source de donnees GPH (liste temporaire)
+	 */
 	private FichierGphTmp fichierGphTmp = null;
+	/**
+	 * Chemin absolu du fichier GPH
+	 */
 	private String			filePath;
 	private boolean isChanged = false;
+	/**
+	 * Booleen indiquant si le tablau GPH est encadre (est selectionne).
+	 */
 	private boolean isFlank = false;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	
+	/**
+	 * Constructeur principal de la classe FichierGPH
+	 * @param path le chemin absolu du fichier.gph
+	 */
 	public FichierGPH(String path)
 	{
 		this.filePath = path;
@@ -36,6 +57,9 @@ public class FichierGPH implements InitFichier
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 	@Override
+	/**
+	 * Methode pour instancier le parseur et le fichier temporaire. cette methode est appellee lors du double clic sur le fichier.gph de l'arbre.
+	 */
 	public void initParseur()
 	{
 		parseurGPH = new ParseurGPH(filePath);
@@ -43,6 +67,9 @@ public class FichierGPH implements InitFichier
 	}
 
 	@Override
+	/**
+	 * Methode pour instancier l'enregistreur afin de pouvoir generer le fichier.gph_$ a partir de la liste temporaire contenu dans l'objet fichierGphTmp.
+	 */
 	public void initEnregistreur()
 	{
 		enregistreurGPH = new EnregistreurGPH();

@@ -32,9 +32,7 @@ public class Atome
 	 * Un atome est decrit par un numero atomique.
 	 */
 	private Integer				numeroAtomique;
-	/**
-	 * Un atome est decrit par un indice 
-	 */
+	
 	private LinkedList<Float>	infos;
 	private LinkedList<Integer>	divers;
 
@@ -43,7 +41,7 @@ public class Atome
 	// ----------------------------------------- //
 	
 	/**
-	 * 
+	 * Constructeur de la classe Atome. 
 	 */
 	public Atome()
 	{
@@ -52,11 +50,10 @@ public class Atome
 	}
 	
 	/**
-	 * Cette classe est utile pour l'exploitation de donn�es. Elle d�pend de la
-	 * classe FragmentMoleculaire.
+	 * Constructeur de la classe Atome. Cette classe est utile pour l'exploitation de donnees.
 	 * 
-	 * @param ind
-	 * @param z
+	 * @param ind l'indice de l'atome dans le fihier
+	 * @param z le numero atomique de l'atome.
 	 */
 	public Atome(int ind, int z)
 	{
@@ -70,11 +67,17 @@ public class Atome
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Redefinition de la methode toString()
+	 */
 	public String toString()
 	{
 		return nom + " : " + infos + " " + divers;
 	}
 
+	/**
+	 * Affichage Console de l'objet.
+	 */
 	public void afficher()
 	{
 		System.out.println("Atome - " + nom);

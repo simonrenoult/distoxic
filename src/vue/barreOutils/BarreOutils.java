@@ -12,10 +12,18 @@ import src.vue.FenetrePrincipale;
 @SuppressWarnings("serial")
 public class BarreOutils extends JPanel
 {
+	/**
+	 * <h4>BarreOutils est la classe permettant de decrire la barre d'outil graphique du programme</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constantes de classe
+	 */
 	private static String		_ICON_PATH	= "/images/icones/";
 	public final static Integer	TAILLE_X	= FenetrePrincipale.TAILLE_X;
 	public final static Integer	TAILLE_Y	= FenetrePrincipale.TAILLE_Y / 20;
@@ -37,7 +45,9 @@ public class BarreOutils extends JPanel
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal de la classe BarreOutils
+	 */
 	public BarreOutils()
 	{
 		setLayout(new BorderLayout());
@@ -50,7 +60,9 @@ public class BarreOutils extends JPanel
 	// ----------------------------------------- //
 	// ----------------METHODES----------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Creation des boutons constituants la barre d'outil
+	 */
 	private void initBoutons()
 	{
 		nouveau = creerBouton("folder_add.png", "Nouveau projet");
@@ -62,6 +74,9 @@ public class BarreOutils extends JPanel
 		//imprimer = creerBouton("printer.png", "Imprimer");
 	}
 
+	/**
+	 * Ajout des boutons a la barre de Menu.
+	 */
 	private void initBarreMenu()
 	{
 		barreFichier = new JToolBar();
@@ -78,6 +93,12 @@ public class BarreOutils extends JPanel
 		barreFichier.setRollover(true);
 	}
 
+	/**
+	 * Creation d'un bouton constituant la barre d'outil
+	 * @param path le chemin de l'icone associe
+	 * @param toolTip le tooltip associe
+	 * @return un bouton de type JButton
+	 */
 	private JButton creerBouton(String path, String toolTip)
 	{
 		JButton button = new JButton();
@@ -88,6 +109,9 @@ public class BarreOutils extends JPanel
 		return button;
 	}
 
+	/**
+	 * Initailisation du conteneur.
+	 */
 	private void initPanel()
 	{
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));

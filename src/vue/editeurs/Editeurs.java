@@ -14,6 +14,12 @@ import src.modele.TripletFichier;
 @SuppressWarnings("serial")
 public class Editeurs extends JSplitPane
 {
+	/**
+	 * <h4>Editeurs est la classe regroupant les trois editeurs BIN, GPH et SDF</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
@@ -29,10 +35,22 @@ public class Editeurs extends JSplitPane
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Editeur SDF
+	 * @see EditeurSDF
+	 */
 	private EditeurSDF				edSdf;
+	
 	private JSplitPane				edGph_Bin;
+	/**
+	 * Editeur BIN
+	 * @see EditeurBIN
+	 */
 	private EditeurBIN				edBin;
+	/**
+	 * Editeur GPH
+	 * @see EditeurGPH
+	 */
 	private EditeurGPH				edGph;
 
 	private Border					bordureVide				= BorderFactory.createMatteBorder(LARGEUR_BORDURE,
@@ -47,6 +65,10 @@ public class Editeurs extends JSplitPane
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Constructeur principal de la classe Editeurs
+	 * @param tripletFichier le triplet de fichiers (BIN, GPH et SDF).
+	 */
 	public Editeurs(TripletFichier tripletFichier)
 	{
 		this.setSize(TAILLE_X, TAILLE_Y);
@@ -63,7 +85,9 @@ public class Editeurs extends JSplitPane
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Initialisation de la position de l'editeur
+	 */
 	private void initPositionEditeurs()
 	{
 		this.setTopComponent(edSdf);
@@ -76,13 +100,18 @@ public class Editeurs extends JSplitPane
 	// ----------------------------------------- //
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Initialisation de l'editeur
+	 */
 	private void buildEditeurSdf()
 	{
 		edSdf = new EditeurSDF(tripletFichier.getSdfFile());
 		edSdf.setBorder(bordureVide);
 	}
 
+	/**
+	 * Initialisation de l'editeur GPH et BIN
+	 */
 	public void buildEditeursGph_Bin()
 	{
 		edBin = new EditeurBIN(tripletFichier.getBinFile());
@@ -95,6 +124,11 @@ public class Editeurs extends JSplitPane
 		edGph_Bin.setDividerLocation(EditeurGPH.TAILLE_X);
 	}
 
+	/**
+	 * Initialisation de l'editeur BIN
+	 * @param tripletFichier incorporant la source de donnee BIN
+	 * @param indexEditeur 
+	 */
 	public void ajouterEditeurBin(TripletFichier tripletFichier, int indexEditeur)
 	{
 		this.tripletFichier.setBinFile(tripletFichier.getBinFile());
@@ -103,6 +137,11 @@ public class Editeurs extends JSplitPane
 		initPositionEditeurs();
 	}
 
+	/**
+	 *  Initialisation de l'editeur GPH
+	 * @param tripletFichier incorporant la source de donnee GPH
+	 * @param indexEditeur
+	 */
 	public void ajouterEditeurGph(TripletFichier tripletFichier, int indexEditeur)
 	{
 		this.tripletFichier.setGphFile(tripletFichier.getGphFile());
@@ -111,6 +150,11 @@ public class Editeurs extends JSplitPane
 		initPositionEditeurs();
 	}
 
+	/**
+	 *  Initialisation de l'editeur SDF
+	 * @param tripletFichier incorporant la source de donnee SDF
+	 * @param indexEditeur
+	 */
 	public void ajouterEditeurSdf(TripletFichier tripletFichier, int indexEditeur)
 	{
 		this.tripletFichier.setSdfFile(tripletFichier.getSdfFile());

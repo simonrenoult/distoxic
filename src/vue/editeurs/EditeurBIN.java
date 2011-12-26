@@ -18,10 +18,18 @@ import src.modele.fichiers.FichierBIN;
 @SuppressWarnings("serial")
 public class EditeurBIN extends JPanel
 {
+	/**
+	 * <h4>EditeurBIN est la classe regroupant l'environement graphique du tableau BIN</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constantes de classe
+	 */
 	public final static Integer		TAILLE_X		= 2 * Editeurs.TAILLE_X / 5;
 	public final static Integer		TAILLE_Y		= 3 * Editeurs.TAILLE_Y / 5;
 
@@ -36,15 +44,28 @@ public class EditeurBIN extends JPanel
 
 	private JLabel					titre;
 	private JScrollPane				scroll;
-
+	/**
+	 * Tableau graphique
+	 */
 	private JTable					tableauBIN;
+	/**
+	 * Modele du tabelau
+	 * @see ModeleTablesEditeurs
+	 */
 	private ModeleTablesEditeurs	modele;
+	/**
+	 * Classe de reference pour les donnees contenus dans le tableau BIN
+	 * @see FichierBIN
+	 */
 	private FichierBIN				fichierBIN;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal de la classe EditeurBIN
+	 * @param binFile le modele de fichier BIN
+	 */
 	public EditeurBIN(FichierBIN binFile)
 	{
 		this.fichierBIN = binFile;
@@ -61,7 +82,9 @@ public class EditeurBIN extends JPanel
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Methode d'initialisation du titres.
+	 */
 	private void initTitre()
 	{
 		setLayout(new FlowLayout());
@@ -71,6 +94,9 @@ public class EditeurBIN extends JPanel
 		add(titre, BorderLayout.BEFORE_FIRST_LINE);
 	}
 
+	/**
+	 * Methode d'initialisation du parseur BIN
+	 */
 	private void initParseur()
 	{
 		try
@@ -83,6 +109,9 @@ public class EditeurBIN extends JPanel
 		}
 	}
 
+	/**
+	 * Methode d'initialisation du tableau graphique BIN
+	 */
 	private void initModeleEtTable()
 	{
 		try
@@ -98,6 +127,9 @@ public class EditeurBIN extends JPanel
 		}
 	}
 
+	/**
+	 * Mis en Scroll du tableau graphique
+	 */
 	private void initScroll()
 	{
 		remove(titre);
@@ -109,6 +141,9 @@ public class EditeurBIN extends JPanel
 		add(scroll, BorderLayout.CENTER);
 	}
 
+	/**
+	 * Ecoute du tableau graphique
+	 */
 	private void initEcouteur()
 	{
 		try

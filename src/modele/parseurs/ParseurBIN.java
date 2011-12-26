@@ -7,13 +7,24 @@ import java.util.LinkedList;
 
 public class ParseurBIN implements ParseurGenerique
 {
+	/**
+	 * <h4>ParseurBIN est la classe servant de parseur pour le fichier.bin afin d'y recuperer l'integrite des donnees.</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constantes de la classe
+	 */
 	public static int						_CLASSEMAX	= 6;
 	public static int						_CLASSEMIN	= 1;
 
+	/**
+	 * Liste ou sont contenus l'ensemble des donnees d'un fichier.bin
+	 */
 	private LinkedList<LinkedList<Integer>>	listeBIN	= null;
 
 	// ----------------------------------------- //
@@ -21,6 +32,7 @@ public class ParseurBIN implements ParseurGenerique
 	// ----------------------------------------- //
 
 	/**
+	 * Constructeur principal de la classe ParseurBIN
 	 * Lis le fichier passe en parametre et cree une liste de lignes.
 	 * Chaque ligne est une liste des 'mots' qu'elle contient.
 	 * 
@@ -69,8 +81,7 @@ public class ParseurBIN implements ParseurGenerique
 	/**
 	 * Transformation d'une ligne en une liste de 'mots'
 	 * 
-	 * @param ligne
-	 *            : Ligne du fichier
+	 * @param ligne : Ligne du fichier
 	 * @return : Liste des mots de Line.
 	 */
 	private LinkedList<Integer> creationListe(String ligne)

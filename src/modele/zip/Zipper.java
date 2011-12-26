@@ -16,22 +16,38 @@ import src.modele.WorkspaceModele;
 
 public class Zipper
 {
-
+	/**
+	 * <h4>Zipper est la classe permettant la creation d'une archive.zip</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Taille generique du tampon en lecture et ecriture
+	 */
 	private final static int	BUFFER		= 2048;
 
 	// ----------------------------------------- //
 	// ----------------ATTRIBUTS----------------- //
 	// ----------------------------------------- //
 	/**
-	 * Taille generique du tampon en lecture et ecriture
+	 * Chemin du repertoire de destination
 	 */
 	private String				dest		= null;
+	/**
+	 * Le nom du dossier contenant le projet
+	 */
 	private String				nameFolder	= null;
+	/**
+	 * Le chemin du workspace
+	 */
 	private String				workspace;
+	/**
+	 * Le nom du dossier contenant le projet + / pret a etre utilise dans une arborescence.
+	 */
 	private String				nomdossier	= null;
 
 	// ----------------------------------------- //
@@ -55,7 +71,10 @@ public class Zipper
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-	
+	/**
+	 * Methode permettant de zipper un dossier du workspace vers l'archive zip dans un repertoire selectionne
+	 * @return
+	 */
 	public boolean zipAction()
 	{
 		try

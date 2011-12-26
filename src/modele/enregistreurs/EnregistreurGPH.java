@@ -10,15 +10,20 @@ import src.modele.composantsChimiques.FragmentMolecule;
 
 public class EnregistreurGPH implements EnregistreurGenerique
 {
+	/**
+	 * <h4>EnregistreurGPH est la classe permettant l'enregistrement sur fichier du tableau graphique GPH</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 	
 	/**
-	 * Declaration des constantes permettant de parser le fichier. ----DEBUT
-	 * FRAGMENT ----- t # 0 & -1 * 10 @ 0.0429 % 3 v 0 206 v 1 7 e 0 1 1
+	 * Declaration des constantes permettant de parser le fichier.
+	 * t # 0 & -1 * 10 @ 0.0429 % 3 v 0 206 v 1 7 e 0 1 1
 	 * 
-	 * ----FIN FRAGMENT -------
 	 */
 
 	private final static String			_SEPARATION_CHAMP		= " ";
@@ -39,25 +44,36 @@ public class EnregistreurGPH implements EnregistreurGenerique
 	// ----------------------------------------- //
 
 	/**
-	 * Indice de l'objet FragmentMoleculaire sur lequel on travail.
+	 * Liste sur lequel vont etre recuperees les donnees afin de les ecrire sur fichier.
 	 */
 	private LinkedList<FragmentMolecule>	listeGPH				= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur par defaut de la classe EnregistreurGPH
+	 */
 	public EnregistreurGPH()
 	{
 
 	}
 
+	/**
+	 * Constructeur de la classe EnregistreurGPH
+	 * @param liste la liste de donnees
+	 * @param path le chemin du fichier dans lequel on va ecrire.
+	 */
 	public EnregistreurGPH(LinkedList<FragmentMolecule> liste, String path)
 	{
 		listeGPH = liste;
 		ecrireFichier(path);
 	}
 
+	/**
+	 * Constructeur de la classe EnregistreurGPH
+	 * @param liste la liste de donnees
+	 */
 	public EnregistreurGPH(LinkedList<FragmentMolecule> liste)
 	{
 		listeGPH = liste;
@@ -76,8 +92,8 @@ public class EnregistreurGPH implements EnregistreurGenerique
 	 * decomposable en partie : l'entete, la description des atomes et la
 	 * description des liaisons.
 	 * 
-	 * @param path
-	 * @return
+	 * @param path le chemin du fichier
+	 * @return booleen d'ecriture sur fichier.
 	 */
 	@Override
 	public boolean ecrireFichier(String path)
@@ -115,11 +131,11 @@ public class EnregistreurGPH implements EnregistreurGenerique
 	}
 
 	/**
-	 * On ecrit sur le fichier l'entete du fragment de numero index.
+	 * Methode ecrivant sur le fichier l'entete du fragment de numero index.
 	 * 
-	 * @param buff
-	 * @param index
-	 * @return
+	 * @param buff le buffer
+	 * @param index l'indice de la ligne
+	 * @return booleen d'ecriture
 	 */
 	private boolean ecrireEnteteFragment(BufferedWriter buff, int index)
 	{
@@ -157,12 +173,11 @@ public class EnregistreurGPH implements EnregistreurGenerique
 	}
 
 	/**
-	 * On ecrit l'ensemble des sommets (atomes) pour le fragment de numero
-	 * index.
+	 * Methode ecrivant l'ensemble des sommets (atomes) pour le fragment de numero index.
 	 * 
-	 * @param buff
-	 * @param index
-	 * @return
+	 * @param buff le buffer
+	 * @param index l'indice de la ligne
+	 * @return booleen d'ecriture
 	 */
 	private boolean ecrireSommetFragment(BufferedWriter buff, int index)
 	{
@@ -187,12 +202,11 @@ public class EnregistreurGPH implements EnregistreurGenerique
 	}
 
 	/**
-	 * On ecrit sur le fichier l'ensemble des aretes (liaisons atomiques) pour
-	 * le fragme,t de numero index.
+	 *  Methode ecrivant sur le fichier l'ensemble des aretes (liaisons atomiques) pour le fragme,t de numero index.
 	 * 
-	 * @param buff
-	 * @param index
-	 * @return
+	 * @param buff le buffer
+	 * @param index l'indice de la ligne
+	 * @return booleen d'ecriture
 	 */
 	private boolean ecrireAreteFragment(BufferedWriter buff, int index)
 	{

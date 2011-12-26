@@ -11,6 +11,12 @@ import src.modele.composantsChimiques.FragmentMolecule;
 
 public class EnregistreurSDF implements EnregistreurGenerique
 {
+	/**
+	 * <h4>EnregistreurSDF est la classe permettant l'enregistrement sur fichier du tableau graphique SDF</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
@@ -20,18 +26,29 @@ public class EnregistreurSDF implements EnregistreurGenerique
 	// ----------------------------------------- //
 	// ----------------ATTRIBUTS---------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Liste sur lequel vont etre recuperees les donnees afin de les ecrire sur fichier.
+	 */
 	private LinkedList<FragmentMolecule>	listeSDF;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Constructeur de la classe EnregistreurSDF
+	 * @param l la liste de donnees
+	 */
 	public EnregistreurSDF(LinkedList<FragmentMolecule> l)
 	{
 		listeSDF = l;
 	}
 
+	/**
+	 * Constructeur de la classe EnregistreurSDF
+	 * @param l la liste de donnees
+	 * @param path le chemin du fichier dans lequel on va ecrire.
+	 */
 	public EnregistreurSDF(LinkedList<FragmentMolecule> l, String path)
 	{
 		this(l);
@@ -43,6 +60,11 @@ public class EnregistreurSDF implements EnregistreurGenerique
 	// ----------------------------------------- //
 
 	@Override
+	/**
+	 * Methode principale d'ecriture sur fichier SDF. 
+	 * @param path le chemin du fichier
+	 * @return booleen d'ecriture sur fichier.
+	 */
 	public boolean ecrireFichier(String path)
 	{
 		boolean b = true;
@@ -81,6 +103,11 @@ public class EnregistreurSDF implements EnregistreurGenerique
 		return b;
 	}
 
+	/**
+	 * Methode d'ecriture de l'entete du fragment moleculaire sur fichier.
+	 * @param buff le buffer
+	 * @param i le numero de ligne
+	 */
 	private void ecrireEnteteFragment(BufferedWriter buff, int i)
 	{
 		try
@@ -95,6 +122,11 @@ public class EnregistreurSDF implements EnregistreurGenerique
 		}
 	}
 
+	/**
+	 * Methode d'ecriture de du resume moleculaire sur fichier.
+	 * @param buff le buffer
+	 * @param i le numero de ligne
+	 */
 	private void ecrireResumeFragment(BufferedWriter buff, int i)
 	{
 		try
@@ -117,6 +149,11 @@ public class EnregistreurSDF implements EnregistreurGenerique
 		}
 	}
 
+	/**
+	 * Methode ecrivant la liste des atomes sur fichier
+	 * @param buff le buffer
+	 * @param i le numero de ligne
+	 */
 	private void ecrireAtomesFragment(BufferedWriter buff, int i)
 	{
 		try
@@ -168,6 +205,11 @@ public class EnregistreurSDF implements EnregistreurGenerique
 		}
 	}
 
+	/**
+	 * Methode ecrivant la liste des liaisons sur fichier
+	 * @param buff le buffer
+	 * @param i le numero de ligne
+	 */
 	private void ecrireLiaisonsFragment(BufferedWriter buff, int i)
 	{
 		try
@@ -191,6 +233,11 @@ public class EnregistreurSDF implements EnregistreurGenerique
 		}
 	}
 
+	/**
+	 * Methode ecrivant les informations moleculaires sur fichier
+	 * @param buff le buffer
+	 * @param i le numero de ligne
+	 */
 	private void ecrireInfosFragment(BufferedWriter buff, int i)
 	{
 		try
@@ -227,6 +274,11 @@ public class EnregistreurSDF implements EnregistreurGenerique
 		}
 	}
 
+	/**
+	 * Methode ecrivant les informations moleculaires entre balise sur fichier
+	 * @param buff le buffer
+	 * @param i le numero de ligne
+	 */
 	private void ecrireBalisesFragments(BufferedWriter buff, int i)
 	{
 		try

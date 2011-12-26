@@ -7,6 +7,17 @@ import src.vue.FenetrePrincipale;
 
 public class Main
 {
+	/**
+	 * <h4>Main est la classe appelle au debut du programme</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
+	
+	/**
+	 * Methode principale du programme
+	 * @param args tableau de parametre
+	 */
 	public static void main(String[] args)
 	{
 		System.setProperty("file.encoding", "UTF-8");

@@ -18,10 +18,18 @@ import src.controleur.EcouteurFenetreExportationTripletFichier;
 public class FenetreExportationTripletFichier extends JFrame
 {
 
+	/**
+	 * <h4>FenetreExportationTripletFichier est la classe permettant de decrire la fenetre d'exportation d'un projet.</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constantes de classe
+	 */
 	public final static Integer	TAILLE_X					= 500;
 	public final static Integer	TAILLE_Y					= 250;
 	public final static String	TITRE						= "Export project";
@@ -50,7 +58,11 @@ public class FenetreExportationTripletFichier extends JFrame
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	
+	/**
+	 * Constructeur principal de la classe FenetreExportationTripletFichier
+	 * @param fenetrePrincipale la fenetre principale du programme
+	 * @param projectPath le chemin du projet a exporter
+	 */
 	public FenetreExportationTripletFichier(FenetrePrincipale fenetrePrincipale, String projectPath)
 	{
 		this.fenetrePrincipale = fenetrePrincipale;
@@ -69,7 +81,9 @@ public class FenetreExportationTripletFichier extends JFrame
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Methode d'initialisation de la fenetre
+	 */
 	public void init()
 	{
 		buildContainerInformation();
@@ -87,7 +101,10 @@ public class FenetreExportationTripletFichier extends JFrame
 	{
 		EcouteurFenetreExportationTripletFichier e = new EcouteurFenetreExportationTripletFichier(this);
 	}
-
+	
+	/**
+	 * Creation du conteneur d'information de la fenetre
+	 */
 	private void buildContainerInformation()
 	{
 		containerInformation.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y / 4));
@@ -96,6 +113,9 @@ public class FenetreExportationTripletFichier extends JFrame
 		containerInformation.setBackground(new Color(220, 228, 254));
 	}
 
+	/**
+	 * Creation du conteneur de selection du mode d'export de la fenetre
+	 */
 	private void buildContainerSelectionArchive()
 	{
 		groupeBouton.add(archiveBouton);
@@ -117,6 +137,9 @@ public class FenetreExportationTripletFichier extends JFrame
 
 	}
 
+	/**
+	 * Creation du conteneur principal
+	 */
 	private void buildContainerPrincipal()
 	{
 		containerPrincipal.add(containerInformation);

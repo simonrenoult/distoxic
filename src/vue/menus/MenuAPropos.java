@@ -8,6 +8,12 @@ import javax.swing.KeyStroke;
 @SuppressWarnings("serial")
 public class MenuAPropos extends Menu
 {
+	/**
+	 * <h4>MenuAPropos est la classe dediee au menu A propos</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
@@ -29,7 +35,9 @@ public class MenuAPropos extends Menu
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal de la classe MenuAPropos
+	 */
 	public MenuAPropos()
 	{
 		this.setText(TITRE_MENU);
@@ -42,6 +50,9 @@ public class MenuAPropos extends Menu
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Methode de creation d'items appartenant au menu A propos
+	 */
 	private void buildItems()
 	{
 		aide = buildMenuItem(aide, TITRE_AIDE, KeyStroke.getKeyStroke(F1_KEY, 0), "help.png");

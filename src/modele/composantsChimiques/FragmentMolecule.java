@@ -6,7 +6,10 @@ import java.util.LinkedList;
 public class FragmentMolecule
 {
 	/**
-	 * @author g4llic4
+	 * <h4>FragmentMolecule est la classe pour recuperer les donnees dans les fichiers SDF et GPH </h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
 	 */
 
 	// ----------------------------------------- //
@@ -15,7 +18,6 @@ public class FragmentMolecule
 
 	private String										debutDescription;
 	private String[]									resumeContenu;
-
 	private LinkedList<Atome>							atomes;
 	private LinkedList<LinkedList<String>>				liaisons;
 	private LinkedList<Liaison>							listeLiaison;

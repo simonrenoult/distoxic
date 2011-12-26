@@ -17,10 +17,18 @@ import src.vue.menus.BarreMenu;
 @SuppressWarnings("serial")
 public class FenetrePrincipale extends JFrame
 {
+	/**
+	 * <h4>FenetrePrincipale est la classe permettant de decrire la fenetre principale du programme.</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constantes de classe
+	 */
 	public final static Integer	MAX_WIDTH	= 1024;
 	public final static Integer	TAILLE_X	= (Toolkit.getDefaultToolkit().getScreenSize().width > MAX_WIDTH) ? MAX_WIDTH
 													: 4 * Toolkit.getDefaultToolkit().getScreenSize().width / 5;
@@ -30,15 +38,28 @@ public class FenetrePrincipale extends JFrame
 	// ----------------------------------------- //
 	// ----------------ATTRIBUTS---------------- //
 	// ----------------------------------------- //
-	
+	/**
+	 * Menu de l'application
+	 * @see BarreMenu
+	 */
 	private BarreMenu			menu;
+	/**
+	 * Barre d'outil de l'application
+	 * @see BarreOutils
+	 */
 	private BarreOutils			barreOutils;
+	/**
+	 * Conteneur principal de la fentre
+	 * @see ConteneurGlobal
+	 */
 	private ConteneurGlobal		conteneurGlobal;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal de la fenetre principal
+	 */
 	public FenetrePrincipale()
 	{
 		super();		
@@ -63,7 +84,9 @@ public class FenetrePrincipale extends JFrame
 	// ----------------------------------------- //
 	// --------------INITIALISEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Utilisation d'un look & feel 
+	 */
 	private void buildLookAndFeel()
 	{
 		try
@@ -94,6 +117,9 @@ public class FenetrePrincipale extends JFrame
 	}
 	
 	@SuppressWarnings("unused")
+	/**
+	 * Creation du menu
+	 */
 	private void buildMenuTop()
 	{
 		menu = new BarreMenu();
@@ -101,6 +127,9 @@ public class FenetrePrincipale extends JFrame
 		EcouteurBarreMenu e = new EcouteurBarreMenu(this);
 	}
 	
+	/**
+	 * Creation du conteneur principal
+	 */
 	private void buildConteneurGlobal()
 	{
 		conteneurGlobal = new ConteneurGlobal();
@@ -108,6 +137,9 @@ public class FenetrePrincipale extends JFrame
 	}
 	
 	@SuppressWarnings("unused")
+	/**
+	 * Creation de la barre d'outil
+	 */
 	private void buildBarreOutils()
 	{
 		barreOutils = new BarreOutils();
@@ -118,7 +150,9 @@ public class FenetrePrincipale extends JFrame
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Affichage console du look & feel utilise
+	 */
 	public void displayLF()
 	{
 		UIManager.LookAndFeelInfo[] info = UIManager.getInstalledLookAndFeels();

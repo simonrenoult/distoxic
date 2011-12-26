@@ -9,6 +9,12 @@ import src.vue.FenetrePrincipale;
 @SuppressWarnings("serial")
 public class BarreMenu extends JMenuBar
 {
+	/**
+	 * <h4>BarreMenu est la classe regroupant tout le menu du programme</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
@@ -19,14 +25,23 @@ public class BarreMenu extends JMenuBar
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Menu Fichier
+	 * @see MenuFichier
+	 */
 	private MenuFichier			menuFichier;
+	/**
+	 * Menu A propos
+	 * @see MenuAPropos
+	 */
 	private MenuAPropos			menuAPropos;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal de la classe BarreMenu
+	 */
 	public BarreMenu()
 	{
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));

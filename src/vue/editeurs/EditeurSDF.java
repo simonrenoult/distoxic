@@ -13,6 +13,7 @@ import javax.swing.JTable;
 import src.controleur.EcouteurJtable;
 import src.modele.editeurs.ModeleTablesEditeurs;
 import src.modele.editeurs.TablesEditeurs;
+import src.modele.fichiers.FichierBIN;
 import src.modele.fichiers.FichierSDF;
 import src.modele.parseurs.ParseurSDF;
 
@@ -21,23 +22,8 @@ import src.modele.parseurs.ParseurSDF;
 public class EditeurSDF extends JPanel
 {
 	/**
-	 * <h4>EcouteurEditeurs est la classe qui represente l'ecouteur des classes EditeursSDF, EditeursGPH, EditeurBIN</h4>
-	 * <p>
-	 * Cette classe contient : 
-	 * <ul>
-	 * <li>Une instance de classe MenuContextuel, representant la vue lie au clic droit.</li>
-	 * <li>Une instance de classe de Editeurs, afin d'avoir acces à l'ensemble des editeurs DSF, BIN, et GPH.</li>
-	 * <li>Trois instance de classe de Jtable, referant les Jtables associe aux editeurs.</li>
-	 * <li>Deux instance de classe de Border, Permettant de connaître la Jtable selectionne par l'utilisateur..</li>
-	 * </ul>
-	 * </p>
+	 * <h4>EditeurSDF est la classe regroupant l'environement graphique du tableau SDF</h4>
 	 * 
-	 * <p>
-	 * Remarque : Les 3 Jtables ne sont pas instanciees au même moment, l'editeur peut donc comporter des Jtables null.
-	 * </p>
-	 * @see EditeurSDF
-	 * @see EditeurSGPH
-	 * @see EditeurBIN
 	 * 
 	 * @author Alexis CHRETIENNE & Simon RENOULT
 	 */
@@ -59,16 +45,28 @@ public class EditeurSDF extends JPanel
 
 	private JLabel					titre;
 	private JScrollPane				scroll;
-
+	/**
+	 * Tableau graphique
+	 */
 	private JTable					tableauSDF;
+	/**
+	 * Modele du tabelau
+	 * @see ModeleTablesEditeurs
+	 */
 	private ModeleTablesEditeurs	modele;
-
+	/**
+	 * Classe de reference pour les donnees contenus dans le tableau BIN
+	 * @see FichierBIN
+	 */
 	private FichierSDF				fichierSDF;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal de la classe EditeurSDF
+	 * @param sdfFile le modele de fichier SDF
+	 */
 	public EditeurSDF(FichierSDF sdfFile)
 	{
 		this.fichierSDF = sdfFile;
@@ -87,7 +85,9 @@ public class EditeurSDF extends JPanel
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Methode d'initialisation du titres.
+	 */
 	private void initTitre()
 	{
 		setLayout(new FlowLayout());
@@ -97,7 +97,9 @@ public class EditeurSDF extends JPanel
 
 		add(titre);
 	}
-
+	/**
+	 * Methode d'initialisation du parseur SDF
+	 */
 	private void initParseur()
 	{
 		try
@@ -110,7 +112,9 @@ public class EditeurSDF extends JPanel
 		}
 
 	}
-
+	/**
+	 * Methode d'initialisation du tableau graphique SDF
+	 */
 	private void initModeleEtTable()
 	{
 		try
@@ -128,7 +132,9 @@ public class EditeurSDF extends JPanel
 		}
 
 	}
-
+	/**
+	 * Mis en Scroll du tableau graphique
+	 */
 	private void initScroll()
 	{
 		remove(titre);
@@ -138,7 +144,9 @@ public class EditeurSDF extends JPanel
 		scroll.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		add(scroll, BorderLayout.CENTER);
 	}
-
+	/**
+	 * Ecoute du tableau graphique
+	 */
 	private void initEcouteur()
 	{
 		try
@@ -154,7 +162,11 @@ public class EditeurSDF extends JPanel
 	// ----------------------------------------- //
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Recuperation des titres grace a la liste de balise
+	 * @param parseur le parseur SDF
+	 * @return Un tableau de titres
+	 */
 	private String[] recupererTitresTableau(ParseurSDF parseur)
 	{
 		LinkedList<String> intitulesBalises = parseur.recupererIntitulesBalises();
