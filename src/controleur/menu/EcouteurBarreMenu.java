@@ -21,22 +21,61 @@ import vue.menus.MenuFichier;
 
 public class EcouteurBarreMenu implements ActionListener
 {
+	/**
+	 * <h4>EcouteurBarreMenu est la classe qui represente l'ecouteur de la classe BarreMenu</h4>
+	 * <p>
+	 * Cette classe contient : 
+	 * <ul>
+	 * <li>Une instance de classe FenetrePrincipale, representant la fenetre principale du programme.</li>
+	 * <li>Une instance de classe de BarreMenu, afin d'avoir acces à l'ensemble des informations du menu graphique</li>
+	 * <li>Une instance de classe de MenuFichier, referant au menu Fichier</li>
+	 * <li>Une instance de classe de MenuAPropos, referant au menu A propos</li>
+	 * <li>Une instance de classe de FenetreAPropos, fenetre communiquant les informations du logicle a l'utilisateur.</li>
+	 * </ul>
+	 * </p>
+	 * 
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Fenetre princiaple du programme
+	 * @see FenetrePrincipale
+	 */
 	private FenetrePrincipale	fenetrePrincipale;
-
+	/**
+	 * Barre de menu du programme
+	 * @see BarreMenu
+	 */
 	private BarreMenu			bm;
+	/**
+	 * Menu Fichier de la barre de menu
+	 * @see MenuFichier
+	 */
 	private MenuFichier			mf;
+	/**
+	 * Menu A propos de la barre de menu
+	 * @see MenuAPropos
+	 */
 	private MenuAPropos			ma;
-
+	/**
+	 * Fenetre dinformation du logiciel.
+	 * @see FenetreAPropos
+	 */
 	private FenetreAPropos		fenetreAPropos;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Constructeur principal de la classe EcouteurBarreMenu
+	 * @param fenetrePrincipale fenetre principale du programme.
+	 */
 	public EcouteurBarreMenu(FenetrePrincipale fenetrePrincipale)
 	{
 		this.fenetrePrincipale = fenetrePrincipale;
@@ -50,6 +89,9 @@ public class EcouteurBarreMenu implements ActionListener
 	// ------------ INITIALISEURS -------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Methode d'ajout a l'ecoute des items de menu pour le menu Fichier.
+	 */
 	private void initListenersMenuFichier()
 	{
 		mf = (MenuFichier) bm.getMenuFichier();
@@ -62,6 +104,9 @@ public class EcouteurBarreMenu implements ActionListener
 		mf.getQuitter().addActionListener(this);
 	}
 
+	/**
+	 * Methode d'ajout a l'ecoute des items de menu pour le menu Fichier.
+	 */
 	private void initListenersMenuAPropos()
 	{
 		ma = (MenuAPropos) bm.getMenuAPropos();
@@ -69,13 +114,17 @@ public class EcouteurBarreMenu implements ActionListener
 		ma.getAPropos().addActionListener(this);
 	}
 
+	/**
+	 * Methode lancant une boite de dialogue de type ERROR
+	 * @param message message a faire communiquer.
+	 */
 	private void lancerMessageErreur(String message)
 	{
 		JOptionPane.showMessageDialog(null, message, "Erreur", JOptionPane.ERROR_MESSAGE);
 	}
 
 	/**
-	 * Permet d'enregistrer l'ensemble des tableaux d'un onglet (de 1 à 3).
+	 * Methode permettant d'enregistrer l'ensemble des tableaux d'un onglet (de 1 à 3).
 	 */
 	private void enregistrerSousTriplet()
 	{
@@ -109,7 +158,7 @@ public class EcouteurBarreMenu implements ActionListener
 	}
 
 	/**
-	 * Permet d'enregistrer un fichier à la fois (le tableau encadré).
+	 * Methode permettant d'enregistrer un fichier à la fois (le tableau encadré).
 	 */
 	private void enregistrerSousUniteTriplet()
 	{
@@ -194,7 +243,7 @@ public class EcouteurBarreMenu implements ActionListener
 	}
 
 	/**
-	 * Methode D'appel à la fenetre d'exportation d'un projet.
+	 * Methode d'appel à la fenetre d'exportation d'un projet.
 	 */
 	@SuppressWarnings("unused")
 	private void exporterProjet()
@@ -214,7 +263,7 @@ public class EcouteurBarreMenu implements ActionListener
 	}
 
 	/**
-	 * Methode creant la un nouveau projet, puis rafraichissment du Jtree.
+	 * Methode creant la un nouveau projet, puis rafraichissment de l'arbre grpahique.
 	 */
 	private void creerNouveauProjet()
 	{
@@ -230,6 +279,10 @@ public class EcouteurBarreMenu implements ActionListener
 	// ----------------------------------------- //
 
 	@Override
+	/**
+	 * Methode permettant de capter les evenements de type ActionEvent sur un item du menu du programme.
+	 * @param e evenement (clic) un item du menu du programme.
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == mf.getNouveau())

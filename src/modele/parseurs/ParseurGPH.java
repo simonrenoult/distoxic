@@ -11,13 +11,14 @@ import modele.composantsChimiques.FragmentMolecule;
 import modele.composantsChimiques.Liaison;
 
 
-/**
- * @author g4llic4
- * 
- */
 public class ParseurGPH implements ParseurGenerique
 {
-
+	/**
+	 * <h4>ParseurGPH est la classe servant de parseur pour le fichier.gph afin d'y recuperer l'integrite des donnees.</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
@@ -28,7 +29,6 @@ public class ParseurGPH implements ParseurGenerique
 	 * 
 	 * ----FIN FRAGMENT -------
 	 */
-
 	private final static String			_SEPARATION_CHAMP		= " ";
 	private final static String			_VERTEX					= "v";
 	private final static String			_EDGE					= "e";
@@ -51,12 +51,20 @@ public class ParseurGPH implements ParseurGenerique
 	 */
 	private static int					indiceFragment			= 0;
 
+	/**
+	 * Liste ou sont contenus l'ensemble des donnees d'un fichier.gph
+	 */
 	private LinkedList<FragmentMolecule>	listeGPH				= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal de la classe ParseurGPH.
+	 * Lis le fichier passe en parametre et cree une liste de lignes.
+	 * 
+	 * @param filePath : chemin du fichier à lire.
+	 */
 	public ParseurGPH(String filePath)
 	{
 		listeGPH = new LinkedList<FragmentMolecule>();
@@ -69,10 +77,10 @@ public class ParseurGPH implements ParseurGenerique
 	// ----------------------------------------- //
 
 	/**
-	 * Permet de lire toutes les lignes d'un fichier donn� pour enextraire les
+	 * Permet de lire toutes les lignes d'un fichier donne pour enextraire les
 	 * donnees.
 	 * 
-	 * @param filePath
+	 * @param filePath chemin du fichier à lire.
 	 */
 	@Override
 	public void lireFichier(String filePath)
@@ -103,7 +111,7 @@ public class ParseurGPH implements ParseurGenerique
 	 * Exploitation de la ligne : en fonction des indices (t,v, e ou "" qui sont
 	 * des constantes), on redirige la ligne pour extraire les donn�es.
 	 * 
-	 * @param ligne
+	 * @param ligne Ligne du fichier
 	 */
 	public void lireLigne(String ligne)
 	{
@@ -128,10 +136,10 @@ public class ParseurGPH implements ParseurGenerique
 
 	/**
 	 * Creer un nouvel objet FragmentMoleculaire qui l'initialise et l'ajoute
-	 * � la liste d'objet FragmentMoleculaire. On pourra alors ins�rer les
-	 * donn�es relatives aux atomes et aux liaisons.
+	 * a la liste d'objet FragmentMoleculaire. On pourra alors inserer les
+	 * donnees relatives aux atomes et aux liaisons.
 	 * 
-	 * @param tab
+	 * @param tab tableau faisant reference a une ligne auquel on a enleve le caractere separateur.
 	 */
 	private FragmentMolecule ajouterIdentite(String[] tab, FragmentMolecule f)
 	{
@@ -167,7 +175,7 @@ public class ParseurGPH implements ParseurGenerique
 	 * On prend la fragment actuel (gr�ce � indiceFragment) et on rempli la
 	 * liste d'objet Atome.
 	 * 
-	 * @param tab
+	 * @param tab tableau faisant reference a une ligne auquel on a enleve le caractere separateur.
 	 */
 	private void ajouterAtome(String[] tab)
 	{
@@ -179,7 +187,7 @@ public class ParseurGPH implements ParseurGenerique
 	 * On prend la fragment actuel (grace a indiceFragment) et on rempli la
 	 * liste d'objet Liaison.
 	 * 
-	 * @param tab
+	 * @param tab tableau faisant reference a une ligne auquel on a enleve le caractere separateur.
 	 */
 	private void ajouterLiaisons(String[] tab)
 	{
@@ -191,7 +199,7 @@ public class ParseurGPH implements ParseurGenerique
 	 * Permet de convertir la liste de Fragment en un tableau 2D exploitable par
 	 * la JTable.
 	 * 
-	 * @return
+	 * @return tableau d'objets issu de la liste precedemment generee.
 	 */
 	@Override
 	public Object[][] convertirListeVersTableau2D()
@@ -213,7 +221,7 @@ public class ParseurGPH implements ParseurGenerique
 	}
 
 	/**
-	 * Permet d'afficher le tableau 2D � partir de la liste
+	 * Permet d'afficher le tableau 2D a partir de la liste
 	 */
 	public void afficherTableau()
 	{

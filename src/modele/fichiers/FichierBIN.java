@@ -6,27 +6,48 @@ import modele.parseurs.ParseurBIN;
 
 public class FichierBIN implements InitFichier
 {
-
+	/**
+	 * <h4>FichierBIN est la classe principale d'une ressource pour un fichier BIN</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 
-	/*
-	 * REMETTRE TOUTES LES CONSTANTES DU PARSEUR DANS CETTE CLASSE. ELLES
-	 * SERVIRONT A L'ENREGISTREMENT.
+	
+	/**
+	 * Parseur BIN afin de recuperer les donnees pour les inserer dans le tableau graphique BIN.
+	 * @see ParseurBIN
 	 */
-
 	private ParseurBIN		parseurBIN		= null;
+	/**
+	 * Permet l'enregistrement d'une source de donnees BIN (liste provenant de FichierBinTmp)
+	 */
 	private EnregistreurBIN	enregistreurBIN	= null;
+	/**
+	 * Des qu'il y a modification dans le tableau graphique BIN, on modifie la source de donnees BIN (liste temporaire)
+	 */
 	private FichierBinTmp	fichierBinTmp	= null;
+	/**
+	 * Chemin absolu du fichier BIN
+	 */
 	private String			filePath		= null;
+	
 	private boolean			isChanged		= false;
+	/**
+	 * Booleen indiquant si le tablau BIN est encadre (est selectionne). 
+	 */
 	private boolean			isFlank			= false;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal de la classe FichierBIN
+	 * @param path le chemin absolu du fichier.bin
+	 */
 	public FichierBIN(String path)
 	{
 		this.filePath = path;
@@ -37,6 +58,9 @@ public class FichierBIN implements InitFichier
 	// ----------------------------------------- //
 
 	@Override
+	/**
+	 * Methode pour instancier le parseur et le fichier temporaire. cette methode est appellee lors du double clic sur le fichier.bin de l'arbre.
+	 */
 	public void initParseur()
 	{
 		parseurBIN = new ParseurBIN(filePath);
@@ -44,6 +68,9 @@ public class FichierBIN implements InitFichier
 	}
 
 	@Override
+	/**
+	 * Methode pour instancier l'enregistreur afin de pouvoir generer le fichier.bin_$ a partir de la liste temporaire contenu dans l'objet fichierBinTmp.
+	 */
 	public void initEnregistreur()
 	{
 		enregistreurBIN = new EnregistreurBIN();

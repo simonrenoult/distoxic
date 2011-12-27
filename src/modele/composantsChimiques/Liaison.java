@@ -3,12 +3,31 @@ package modele.composantsChimiques;
 public class Liaison
 {
 
+	/**
+	 * <h4>Liaison est la classe d'aide a la creation d'objet de type FragmentMolecule</h4>
+	 * 
+	 * <p>
+	 * Remarque : La classe Liaison decrit une liaison chimique entre deux atomes
+	 * </p>
+	 * 
+	 * @see FragmentMolecule
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Premier atome lie
+	 */
 	private int	indiceAtomeRelie1;
+	/**
+	 * Second atome lie
+	 */
 	private int	indiceAtomeRelie2;
+	/**
+	 * Nombre de liaison entre les deux atomes.
+	 */
 	private int	nombreLiaison;
 
 	// ----------------------------------------- //
@@ -16,12 +35,11 @@ public class Liaison
 	// ----------------------------------------- //
 
 	/**
-	 * Cette classe est utile pour l'exploitation de donn�es. Elle d�pend de la
-	 * classe FragmentMoleculaire.
+	 * Constructeur principal de la classe Liaison
 	 * 
-	 * @param a
-	 * @param b
-	 * @param nb
+	 * @param a indice du premier atome
+	 * @param b indice du second atome
+	 * @param nb nombre de liaison.
 	 */
 	public Liaison(int a, int b, int nb)
 	{

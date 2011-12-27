@@ -18,11 +18,39 @@ import modele.fichiers.FichierSDF;
 public class EcouteurJtable implements TableModelListener, MouseListener, MouseMotionListener
 {
 
+	/**
+	 * <h4>EcouteurJtable est la classe qui represente l'ecouteur des tableaux graphiques (JTable) dans les classes EditeursSDF, BIN et GPH.</h4>
+	 * <p>
+	 * Cette classe contient : 
+	 * <ul>
+	 * <li>une instance de classe de JTable, representant un tableau graphique</li>
+	 * <li>une instance de classe de FichierBIN, pour determiner si le tableau instancie provient de la classe EditeurBIN. </li>
+	 * <li>une instance de classe de FichierGPH, pour determiner si le tableau instancie provient de la classe EditeurGPH. </li>
+	 * <li>une instance de classe de FichierSDF, pour determiner si le tableau instancie provient de la classe EditeurSDF. </li>
+	 * </ul>
+	 * </p>
+	 * 
+	 * <p>
+	 * Remarque : Cette classe est la même pour les 3 tableaux graphique car elle permet la selection d'une ligne de couleur ainsi que l'edition de ces derniers<br>
+	 * Etant donne qu'un editeur declare automatiquement son tableau mais pas son Fichier$$$, on teste la nullite de cette objet pour en connaitre la source du tableau.<br>
+	 * Chaque modification de tableau provoque la modification du modele du tableau ainsi que du fichier qui pourra etre enregistre.
+	 * </p>
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Tableau graphique
+	 * @see JTable
+	 */
 	private JTable		tableau	= null;
+	/**
+	 * Objet de classe FichierBIN,FichierGPH,FichierSDF  regroupant les informations a transmettre au modele du tableau graphique.
+	 * @see FichierBIN
+	 * @see FichierGPH
+	 * @see FichierSDF
+	 */
 	private FichierBIN	binFile	= null;
 	private FichierGPH	gphFile	= null;
 	private FichierSDF	sdfFile	= null;
@@ -30,7 +58,13 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Construcuteur principal de la classe EcouteurJtable. Le tableau BIN presente un toolTip.
+	 * @param tableau le tableau graphique 
+	 * @param binFile la source de donnee du tableau graphique BIN
+	 * @param gphFile la source de donnee du tableau graphique GPH
+	 * @param sdfFile la source de donnee du tableau graphique SDF
+	 */
 	public EcouteurJtable(JTable tableau, FichierBIN binFile, FichierGPH gphFile, FichierSDF sdfFile)
 	{
 		this.binFile = binFile;
@@ -56,6 +90,10 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Methode permettant la selection d'une ligne sur un clic droit.
+	 * @param e Evenement liee au clic droit
+	 */
 	private void selectionLigneClicDroit(MouseEvent e)
 	{
 		tableau.getSelectionModel().addSelectionInterval(tableau.getSelectedRow(), tableau.getSelectedRow());
@@ -65,6 +103,10 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 	}
 
 	@Override
+	/**
+	 * Methode permettant de capter les evenements de type TableModelEvent sur les tableaux graphiques.
+	 * @param e evenement d'une cellule graphique contenue dans les tableaux graphiques.
+	 */
 	public void tableChanged(TableModelEvent e)
 	{
 		int positionLigne = tableau.getSelectedRow();

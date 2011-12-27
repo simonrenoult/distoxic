@@ -20,7 +20,7 @@ public class EcouteurBarreOutils implements ActionListener
 {
 	
 	/**
-	 * <b>EcouteurBarreOutils est la classe qui represente l'ecouteur de la classe BarreOutils</b>
+	 * <h4>EcouteurBarreOutils est la classe qui represente l'ecouteur de la classe BarreOutils</h4>
 	 * <p>
 	 * Cette classe contient : 
 	 * <ul>
@@ -33,7 +33,7 @@ public class EcouteurBarreOutils implements ActionListener
 	 * 
 	 * @see BarreOutils
 	 * 
-	 * @author Alexis CHRETIENNE
+	 * @author Alexis CHRETIENNE & Simon RENOULT
 	 */
 	
 	// ----------------------------------------- //

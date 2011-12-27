@@ -10,10 +10,18 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class EnteteOnglet extends JPanel
 {
+	/**
+	 * <h4>EnteteOnglet est la classe represenatant l'entete de chaque onglet</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constante de classe
+	 */
 	private final static String		_ICON_PATH		= "/images/icones/";
 	private final static String		_ICON_NAME		= "cross.png";
 	private final static Dimension	BUTTON_SIZE		= new Dimension(16, 16);
@@ -30,7 +38,10 @@ public class EnteteOnglet extends JPanel
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal de la classe EnteteOnglet
+	 * @param title libelle de l'onglet
+	 */
 	public EnteteOnglet(String title)
 	{
 		icon = new ImageIcon(getClass().getResource(_ICON_PATH + _ICON_NAME));

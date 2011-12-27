@@ -13,10 +13,17 @@ import modele.composantsChimiques.FragmentMolecule;
 
 public class ParseurSDF implements ParseurGenerique
 {
+	/** <h4>ParseurSDF est la classe servant de parseur pour le fichier.sdf afin d'y recuperer l'integrite des donnees.</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constantes de la classe
+	 */
 	public final static Pattern				DEBUT		= Pattern.compile("^[ ]{2}[A-Z][A-Za-z0-9]{1,}+$");
 	public final static Pattern				RESUME		= Pattern.compile("[0-9]{3}[ ][A-Z][0-9]{4}$");
 	public final static Pattern				ATOMES		= Pattern
@@ -35,7 +42,9 @@ public class ParseurSDF implements ParseurGenerique
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Liste ou sont contenus l'ensemble des donnees d'un fichier.gph
+	 */
 	public ParseurSDF(String filePath)
 	{
 		fragmentsMolecules = new LinkedList<FragmentMolecule>();
@@ -49,6 +58,12 @@ public class ParseurSDF implements ParseurGenerique
 	// ------- LISTE ------- //
 
 	@Override
+	/**
+	 * Permet de lire toutes les lignes d'un fichier donne pour enextraire les
+	 * donnees.
+	 * 
+	 * @param filePath chemin du fichier à lire.
+	 */
 	public void lireFichier(String filePath)
 	{
 		try
@@ -85,6 +100,13 @@ public class ParseurSDF implements ParseurGenerique
 		}
 	}
 
+	/**
+	 * Creation de la liste suivant la ligne du fichier
+	 * @param cpt un compteur
+	 * @param ligne la ligne du fichier actuelle
+	 * @param fragment fragment de la ligne a creer.
+	 * @return le fragment cree a partir de la ligne pour l'incorporer a la liste
+	 */
 	private Object creationListe(Integer cpt, String ligne, FragmentMolecule fragment)
 	{
 		Matcher m;
@@ -153,7 +175,12 @@ public class ParseurSDF implements ParseurGenerique
 	}
 
 	// ------- LISTE->TABLEAU ------- //
-
+	/**
+	 * Permet de convertir la liste de Fragment en un tableau 2D exploitable par
+	 * la JTable.
+	 * 
+	 * @return tableau d'objets issu de la liste precedemment generee.
+	 */
 	@Override
 	public Object[][] convertirListeVersTableau2D()
 	{
@@ -164,12 +191,20 @@ public class ParseurSDF implements ParseurGenerique
 
 		return tableau;
 	}
-
+	
+	/**
+	 * Methode calculant la longueur du tableau car le fichier.sdf admet un nombre de colonne non fixe.
+	 * @return le nombre de colonne a creer
+	 */
 	private Integer calculerLargeurTableau()
 	{
 		return 2 + recupererIntitulesBalises().size();
 	}
 
+	/**
+	 * Methode recuperant toutes les balises contenus dans le fichier.sdf. Celle ci ne sont donc pas rentrès en "dur".
+	 * @return une liste de balise.
+	 */
 	public LinkedList<String> recupererIntitulesBalises()
 	{
 		LinkedList<String> l = new LinkedList<String>();
@@ -181,7 +216,13 @@ public class ParseurSDF implements ParseurGenerique
 		
 		return l;
 	}
-
+	
+	/**
+	 * Methode de creation d'une ligne de tableau pour la Jtable
+	 * @param indice indice de la ligne
+	 * @param fragment fragment moleculaire dont les informations sont a mettre dans la ligne du tableau.
+	 * @return
+	 */
 	private Object[] convertirMoleculeVersTableau(Integer indice, FragmentMolecule fragment)
 	{
 		Object[] tab = new Object[calculerLargeurTableau()+1];

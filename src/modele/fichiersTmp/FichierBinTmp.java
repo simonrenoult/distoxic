@@ -5,16 +5,36 @@ import java.util.LinkedList;
 
 public class FichierBinTmp
 {
+	/**
+	 * <h4>FichierBinTmp est la classe temporaire servant de stockage de donnees.</h4>
+	 * 
+	 * <p>
+	 * Classe possèdant un copie de la liste des molécules initialement parsée
+	 * et se modifie en fonction des moficiations de l'utilisateur sur la jtable
+	 * en vue de l'export ultérieur.
+	 * </p>
+	 * 
+	 * <p>
+	 * Remarque : le fichier original ne doit pas etre ecrase, on fait donc une copie des donnees pour un enregistrement poss futur dans un fichier.bin_$
+	 * </p>
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Liste ou sont contenus l'ensemble des donnees d'un fichier.bin
+	 */
 	private LinkedList<LinkedList<Integer>>	listeBINTmp	= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	
+	/**
+	 * Constructeur principal de la classe FichierBinTmp
+	 * @param listeBIN la liste original du fichier.bin chargee
+	 */
 	public FichierBinTmp(LinkedList<LinkedList<Integer>> listeBIN)
 	{
 		listeBINTmp = listeBIN;
@@ -27,12 +47,20 @@ public class FichierBinTmp
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-
+	
+	/**
+	 * Methode supprimant des donnees provenant de la suppression de la ligne position du tableau BIN
+	 * @param position l'indice du numero de ligne.
+	 */
 	public void suppressionLigneLigneFichierBinTmp(int position)
 	{
 		listeBINTmp.remove(position);
 	}
 
+	/**
+	 * Methode ajoutant simulant l'ajout d'une ligne provenant de l'ajout d'une ligne dans le tableau BIN
+	 * @param position l'indice du numero de ligne.
+	 */
 	public void ajouterLigneLigneFichierBinTmp(int position, int num)
 	{
 		LinkedList<Integer> element = new LinkedList<Integer>();
@@ -41,6 +69,12 @@ public class FichierBinTmp
 		listeBINTmp.add(position, element);
 	}
 
+	/**
+	 * Methode de modification d'une valeur de la liste provenant de la modification d'une cellule dans le tableau BIN
+	 * @param positionLigne l'indice de la ligne
+	 * @param positionColonne l'indice de la colonne
+	 * @param valeur la valeur a modifier
+	 */
 	public void mofifierValeurClasse(int positionLigne, int positionColonne, int valeur)
 	{
 		if (positionColonne == 1)
@@ -54,6 +88,7 @@ public class FichierBinTmp
 
 	}
 
+	
 	public void ajoutFragment(int positionLigne, int valeurFragment)
 	{
 		int i = 0;
@@ -92,6 +127,9 @@ public class FichierBinTmp
 		return line;
 	}
 
+	/**
+	 * Affichage console de la liste
+	 */
 	public void afficherListeBIN()
 	{
 		for (LinkedList<Integer> liste : listeBINTmp)
@@ -105,6 +143,11 @@ public class FichierBinTmp
 		}
 	}
 
+	/**
+	 * Methode de creation du chemin absolu du fichier de sauvegarde. 
+	 * @param path le chemin absolu du fichier original
+	 * @return le chemin absolu du fichier de sauvegarde.
+	 */
 	public String creerCheminNouveauFichier(String path){
 		File fichierReference = new File(path);
 		String nomFichier = fichierReference.getName();

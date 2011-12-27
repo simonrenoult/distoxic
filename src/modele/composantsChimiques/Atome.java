@@ -5,27 +5,44 @@ import java.util.LinkedList;
 public class Atome
 {
 	/**
-	 * Merge of the Atome.java files from both authors.
+	 * <h4>Atome est la classe d'aide a la creation d'objet de type FragmentMolecule</h4>
 	 * 
-	 * @author g4llic4
-	 * @author alexis
+	 * <p>
+	 * Remarque : La classe Atome decrit un atome chimique.
+	 * </p>
+	 * 
+	 * @see FragmentMolecule
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
 	 */
 	
 	// ----------------------------------------- //
 	// ----------------ATTRIBUTS---------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Un atome est decrit par un nom.
+	 */
 	private String				nom;
+	/**
+	 * Un atome est indexe dans un fichier
+	 */
 	private Integer				indice;
+	/**
+	 * Un atome est decrit par un numero atomique.
+	 */
 	private Integer				numeroAtomique;
-
+	
 	private LinkedList<Float>	infos;
 	private LinkedList<Integer>	divers;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	
+	/**
+	 * Constructeur de la classe Atome. 
+	 */
 	public Atome()
 	{
 		setInfos(new LinkedList<Float>());
@@ -33,11 +50,10 @@ public class Atome
 	}
 	
 	/**
-	 * Cette classe est utile pour l'exploitation de donn�es. Elle d�pend de la
-	 * classe FragmentMoleculaire.
+	 * Constructeur de la classe Atome. Cette classe est utile pour l'exploitation de donnees.
 	 * 
-	 * @param ind
-	 * @param z
+	 * @param ind l'indice de l'atome dans le fihier
+	 * @param z le numero atomique de l'atome.
 	 */
 	public Atome(int ind, int z)
 	{
@@ -51,11 +67,17 @@ public class Atome
 	// ---------------- METHODES --------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Redefinition de la methode toString()
+	 */
 	public String toString()
 	{
 		return nom + " : " + infos + " " + divers;
 	}
 
+	/**
+	 * Affichage Console de l'objet.
+	 */
 	public void afficher()
 	{
 		System.out.println("Atome - " + nom);

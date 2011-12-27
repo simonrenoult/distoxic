@@ -9,6 +9,12 @@ import javax.swing.KeyStroke;
 @SuppressWarnings("serial")
 public class MenuFichier extends Menu
 {
+	/**
+	 * <h4>MenuFichier est la classe dediee au menu Fichier</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
@@ -39,6 +45,9 @@ public class MenuFichier extends Menu
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Constructeur principal de la classe MenuFichier
+	 */
 	public MenuFichier()
 	{
 		this.setText(TITRE_MENU);
@@ -51,6 +60,9 @@ public class MenuFichier extends Menu
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Methode de creation d'items appartenant au menu Fichier
+	 */
 	private void buildItems()
 	{
 		nouveau = buildMenuItem(nouveau, TITRE_NOUVEAU, KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_MASK),"folder_add.png");

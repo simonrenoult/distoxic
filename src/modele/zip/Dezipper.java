@@ -8,12 +8,18 @@ import java.util.zip.ZipInputStream;
 
 public class Dezipper
 {
+	/**
+	 * <h4>Dezipper est la classe permettant la decompression d'une archive.zip</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
 	/**
-	 * Taille g�n�rique du tampon en lecture et �criture
+	 * Taille generique du tampon en lecture et ecriture
 	 */
 	@SuppressWarnings("unused")
 	private final static int	BUFFER	= 2048;
@@ -21,14 +27,23 @@ public class Dezipper
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * archive zip
+	 */
 	private File				zipfile	= null;
+	/**
+	 * Dossier de destination
+	 */
 	private File				dest	= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal de la classe Dezipper
+	 * @param zipfile le chemin de l'archive .zip
+	 * @param dest le chemin de destination
+	 */
 	public Dezipper(String zipfile, String dest)
 	{
 		this.zipfile = new File(zipfile);
@@ -39,7 +54,10 @@ public class Dezipper
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Methode permettant de dezipper l'archive vers le repsertoire de destination.
+	 * @return
+	 */
 	public boolean zipAction()
 	{
 		try

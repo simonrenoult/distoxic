@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 @SuppressWarnings("serial")
 public class TablesEditeursCellRenderer extends DefaultTableCellRenderer
 {
+	
 	/** Creates a new instance of UserListCellRenderer */
 	public TablesEditeursCellRenderer()
 	{

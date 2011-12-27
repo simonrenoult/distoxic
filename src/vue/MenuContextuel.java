@@ -8,13 +8,25 @@ import javax.swing.JPopupMenu;
 @SuppressWarnings("serial")
 public class MenuContextuel extends JPopupMenu
 {
-
+	/**
+	 * <h4>MenuContextuel est la classe permettant de decrire le popup menu lie au tableau graphique de type JTable</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
-	// ----------------ATRIBUTS----------------- //
-	// ----------------------------------------- //
-	
+		// --------------- CONSTANTES -------------- //
+		// ----------------------------------------- //
+	/**
+	 * Constantes de classe
+	 */
 	private static String	_ICON_PATH	= "/images/icones/";
 	private static int		_GPH_MENU	= 1;
+	
+	
+	// ----------------------------------------- //
+		// ----------------ATRIBUTS----------------- //
+		// ----------------------------------------- //
 	private JMenu			ajouter;
 	private JMenuItem		ajouterDebutTableau;
 	private JMenuItem		ajouterAvantLigneSelection;
@@ -24,7 +36,7 @@ public class MenuContextuel extends JPopupMenu
 
 	private JMenuItem		supprimer;
 
-	/**
+	/*
 	 * selon la Jtable selectionne, l'affichage sera different. Si c'est la
 	 * JtableGPH(index == "gph"), ajout d'un menuItem ajouter le fragment au bin
 	 * associe.
@@ -33,6 +45,10 @@ public class MenuContextuel extends JPopupMenu
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
+	/**
+	 * Constructeur principal de la classe MenuContextuel
+	 * @param index numero indiquant quel menu il faut generer en fonction du tableau graphique
+	 */
 	public MenuContextuel(int index)
 	{
 		super();
@@ -50,6 +66,9 @@ public class MenuContextuel extends JPopupMenu
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
+	/**
+	 * Creation du menu commun
+	 */
 	private void initBoutons()
 	{
 		ajouter = creerMenu("Ajouter une ligne", "add.png");
@@ -69,12 +88,21 @@ public class MenuContextuel extends JPopupMenu
 
 	}
 
+	/**
+	 * Creation du menu GPH qui vient completer le menu commun.
+	 */
 	private void initBoutonGPH()
 	{
 		ajouterFragmentBin = creerItem("Ajouter le fragment à la molecule", "arrow_right.png");
 		this.add(ajouterFragmentBin);
 	}
 
+	/**
+	 * Creation d'un item de menu
+	 * @param name le libelle de l'item
+	 * @param iconPath l'icone associe
+	 * @return un item de type JMenuItem
+	 */
 	private JMenuItem creerItem(String name, String iconPath)
 	{
 
@@ -82,6 +110,12 @@ public class MenuContextuel extends JPopupMenu
 		return menuItem;
 	}
 
+	/**
+	 * Creation d'un menu
+	 * @param name le libelle du menu
+	 * @param iconPath l'icone associe
+	 * @return un menu de type JMenu
+	 */
 	private JMenu creerMenu(String name, String iconPath)
 	{
 		JMenu menu = new JMenu(name);

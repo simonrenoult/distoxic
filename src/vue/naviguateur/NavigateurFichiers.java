@@ -20,6 +20,12 @@ import vue.ConteneurGlobal;
 @SuppressWarnings("serial")
 public class NavigateurFichiers extends JPanel
 {
+	/**
+	 * <h4>NavigateurFichiers est la classe representant l'arbre de selections graphique </h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
@@ -31,14 +37,21 @@ public class NavigateurFichiers extends JPanel
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-	
+	/**
+	 * Noeud principal de l'arborescence
+	 */
 	private DefaultMutableTreeNode	racine		= new DefaultMutableTreeNode("");
+	/**
+	 * Arbre graphique
+	 */
 	private JTree					tree		= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Construcuteur principal de la classe NavigateurFichiers
+	 */
 	public NavigateurFichiers()
 	{
 		super();
@@ -50,7 +63,9 @@ public class NavigateurFichiers extends JPanel
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Creation de l'arbre graphique
+	 */
 	public void buildTree()
 	{
 
@@ -84,6 +99,11 @@ public class NavigateurFichiers extends JPanel
 		this.add(treeView, BorderLayout.CENTER);
 	}
 
+	/**
+	 * Creation des noeuds appartenant à l'arbre graphique (methode recursive)
+	 * @param file le fichier a decrire (repertoire, fichier)
+	 * @param node le noeud parent
+	 */
 	private void buildJtreeComponentList(File file, DefaultMutableTreeNode node)
 	{
 		if (file.isDirectory())

@@ -17,6 +17,12 @@ import modele.fichiers.FichierGPH;
 @SuppressWarnings("serial")
 public class EditeurGPH extends JPanel
 {
+	/**
+	 * <h4>EditeurGPH est la classe regroupant l'environement graphique du tableau GPH</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
@@ -36,16 +42,28 @@ public class EditeurGPH extends JPanel
 
 	private JLabel					titre;
 	private JScrollPane				scroll;
-
+	/**
+	 * Tableau graphique
+	 */
 	private JTable					tableauGPH;
+	/**
+	 * Modele du tabelau
+	 * @see ModeleTablesEditeurs
+	 */
 	private ModeleTablesEditeurs	modele;
-
+	/**
+	 * Classe de reference pour les donnees contenus dans le tableau BIN
+	 * @see FichierGPH
+	 */
 	private FichierGPH				fichierGPH;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal de la classe EditeurGPH
+	 * @param gphFile le modele de fichier GPH
+	 */
 	public EditeurGPH(FichierGPH gphFile)
 	{
 		this.fichierGPH = gphFile;
@@ -63,6 +81,9 @@ public class EditeurGPH extends JPanel
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Methode d'initialisation du titres.
+	 */
 	private void initTitre()
 	{
 		setLayout(new FlowLayout());
@@ -71,7 +92,9 @@ public class EditeurGPH extends JPanel
 
 		add(titre);
 	}
-
+	/**
+	 * Methode d'initialisation du parseur GPH
+	 */
 	private void initParseur()
 	{
 		try
@@ -83,7 +106,9 @@ public class EditeurGPH extends JPanel
 			System.out.println("Tentative d'initialisation du parseur GPH avortée.");
 		}
 	}
-
+	/**
+	 * Methode d'initialisation du tableau graphique GPH
+	 */
 	private void initModeleEtTable()
 	{
 		try
@@ -99,7 +124,9 @@ public class EditeurGPH extends JPanel
 			System.out.println("Tentative d'initialisation du modèle de parseur GPH avortée.");
 		}
 	}
-
+	/**
+	 * Mis en Scroll du tableau graphique
+	 */
 	private void initScroll()
 	{
 		remove(titre);
@@ -109,7 +136,9 @@ public class EditeurGPH extends JPanel
 
 		add(scroll, BorderLayout.CENTER);
 	}
-
+	/**
+	 * Ecoute du tableau graphique
+	 */
 	private void initEcouteur()
 	{
 		try

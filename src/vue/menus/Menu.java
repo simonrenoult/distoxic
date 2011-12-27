@@ -8,6 +8,12 @@ import javax.swing.KeyStroke;
 @SuppressWarnings("serial")
 public class Menu extends JMenu
 {
+	/**
+	 * <h4>Menu est la classe mere de menu</h4>
+	 * Permet d'acceder aux methodes de construction generique d'un item du menu.
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// -------------- INFORMATIONS ------------- //
 	// ----------------------------------------- //

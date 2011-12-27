@@ -6,26 +6,47 @@ import modele.parseurs.ParseurSDF;
 
 public class FichierSDF implements InitFichier
 {
-
+	/**
+	 * <h4>FichierSDF est la classe principale d'une ressource pour un fichier SDF</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 
-	/*
-	 * REMETTRE TOUTES LES CONSTANTES DU PARSEUR DANS CETTE CLASSE. ELLES
-	 * SERVIRONT A L'ENREGISTREMENT.
+	/**
+	 * Parseur SDF afin de recuperer les donnees pour les inserer dans le tableau graphique SDF.
+	 * @see ParseurSDF
 	 */
 	private ParseurSDF		parseurSDF		= null;
+	/**
+	 * Permet l'enregistrement d'une source de donnees SDF (liste provenant de FichierSdfTmp)
+	 */
 	private EnregistreurSDF	enregistreurSDF	= null;
+	/**
+	 * Des qu'il y a modification dans le tableau graphique SDF, on modifie la source de donnees SDF (liste temporaire)
+	 */
 	private FichierSdfTmp fichierSdfTmp = null;
+	/**
+	 * Chemin absolu du fichier SDF
+	 */
 	private String			filePath		= null;
 	private boolean			isChanged		= false;
+	/**
+	 * Booleen indiquant si le tablau SDF est encadre (est selectionne). 
+	 */
 	private boolean			isFlank			= false;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Constructeur principal de la classe FichierSDF
+	 * @param path le chemin absolu du fichier.sdf
+	 */
 	public FichierSDF(String path)
 	{
 		this.filePath = path;
@@ -35,6 +56,9 @@ public class FichierSDF implements InitFichier
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
 	@Override
+	/**
+	 * Methode pour instancier le parseur et le fichier temporaire. cette methode est appellee lors du double clic sur le fichier.sdf de l'arbre.
+	 */
 	public void initParseur()
 	{
 		parseurSDF = new ParseurSDF(filePath);
@@ -42,6 +66,9 @@ public class FichierSDF implements InitFichier
 	}
 
 	@Override
+	/**
+	 * Methode pour instancier l'enregistreur afin de pouvoir generer le fichier.sdf_$ a partir de la liste temporaire contenu dans l'objet fichierSdfTmp.
+	 */
 	public void initEnregistreur()
 	{
 		enregistreurSDF = new EnregistreurSDF(parseurSDF.getFragmentsMolecules());

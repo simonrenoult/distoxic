@@ -17,11 +17,18 @@ import modele.WorkspaceModele;
 @SuppressWarnings("serial")
 public class FenetreChoixWorkspace extends JFrame
 {
-
+	/**
+	 * <h4>FenetreChoixWorkspace est la classe permettant de decrire la fenetre du choix du workspace a selectionner</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constantes de classe
+	 */
 	public static Integer	TAILLE_X					= 600;
 	public static Integer	TAILLE_Y					= 200;
 
@@ -54,7 +61,10 @@ public class FenetreChoixWorkspace extends JFrame
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constructeur principal dela classe FenetreChoixWorkspace
+	 * @param modele le modele associe a la vue.
+	 */
 	public FenetreChoixWorkspace(WorkspaceModele modele)
 	{
 		this.modeleWorkspace = modele;
@@ -72,7 +82,9 @@ public class FenetreChoixWorkspace extends JFrame
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Methode d'initialisation de la fenetre
+	 */
 	public void init()
 	{
 		buildLookAndFeel();
@@ -85,7 +97,9 @@ public class FenetreChoixWorkspace extends JFrame
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Utilisation d'un look & feel pour cette fenetre.
+	 */
 	private void buildLookAndFeel()
 	{
 		try
@@ -155,7 +169,7 @@ public class FenetreChoixWorkspace extends JFrame
 	}
 
 	/**
-	 * Creation de panneau principal � la fenetre.
+	 * Creation de panneau principal a la fenetre.
 	 */
 	private void buildContainerPrincipal()
 	{

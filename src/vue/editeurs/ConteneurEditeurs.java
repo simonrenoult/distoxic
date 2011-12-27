@@ -19,25 +19,47 @@ import vue.ConteneurGlobal;
 @SuppressWarnings("serial")
 public class ConteneurEditeurs extends JTabbedPane
 {
+	/**
+	 * <h4>ConteneurEditeurs est la classe permettant de decrire le stucture d'onglet (JTabbedPane). </h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Constantes de classe
+	 */
 	public final static Integer			TAILLE_X	= 4 * ConteneurGlobal.TAILLE_X / 5;
 	public final static Integer			TAILLE_Y	= ConteneurGlobal.TAILLE_Y;
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Liste d'onglet de la strucure
+	 * @see Editeurs
+	 */
 	private LinkedList<Editeurs>		editeurs;
+	/**
+	 * Liste d'entete d'onglet de la structure
+	 * @see EnteteOnglet
+	 */
 	private LinkedList<EnteteOnglet>	enteteEditeurs;
+	/**
+	 * Ecouteur d'onglet
+	 * @see EcouteurEnteteOnglet
+	 */
 	private EcouteurEnteteOnglet		emt;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Constructeur principal de la classe ConteneurEditeurs
+	 */
 	public ConteneurEditeurs()
 	{
 		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
@@ -50,7 +72,9 @@ public class ConteneurEditeurs extends JTabbedPane
 	// ----------------------------------------- //
 	// ----------------LISTENERS---------------- //
 	// ----------------------------------------- //
-
+	/**
+	 * Ecoute de la strucutre a onglet.
+	 */
 	private void initListeners()
 	{
 		emt = new EcouteurEnteteOnglet(this);
@@ -65,7 +89,7 @@ public class ConteneurEditeurs extends JTabbedPane
 	 * afin que chaque JPANEL descendant constuise sa JTable. On ajoute l'onglet
 	 * créé aux tableaux d'onglet et on ajoute ce dernier onglet au graphique.
 	 * 
-	 * @param tripletFichier
+	 * @param tripletFichier le modele comprenant au maximum trois fichiers : BIN,GPH et SDF
 	 */
 	public void addEditeur(TripletFichier tripletFichier)
 	{
@@ -83,9 +107,9 @@ public class ConteneurEditeurs extends JTabbedPane
 	 * Permet de modifier directement un editeur en lui ajoutant le fichier
 	 * selectionne.
 	 * 
-	 * @param tripletFichier
-	 * @param indexEditeur
-	 * @return
+	 * @param tripletFichier le fichier a ajouter dans l'onglet (qui servira pour le tableau graphique associe)
+	 * @param indexEditeur le numero de l'onglet selectionne
+	 * @return booleen de confirmation d'ajout.
 	 */
 	public boolean modifierEditeur(TripletFichier tripletFichier, int indexEditeur)
 	{
@@ -110,8 +134,8 @@ public class ConteneurEditeurs extends JTabbedPane
 	/**
 	 * Permet de creer l'entete de l'onglet.
 	 * 
-	 * @param tripletFichier
-	 * @param indiceOnglet
+	 * @param tripletFichier pour le nom du dossier qui sera le libelle de l'onglet.
+	 * @param indiceOnglet le numero de l'onglet selectionnee
 	 */
 	private void buildPaneHead(TripletFichier tripletFichier, int indiceOnglet)
 	{
@@ -123,8 +147,8 @@ public class ConteneurEditeurs extends JTabbedPane
 	/**
 	 * Creation du nom de l'onglet : nom du dossier contenant les fichiers.
 	 * 
-	 * @param path
-	 * @return
+	 * @param tripletFichier
+	 * @return le nom du dossier du projet.
 	 */
 	public String nomEditeur(TripletFichier tripletFichier)
 	{

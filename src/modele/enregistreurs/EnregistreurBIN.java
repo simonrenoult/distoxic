@@ -7,25 +7,44 @@ import java.util.LinkedList;
 
 public class EnregistreurBIN implements EnregistreurGenerique
 {
+	/**
+	 * <h4>EnregistreurBIN est la classe permettant l'enregistrement sur fichier du tableau graphique BIN</h4>
+	 * 
+	 * 
+	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 */
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
 
+	/**
+	 * Constantes de classe.
+	 */
 	public static int						_CLASSEMAX		= 6;
 	public static int						_CLASSEMIN		= 1;
 	public static String					_SEPARATEURBIN	= " ";
 
+	/**
+	 * Liste representative du fichier BIN qui va etre parcouru pour ecrire les les donnees sur fichier.
+	 */
 	private LinkedList<LinkedList<Integer>>	listeBIN		= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
-	
+	/**
+	 * Constructeur par defaut de la classe EnregistreurBIN
+	 */
 	public EnregistreurBIN()
 	{
 
 	}
 
+	/**
+	 * Constructeur de la classe EnregistreurBIN
+	 * @param liste la liste de donnees
+	 * @param path le chemin du fichier dans lequel on va ecrire.
+	 */
 	public EnregistreurBIN(LinkedList<LinkedList<Integer>> liste, String path)
 	{
 		System.out.println("enregistrment du fichier BIN");
@@ -34,6 +53,10 @@ public class EnregistreurBIN implements EnregistreurGenerique
 
 	}
 
+	/**
+	 * Constructeur de la classe EnregistreurBIN
+	 * @param liste la liste de donnees
+	 */
 	public EnregistreurBIN(LinkedList<LinkedList<Integer>> liste)
 	{
 		System.out.println("enregistrment du fichier BIN");
@@ -53,8 +76,8 @@ public class EnregistreurBIN implements EnregistreurGenerique
 	 * correspondant à l'ensemble des fragments toxiques appartenant à une
 	 * molécule.
 	 * 
-	 * @param path
-	 * @return
+	 * @param le chemin du fichier dans lequel on va ecrire.
+	 * @return booleen d'ecriture sur fichier.
 	 */
 	@Override
 	public boolean ecrireFichier(String path)
@@ -89,11 +112,11 @@ public class EnregistreurBIN implements EnregistreurGenerique
 	}
 
 	/**
-	 * On ecrit sur fichier la ligne correspondant à l'ensemble des fragments
+	 * Methode ecrivant sur fichier la ligne correspondant à l'ensemble des fragments
 	 * toxiques d'une molécule.
 	 * 
-	 * @param buff
-	 * @param index
+	 * @param buff le buffer
+	 * @param index le numero de ligne
 	 */
 	public boolean ecrireLigne(BufferedWriter buff, int index)
 	{
