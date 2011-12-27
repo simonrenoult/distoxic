@@ -1,1 +1,16 @@
 controleur
+controleur.menu
+modele
+modele.composantsChimiques
+modele.editeurs
+modele.enregistreurs
+modele.fichiers
+modele.fichiersTmp
+modele.parseurs
+modele.zip
+vue
+vue.barreOutils
+vue.editeurs
+vue.lanceur
+vue.menus
+vue.naviguateur

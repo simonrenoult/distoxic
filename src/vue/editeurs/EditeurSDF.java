@@ -10,27 +10,18 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-<<<<<<< HEAD
 import controleur.EcouteurJtable;
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.editeurs.TablesEditeurs;
 import modele.fichiers.FichierSDF;
 import modele.parseurs.ParseurSDF;
-=======
-import src.controleur.EcouteurJtable;
-import src.modele.editeurs.ModeleTablesEditeurs;
-import src.modele.editeurs.TablesEditeurs;
-import src.modele.fichiers.FichierBIN;
-import src.modele.fichiers.FichierSDF;
-import src.modele.parseurs.ParseurSDF;
->>>>>>> dfd55cdf890d2f9d3f0f3afa24db2dc76914d931
-
 
 @SuppressWarnings("serial")
 public class EditeurSDF extends JPanel
 {
 	/**
-	 * <h4>EditeurSDF est la classe regroupant l'environement graphique du tableau SDF</h4>
+	 * <h4>EditeurSDF est la classe regroupant l'environement graphique du
+	 * tableau SDF</h4>
 	 * 
 	 * 
 	 * @author Alexis CHRETIENNE & Simon RENOULT
@@ -45,7 +36,7 @@ public class EditeurSDF extends JPanel
 	public final static Color		BG_COLOR		= Color.WHITE;
 
 	private final static String		TITRE			= "Editeur de fichiers *.sdf";
-	private String[]				TITRES_TABLEAU	= { "Ind molecule","Nb Liaisons", "Nb Atomes" };
+	private String[]				TITRES_TABLEAU	= { "Ind molecule", "Nb Liaisons", "Nb Atomes" };
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
@@ -59,11 +50,13 @@ public class EditeurSDF extends JPanel
 	private JTable					tableauSDF;
 	/**
 	 * Modele du tabelau
+	 * 
 	 * @see ModeleTablesEditeurs
 	 */
 	private ModeleTablesEditeurs	modele;
 	/**
 	 * Classe de reference pour les donnees contenus dans le tableau BIN
+	 * 
 	 * @see FichierBIN
 	 */
 	private FichierSDF				fichierSDF;
@@ -73,7 +66,9 @@ public class EditeurSDF extends JPanel
 	// ----------------------------------------- //
 	/**
 	 * Constructeur principal de la classe EditeurSDF
-	 * @param sdfFile le modele de fichier SDF
+	 * 
+	 * @param sdfFile
+	 *            le modele de fichier SDF
 	 */
 	public EditeurSDF(FichierSDF sdfFile)
 	{
@@ -105,6 +100,7 @@ public class EditeurSDF extends JPanel
 
 		add(titre);
 	}
+
 	/**
 	 * Methode d'initialisation du parseur SDF
 	 */
@@ -120,6 +116,7 @@ public class EditeurSDF extends JPanel
 		}
 
 	}
+
 	/**
 	 * Methode d'initialisation du tableau graphique SDF
 	 */
@@ -129,7 +126,8 @@ public class EditeurSDF extends JPanel
 		{
 			TITRES_TABLEAU = recupererTitresTableau(fichierSDF.getParseurSDF());
 
-			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierSDF.getParseurSDF().convertirListeVersTableau2D(),1);
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierSDF.getParseurSDF().convertirListeVersTableau2D(),
+					1);
 			tableauSDF = new TablesEditeurs(modele);
 			tableauSDF.setAutoCreateRowSorter(true);
 			tableauSDF.getTableHeader().setReorderingAllowed(false);
@@ -140,6 +138,7 @@ public class EditeurSDF extends JPanel
 		}
 
 	}
+
 	/**
 	 * Mis en Scroll du tableau graphique
 	 */
@@ -152,6 +151,7 @@ public class EditeurSDF extends JPanel
 		scroll.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 		add(scroll, BorderLayout.CENTER);
 	}
+
 	/**
 	 * Ecoute du tableau graphique
 	 */
@@ -172,7 +172,9 @@ public class EditeurSDF extends JPanel
 	// ----------------------------------------- //
 	/**
 	 * Recuperation des titres grace a la liste de balise
-	 * @param parseur le parseur SDF
+	 * 
+	 * @param parseur
+	 *            le parseur SDF
 	 * @return Un tableau de titres
 	 */
 	private String[] recupererTitresTableau(ParseurSDF parseur)

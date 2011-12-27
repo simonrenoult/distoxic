@@ -14,68 +14,62 @@ import modele.zip.Zipper;
 import vue.FenetreExportationTripletFichier;
 import vue.FenetrePrincipale;
 
-<<<<<<< HEAD
 public class EcouteurFenetreExportationTripletFichier implements ActionListener
 {
-=======
-public class EcouteurFenetreExportationTripletFichier implements ActionListener {
 	/**
-	 * <h4>EcouteurFenetreExportationTripletFichier est la classe qui represente l'ecouteur de la classe ExportationTripletFichier</h4>
+	 * <h4>EcouteurFenetreExportationTripletFichier est la classe qui represente
+	 * l'ecouteur de la classe ExportationTripletFichier</h4>
 	 * <p>
-	 * Cette classe contient : 
+	 * Cette classe contient :
 	 * <ul>
 	 * <li>une instance de classe de FenetrePrincipale</li>
-	 * <li>une instance de classe de FenetreExportationTriplet, fenetre d'exportation d'un projet.</li>
-	 * <li>une instance de classe de JFileChooser, permettant la selection du dossier dans lequel ajouter l'export.</li>
+	 * <li>une instance de classe de FenetreExportationTriplet, fenetre
+	 * d'exportation d'un projet.</li>
+	 * <li>une instance de classe de JFileChooser, permettant la selection du
+	 * dossier dans lequel ajouter l'export.</li>
 	 * </ul>
 	 * </p>
 	 * 
 	 * 
 	 * @author Alexis CHRETIENNE & Simon RENOULT
 	 */
->>>>>>> dfd55cdf890d2f9d3f0f3afa24db2dc76914d931
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
-	
-	@SuppressWarnings("unused")
-<<<<<<< HEAD
+
+	/**
+	 * Fenetre principale du programme.
+	 * 
+	 * @see FenetrePrincipale
+	 */
 	private FenetrePrincipale					fenetreprincipale;
+	/**
+	 * Fenetre d'export d'un projet.
+	 * 
+	 * @see FenetreExportationTripletFichier
+	 */
 	private FenetreExportationTripletFichier	fenetre	= null;
+	/**
+	 * Fenetre de selection de l'emplacement pour l'export.
+	 * 
+	 * @see JFileChooser
+	 */
 	private JFileChooser						jf		= null;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
+	/**
+	 * Constructeur principal de la classe
+	 * EcouteurFenetreExportationTripletFichier
+	 * 
+	 * @param f
+	 *            fenetre d'export d'un projet.
+	 */
 	public EcouteurFenetreExportationTripletFichier(FenetreExportationTripletFichier f)
 	{
-=======
-	/**
-	 * Fenetre principale du programme.
-	 * @see FenetrePrincipale
-	 */
-	private FenetrePrincipale fenetreprincipale;
-	/**
-	 * Fenetre d'export d'un projet.
-	 * @see FenetreExportationTripletFichier
-	 */
-	private FenetreExportationTripletFichier fenetre = null;
-	/**
-	 * Fenetre de selection de l'emplacement pour l'export.
-	 * @see JFileChooser
-	 */
-	private JFileChooser jf = null;
-	// ----------------------------------------- //
-	// --------------CONSTRUCTEURS-------------- //
-	// ----------------------------------------- //
-	/**
-	 * Constructeur principal de la classe EcouteurFenetreExportationTripletFichier
-	 * @param f fenetre d'export d'un projet.
-	 */
-	public EcouteurFenetreExportationTripletFichier(FenetreExportationTripletFichier f){
->>>>>>> dfd55cdf890d2f9d3f0f3afa24db2dc76914d931
 		fenetre = f;
-		fenetreprincipale = fenetre.getFenetrePrincipale();
+		setFenetreprincipale(fenetre.getFenetrePrincipale());
 		fenetre.getDossierBouton().addActionListener(this);
 		fenetre.getArchiveBouton().addActionListener(this);
 		fenetre.getExporterArchive().addActionListener(this);
@@ -86,15 +80,13 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
-<<<<<<< HEAD
+
+	/**
+	 * Methode d'initialisation de la fenetre d'export. L'export se fait par
+	 * archive ou dossier. On privilegie l'archive.
+	 */
 	private void init()
 	{
-=======
-	/**
-	 * Methode d'initialisation de la fenetre d'export. L'export se fait par archive ou dossier. On privilegie l'archive.
-	 */
-	private void init() {
->>>>>>> dfd55cdf890d2f9d3f0f3afa24db2dc76914d931
 		fenetre.getExporterArchive().setSelected(true);
 		fenetre.getExporterDossier().setSelected(false);
 		fenetre.getDossierBouton().setEnabled(false);
@@ -102,12 +94,9 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Export d'un projet archive contenu dans le workspace vers un repertoire
-	 * choisi
-=======
-	 * Methode d'export d'un projet archive contenu dans le workspace vers un repertoire choisi
->>>>>>> dfd55cdf890d2f9d3f0f3afa24db2dc76914d931
+	 * choisi Methode d'export d'un projet archive contenu dans le workspace
+	 * vers un repertoire choisi
 	 */
 	private void exoprterArchive()
 	{
@@ -117,7 +106,8 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	}
 
 	/**
-	 * Methode d'export d'un projet contenu dans le workspace vers un repertoire choisi
+	 * Methode d'export d'un projet contenu dans le workspace vers un repertoire
+	 * choisi
 	 */
 	private void exoprterDossier()
 	{
@@ -139,23 +129,16 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	}
 
 	/**
-<<<<<<< HEAD
-	 * Copie d'un contenu d'un repertoire vers un repertoire donne.
+	 * Methode de copie d'un contenu d'un repertoire vers un repertoire donne.
 	 * 
 	 * @param fichiers
+	 *            les fichiers a copier.
 	 * @param dossier
+	 *            le dossier de destination.
 	 */
 	public void copieFichier(File[] fichiers, String dossier)
 	{
-		FileChannel in = null; // canal d'entr�e
-=======
-	 * Methode de copie d'un contenu d'un repertoire vers un repertoire donne.
-	 * @param fichiers les fichiers a copier.
-	 * @param dossier le dossier de destination.
-	 */
-	public void copieFichier(File[] fichiers,String dossier){
 		FileChannel in = null; // canal d'entree
->>>>>>> dfd55cdf890d2f9d3f0f3afa24db2dc76914d931
 		FileChannel out = null; // canal de sortie
 		for (int i = 0 ; i < fichiers.length ; i++)
 		{
@@ -199,12 +182,11 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	}
 
 	/**
-<<<<<<< HEAD
 	 * retourne le chemin d'enregistrement.
 	 * 
-=======
-	 * Methode retournant le chemin d'enregistrement grace a la selection du repertoire de destination.
->>>>>>> dfd55cdf890d2f9d3f0f3afa24db2dc76914d931
+	 * Methode retournant le chemin d'enregistrement grace a la selection du
+	 * repertoire de destination.
+	 * 
 	 * @return
 	 */
 	public String retournerCheminDestination()
@@ -227,20 +209,19 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
 	// ----------------------------------------- //
-	@Override
-<<<<<<< HEAD
+
+	/**
+	 * Methode permettant de capter les evenements de type ActionEvent sur la
+	 * fenetre d'exportation de projet.
+	 * 
+	 * @param e
+	 *            evenement d'un objet graphique provenant de la fenetre
+	 *            d'exportation de projet.
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == fenetre.getExporterArchive())
 		{
-=======
-	/**
-	 * Methode permettant de capter les evenements de type ActionEvent sur la fenetre d'exportation de projet.
-	 * @param e evenement d'un objet graphique provenant de la fenetre d'exportation de projet.
-	 */
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == fenetre.getExporterArchive()){
->>>>>>> dfd55cdf890d2f9d3f0f3afa24db2dc76914d931
 			fenetre.getExporterArchive().setSelected(true);
 			fenetre.getExporterDossier().setSelected(false);
 			fenetre.getDossierBouton().setEnabled(false);
@@ -266,6 +247,16 @@ public class EcouteurFenetreExportationTripletFichier implements ActionListener 
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
+
+	public FenetrePrincipale getFenetreprincipale()
+	{
+		return fenetreprincipale;
+	}
+
+	public void setFenetreprincipale(FenetrePrincipale fenetreprincipale)
+	{
+		this.fenetreprincipale = fenetreprincipale;
+	}
 
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //

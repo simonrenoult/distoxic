@@ -9,14 +9,9 @@ import javax.swing.border.Border;
 import controleur.EcouteurEditeurs;
 import modele.TripletFichier;
 
-
-
 @SuppressWarnings("serial")
 public class Editeurs extends JSplitPane
 {
-<<<<<<< HEAD
-	// ----------------------------------------- //s
-=======
 	/**
 	 * <h4>Editeurs est la classe regroupant les trois editeurs BIN, GPH et SDF</h4>
 	 * 
@@ -24,7 +19,6 @@ public class Editeurs extends JSplitPane
 	 * @author Alexis CHRETIENNE & Simon RENOULT
 	 */
 	// ----------------------------------------- //
->>>>>>> dfd55cdf890d2f9d3f0f3afa24db2dc76914d931
 	// --------------- CONSTANTES -------------- //
 	// ----------------------------------------- //
 
@@ -41,18 +35,21 @@ public class Editeurs extends JSplitPane
 	// ----------------------------------------- //
 	/**
 	 * Editeur SDF
+	 * 
 	 * @see EditeurSDF
 	 */
 	private EditeurSDF				edSdf;
-	
+
 	private JSplitPane				edGph_Bin;
 	/**
 	 * Editeur BIN
+	 * 
 	 * @see EditeurBIN
 	 */
 	private EditeurBIN				edBin;
 	/**
 	 * Editeur GPH
+	 * 
 	 * @see EditeurGPH
 	 */
 	private EditeurGPH				edGph;
@@ -71,7 +68,9 @@ public class Editeurs extends JSplitPane
 
 	/**
 	 * Constructeur principal de la classe Editeurs
-	 * @param tripletFichier le triplet de fichiers (BIN, GPH et SDF).
+	 * 
+	 * @param tripletFichier
+	 *            le triplet de fichiers (BIN, GPH et SDF).
 	 */
 	public Editeurs(TripletFichier tripletFichier)
 	{
@@ -130,8 +129,10 @@ public class Editeurs extends JSplitPane
 
 	/**
 	 * Initialisation de l'editeur BIN
-	 * @param tripletFichier incorporant la source de donnee BIN
-	 * @param indexEditeur 
+	 * 
+	 * @param tripletFichier
+	 *            incorporant la source de donnee BIN
+	 * @param indexEditeur
 	 */
 	public void ajouterEditeurBin(TripletFichier tripletFichier, int indexEditeur)
 	{
@@ -142,8 +143,10 @@ public class Editeurs extends JSplitPane
 	}
 
 	/**
-	 *  Initialisation de l'editeur GPH
-	 * @param tripletFichier incorporant la source de donnee GPH
+	 * Initialisation de l'editeur GPH
+	 * 
+	 * @param tripletFichier
+	 *            incorporant la source de donnee GPH
 	 * @param indexEditeur
 	 */
 	public void ajouterEditeurGph(TripletFichier tripletFichier, int indexEditeur)
@@ -155,8 +158,10 @@ public class Editeurs extends JSplitPane
 	}
 
 	/**
-	 *  Initialisation de l'editeur SDF
-	 * @param tripletFichier incorporant la source de donnee SDF
+	 * Initialisation de l'editeur SDF
+	 * 
+	 * @param tripletFichier
+	 *            incorporant la source de donnee SDF
 	 * @param indexEditeur
 	 */
 	public void ajouterEditeurSdf(TripletFichier tripletFichier, int indexEditeur)
