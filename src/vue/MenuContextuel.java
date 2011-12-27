@@ -9,24 +9,25 @@ import javax.swing.JPopupMenu;
 public class MenuContextuel extends JPopupMenu
 {
 	/**
-	 * <h4>MenuContextuel est la classe permettant de decrire le popup menu lie au tableau graphique de type JTable</h4>
+	 * <h4>MenuContextuel est la classe permettant de decrire le popup menu lie
+	 * au tableau graphique de type JTable</h4>
 	 * 
 	 * 
 	 * @author Alexis CHRETIENNE & Simon RENOULT
 	 */
 	// ----------------------------------------- //
-		// --------------- CONSTANTES -------------- //
-		// ----------------------------------------- //
+	// --------------- CONSTANTES -------------- //
+	// ----------------------------------------- //
 	/**
 	 * Constantes de classe
 	 */
 	private static String	_ICON_PATH	= "/images/icones/";
 	private static int		_GPH_MENU	= 1;
-	
-	
+
 	// ----------------------------------------- //
-		// ----------------ATRIBUTS----------------- //
-		// ----------------------------------------- //
+	// ----------------ATRIBUTS----------------- //
+	// ----------------------------------------- //
+	
 	private JMenu			ajouter;
 	private JMenuItem		ajouterDebutTableau;
 	private JMenuItem		ajouterAvantLigneSelection;
@@ -40,14 +41,16 @@ public class MenuContextuel extends JPopupMenu
 	 * selon la Jtable selectionne, l'affichage sera different. Si c'est la
 	 * JtableGPH(index == "gph"), ajout d'un menuItem ajouter le fragment au bin
 	 * associe.
-	 * 
 	 */
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
 	/**
 	 * Constructeur principal de la classe MenuContextuel
-	 * @param index numero indiquant quel menu il faut generer en fonction du tableau graphique
+	 * 
+	 * @param index
+	 *            numero indiquant quel menu il faut generer en fonction du
+	 *            tableau graphique
 	 */
 	public MenuContextuel(int index)
 	{
@@ -99,8 +102,11 @@ public class MenuContextuel extends JPopupMenu
 
 	/**
 	 * Creation d'un item de menu
-	 * @param name le libelle de l'item
-	 * @param iconPath l'icone associe
+	 * 
+	 * @param name
+	 *            le libelle de l'item
+	 * @param iconPath
+	 *            l'icone associe
 	 * @return un item de type JMenuItem
 	 */
 	private JMenuItem creerItem(String name, String iconPath)
@@ -112,8 +118,11 @@ public class MenuContextuel extends JPopupMenu
 
 	/**
 	 * Creation d'un menu
-	 * @param name le libelle du menu
-	 * @param iconPath l'icone associe
+	 * 
+	 * @param name
+	 *            le libelle du menu
+	 * @param iconPath
+	 *            l'icone associe
 	 * @return un menu de type JMenu
 	 */
 	private JMenu creerMenu(String name, String iconPath)

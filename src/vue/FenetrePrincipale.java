@@ -9,8 +9,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 
+import controleur.EcouteurBarreMenu;
 import controleur.EcouteurBarreOutils;
-import controleur.menu.EcouteurBarreMenu;
 import vue.barreOutils.BarreOutils;
 import vue.menus.BarreMenu;
 

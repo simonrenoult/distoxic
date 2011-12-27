@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.JFileChooser;
 
-import modele.FiltreZIP;
 import modele.WorkspaceModele;
 import modele.zip.Dezipper;
+import modele.zip.FiltreZIP;
 import vue.FenetreImportationTripletFichier;
 import vue.FenetrePrincipale;
 

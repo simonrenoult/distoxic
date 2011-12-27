@@ -1,4 +1,4 @@
-package vue.lanceur;
+package lanceur;
 
 import controleur.EcouteurFenetreWorkspace;
 import modele.WorkspaceModele;
@@ -11,12 +11,15 @@ public class Main
 	 * <h4>Main est la classe appelle au debut du programme</h4>
 	 * 
 	 * 
-	 * @author Alexis CHRETIENNE & Simon RENOULT
+	 * @author Alexis CHRETIENNE
+	 * @author Simon RENOULT
 	 */
-	
+
 	/**
 	 * Methode principale du programme
-	 * @param args tableau de parametre
+	 * 
+	 * @param args
+	 *            tableau de parametre
 	 */
 	public static void main(String[] args)
 	{

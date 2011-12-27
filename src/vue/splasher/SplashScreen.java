@@ -1,4 +1,4 @@
-package vue;
+package vue.splasher;
 
 import java.awt.Dimension;
 import java.io.File;
@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JWindow;
 
-public class Splasher extends Thread
+public class SplashScreen extends Thread
 {
 
 	// ----------------------------------------- //
@@ -27,7 +27,7 @@ public class Splasher extends Thread
 	 * Constructeur principal de la classe Splasher
 	 * 
 	 */
-	public Splasher()
+	public SplashScreen()
 	{
 
 		window.setSize(dimension);
