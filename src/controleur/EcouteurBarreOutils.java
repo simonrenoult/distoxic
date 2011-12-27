@@ -35,25 +35,30 @@ public class EcouteurBarreOutils implements ActionListener
 	 * 
 	 * @author Alexis CHRETIENNE
 	 */
+	
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
+
 	/**
      * La barre d'outil graphique, utile pour l'acces aux different attributs de la classe.
      * @see BarreOutils
      */
 	private BarreOutils							panel;
+	
 	/**
 	 * La fenetre principale, utile dans l'accès aux informations concernant les tableaux.
 	 * @see FenetrePrincipale
      */
 	private FenetrePrincipale					fenetrePrincipale;
+	
 	@SuppressWarnings("unused")
 	/**
      * La fenetre d'importation d'un projet, lancee a chaque clic sur le bouton "Importer" de la barre d'outil 
    	 * @see FenetreImportationTripletFichier
      */
 	private FenetreImportationTripletFichier	fenetreImportation;
+	
 	@SuppressWarnings("unused")
 	/**
      * La fenetre d'exportation d'un projet, lancee a chaque clic sur le bouton "Exporter" de la barre d'outil
