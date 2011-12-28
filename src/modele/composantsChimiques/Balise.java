@@ -68,8 +68,7 @@ public class Balise
 	 */
 	public String toString ()
 	{
-		return "Titre : "+intitule+'\n'
-				+"Valeur : "+valeur;
+		return "Titre : "+intitule+", Valeur : "+valeur;
 	}
 	
 	// ----------------------------------------- //

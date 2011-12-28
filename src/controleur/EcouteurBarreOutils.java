@@ -141,6 +141,8 @@ public class EcouteurBarreOutils implements ActionListener
 					getEditeurs().get(index).getEdBin().getBinFile().isFlank()
 						){
 				enregistrerBIN(index);
+				this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
+				this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 			}
 			else if(fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdGph().getGphFile() != null &&
@@ -148,6 +150,8 @@ public class EcouteurBarreOutils implements ActionListener
 					getEditeurs().get(index).getEdGph().getGphFile().isFlank())  
 					{
 				enregistrerGPH(index);
+				this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
+				this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 			}
 			else if (fenetrePrincipale.getConteneurGlobal().getEditeur().
 					getEditeurs().get(index).getEdSdf().getSdfFile() != null &&
@@ -155,8 +159,8 @@ public class EcouteurBarreOutils implements ActionListener
 					getEditeurs().get(index).getEdSdf().getSdfFile().isFlank()
 					){
 				enregistrerSDF(index);
-			this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
-			this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
+				this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
+				this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 		}
 			
 			else{

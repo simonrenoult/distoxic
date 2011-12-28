@@ -7,6 +7,7 @@ import javax.swing.JFileChooser;
 
 import modele.WorkspaceModele;
 import vue.FenetreChoixWorkspace;
+import vue.FenetrePrincipale;
 
 public class EcouteurFenetreWorkspace implements ActionListener
 {
@@ -116,6 +117,8 @@ public class EcouteurFenetreWorkspace implements ActionListener
 			modele.makeWorkspace(fichier.getAbsolutePath());
 			LancerFenetrePrincipale = true;
 			fenetre.setVisible(false);
+			FenetrePrincipale f = new FenetrePrincipale();
+			f.setVisible(true);
 		}
 		else if (e.getSource() == fenetre.getAnnuler())
 		{

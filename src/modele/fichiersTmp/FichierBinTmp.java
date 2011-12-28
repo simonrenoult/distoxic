@@ -75,7 +75,7 @@ public class FichierBinTmp
 	 * @param positionColonne l'indice de la colonne
 	 * @param valeur la valeur a modifier
 	 */
-	public void mofifierValeurClasse(int positionLigne, int positionColonne, int valeur)
+	public void modifierValeurClasse(int positionLigne, int positionColonne, int valeur)
 	{
 		if (positionColonne == 1)
 		{
@@ -124,7 +124,22 @@ public class FichierBinTmp
 				line = line + listeBINTmp.get(indexMolecule).get(i).toString() + ",";
 			}
 		}
+		System.out.println(line);
 		return line;
+	}
+	
+	/**
+	 * Redefinition de la methode toString()
+	 */
+	public String toString(){
+		String ligne = "Debut";
+		for(int i = 0; i< listeBINTmp.size(); i++){
+			for (int j = 0; j< listeBINTmp.get(i).size(); j++){
+				ligne = ligne+"-"+listeBINTmp.get(i).get(j).toString();
+			}
+		}
+		ligne = ligne+"-Fin";
+		return ligne;
 	}
 
 	/**

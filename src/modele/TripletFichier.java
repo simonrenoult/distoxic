@@ -8,14 +8,6 @@ import modele.fichiers.FichierGPH;
 import modele.fichiers.FichierSDF;
 
 
-/**
- * 
- * Cette classe regroupe les 3 types de fichiers sous forme de tableaux d'objet
- * qui permet de remplir le modele des JTable. Cette classe sera aussi utilis�
- * pour l'export et l'import d'archive .zip (contenant les 3 fichiers).
- * 
- * 
- */
 public class TripletFichier
 {
 	/**
@@ -215,7 +207,7 @@ public class TripletFichier
 	 * Methode de creation du fichier BIN lié à un répertoire donné dans le workspace
 	 * @param directoryName le nom du doosier du projet
 	 */
-	private boolean creerFichierBIN(String path) {
+	public boolean creerFichierBIN(String path) {
 		File binFile = new File(path);
 		try {
 			binFile.createNewFile();
@@ -232,7 +224,7 @@ public class TripletFichier
 	 * Methode de creation du fichier SDF lié à un répertoire donné dans le workspace
 	 * @param directoryName le nom du doosier du projet
 	 */
-	private boolean creerFichierSDF(String path) {
+	public boolean creerFichierSDF(String path) {
 		File sdfFile = new File(path);
 		try {
 			sdfFile.createNewFile();
@@ -247,7 +239,7 @@ public class TripletFichier
 	 * Methode de creation du fichier GPH lié à un répertoire donné dans le workspace
 	 * @param directoryName le nom du doosier du projet
 	 */
-	private boolean creerFichierGPH(String path) {
+	public boolean creerFichierGPH(String path) {
 		File gphFile = new File(path);
 		try {
 			gphFile.createNewFile();

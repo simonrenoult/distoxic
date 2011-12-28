@@ -21,6 +21,7 @@ public class Main
 	 * @param args
 	 *            tableau de parametre
 	 */
+	
 	public static void main(String[] args)
 	{
 		System.setProperty("file.encoding", "UTF-8");
@@ -28,33 +29,16 @@ public class Main
 		WorkspaceModele modele = new WorkspaceModele(0);
 		if (!modele.workspaceExistant())
 		{
-			// System.err.println("Le worspace n'a pas �t� trouv�");
-			try
-			{
-				FenetreChoixWorkspace fe = new FenetreChoixWorkspace(modele);
-				EcouteurFenetreWorkspace e = new EcouteurFenetreWorkspace(fe, modele);
-				while (!e.isLancerFenetrePrincipale());
-				FenetrePrincipale f = new FenetrePrincipale();
-				f.setVisible(true);
-			}
-			catch (Exception e)
-			{
-				// TODO: handle exception
-				e.printStackTrace();
-			}
+			FenetreChoixWorkspace fe = new FenetreChoixWorkspace(modele);
+			fe.setVisible(true);
+			@SuppressWarnings("unused")
+			EcouteurFenetreWorkspace e = new EcouteurFenetreWorkspace(fe, modele);
 		}
 		else
 		{
-			// System.out.println("Le worspace a �t� trouv�");
-			try
-			{
-				FenetrePrincipale f = new FenetrePrincipale();
-				f.setVisible(true);
-			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
+			FenetrePrincipale f = new FenetrePrincipale();
+			f.setVisible(true);
+			
 		}
 
 	}
