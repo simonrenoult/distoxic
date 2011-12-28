@@ -67,7 +67,7 @@ public class EnregistreurSdfTest
 		FragmentMolecule fg = new FragmentMolecule();
 		
 		fg.setDebutDescription("SciTegic06091010432D");
-		String [] tabResume = {"11", "999", "V2000"};
+		String [] tabResume = {"11","10", "0", "0", "0", "0", "999", "V2000"};
 		fg.setResumeContenu(tabResume);
 		LinkedList<Atome> listeAtome = new LinkedList<Atome>();
 		
