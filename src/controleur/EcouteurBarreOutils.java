@@ -245,11 +245,15 @@ public class EcouteurBarreOutils implements ActionListener
 	 * Methode creant un nouveau projet (creation d'un dossier et des 3 fichiers vierges), puis rafraichissment du Jtree.
 	 */
 	private void creerNouveauProjet(){
-		String nomDossier = JOptionPane.showInputDialog("Nom du dossier à créer :");
-		TripletFichier tripletVierge = new TripletFichier();
-		tripletVierge.creerNouveauProjetVierge(nomDossier);
-		this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
-		this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
+		String nomDossier = JOptionPane.showInputDialog(null, "Entrer le nom du dosier", "Nouveau",
+				JOptionPane.PLAIN_MESSAGE); 
+		if (nomDossier != null && !nomDossier.isEmpty() ){
+			TripletFichier tripletVierge = new TripletFichier();
+			tripletVierge.creerNouveauProjetVierge(nomDossier);
+			this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
+			this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
+		}
+		
 	}
 
 	// ----------------------------------------- //
