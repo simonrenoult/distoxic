@@ -12,7 +12,6 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-
 import modele.editeurs.ModeleTablesEditeurs;
 import vue.MenuContextuel;
 import vue.editeurs.Editeurs;
@@ -20,20 +19,27 @@ import vue.editeurs.Editeurs;
 public class EcouteurEditeurs implements MouseListener, ActionListener
 {
 	/**
-	 * <h4>EcouteurEditeurs est la classe qui represente l'ecouteur des classes EditeursSDF, EditeursGPH, EditeurBIN</h4>
+	 * <h4>EcouteurEditeurs est la classe qui represente l'ecouteur des classes
+	 * EditeursSDF, EditeursGPH, EditeurBIN</h4>
 	 * <p>
-	 * Cette classe contient : 
+	 * Cette classe contient :
 	 * <ul>
-	 * <li>Une instance de classe MenuContextuel, representant la vue lie au clic droit.</li>
-	 * <li>Une instance de classe de Editeurs, afin d'avoir acces à l'ensemble des editeurs DSF, BIN, et GPH.</li>
-	 * <li>Trois instance de classe de Jtable, referant les Jtables associe aux editeurs.</li>
-	 * <li>Deux instance de classe de Border, Permettant de connaître la Jtable selectionne par l'utilisateur..</li>
+	 * <li>Une instance de classe MenuContextuel, representant la vue lie au
+	 * clic droit.</li>
+	 * <li>Une instance de classe de Editeurs, afin d'avoir acces à l'ensemble
+	 * des editeurs DSF, BIN, et GPH.</li>
+	 * <li>Trois instance de classe de Jtable, referant les Jtables associe aux
+	 * editeurs.</li>
+	 * <li>Deux instance de classe de Border, Permettant de connaître la Jtable
+	 * selectionne par l'utilisateur..</li>
 	 * </ul>
 	 * </p>
 	 * 
 	 * <p>
-	 * Remarque : Les 3 Jtables ne sont pas instanciees au même moment, l'editeur peut donc comporter des Jtables null.
+	 * Remarque : Les 3 Jtables ne sont pas instanciees au même moment,
+	 * l'editeur peut donc comporter des Jtables null.
 	 * </p>
+	 * 
 	 * @see EditeurSDF
 	 * @see EditeurSGPH
 	 * @see EditeurBIN
@@ -45,25 +51,30 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	// ----------------------------------------- //
 
 	/**
-	 * Le popup menu lie au clic droit, utile pour l'ajout de ligne dans les tableaux.
-	 * @see  MenuContextuel
+	 * Le popup menu lie au clic droit, utile pour l'ajout de ligne dans les
+	 * tableaux.
+	 * 
+	 * @see MenuContextuel
 	 */
 	private MenuContextuel	menuContextuel		= null;
 	/**
-	 * Un editeur regroupe jusqu'a 3 editeursSDF, BIN et GPH. Il represente un onglet graphique.
+	 * Un editeur regroupe jusqu'a 3 editeursSDF, BIN et GPH. Il represente un
+	 * onglet graphique.
+	 * 
 	 * @see Editeurs
 	 */
 	private Editeurs		editeur				= null;
 	/**
-	 * Un editeur peut contenir au minimum 1 Jtable et au maximum 3 Jtables. On a donc 3jtables provenant d'editeurs different.
-	 * @ see TablesEditeurs
+	 * Un editeur peut contenir au minimum 1 Jtable et au maximum 3 Jtables. On
+	 * a donc 3jtables provenant d'editeurs different. @ see TablesEditeurs
 	 */
 	private JTable			JtableBin			= null;
 	private JTable			JtableGph			= null;
 	private JTable			JtableSdf			= null;
-	
+
 	/**
-	 * Chaque tableau (Jtable) est encadre lors de la prise de focus. Cela renseigne pour l'enregistrement, quel tableau est selectionne
+	 * Chaque tableau (Jtable) est encadre lors de la prise de focus. Cela
+	 * renseigne pour l'enregistrement, quel tableau est selectionne
 	 */
 	private Border			bordureSelection	= null;
 	private Border			bordureVide			= null;
@@ -74,7 +85,9 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 
 	/**
 	 * Constructeur principal de la classe.
-	 * @param ed l'editeur (l'onglet graphique) a ecouter.
+	 * 
+	 * @param ed
+	 *            l'editeur (l'onglet graphique) a ecouter.
 	 */
 	public EcouteurEditeurs(Editeurs ed)
 	{
@@ -82,19 +95,20 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		bordureSelection = ed.getBordureSelection();
 		bordureVide = ed.getBordureVide();
 
-		
 		if (ed.getEdBin().getBinFile() != null)
 		{
 			ed.getEdBin().getTableauBIN().addMouseListener(this);
 			this.JtableBin = ed.getEdBin().getTableauBIN();
 			this.JtableBin.addMouseListener(this);
 		}
-		if (ed.getEdGph().getGphFile() != null){
+		if (ed.getEdGph().getGphFile() != null)
+		{
 			ed.getEdGph().getTableauGPH().addMouseListener(this);
 			this.JtableGph = ed.getEdGph().getTableauGPH();
 			this.JtableGph.addMouseListener(this);
 		}
-		if (ed.getEdSdf().getSdfFile() != null){
+		if (ed.getEdSdf().getSdfFile() != null)
+		{
 			ed.getEdSdf().getTableauSDF().addMouseListener(this);
 			this.JtableSdf = ed.getEdSdf().getTableauSDF();
 			this.JtableSdf.addMouseListener(this);
@@ -107,15 +121,22 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 
 	/**
 	 * Methode d'instanciation de l'objet menuContextuel.
-	 * @param index permet de connaitre quel type menu popup il faut charger en fonction des Jtables.
+	 * 
+	 * @param index
+	 *            permet de connaitre quel type menu popup il faut charger en
+	 *            fonction des Jtables.
 	 */
 	private void initMenuContextuel(int index)
 	{
 		menuContextuel = new MenuContextuel(index);
-		/*menuContextuel.getAjouterDebutTableau().addActionListener(this);
-		menuContextuel.getAjouterAvantLigneSelection().addActionListener(this);
-		menuContextuel.getAjouterApresLigneSelection().addActionListener(this);
-		menuContextuel.getAjouterFinTableau().addActionListener(this);*/
+		/*
+		 * menuContextuel.getAjouterDebutTableau().addActionListener(this);
+		 * menuContextuel
+		 * .getAjouterAvantLigneSelection().addActionListener(this);
+		 * menuContextuel
+		 * .getAjouterApresLigneSelection().addActionListener(this);
+		 * menuContextuel.getAjouterFinTableau().addActionListener(this);
+		 */
 		menuContextuel.getSupprimer().addActionListener(this);
 		if (index == 1)
 		{
@@ -136,7 +157,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	/**
 	 * Redirection de l'évenement en fonction du du fichier destinataire.
 	 * 
-	 * @param e evenement liee a la souris
+	 * @param e
+	 *            evenement liee a la souris
 	 */
 	public void selectionBordure(MouseEvent e)
 	{
@@ -165,7 +187,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		editeur.getEdGph().setBorder(bordureVide);
 		editeur.getEdSdf().setBorder(bordureVide);
 		editeur.getEdBin().getBinFile().setFlank(true);
-		
+
 		if (editeur.getEdGph().getGphFile() != null)
 		{
 			editeur.getEdGph().getGphFile().setFlank(false);
@@ -185,7 +207,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		editeur.getEdBin().setBorder(bordureVide);
 		editeur.getEdSdf().setBorder(bordureVide);
 		editeur.getEdGph().getGphFile().setFlank(true);
-		
+
 		if (editeur.getEdBin().getBinFile() != null)
 		{
 			editeur.getEdBin().getBinFile().setFlank(false);
@@ -246,7 +268,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		int positionLigne = JtableGph.getSelectedRow();
 		((ModeleTablesEditeurs) editeur.getEdGph().getTableauGPH().getModel()).SupprimerLigne(positionLigne);
 		editeur.getEdGph().getGphFile().getFichierGphTmp().suppressionLigneLigneFichierBinTmp(positionLigne);
-		
+
 	}
 
 	/**
@@ -270,7 +292,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	}
 
 	/**
-	 * Methode de redirection des suppression suite au clic sur un des 3 tableaux.
+	 * Methode de redirection des suppression suite au clic sur un des 3
+	 * tableaux.
 	 */
 	private void suppressionLigne()
 	{
@@ -291,7 +314,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	/**
 	 * Boite de dialogue renvoyant un erreur personalisee
 	 * 
-	 * @param message le message d'erreur a faire communiquer.
+	 * @param message
+	 *            le message d'erreur a faire communiquer.
 	 */
 	private void lancerMessageErreur(String message)
 	{
@@ -320,7 +344,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	}
 
 	/**
-	 *  Methode d'ajout d'une ligne en début de tableau GPH
+	 * Methode d'ajout d'une ligne en début de tableau GPH
 	 */
 	private void ajouterLigneDebutTableauGph()
 	{
@@ -329,7 +353,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	}
 
 	/**
-	 *  Methode d'ajout d'une ligne en début de fichier BIN et SDF
+	 * Methode d'ajout d'une ligne en début de fichier BIN et SDF
 	 */
 	private void ajouterLigneDebutTableauBinSdf()
 	{
@@ -349,7 +373,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	}
 
 	/**
-	 *  Methode de redirection sur l'ajout de ligne en début de fichier./
+	 * Methode de redirection sur l'ajout de ligne en début de fichier./
 	 */
 	private void ajouterLigneDebutTableau()
 	{
@@ -420,7 +444,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	}
 
 	/**
-	 *  Methode d'ajout d'une ligne en fin de tableaux BIN et SDF
+	 * Methode d'ajout d'une ligne en fin de tableaux BIN et SDF
 	 */
 	private void ajouterLigneFinTableauBinSdf()
 	{
@@ -463,8 +487,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	}
 
 	/**
-	 * Methode d'ajout d'une ligne avant la ligne choisi par l'utilisateur dans les
-	 * tableaux SDF et BIN
+	 * Methode d'ajout d'une ligne avant la ligne choisi par l'utilisateur dans
+	 * les tableaux SDF et BIN
 	 */
 	private void ajouterLigneAvantTableauSdfBin()
 	{
@@ -487,8 +511,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	}
 
 	/**
-	 * Methode d'ajout d'une ligne avant la ligne choisi par l'utilisateur dans le
-	 * tableaux GPH
+	 * Methode d'ajout d'une ligne avant la ligne choisi par l'utilisateur dans
+	 * le tableaux GPH
 	 */
 	private void ajouterLigneAvantTableauGph()
 	{
@@ -500,8 +524,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	}
 
 	/**
-	 * Methode d'ajout d'une ligne avant la ligne choisi par l'utilisateur dans les
-	 * tableaux BIN et SDF
+	 * Methode d'ajout d'une ligne avant la ligne choisi par l'utilisateur dans
+	 * les tableaux BIN et SDF
 	 */
 	private void ajouterLigneAvantTableauBinSdf()
 	{
@@ -526,8 +550,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	// --------- Ajout ligne apres tableau---------//
 
 	/**
-	 * Methode de redirection vers l'ajout d'une ligne apres celle choisi
-	 * par l'utilisateur
+	 * Methode de redirection vers l'ajout d'une ligne apres celle choisi par
+	 * l'utilisateur
 	 */
 
 	private void ajouterLigneApresTableau()
@@ -548,8 +572,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	}
 
 	/**
-	 * Methode d'ajout d'une ligne apres la ligne choisi par l'utilisateur dans les
-	 * tableaux SDF et BIN
+	 * Methode d'ajout d'une ligne apres la ligne choisi par l'utilisateur dans
+	 * les tableaux SDF et BIN
 	 */
 	@SuppressWarnings("unused")
 	private void ajouterLigneApresTableauSdfBin()
@@ -573,7 +597,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	}
 
 	/**
-	 * Methode d'ajout d'une ligne apres la ligne choisi par l'utilisateur dans le tableau GPH
+	 * Methode d'ajout d'une ligne apres la ligne choisi par l'utilisateur dans
+	 * le tableau GPH
 	 */
 	@SuppressWarnings("unused")
 	private void ajouterLigneApresTableauGph()
@@ -586,8 +611,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	}
 
 	/**
-	 * Methode d'ajout d'une ligne apres la ligne choisi par l'utilisateur dans les
-	 * tableaux BIN et SDF
+	 * Methode d'ajout d'une ligne apres la ligne choisi par l'utilisateur dans
+	 * les tableaux BIN et SDF
 	 */
 	@SuppressWarnings("unused")
 	private void ajouterLigneApresTableauBinSdf()
@@ -609,9 +634,11 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		}
 
 	}
-	
+
 	/**
-	 * Methode d'ajout d'une ligne proveant de JtableGph vers JtableBin. Il ajoute a une molecule selectionne dans JtableSDF, l'indice du fragment dans la JtableBin.
+	 * Methode d'ajout d'une ligne proveant de JtableGph vers JtableBin. Il
+	 * ajoute a une molecule selectionne dans JtableSDF, l'indice du fragment
+	 * dans la JtableBin.
 	 */
 	private void ajoutFragmentMolecule()
 	{
@@ -679,7 +706,6 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		}
 	}
 
-	
 	private void ajouterColonneSDF()
 	{
 		if (JtableSdf != null)
@@ -690,12 +716,15 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		{
 			lancerMessageErreur("Impossibilité d'ajout de ligne : tableau BIN absent.");
 		}
-		
+
 	}
 
 	/**
-	 * Methode permettant de capter les evenements de type MouseEvent sur le popup menu.
-	 * @param e evenement lie au clic de la souris.
+	 * Methode permettant de capter les evenements de type MouseEvent sur le
+	 * popup menu.
+	 * 
+	 * @param e
+	 *            evenement lie au clic de la souris.
 	 */
 	@Override
 	public void mouseClicked(MouseEvent e)
