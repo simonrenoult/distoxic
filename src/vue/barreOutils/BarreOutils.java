@@ -6,7 +6,9 @@ import java.awt.Dimension;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
@@ -52,8 +54,13 @@ public class BarreOutils extends JPanel
 
 	private JToolBar			barreAccessibilite;
 	private JTextField			champRecherche;
-	private JButton				augmenterZoom;
-	private JButton				diminuerZoom;
+	
+	private JToolBar			barreZoom;
+	private JLabel				informationZoom;
+	private JSlider				sliderZoom;
+
+	// private JButton augmenterZoom;
+	// private JButton diminuerZoom;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
@@ -69,9 +76,11 @@ public class BarreOutils extends JPanel
 
 		initBarreFichier();
 		initBarreRecherche();
+		initBarreZoom();
 
 		this.add(barreFichier, BorderLayout.LINE_START);
 		this.add(barreAccessibilite);
+		this.add(barreZoom, BorderLayout.EAST);
 	}
 
 	// ----------------------------------------- //
@@ -139,15 +148,21 @@ public class BarreOutils extends JPanel
 
 		champRecherche = new JTextField(CONTENU_RECHERCHE);
 		champRecherche.setForeground(COULEUR_RECHERCHE);
-
-		augmenterZoom = new JButton("+");
-		diminuerZoom = new JButton("-");
-
 		barreAccessibilite.add(champRecherche);
-		barreAccessibilite.add(augmenterZoom);
-		barreAccessibilite.add(diminuerZoom);
-
 		barreAccessibilite.setRollover(true);
+	}
+	
+	private void initBarreZoom(){
+
+		sliderZoom = new JSlider(8, 20, 11);
+
+		informationZoom = new JLabel(String.valueOf(sliderZoom.getValue()));
+		
+		barreZoom = new JToolBar();
+		barreZoom.add(informationZoom);
+		barreZoom.add(sliderZoom);
+		
+		
 	}
 
 	// ----------------------------------------- //
@@ -158,6 +173,16 @@ public class BarreOutils extends JPanel
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
 
+	public JLabel getInformationZoom()
+	{
+		return informationZoom;
+	}
+
+	public void setInformationZoom(JLabel informationZoom)
+	{
+		this.informationZoom = informationZoom;
+	}
+
 	public JToolBar getBarreAccessibilite()
 	{
 		return barreAccessibilite;
@@ -166,16 +191,6 @@ public class BarreOutils extends JPanel
 	public void setBarreAccessibilite(JToolBar barreAccessibilite)
 	{
 		this.barreAccessibilite = barreAccessibilite;
-	}
-
-	public JButton getAugmenterZoom()
-	{
-		return augmenterZoom;
-	}
-
-	public void setAugmenterZoom(JButton augmenterZoom)
-	{
-		this.augmenterZoom = augmenterZoom;
 	}
 
 	/**
@@ -245,21 +260,6 @@ public class BarreOutils extends JPanel
 	{
 		this.enregistrerSous = enregistrerSous;
 	}
-
-	/**
-	 * @return the imprimer
-	 */
-	/*
-	 * public JButton getImprimer() { return imprimer; }
-	 */
-
-	/**
-	 * @param imprimer
-	 *            the imprimer to set
-	 */
-	/*
-	 * public void setImprimer(JButton imprimer) { this.imprimer = imprimer; }
-	 */
 
 	/**
 	 * @return the importer
@@ -332,13 +332,13 @@ public class BarreOutils extends JPanel
 		this.champRecherche = champRecherche;
 	}
 
-	public JButton getDiminuerZoom()
+	public JSlider getSliderZoom()
 	{
-		return diminuerZoom;
+		return sliderZoom;
 	}
 
-	public void setDiminuerZoom(JButton diminuerZoom)
+	public void setSliderZoom(JSlider sliderZoom)
 	{
-		this.diminuerZoom = diminuerZoom;
+		this.sliderZoom = sliderZoom;
 	}
 }

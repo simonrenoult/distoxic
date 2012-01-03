@@ -7,6 +7,8 @@ import java.awt.event.FocusListener;
 
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -23,7 +25,7 @@ import vue.FenetrePrincipale;
 import vue.barreOutils.BarreOutils;
 import vue.editeurs.Editeurs;
 
-public class EcouteurBarreOutils implements ActionListener, FocusListener
+public class EcouteurBarreOutils implements ActionListener, FocusListener, ChangeListener
 {
 
 	/**
@@ -117,9 +119,7 @@ public class EcouteurBarreOutils implements ActionListener, FocusListener
 		barreOutils.getChampRecherche().addActionListener(this);
 		barreOutils.getChampRecherche().addFocusListener(this);
 
-		barreOutils.getAugmenterZoom().addActionListener(this);
-		barreOutils.getDiminuerZoom().addActionListener(this);
-
+		barreOutils.getSliderZoom().addChangeListener(this);
 	}
 
 	// ----------------------------------------- //
@@ -373,61 +373,6 @@ public class EcouteurBarreOutils implements ActionListener, FocusListener
 				lancerMessageErreur("Veuillez d'abord sélectionner une table !");
 			}
 		}
-		else if (e.getSource() == barreOutils.getAugmenterZoom())
-		{
-
-			int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
-			Editeurs ed = fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index);
-
-			if (ed.getEdBin().getBinFile() != null && ed.getEdBin().getBinFile().isFlank())
-			{
-				ed.getEdBin().getTableauBIN().getCellRenderer()
-						.setFontSize(ed.getEdBin().getTableauBIN().getCellRenderer().getFontSize() + 1);
-
-				ed.getEdBin().getTableauBIN().repaint();
-			}
-			else if (ed.getEdGph().getGphFile() != null && ed.getEdGph().getGphFile().isFlank())
-			{
-				ed.getEdGph().getTableauGPH().getCellRenderer()
-						.setFontSize(ed.getEdGph().getTableauGPH().getCellRenderer().getFontSize() + 1);
-
-				ed.getEdGph().getTableauGPH().repaint();
-			}
-			else if (ed.getEdSdf().getSdfFile() != null && ed.getEdSdf().getSdfFile().isFlank())
-			{
-				ed.getEdSdf().getTableauSDF().getCellRenderer()
-						.setFontSize(ed.getEdSdf().getTableauSDF().getCellRenderer().getFontSize() + 1);
-
-				ed.getEdSdf().getTableauSDF().repaint();
-			}
-		}
-		else if (e.getSource() == barreOutils.getDiminuerZoom())
-		{
-			int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
-			Editeurs ed = fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index);
-
-			if (ed.getEdBin().getBinFile() != null && ed.getEdBin().getBinFile().isFlank())
-			{
-				ed.getEdBin().getTableauBIN().getCellRenderer()
-						.setFontSize(ed.getEdBin().getTableauBIN().getCellRenderer().getFontSize() - 1);
-
-				ed.getEdBin().getTableauBIN().repaint();
-			}
-			else if (ed.getEdGph().getGphFile() != null && ed.getEdGph().getGphFile().isFlank())
-			{
-				ed.getEdGph().getTableauGPH().getCellRenderer()
-						.setFontSize(ed.getEdGph().getTableauGPH().getCellRenderer().getFontSize() - 1);
-
-				ed.getEdGph().getTableauGPH().repaint();
-			}
-			else if (ed.getEdSdf().getSdfFile() != null && ed.getEdSdf().getSdfFile().isFlank())
-			{
-				ed.getEdSdf().getTableauSDF().getCellRenderer()
-						.setFontSize(ed.getEdSdf().getTableauSDF().getCellRenderer().getFontSize() -1);
-
-				ed.getEdSdf().getTableauSDF().repaint();
-			}
-		}
 	}
 
 	// ----------------------------------------- //
@@ -454,6 +399,47 @@ public class EcouteurBarreOutils implements ActionListener, FocusListener
 		if (e.getSource() == barreOutils.getChampRecherche())
 		{
 			barreOutils.getChampRecherche().setText(barreOutils.CONTENU_RECHERCHE);
+		}
+	}
+
+	@Override
+	public void stateChanged(ChangeEvent e)
+	{
+		if (e.getSource() == barreOutils.getSliderZoom())
+		{
+			int fontSize = barreOutils.getSliderZoom().getValue();
+			int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
+			Editeurs ed = null;
+
+			try
+			{
+				ed = fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index);
+			}
+			catch (IndexOutOfBoundsException ea)
+			{
+				// TODO: handle exception
+			}
+
+			if (ed != null)
+			{
+				if (ed.getEdBin().getBinFile() != null && ed.getEdBin().getBinFile().isFlank())
+				{
+					ed.getEdBin().getTableauBIN().getCellRenderer().setFontSize(fontSize);
+					ed.getEdBin().getTableauBIN().repaint();
+				}
+				else if (ed.getEdGph().getGphFile() != null && ed.getEdGph().getGphFile().isFlank())
+				{
+					ed.getEdGph().getTableauGPH().getCellRenderer().setFontSize(fontSize);
+					ed.getEdGph().getTableauGPH().repaint();
+				}
+				else if (ed.getEdSdf().getSdfFile() != null && ed.getEdSdf().getSdfFile().isFlank())
+				{
+					ed.getEdSdf().getTableauSDF().getCellRenderer().setFontSize(fontSize);
+					ed.getEdSdf().getTableauSDF().repaint();
+				}
+			}
+			
+			barreOutils.getInformationZoom().setText(String.valueOf(fontSize));
 		}
 	}
 

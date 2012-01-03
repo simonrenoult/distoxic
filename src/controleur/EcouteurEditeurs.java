@@ -9,6 +9,8 @@ import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 
 import modele.editeurs.ModeleTablesEditeurs;
@@ -118,6 +120,10 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		if (index == 1)
 		{
 			menuContextuel.getAjouterFragmentBin().addActionListener(this);
+		}
+		if (index == 2)
+		{
+			menuContextuel.getAjouterColonne().addActionListener(this);
 		}
 	}
 
@@ -666,9 +672,27 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		{
 			ajoutFragmentMolecule();
 		}
+		else if (e.getSource() == menuContextuel.getAjouterColonne())
+		{
+			System.out.println("ok test");
+			ajouterColonneSDF();
+		}
 	}
 
 	
+	private void ajouterColonneSDF()
+	{
+		if (JtableSdf != null)
+		{
+			JtableSdf.addColumn(new TableColumn(10, 10));
+		}
+		else
+		{
+			lancerMessageErreur("Impossibilité d'ajout de ligne : tableau BIN absent.");
+		}
+		
+	}
+
 	/**
 	 * Methode permettant de capter les evenements de type MouseEvent sur le popup menu.
 	 * @param e evenement lie au clic de la souris.
@@ -710,6 +734,10 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 			if (editeur.getEdGph().getGphFile() != null && editeur.getEdGph().getGphFile().isFlank())
 			{
 				initMenuContextuel(1);
+			}
+			else if (editeur.getEdSdf().getSdfFile() != null && editeur.getEdSdf().getSdfFile().isFlank())
+			{
+				initMenuContextuel(2);
 			}
 			else
 			{

@@ -23,7 +23,7 @@ public class MenuContextuel extends JPopupMenu
 	 */
 	private static String	_ICON_PATH	= "/images/icones/";
 	private static int		_GPH_MENU	= 1;
-
+	private static int		_SDF_MENU	= 2;
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
 	// ----------------------------------------- //
@@ -34,6 +34,7 @@ public class MenuContextuel extends JPopupMenu
 	private JMenuItem		ajouterApresLigneSelection;
 	private JMenuItem		ajouterFinTableau;
 	private JMenuItem		ajouterFragmentBin;
+	private JMenuItem		ajouterColonne;
 
 	private JMenuItem		supprimer;
 
@@ -60,11 +61,35 @@ public class MenuContextuel extends JPopupMenu
 		{
 			initBoutonGPH();
 		}
+		if (index == _SDF_MENU)
+		{
+			initBoutonSDF();
+		}
 	}
 
 	// ----------------------------------------- //
 	// -------------INITIALISEURS--------------- //
 	// ----------------------------------------- //
+
+	public static int get_SDF_MENU()
+	{
+		return _SDF_MENU;
+	}
+
+	public static void set_SDF_MENU(int _SDF_MENU)
+	{
+		MenuContextuel._SDF_MENU = _SDF_MENU;
+	}
+
+	public JMenuItem getAjouterColonne()
+	{
+		return ajouterColonne;
+	}
+
+	public void setAjouterColonne(JMenuItem ajouterColonne)
+	{
+		this.ajouterColonne = ajouterColonne;
+	}
 
 	// ----------------------------------------- //
 	// -----------------METHODES---------------- //
@@ -98,6 +123,15 @@ public class MenuContextuel extends JPopupMenu
 	{
 		ajouterFragmentBin = creerItem("Ajouter le fragment à la molecule", "arrow_right.png");
 		this.add(ajouterFragmentBin);
+	}
+	
+	/**
+	 * Creation du menu SDF qui vient completer le menu commun.
+	 */
+	private void initBoutonSDF()
+	{
+		ajouterColonne= creerItem("Ajouter une colonne", "arrow_right.png");
+		this.add(ajouterColonne);
 	}
 
 	/**
