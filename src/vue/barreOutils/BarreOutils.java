@@ -70,7 +70,7 @@ public class BarreOutils extends JPanel
 		exporter = creerBouton("table_export.png", "Exporter un projet");
 		rafraichir = creerBouton("arrow_refresh.png", "Rafraichir l'espace de travail");
 		enregistrerSousTriplet = creerBouton("save_all.png", "Enregistrer le triplet");
-		enregistrerSous = creerBouton("save_as.png", "Enregistrer un fichier");
+		enregistrerSous = creerBouton("save_as.png", "Enregistrer le fichier");
 		//imprimer = creerBouton("printer.png", "Imprimer");
 	}
 

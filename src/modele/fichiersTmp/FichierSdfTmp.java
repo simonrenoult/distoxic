@@ -96,6 +96,14 @@ public class FichierSdfTmp
 		return dossier.getPath()+File.separator+nomFichier;
 	}
 
+	/**
+	 * Methode supprimant des donnees provenant de la suppression de la ligne position du tableau SDF
+	 * @param position l'indice du numero de ligne.
+	 */
+	public void suppressionLigneLigneFichierBinTmp(int positionLigne)
+	{
+		listeSDF.remove(positionLigne);
+	}
 	// ----------------------------------------- //
 	// -------------- ACCESSEURS --------------- //
 	// -------------- MUTATEURS --------------- //
@@ -114,5 +122,7 @@ public class FichierSdfTmp
 			LinkedList<FragmentMolecule> listeSDF) {
 		this.listeSDF = listeSDF;
 	}
+
+	
 
 }

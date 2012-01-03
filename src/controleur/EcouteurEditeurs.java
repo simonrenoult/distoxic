@@ -80,37 +80,23 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		bordureSelection = ed.getBordureSelection();
 		bordureVide = ed.getBordureVide();
 
-		try
+		
+		if (ed.getEdBin().getBinFile() != null)
 		{
 			ed.getEdBin().getTableauBIN().addMouseListener(this);
 			this.JtableBin = ed.getEdBin().getTableauBIN();
 			this.JtableBin.addMouseListener(this);
-
 		}
-		catch (Exception e)
-		{
-		}
-
-		try
-		{
+		if (ed.getEdGph().getGphFile() != null){
 			ed.getEdGph().getTableauGPH().addMouseListener(this);
 			this.JtableGph = ed.getEdGph().getTableauGPH();
 			this.JtableGph.addMouseListener(this);
 		}
-		catch (Exception e)
-		{
-		}
-
-		try
-		{
+		if (ed.getEdSdf().getSdfFile() != null){
 			ed.getEdSdf().getTableauSDF().addMouseListener(this);
 			this.JtableSdf = ed.getEdSdf().getTableauSDF();
 			this.JtableSdf.addMouseListener(this);
 		}
-		catch (Exception e)
-		{
-		}
-
 	}
 
 	// ----------------------------------------- //
@@ -121,14 +107,13 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	 * Methode d'instanciation de l'objet menuContextuel.
 	 * @param index permet de connaitre quel type menu popup il faut charger en fonction des Jtables.
 	 */
-	@SuppressWarnings("unused")
 	private void initMenuContextuel(int index)
 	{
 		menuContextuel = new MenuContextuel(index);
-		menuContextuel.getAjouterDebutTableau().addActionListener(this);
+		/*menuContextuel.getAjouterDebutTableau().addActionListener(this);
 		menuContextuel.getAjouterAvantLigneSelection().addActionListener(this);
 		menuContextuel.getAjouterApresLigneSelection().addActionListener(this);
-		menuContextuel.getAjouterFinTableau().addActionListener(this);
+		menuContextuel.getAjouterFinTableau().addActionListener(this);*/
 		menuContextuel.getSupprimer().addActionListener(this);
 		if (index == 1)
 		{
@@ -237,6 +222,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		{
 			((ModeleTablesEditeurs) editeur.getEdBin().getTableauBIN().getModel()).SupprimerLigne(positionLigne);
 			((ModeleTablesEditeurs) editeur.getEdSdf().getTableauSDF().getModel()).SupprimerLigne(positionLigne);
+			editeur.getEdBin().getBinFile().getFichierBinTmp().suppressionLigneLigneFichierBinTmp(positionLigne);
+			editeur.getEdSdf().getSdfFile().getFichierSdfTmp().suppressionLigneLigneFichierBinTmp(positionLigne);
 		}
 		else
 		{
@@ -252,7 +239,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 	{
 		int positionLigne = JtableGph.getSelectedRow();
 		((ModeleTablesEditeurs) editeur.getEdGph().getTableauGPH().getModel()).SupprimerLigne(positionLigne);
-
+		editeur.getEdGph().getGphFile().getFichierGphTmp().suppressionLigneLigneFichierBinTmp(positionLigne);
+		
 	}
 
 	/**
@@ -265,6 +253,8 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		{
 			((ModeleTablesEditeurs) editeur.getEdBin().getTableauBIN().getModel()).SupprimerLigne(positionLigne);
 			((ModeleTablesEditeurs) editeur.getEdSdf().getTableauSDF().getModel()).SupprimerLigne(positionLigne);
+			editeur.getEdBin().getBinFile().getFichierBinTmp().suppressionLigneLigneFichierBinTmp(positionLigne);
+			editeur.getEdSdf().getSdfFile().getFichierSdfTmp().suppressionLigneLigneFichierBinTmp(positionLigne);
 		}
 		else
 		{
@@ -636,7 +626,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		}
 		else
 		{
-			lancerMessageErreur("Vous n'avez pas selectionne de molecule pour l'ajout du fragment");
+			lancerMessageErreur("Vous n'avez pas selectionne de molecule (tableau SDF) pour l'ajout du fragment");
 		}
 
 	}
@@ -719,13 +709,13 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 			selectionBordure(e);
 			if (editeur.getEdGph().getGphFile() != null && editeur.getEdGph().getGphFile().isFlank())
 			{
-				// initMenuContextuel(1);
+				initMenuContextuel(1);
 			}
 			else
 			{
-				// initMenuContextuel(0);
+				initMenuContextuel(0);
 			}
-			// menuContextuel.show(e.getComponent(), e.getX(), e.getY());
+			menuContextuel.show(e.getComponent(), e.getX(), e.getY());
 		}
 		else
 		{

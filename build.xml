@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="distoxic">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../Program Files/eclipse"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="distoxic.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="../junit-4.4.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir=".">
+                <exclude name="**/*.uad"/>
+                <exclude name="**/*.ucd"/>
+                <exclude name="**/*.uld"/>
+                <exclude name="**/*.upd"/>
+                <exclude name="**/*.cop"/>
+                <exclude name="**/*.udd"/>
+                <exclude name="**/*.uod"/>
+                <exclude name="**/*.usd"/>
+                <exclude name="**/*.utd"/>
+                <exclude name="**/*.uud"/>
+                <exclude name="**/*.ame"/>
+                <exclude name="**/*.odd"/>
+                <exclude name="**/*.ead"/>
+                <exclude name="**/*.ecd"/>
+                <exclude name="**/*.eld"/>
+                <exclude name="**/*.epd"/>
+                <exclude name="**/*.edd"/>
+                <exclude name="**/*.eod"/>
+                <exclude name="**/*.esd"/>
+                <exclude name="**/*.etd"/>
+                <exclude name="**/*.eud"/>
+                <exclude name="**/*.eame"/>
+                <exclude name="**/*.urd*.uml"/>
+                <exclude name="**/*.ecore"/>
+                <exclude name="**/*.java"/>
+                <exclude name="src/"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.uad"/>
+                <exclude name="**/*.ucd"/>
+                <exclude name="**/*.uld"/>
+                <exclude name="**/*.upd"/>
+                <exclude name="**/*.cop"/>
+                <exclude name="**/*.udd"/>
+                <exclude name="**/*.uod"/>
+                <exclude name="**/*.usd"/>
+                <exclude name="**/*.utd"/>
+                <exclude name="**/*.uud"/>
+                <exclude name="**/*.ame"/>
+                <exclude name="**/*.odd"/>
+                <exclude name="**/*.ead"/>
+                <exclude name="**/*.ecd"/>
+                <exclude name="**/*.eld"/>
+                <exclude name="**/*.epd"/>
+                <exclude name="**/*.edd"/>
+                <exclude name="**/*.eod"/>
+                <exclude name="**/*.esd"/>
+                <exclude name="**/*.etd"/>
+                <exclude name="**/*.eud"/>
+                <exclude name="**/*.eame"/>
+                <exclude name="**/*.urd*.uml"/>
+                <exclude name="**/*.ecore"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="."/>
+            <exclude name="src/"/>
+            <classpath refid="distoxic.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="distoxic.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="AtomeTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.AtomeTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="BaliseTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.BaliseTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="EnregistreurBinTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.EnregistreurBinTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="EnregistreurGphTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.EnregistreurGphTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="EnregistreurSdfTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.EnregistreurSdfTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="FichierBinTmpTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.FichierBinTmpTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="FichierBinTmpTest.testafficherListeFragmentAssociee">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.FichierBinTmpTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="InformationFichierTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.InformationFichierTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="Main (2)">
+        <java classname="src.vue.lanceur.Main" failonerror="true" fork="yes">
+            <classpath refid="distoxic.classpath"/>
+        </java>
+    </target>
+    <target name="Main (3)">
+        <java classname="vue.Main" failonerror="true" fork="yes">
+            <classpath refid="distoxic.classpath"/>
+        </java>
+    </target>
+    <target name="Main (4)">
+        <java classname="lanceur.Main" failonerror="true" fork="yes">
+            <classpath refid="distoxic.classpath"/>
+        </java>
+    </target>
+    <target name="ModeleTableEditeursTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.ModeleTableEditeursTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="ModeleTableEditeursTest.testToSuppressionLigne">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.ModeleTableEditeursTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="New_configuration">
+        <java classname="vue.lanceur.Main" failonerror="true" fork="yes">
+            <classpath refid="distoxic.classpath"/>
+        </java>
+    </target>
+    <target name="ParseurBinTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.ParseurBinTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="ParseurGphTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.ParseurGphTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="ParseurSdfTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.ParseurSdfTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="TripletFichierTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestJunit.TripletFichierTest" todir="${junit.output.dir}"/>
+            <classpath refid="distoxic.classpath"/>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>

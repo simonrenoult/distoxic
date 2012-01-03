@@ -109,6 +109,7 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 	 */
 	public void tableChanged(TableModelEvent e)
 	{
+		try{
 		int positionLigne = tableau.getSelectedRow();
 		int positionColonne = tableau.getSelectedColumn();
 		Object contenuCellule = tableau.getValueAt(positionLigne, positionColonne);
@@ -120,15 +121,13 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 			if (positionColonne == 1)
 			{
 				int valeur = Integer.parseInt(String.valueOf(contenuCellule));
-				binFile.getFichierBinTmp().mofifierValeurClasse(positionLigne, positionColonne, valeur);
-				binFile.getFichierBinTmp().afficherListeBIN();
-			}
+				binFile.getFichierBinTmp().modifierValeurClasse(positionLigne, positionColonne, valeur);
+				}
 		}
 		else if (gphFile != null)
 		{
-			// System.out.println("GPH avant : "+gphFile.isChanged());
 			gphFile.setChanged(true);
-			// System.out.println("GPH apres : "+gphFile.isChanged());
+			gphFile.getFichierGphTmp().modifierValeur(positionLigne, positionColonne, contenuCellule.toString());
 		}
 		else if (sdfFile != null)
 		{
@@ -136,6 +135,7 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 			sdfFile.getFichierSdfTmp().modifierValeurClasse(positionLigne, tableau.getColumnName(positionColonne),
 					contenuCellule.toString());
 		}
+		}catch(Exception e1){}
 	}
 
 	@Override

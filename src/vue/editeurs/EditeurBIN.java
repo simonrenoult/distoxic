@@ -132,7 +132,7 @@ public class EditeurBIN extends JPanel
 	 */
 	private void initScroll()
 	{
-		remove(titre);
+		//remove(titre);
 		setLayout(new BorderLayout());
 
 		scroll = new JScrollPane(tableauBIN);

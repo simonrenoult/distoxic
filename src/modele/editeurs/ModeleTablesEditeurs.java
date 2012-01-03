@@ -75,20 +75,21 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	 */
 	public void SupprimerLigne(int position)
 	{
-		int cpt = 0, cpt2 = 0;
+		int cptA = 0, cptB = 0;
 		int nbLigne = this.getRowCount() - 1, nbColonne = this.getColumnCount();
 		Object tmp[][] = new Object[nbLigne][nbColonne];
 
 		for (Object[] value : this.donnees)
 		{
-			if (cpt != position)
+			System.out.println();
+			if (cptA != position)
 			{
-				tmp[cpt2++] = value;
-
+				tmp[cptB++] = value;
 			}
-			cpt++;
+			cptA++;
 		}
 		this.donnees = tmp;
+		
 		this.fireTableDataChanged();
 	}
 
@@ -248,15 +249,27 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	{
 		System.out.println("tri colonne " + colonne);
 	}
+	
+	public String toString(){
+		String ligne = "Debut";
+		for(int i = 0; i< donnees.length; i++){
+			for(int j = 0; j<donnees[i].length; j++){
+				ligne = ligne+"-"+donnees[i][j].toString();
+			}
+		}
+		ligne = ligne+"-Fin";
+		System.out.println(ligne);
+		return ligne;
+	}
 
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
 	// ----------------------------------------- //
 
-	/*
-	 * @SuppressWarnings({ "unchecked", "rawtypes" }) public Class
-	 * getColumnClass(int columnIndex){ return Integer.class; }
-	 */
+	 @SuppressWarnings({ "unchecked", "rawtypes" })
+	 public Class getColumnClass(int columnIndex){
+		return Object.class; 
+	 }
 	/**
 	 * Methode retournant le nom de la colonne
 	 * @param l'indice de la colonne

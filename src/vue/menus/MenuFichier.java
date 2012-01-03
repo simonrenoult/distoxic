@@ -23,8 +23,8 @@ public class MenuFichier extends Menu
 
 	private final static String	TITRE_NOUVEAU			= "Nouveau";
 	//private final static String	TITRE_OUVRIR			= "Ouvrir";
-	private final static String	TITRE_ENREGISTRER		= "Enregistrer";
-	private final static String	TITRE_ENREGISTRER_SOUS	= "Enregistrer Sous";
+	private final static String	TITRE_ENREGISTRER		= "Enregistrer le fichier";
+	private final static String	TITRE_ENREGISTRER_SOUS	= "Enregistrer le triplet";
 	private final static String	TITRE_IMPORTER			= "Importer";
 	private final static String	TITRE_EXPORTER			= "Exporter";
 	private final static String	TITRE_QUITTER			= "Quitter";

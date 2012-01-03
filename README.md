@@ -12,6 +12,6 @@ Pour plus de détail, constultez le [Sujet](https://github.com/distoxic/distoxic
 
 Nous sommes deux étudiants en deuxième année de D.U.T. Informatique :
 
-*  G4llic4 ;
-*  Xelais ;
+*  Simon RENOULT (aka G4llic4) ;
+*  Alexis CHRETIENNE (aka Xelais) ;
 

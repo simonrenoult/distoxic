@@ -63,7 +63,7 @@ public class EcouteurBarreMenu implements ActionListener
 	 */
 	private MenuAPropos			ma;
 	/**
-	 * Fenetre dinformation du logiciel.
+	 * Fenetre d'information du logiciel.
 	 * @see FenetreAPropos
 	 */
 	private FenetreAPropos		fenetreAPropos;
@@ -131,7 +131,7 @@ public class EcouteurBarreMenu implements ActionListener
 
 		int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
 		// System.out.println("Onglet : "+index);
-		System.out.println("Enregistrement de :");
+		//System.out.println("Enregistrement de :");
 		try
 		{
 			if (fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index).getEdBin().getBinFile() != null)
@@ -170,6 +170,8 @@ public class EcouteurBarreMenu implements ActionListener
 							.getBinFile().isFlank())
 			{
 				enregistrerBIN(index);
+				this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
+				this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 			}
 			else if (fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index).getEdGph()
 					.getGphFile() != null
@@ -177,6 +179,8 @@ public class EcouteurBarreMenu implements ActionListener
 							.getGphFile().isFlank())
 			{
 				enregistrerGPH(index);
+				this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
+				this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 			}
 			else if (fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index).getEdSdf()
 					.getSdfFile() != null
@@ -184,13 +188,14 @@ public class EcouteurBarreMenu implements ActionListener
 							.getSdfFile().isFlank())
 			{
 				enregistrerSDF(index);
+				this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
+				this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
 			}
 			else
 			{
 				lancerMessageErreur("Aucun tableau n'a été sélectionné");
 			}
-			this.fenetrePrincipale.getConteneurGlobal().buildNavigateur();
-			this.fenetrePrincipale.getConteneurGlobal().intiPositionConteneurGlobal();
+			
 		}
 		catch (IndexOutOfBoundsException arg0)
 		{
@@ -209,7 +214,7 @@ public class EcouteurBarreMenu implements ActionListener
 		FichierSDF fichierSdf = fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(indexOnglet)
 				.getEdSdf().getSdfFile();
 		String path = fichierSdf.getFichierSdfTmp().creerCheminNouveauFichier(fichierSdf.getFilePath());
-		System.out.println(path);
+		//System.out.println(path);
 		fichierSdf.setEnregistreurSDF(new EnregistreurSDF(fichierSdf.getFichierSdfTmp().getListeSDF(), path));
 
 	}
@@ -224,7 +229,7 @@ public class EcouteurBarreMenu implements ActionListener
 		FichierBIN fichierBin = fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(indexOnglet)
 				.getEdBin().getBinFile();
 		String path = fichierBin.getFichierBinTmp().creerCheminNouveauFichier(fichierBin.getFilePath());
-		System.out.println(path);
+		//System.out.println(path);
 		fichierBin.setEnregistreurBIN(new EnregistreurBIN(fichierBin.getFichierBinTmp().getListeBINTmp(), path));
 	}
 
@@ -238,7 +243,7 @@ public class EcouteurBarreMenu implements ActionListener
 		FichierGPH fichierGph = fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(indexOnglet)
 				.getEdGph().getGphFile();
 		String path = fichierGph.getFichierGphTmp().creerCheminNouveauFichier(fichierGph.getFilePath());
-		System.out.println(path);
+		//System.out.println(path);
 		fichierGph.setEnregistreurGPH(new EnregistreurGPH(fichierGph.getFichierGphTmp().getListeGPH(), path));
 	}
 

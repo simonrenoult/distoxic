@@ -101,6 +101,7 @@ public class EcouteurEnteteOnglet implements ActionListener
 	 *            evenement d'un objet graphique (JButton) provenant d'un onglet
 	 *            graphique.
 	 */
+	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent e)
 	{
 		try

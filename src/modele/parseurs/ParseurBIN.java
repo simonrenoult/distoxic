@@ -141,7 +141,7 @@ public class ParseurBIN implements ParseurGenerique
 		for (LinkedList<Integer> liste : listeBIN)
 		{
 			System.out.println();
-			System.out.println("________________________________");
+			System.out.println("_____________LIGNE BIN___________________");
 			for (int i = 0 ; i < liste.size() ; i++)
 			{
 				System.out.print(liste.get(i).toString() + " ");
@@ -150,7 +150,7 @@ public class ParseurBIN implements ParseurGenerique
 	}
 
 	/**
-	 * Permet d'afficher le tableau 2D � partir de la liste
+	 * Permet d'afficher le tableau 2D a partir de la liste
 	 */
 	public void afficherTableau() {
 		for(LinkedList<Integer> liste : listeBIN){
@@ -161,6 +161,8 @@ public class ParseurBIN implements ParseurGenerique
 			}
 		}
 	}
+	
+	
 	
 	
 	// ----------------------------------------- //

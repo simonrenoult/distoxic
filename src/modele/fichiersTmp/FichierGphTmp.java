@@ -73,7 +73,7 @@ public class FichierGphTmp
 	 * @param positionColonne l'indice de la colonne
 	 * @param valeur la valeur a modifier
 	 */
-	public void mofifierValeur( int positionLigne, int positionColonne, String valeur){
+	public void modifierValeur( int positionLigne, int positionColonne, String valeur){
 		
 		switch(positionColonne){
 		
