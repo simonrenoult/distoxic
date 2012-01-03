@@ -1,10 +1,13 @@
 package vue.barreOutils;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 import vue.FenetrePrincipale;
@@ -12,8 +15,11 @@ import vue.FenetrePrincipale;
 @SuppressWarnings("serial")
 public class BarreOutils extends JPanel
 {
+	
+
 	/**
-	 * <h4>BarreOutils est la classe permettant de decrire la barre d'outil graphique du programme</h4>
+	 * <h4>BarreOutils est la classe permettant de decrire la barre d'outil
+	 * graphique du programme</h4>
 	 * 
 	 * 
 	 * @author Alexis CHRETIENNE & Simon RENOULT
@@ -25,9 +31,13 @@ public class BarreOutils extends JPanel
 	 * Constantes de classe
 	 */
 	private static String		_ICON_PATH	= "/images/icones/";
+	
 	public final static Integer	TAILLE_X	= FenetrePrincipale.TAILLE_X;
 	public final static Integer	TAILLE_Y	= FenetrePrincipale.TAILLE_Y / 20;
 
+	private final static Color COULEUR_RECHERCHE = Color.GRAY;
+	public final static String CONTENU_RECHERCHE = "Rechercher...";
+	
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
@@ -40,26 +50,55 @@ public class BarreOutils extends JPanel
 	private JButton				rafraichir;
 	private JButton				enregistrerSousTriplet;
 	private JButton				enregistrerSous;
-	//private JButton				imprimer;
+
+	private JToolBar			barreRecherche;
+	private JTextField			champRecherche;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
 	// ----------------------------------------- //
+
 	/**
 	 * Constructeur principal de la classe BarreOutils
 	 */
 	public BarreOutils()
 	{
-		setLayout(new BorderLayout());
+		this.setLayout(new BorderLayout());
+		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
 
-		initBoutons();
-		initBarreMenu();
-		initPanel();
+		initBarreFichier();
+		initBarreRecherche();
+
+		this.add(barreFichier,BorderLayout.LINE_START);
+		this.add(barreRecherche);
 	}
 
 	// ----------------------------------------- //
 	// ----------------METHODES----------------- //
 	// ----------------------------------------- //
+
+	/**
+	 * Ajout des boutons a la barre de Menu.
+	 */
+	private void initBarreFichier()
+	{
+		initBoutons();
+
+		barreFichier = new JToolBar();
+
+		barreFichier.add(nouveau);
+		barreFichier.add(importer);
+		barreFichier.add(exporter);
+		barreFichier.add(rafraichir);
+		barreFichier.addSeparator();
+		barreFichier.add(enregistrerSous);
+		barreFichier.add(enregistrerSousTriplet);
+
+		barreFichier.addSeparator();
+
+		barreFichier.setRollover(true);
+	}
+
 	/**
 	 * Creation des boutons constituants la barre d'outil
 	 */
@@ -71,32 +110,16 @@ public class BarreOutils extends JPanel
 		rafraichir = creerBouton("arrow_refresh.png", "Rafraichir l'espace de travail");
 		enregistrerSousTriplet = creerBouton("save_all.png", "Enregistrer le triplet");
 		enregistrerSous = creerBouton("save_as.png", "Enregistrer le fichier");
-		//imprimer = creerBouton("printer.png", "Imprimer");
-	}
-
-	/**
-	 * Ajout des boutons a la barre de Menu.
-	 */
-	private void initBarreMenu()
-	{
-		barreFichier = new JToolBar();
-
-		barreFichier.add(nouveau);
-		barreFichier.add(importer);
-		barreFichier.add(exporter);
-		barreFichier.add(rafraichir);
-		barreFichier.addSeparator();
-		barreFichier.add(enregistrerSous);
-		barreFichier.add(enregistrerSousTriplet);
-		//barreFichier.add(imprimer);
-		barreFichier.addSeparator();
-		barreFichier.setRollover(true);
+		// imprimer = creerBouton("printer.png", "Imprimer");
 	}
 
 	/**
 	 * Creation d'un bouton constituant la barre d'outil
-	 * @param path le chemin de l'icone associe
-	 * @param toolTip le tooltip associe
+	 * 
+	 * @param path
+	 *            le chemin de l'icone associe
+	 * @param toolTip
+	 *            le tooltip associe
 	 * @return un bouton de type JButton
 	 */
 	private JButton creerBouton(String path, String toolTip)
@@ -108,15 +131,18 @@ public class BarreOutils extends JPanel
 
 		return button;
 	}
-
-	/**
-	 * Initailisation du conteneur.
-	 */
-	private void initPanel()
+	
+	private void initBarreRecherche()
 	{
-		this.setPreferredSize(new Dimension(TAILLE_X, TAILLE_Y));
-		this.add(barreFichier, BorderLayout.PAGE_START);
+		barreRecherche = new JToolBar();
+
+		champRecherche = new JTextField(CONTENU_RECHERCHE);
+		champRecherche.setForeground(COULEUR_RECHERCHE);
+		barreRecherche.add(champRecherche);
+
+		barreRecherche.setRollover(true);
 	}
+
 
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
@@ -197,19 +223,17 @@ public class BarreOutils extends JPanel
 	/**
 	 * @return the imprimer
 	 */
-	/*public JButton getImprimer()
-	{
-		return imprimer;
-	}*/
+	/*
+	 * public JButton getImprimer() { return imprimer; }
+	 */
 
 	/**
 	 * @param imprimer
 	 *            the imprimer to set
 	 */
-	/*public void setImprimer(JButton imprimer)
-	{
-		this.imprimer = imprimer;
-	}*/
+	/*
+	 * public void setImprimer(JButton imprimer) { this.imprimer = imprimer; }
+	 */
 
 	/**
 	 * @return the importer
@@ -260,5 +284,25 @@ public class BarreOutils extends JPanel
 	public void setRafraichir(JButton rafraichir)
 	{
 		this.rafraichir = rafraichir;
+	}
+	
+	public JToolBar getBarreRecherche()
+	{
+		return barreRecherche;
+	}
+
+	public void setBarreRecherche(JToolBar barreRecherche)
+	{
+		this.barreRecherche = barreRecherche;
+	}
+
+	public JTextField getChampRecherche()
+	{
+		return champRecherche;
+	}
+
+	public void setChampRecherche(JTextField champRecherche)
+	{
+		this.champRecherche = champRecherche;
 	}
 }

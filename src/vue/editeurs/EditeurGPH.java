@@ -18,7 +18,8 @@ import modele.fichiers.FichierGPH;
 public class EditeurGPH extends JPanel
 {
 	/**
-	 * <h4>EditeurGPH est la classe regroupant l'environement graphique du tableau GPH</h4>
+	 * <h4>EditeurGPH est la classe regroupant l'environement graphique du
+	 * tableau GPH</h4>
 	 * 
 	 * 
 	 * @author Alexis CHRETIENNE & Simon RENOULT
@@ -45,14 +46,16 @@ public class EditeurGPH extends JPanel
 	/**
 	 * Tableau graphique
 	 */
-	private JTable					tableauGPH;
+	private TablesEditeurs			tableauGPH;
 	/**
 	 * Modele du tabelau
+	 * 
 	 * @see ModeleTablesEditeurs
 	 */
 	private ModeleTablesEditeurs	modele;
 	/**
 	 * Classe de reference pour les donnees contenus dans le tableau BIN
+	 * 
 	 * @see FichierGPH
 	 */
 	private FichierGPH				fichierGPH;
@@ -62,7 +65,9 @@ public class EditeurGPH extends JPanel
 	// ----------------------------------------- //
 	/**
 	 * Constructeur principal de la classe EditeurGPH
-	 * @param gphFile le modele de fichier GPH
+	 * 
+	 * @param gphFile
+	 *            le modele de fichier GPH
 	 */
 	public EditeurGPH(FichierGPH gphFile)
 	{
@@ -92,6 +97,7 @@ public class EditeurGPH extends JPanel
 
 		add(titre);
 	}
+
 	/**
 	 * Methode d'initialisation du parseur GPH
 	 */
@@ -106,6 +112,7 @@ public class EditeurGPH extends JPanel
 			System.out.println("Tentative d'initialisation du parseur GPH avortée.");
 		}
 	}
+
 	/**
 	 * Methode d'initialisation du tableau graphique GPH
 	 */
@@ -124,6 +131,7 @@ public class EditeurGPH extends JPanel
 			System.out.println("Tentative d'initialisation du modèle de parseur GPH avortée.");
 		}
 	}
+
 	/**
 	 * Mis en Scroll du tableau graphique
 	 */
@@ -136,6 +144,7 @@ public class EditeurGPH extends JPanel
 
 		add(scroll, BorderLayout.CENTER);
 	}
+
 	/**
 	 * Ecoute du tableau graphique
 	 */
@@ -166,7 +175,7 @@ public class EditeurGPH extends JPanel
 		return scroll;
 	}
 
-	public JTable getTableauGPH()
+	public TablesEditeurs getTableauGPH()
 	{
 		return tableauGPH;
 	}
@@ -195,7 +204,7 @@ public class EditeurGPH extends JPanel
 		this.scroll = scroll;
 	}
 
-	public void setTableauGPH(JTable tableauGPH)
+	public void setTableauGPH(TablesEditeurs tableauGPH)
 	{
 		this.tableauGPH = tableauGPH;
 	}

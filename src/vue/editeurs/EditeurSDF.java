@@ -5,16 +5,17 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.util.LinkedList;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 
-import controleur.EcouteurJtable;
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.editeurs.TablesEditeurs;
 import modele.fichiers.FichierSDF;
 import modele.parseurs.ParseurSDF;
+import modele.fichiers.FichierBIN;
+import controleur.EcouteurJtable;
 
 @SuppressWarnings("serial")
 public class EditeurSDF extends JPanel
@@ -47,7 +48,7 @@ public class EditeurSDF extends JPanel
 	/**
 	 * Tableau graphique
 	 */
-	private JTable					tableauSDF;
+	private TablesEditeurs					tableauSDF;
 	/**
 	 * Modele du tabelau
 	 * 
@@ -136,7 +137,6 @@ public class EditeurSDF extends JPanel
 		{
 			System.out.println("Tentative d'initialisation du modele de arseur SDF avortée.");
 		}
-
 	}
 
 	/**
@@ -203,7 +203,7 @@ public class EditeurSDF extends JPanel
 	/**
 	 * @return the tableauSDF
 	 */
-	public JTable getTableauSDF()
+	public TablesEditeurs getTableauSDF()
 	{
 		return tableauSDF;
 	}
@@ -229,7 +229,7 @@ public class EditeurSDF extends JPanel
 	 * @param tableauSDF
 	 *            the tableauSDF to set
 	 */
-	public void setTableauSDF(JTable tableauSDF)
+	public void setTableauSDF(TablesEditeurs tableauSDF)
 	{
 		this.tableauSDF = tableauSDF;
 	}

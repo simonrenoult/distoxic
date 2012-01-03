@@ -4,22 +4,24 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
 
-import controleur.EcouteurJtable;
 import modele.editeurs.ModeleTablesEditeurs;
 import modele.editeurs.TablesEditeurs;
 import modele.fichiers.FichierBIN;
-
+import controleur.EcouteurJtable;
 
 @SuppressWarnings("serial")
 public class EditeurBIN extends JPanel
 {
 	/**
-	 * <h4>EditeurBIN est la classe regroupant l'environement graphique du tableau BIN</h4>
+	 * <h4>EditeurBIN est la classe regroupant l'environement graphique du
+	 * tableau BIN</h4>
 	 * 
 	 * 
 	 * @author Alexis CHRETIENNE & Simon RENOULT
@@ -36,7 +38,7 @@ public class EditeurBIN extends JPanel
 	public final static Color		BG_COLOR		= Color.white;
 
 	private final static String		CONTENU_TITRE	= "Editeur de fichiers *.bin";
-	private final static String[]	TITRES_TABLEAU	= { "Ind molecule ","IndTox ", "Nb fragments" };
+	private final static String[]	TITRES_TABLEAU	= { "Ind molecule ", "IndTox ", "Nb fragments" };
 
 	// ----------------------------------------- //
 	// ----------------ATRIBUTS----------------- //
@@ -44,17 +46,22 @@ public class EditeurBIN extends JPanel
 
 	private JLabel					titre;
 	private JScrollPane				scroll;
+
 	/**
 	 * Tableau graphique
 	 */
-	private JTable					tableauBIN;
+	private TablesEditeurs			tableauBIN;
+
 	/**
 	 * Modele du tabelau
+	 * 
 	 * @see ModeleTablesEditeurs
 	 */
 	private ModeleTablesEditeurs	modele;
+
 	/**
 	 * Classe de reference pour les donnees contenus dans le tableau BIN
+	 * 
 	 * @see FichierBIN
 	 */
 	private FichierBIN				fichierBIN;
@@ -64,7 +71,9 @@ public class EditeurBIN extends JPanel
 	// ----------------------------------------- //
 	/**
 	 * Constructeur principal de la classe EditeurBIN
-	 * @param binFile le modele de fichier BIN
+	 * 
+	 * @param binFile
+	 *            le modele de fichier BIN
 	 */
 	public EditeurBIN(FichierBIN binFile)
 	{
@@ -116,7 +125,8 @@ public class EditeurBIN extends JPanel
 	{
 		try
 		{
-			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierBIN.getParseurBIN().convertirListeVersTableau2D(),2);
+			modele = new ModeleTablesEditeurs(TITRES_TABLEAU, fichierBIN.getParseurBIN().convertirListeVersTableau2D(),
+					2);
 			tableauBIN = new TablesEditeurs(modele);
 			tableauBIN.setAutoCreateRowSorter(true);
 			tableauBIN.getTableHeader().setReorderingAllowed(false);
@@ -125,6 +135,7 @@ public class EditeurBIN extends JPanel
 		{
 			System.out.println("Tentative d'initialisation du modele de parseur BIN avortée.");
 		}
+
 	}
 
 	/**
@@ -132,7 +143,7 @@ public class EditeurBIN extends JPanel
 	 */
 	private void initScroll()
 	{
-		//remove(titre);
+		// remove(titre);
 		setLayout(new BorderLayout());
 
 		scroll = new JScrollPane(tableauBIN);
@@ -152,7 +163,7 @@ public class EditeurBIN extends JPanel
 			EcouteurJtable e = new EcouteurJtable(tableauBIN, fichierBIN, null, null);
 		}
 		catch (NullPointerException e)
-		{			
+		{
 		}
 
 	}
@@ -163,7 +174,7 @@ public class EditeurBIN extends JPanel
 	/**
 	 * @return the tableauBIN
 	 */
-	public JTable getTableauBIN()
+	public TablesEditeurs getTableauBIN()
 	{
 		return tableauBIN;
 	}
@@ -183,7 +194,7 @@ public class EditeurBIN extends JPanel
 	 * @param tableauBIN
 	 *            the tableauBIN to set
 	 */
-	public void setTableauBIN(JTable tableauBIN)
+	public void setTableauBIN(TablesEditeurs tableauBIN)
 	{
 		this.tableauBIN = tableauBIN;
 	}
