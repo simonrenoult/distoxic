@@ -1,0 +1,8 @@
+Package: distoxic
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: all
+Depends: bash
+Maintainer: Simon RENOULT <simon.renoult@gmail.com>
+Description: Distoxic se veut être un logiciel d'affichage et d'édition de fichiers issus du GREYC, fichiers contenant des fragments moléculaires dont un certain nombre représente des fragments catalyseurs de toxicités.

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Creating distoxic.desktop at /usr/share/applications/..."
+
+exit 0

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Dis'Toxic
+GenericName=Affichage de molécules
+Icon=/home/g4llic4/Images/dev/logo_32.png
+Exec=java -jar /usr/bin/distoxic.jar
+Categories=Accessory
