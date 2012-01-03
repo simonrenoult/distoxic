@@ -15,7 +15,6 @@ import vue.FenetrePrincipale;
 @SuppressWarnings("serial")
 public class BarreOutils extends JPanel
 {
-	
 
 	/**
 	 * <h4>BarreOutils est la classe permettant de decrire la barre d'outil
@@ -30,14 +29,14 @@ public class BarreOutils extends JPanel
 	/**
 	 * Constantes de classe
 	 */
-	private static String		_ICON_PATH	= "/images/icones/";
-	
-	public final static Integer	TAILLE_X	= FenetrePrincipale.TAILLE_X;
-	public final static Integer	TAILLE_Y	= FenetrePrincipale.TAILLE_Y / 20;
+	private static String		_ICON_PATH			= "/images/icones/";
 
-	private final static Color COULEUR_RECHERCHE = Color.GRAY;
-	public final static String CONTENU_RECHERCHE = "Rechercher...";
-	
+	public final static Integer	TAILLE_X			= FenetrePrincipale.TAILLE_X;
+	public final static Integer	TAILLE_Y			= FenetrePrincipale.TAILLE_Y / 20;
+
+	private final static Color	COULEUR_RECHERCHE	= Color.GRAY;
+	public final String			CONTENU_RECHERCHE	= "Rechercher...";
+
 	// ----------------------------------------- //
 	// --------------- ATTRIBUTS --------------- //
 	// ----------------------------------------- //
@@ -51,8 +50,10 @@ public class BarreOutils extends JPanel
 	private JButton				enregistrerSousTriplet;
 	private JButton				enregistrerSous;
 
-	private JToolBar			barreRecherche;
+	private JToolBar			barreAccessibilite;
 	private JTextField			champRecherche;
+	private JButton				augmenterZoom;
+	private JButton				diminuerZoom;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
@@ -69,8 +70,8 @@ public class BarreOutils extends JPanel
 		initBarreFichier();
 		initBarreRecherche();
 
-		this.add(barreFichier,BorderLayout.LINE_START);
-		this.add(barreRecherche);
+		this.add(barreFichier, BorderLayout.LINE_START);
+		this.add(barreAccessibilite);
 	}
 
 	// ----------------------------------------- //
@@ -131,18 +132,23 @@ public class BarreOutils extends JPanel
 
 		return button;
 	}
-	
+
 	private void initBarreRecherche()
 	{
-		barreRecherche = new JToolBar();
+		barreAccessibilite = new JToolBar();
 
 		champRecherche = new JTextField(CONTENU_RECHERCHE);
 		champRecherche.setForeground(COULEUR_RECHERCHE);
-		barreRecherche.add(champRecherche);
 
-		barreRecherche.setRollover(true);
+		augmenterZoom = new JButton("+");
+		diminuerZoom = new JButton("-");
+
+		barreAccessibilite.add(champRecherche);
+		barreAccessibilite.add(augmenterZoom);
+		barreAccessibilite.add(diminuerZoom);
+
+		barreAccessibilite.setRollover(true);
 	}
-
 
 	// ----------------------------------------- //
 	// ---------------ACCESSEURS---------------- //
@@ -151,6 +157,26 @@ public class BarreOutils extends JPanel
 	// ----------------------------------------- //
 	// ----------------MUTATEURS---------------- //
 	// ----------------------------------------- //
+
+	public JToolBar getBarreAccessibilite()
+	{
+		return barreAccessibilite;
+	}
+
+	public void setBarreAccessibilite(JToolBar barreAccessibilite)
+	{
+		this.barreAccessibilite = barreAccessibilite;
+	}
+
+	public JButton getAugmenterZoom()
+	{
+		return augmenterZoom;
+	}
+
+	public void setAugmenterZoom(JButton augmenterZoom)
+	{
+		this.augmenterZoom = augmenterZoom;
+	}
 
 	/**
 	 * @return the toolbar
@@ -285,15 +311,15 @@ public class BarreOutils extends JPanel
 	{
 		this.rafraichir = rafraichir;
 	}
-	
+
 	public JToolBar getBarreRecherche()
 	{
-		return barreRecherche;
+		return barreAccessibilite;
 	}
 
 	public void setBarreRecherche(JToolBar barreRecherche)
 	{
-		this.barreRecherche = barreRecherche;
+		this.barreAccessibilite = barreRecherche;
 	}
 
 	public JTextField getChampRecherche()
@@ -304,5 +330,15 @@ public class BarreOutils extends JPanel
 	public void setChampRecherche(JTextField champRecherche)
 	{
 		this.champRecherche = champRecherche;
+	}
+
+	public JButton getDiminuerZoom()
+	{
+		return diminuerZoom;
+	}
+
+	public void setDiminuerZoom(JButton diminuerZoom)
+	{
+		this.diminuerZoom = diminuerZoom;
 	}
 }

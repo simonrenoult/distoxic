@@ -2,6 +2,7 @@ package modele.editeurs;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -9,6 +10,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 @SuppressWarnings("serial")
 public class TablesEditeursCellRenderer extends DefaultTableCellRenderer
 {
+	private int fontSize = 11;
 	
 	/** Creates a new instance of UserListCellRenderer */
 	public TablesEditeursCellRenderer()
@@ -35,7 +37,19 @@ public class TablesEditeursCellRenderer extends DefaultTableCellRenderer
 			component.setBackground(Color.LIGHT_GRAY);
 			component.setForeground(Color.BLACK);
 		}
-
+		
+		setFont(new Font("serif",0,fontSize));
+		
 		return component;
+	}	
+
+	public int getFontSize()
+	{
+		return fontSize;
+	}
+
+	public void setFontSize(int f)
+	{
+		this.fontSize = f;
 	}
 }

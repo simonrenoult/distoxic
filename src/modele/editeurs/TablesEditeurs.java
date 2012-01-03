@@ -19,6 +19,7 @@ public class TablesEditeurs extends JTable
 	// ----------------------------------------- //
 
 	private TableRowSorter<TableModel>	filtre;
+	private TablesEditeursCellRenderer	cellRenderer;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -32,10 +33,21 @@ public class TablesEditeurs extends JTable
 	public TablesEditeurs(ModeleTablesEditeurs modele)
 	{
 		super(modele);
-		setDefaultRenderer(Object.class, new TablesEditeursCellRenderer());
+		cellRenderer = new TablesEditeursCellRenderer();
+		setDefaultRenderer(Object.class, cellRenderer);
 
 		filtre = new TableRowSorter<TableModel>(modele);
 
+	}
+
+	public TablesEditeursCellRenderer getCellRenderer()
+	{
+		return cellRenderer;
+	}
+
+	public void setCellRenderer(TablesEditeursCellRenderer cellRenderer)
+	{
+		this.cellRenderer = cellRenderer;
 	}
 
 	public TableRowSorter<TableModel> getFiltre()
