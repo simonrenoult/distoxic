@@ -1,0 +1,17 @@
+TestJunit
+controleur
+lanceur
+modele
+modele.composantsChimiques
+modele.editeurs
+modele.enregistreurs
+modele.fichiers
+modele.fichiersTmp
+modele.parseurs
+modele.zip
+vue
+vue.barreOutils
+vue.editeurs
+vue.menus
+vue.naviguateur
+vue.splasher

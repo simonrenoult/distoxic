@@ -124,7 +124,7 @@ public class FichierBinTmp
 				line = line + listeBINTmp.get(indexMolecule).get(i).toString() + ",";
 			}
 		}
-		System.out.println(line);
+		//System.out.println(line);
 		return line;
 	}
 	

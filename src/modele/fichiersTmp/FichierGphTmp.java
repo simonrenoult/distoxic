@@ -62,7 +62,7 @@ public class FichierGphTmp
 	 * Methode ajoutant simulant l'ajout d'une ligne provenant de l'ajout d'une ligne dans le tableau GPH
 	 * @param position l'indice du numero de ligne.
 	 */
-	public void AjouterLigneLigneFichierBinTmp(int position, int numéro)
+	public void AjouterLigneLigneFichierBinTmp(int position, int numero)
 	{
 
 	}
