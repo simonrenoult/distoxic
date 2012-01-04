@@ -69,6 +69,84 @@ public class ModeleTablesEditeurs extends AbstractTableModel
 	}
 
 	/**
+	 * Methode ajoutant des colonnes au modele de la Jtable
+	 * @param colomnName le nom de la colonne
+	 */
+	public void ajouterColonne(String colomnName)
+	{
+		int nbLigne = this.getRowCount(), nbColonne = this.getColumnCount()+1;
+		Object tmp[][] = new Object[nbLigne][nbColonne];
+
+		//Ajout de la colonne dans le modele
+		for(int i = 0; i< donnees.length; i++){
+			for(int j = 0; j< donnees[i].length; j++){
+				tmp[i][j] = donnees[i][j];
+			}
+		}
+		
+		this.donnees = tmp;
+		
+		//Ajout du nom de la colonne
+		String[]titreTmp = new String[nbColonne];
+		for(int i = 0; i<titres.length; i++){
+			System.out.println(titres[i].toString());
+			titreTmp[i] = titres[i];
+		}
+		titreTmp[nbColonne-1] = colomnName;
+		this.titres = titreTmp;
+		
+		this.fireTableStructureChanged();
+	}
+	
+	public int correspondanceColonne(String colonne){
+		for (int i = 0; i< titres.length; i++){
+			if (titres[i].toString().toLowerCase().compareTo(colonne.toLowerCase()) == 0){
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	/**
+	 * Methode ajoutant des colonnes au modele de la Jtable
+	 * @param colomnName le nom de la colonne
+	 */
+	public void supprimerColonne(int colonne)
+	{
+		int nbLigne = this.getRowCount(), nbColonne = this.getColumnCount()-1;
+		Object tmp[][] = new Object[nbLigne][nbColonne];
+		int cpt = 0;
+		//Suppression de la colonne dans le modele
+		for(int i = 0; i< donnees.length; i++){
+			cpt = 0;
+			for(int j = 0; j< donnees[i].length; j++){
+				if(j == colonne){
+					j++;
+				}
+					tmp[i][cpt] = donnees[i][j];
+					cpt++;
+			}
+		}
+		
+		this.donnees = tmp;
+		
+		//Suppression du nom de la colonne
+		String[]titreTmp = new String[nbColonne];
+		cpt = 0;
+		for(int i = 0; i<titres.length; i++){
+			if(i == colonne){
+				i++;
+			}
+			titreTmp[cpt] = titres[i];
+			cpt++;
+		}
+		this.titres = titreTmp;
+		
+		this.fireTableStructureChanged();
+	}
+	
+	
+	/**
 	 * Methode permettant de retirer une ligne du tableau
 	 * 
 	 * @param position indice de la ligne selectionnee

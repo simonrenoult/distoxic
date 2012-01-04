@@ -2,6 +2,7 @@ package vue;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
@@ -54,6 +55,7 @@ public class FenetrePrincipale extends JFrame
 	 */
 	private ConteneurGlobal		conteneurGlobal;
 
+	String CHEMIN_ICONE_APPLICATION = "images/icones/logo_150.png";
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //
@@ -62,7 +64,7 @@ public class FenetrePrincipale extends JFrame
 	 */
 	public FenetrePrincipale()
 	{
-		super();		
+		super();
 		
 		buildLookAndFeel();
 
@@ -77,6 +79,8 @@ public class FenetrePrincipale extends JFrame
 		buildConteneurGlobal();
 		buildBarreOutils();
 		
+		Image image = Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource(CHEMIN_ICONE_APPLICATION));
+		setIconImage(image);
 		
 		setVisible(true);
 	}

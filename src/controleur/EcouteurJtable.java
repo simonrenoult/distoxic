@@ -131,9 +131,12 @@ public class EcouteurJtable implements TableModelListener, MouseListener, MouseM
 		}
 		else if (sdfFile != null)
 		{
+			if(sdfFile.isChanged()){
+				sdfFile.getFichierSdfTmp().modifierValeurClasse(positionLigne, tableau.getColumnName(positionColonne),
+						contenuCellule.toString());
+			}
 			sdfFile.setChanged(true);
-			sdfFile.getFichierSdfTmp().modifierValeurClasse(positionLigne, tableau.getColumnName(positionColonne),
-					contenuCellule.toString());
+			
 		}
 		}catch(Exception e1){}
 	}

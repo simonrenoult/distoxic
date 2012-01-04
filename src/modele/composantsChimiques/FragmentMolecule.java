@@ -114,6 +114,14 @@ public class FragmentMolecule
 		return infos;
 	}
 
+	public void supprimerBalises(String intitule){
+		for (int i = 0; i< balises.size(); i++){
+			if (balises.get(i).getIntitule().toLowerCase().compareTo(intitule.toLowerCase())==0){
+				balises.remove(i);
+			}
+		}
+	}
+	
 	public Balise getBalise(String intitule)
 	{
 		for (Balise b : balises)

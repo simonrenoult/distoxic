@@ -76,7 +76,7 @@ public class EnregistreurSDF implements EnregistreurGenerique
 			{
 				for (int i = 0 ; i < listeSDF.size() ; i++)
 				{
-					listeSDF.get(i).display();
+					//listeSDF.get(i).display();
 
 					ecrireEnteteFragment(buff, i);
 					buff.write('\n');

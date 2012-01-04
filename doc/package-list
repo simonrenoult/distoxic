@@ -1,5 +1,6 @@
+TestJunit
 controleur
-controleur.menu
+lanceur
 modele
 modele.composantsChimiques
 modele.editeurs
@@ -11,6 +12,6 @@ modele.zip
 vue
 vue.barreOutils
 vue.editeurs
-vue.lanceur
 vue.menus
 vue.naviguateur
+vue.splasher
