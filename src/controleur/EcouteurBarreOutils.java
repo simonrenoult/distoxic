@@ -344,26 +344,27 @@ public class EcouteurBarreOutils implements ActionListener, FocusListener, Chang
 		else if (e.getSource() == barreOutils.getChampRecherche())
 		{
 			int index = fenetrePrincipale.getConteneurGlobal().getEditeur().getSelectedIndex();
-			Editeurs ed = fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index);
-
 			TableRowSorter<TableModel> sorter = null;
-
-			if (ed.getEdBin().getBinFile() != null && ed.getEdBin().getBinFile().isFlank())
-			{
-				sorter = new TableRowSorter<TableModel>(ed.getEdBin().getTableauBIN().getModel());
-				ed.getEdBin().getTableauBIN().setRowSorter(sorter);
+			try{
+				Editeurs ed = fenetrePrincipale.getConteneurGlobal().getEditeur().getEditeurs().get(index);
+				if (ed.getEdBin().getBinFile() != null && ed.getEdBin().getBinFile().isFlank())
+				{
+					sorter = new TableRowSorter<TableModel>(ed.getEdBin().getTableauBIN().getModel());
+					ed.getEdBin().getTableauBIN().setRowSorter(sorter);
+				}
+				else if (ed.getEdGph().getGphFile() != null && ed.getEdGph().getGphFile().isFlank())
+				{
+					sorter = new TableRowSorter<TableModel>(ed.getEdGph().getTableauGPH().getModel());
+					ed.getEdGph().getTableauGPH().setRowSorter(sorter);
+				}
+				else if (ed.getEdSdf().getSdfFile() != null && ed.getEdSdf().getSdfFile().isFlank())
+				{
+					sorter = new TableRowSorter<TableModel>(ed.getEdSdf().getTableauSDF().getModel());
+					ed.getEdSdf().getTableauSDF().setRowSorter(sorter);
+				}
+			}catch (IndexOutOfBoundsException e1) {
+				// TODO: handle exception
 			}
-			else if (ed.getEdGph().getGphFile() != null && ed.getEdGph().getGphFile().isFlank())
-			{
-				sorter = new TableRowSorter<TableModel>(ed.getEdGph().getTableauGPH().getModel());
-				ed.getEdGph().getTableauGPH().setRowSorter(sorter);
-			}
-			else if (ed.getEdSdf().getSdfFile() != null && ed.getEdSdf().getSdfFile().isFlank())
-			{
-				sorter = new TableRowSorter<TableModel>(ed.getEdSdf().getTableauSDF().getModel());
-				ed.getEdSdf().getTableauSDF().setRowSorter(sorter);
-			}
-
 			try
 			{
 				sorter.setRowFilter(RowFilter.regexFilter(barreOutils.getChampRecherche().getText()));
