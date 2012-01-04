@@ -35,6 +35,7 @@ public class MenuContextuel extends JPopupMenu
 	private JMenuItem		ajouterFinTableau;
 	private JMenuItem		ajouterFragmentBin;
 	private JMenuItem		ajouterColonne;
+	private JMenuItem		supprimerColonne;
 
 	private JMenuItem		supprimer;
 
@@ -130,8 +131,10 @@ public class MenuContextuel extends JPopupMenu
 	 */
 	private void initBoutonSDF()
 	{
-		ajouterColonne= creerItem("Ajouter une colonne", "arrow_right.png");
+		ajouterColonne= creerItem("Ajouter une colonne", "column_add.png");
+		supprimerColonne= creerItem("supprimer une colonne", "column_add.png");
 		this.add(ajouterColonne);
+		this.add(supprimerColonne);
 	}
 
 	/**
@@ -287,6 +290,22 @@ public class MenuContextuel extends JPopupMenu
 	public void setAjouterFragmentBin(JMenuItem ajouterFragmentBin)
 	{
 		this.ajouterFragmentBin = ajouterFragmentBin;
+	}
+
+	/**
+	 * @return the suprimerColonne
+	 */
+	public JMenuItem getSupprimerColonne()
+	{
+		return supprimerColonne;
+	}
+
+	/**
+	 * @param suprimerColonne the suprimerColonne to set
+	 */
+	public void setSupprimerColonne(JMenuItem supprimerColonne)
+	{
+		this.supprimerColonne = supprimerColonne;
 	}
 
 	// ----------------------------------------- //

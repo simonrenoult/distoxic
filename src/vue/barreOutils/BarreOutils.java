@@ -59,8 +59,6 @@ public class BarreOutils extends JPanel
 	private JLabel				informationZoom;
 	private JSlider				sliderZoom;
 
-	// private JButton augmenterZoom;
-	// private JButton diminuerZoom;
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //

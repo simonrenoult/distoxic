@@ -9,9 +9,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.border.Border;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-
 import modele.editeurs.ModeleTablesEditeurs;
 import vue.MenuContextuel;
 import vue.editeurs.Editeurs;
@@ -145,6 +142,7 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		if (index == 2)
 		{
 			menuContextuel.getAjouterColonne().addActionListener(this);
+			menuContextuel.getSupprimerColonne().addActionListener(this);
 		}
 	}
 
@@ -701,20 +699,61 @@ public class EcouteurEditeurs implements MouseListener, ActionListener
 		}
 		else if (e.getSource() == menuContextuel.getAjouterColonne())
 		{
-			System.out.println("ok test");
 			ajouterColonneSDF();
 		}
+		else if (e.getSource() == menuContextuel.getSupprimerColonne())
+		{
+			SupprimerColonneSDF();
+		}
+	}
+
+	private void SupprimerColonneSDF()
+	{
+		if (editeur.getEdSdf().getSdfFile() != null && editeur.getEdSdf().getSdfFile().isFlank())
+		{
+			String nomColonne = JOptionPane.showInputDialog(null, "Entrer le nom de la colonne à supprimer", "Nouveau",
+					JOptionPane.PLAIN_MESSAGE);
+			if (nomColonne != null && !nomColonne.isEmpty()){
+				System.out.println("--------------------AVANT CORRESPONDANCE");
+				editeur.getEdSdf().getSdfFile().getFichierSdfTmp().afficherBaliseParMolecule();
+				int indiceColonne = ((ModeleTablesEditeurs)JtableSdf.getModel()).correspondanceColonne(nomColonne);
+				if (indiceColonne != -1){
+						((ModeleTablesEditeurs)JtableSdf.getModel()).supprimerColonne(indiceColonne);
+						System.out.println("--------------------AVANT SUPPRESSION COLONNE");
+						editeur.getEdSdf().getSdfFile().getFichierSdfTmp().afficherBaliseParMolecule();
+						editeur.getEdSdf().getSdfFile().getFichierSdfTmp().SupprimerColonne(nomColonne);
+						editeur.getEdSdf().getSdfFile().getFichierSdfTmp().afficherBaliseParMolecule();
+						System.out.println("--------------------SUPPRESSION COLONNE");
+						
+				}
+				else{
+					lancerMessageErreur("Le nom de colonne est incorrect.");
+				}
+			}
+		}
+		else
+		{
+			lancerMessageErreur("Impossibilité d'ajout de colonne.");
+		}
+		
 	}
 
 	private void ajouterColonneSDF()
 	{
-		if (JtableSdf != null)
+		if (editeur.getEdSdf().getSdfFile() != null && editeur.getEdSdf().getSdfFile().isFlank())
 		{
-			JtableSdf.addColumn(new TableColumn(10, 10));
+			String nomColonne = JOptionPane.showInputDialog(null, "Entrer le nom de la colonne à créer", "Nouveau",
+					JOptionPane.PLAIN_MESSAGE);
+			if (nomColonne != null && !nomColonne.isEmpty())
+			{
+				editeur.getEdSdf().getSdfFile().setChanged(false);
+				((ModeleTablesEditeurs)JtableSdf.getModel()).ajouterColonne(nomColonne);
+				editeur.getEdSdf().getSdfFile().getFichierSdfTmp().ajouterColonne(nomColonne);
+			}
 		}
 		else
 		{
-			lancerMessageErreur("Impossibilité d'ajout de ligne : tableau BIN absent.");
+			lancerMessageErreur("Impossibilité d'ajout de colonne.");
 		}
 
 	}

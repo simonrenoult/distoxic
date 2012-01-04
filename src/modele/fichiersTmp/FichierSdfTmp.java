@@ -31,6 +31,7 @@ public class FichierSdfTmp
 	 * Liste ou sont contenus l'ensemble des donnees d'un fichier.sdf
 	 */
 	private LinkedList<FragmentMolecule>	listeSDF;
+	private boolean suppressionColonne = false;
 
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
@@ -68,6 +69,26 @@ public class FichierSdfTmp
 		else
 			listeSDF.get(positionLigne).getBalises().add(new Balise(intituleColonne, contenuCellule));
 		
+	}
+	
+	/**
+	 * Methode d'ajout de colonne dans la liste temporaire
+	 * @param nomColonne le nom de la colonne
+	 */
+	public void ajouterColonne(String nomColonne){
+		for (FragmentMolecule molecule : listeSDF){
+			molecule.getBalises().addLast(new Balise(nomColonne, "N/A"));
+		}
+	}
+	
+	/**
+	 * Methode de suppression de colonne dans la liste temporaire
+	 * @param nomColonne le nom de la colonne
+	 */
+	public void SupprimerColonne(String nomColonne){
+		for (FragmentMolecule molecule : listeSDF){
+			molecule.supprimerBalises(nomColonne);
+		}
 	}
 	
 	/**
@@ -123,6 +144,38 @@ public class FichierSdfTmp
 		this.listeSDF = listeSDF;
 	}
 
+	public void afficherBaliseParMolecule(){
+		String line = "";
+		int cpt=0;
+		for (FragmentMolecule molecule : listeSDF){
+			line = "";
+			for (int i = 0; i< molecule.getBalises().size(); i++){
+				if (i ==0){
+					line = line + cpt+" : ";
+				}
+				line = line + molecule.getBalises().get(i).getIntitule()+",";
+			}
+			System.out.println(line);
+			cpt++;
+		}
+	}
+
+	/**
+	 * @return the suppressionColonne
+	 */
+	public boolean isSuppressionColonne()
+	{
+		return suppressionColonne;
+	}
+
+	/**
+	 * @param suppressionColonne the suppressionColonne to set
+	 */
+	public void setSuppressionColonne(boolean suppressionColonne)
+	{
+		this.suppressionColonne = suppressionColonne;
+	}	
+		
 	
 
 }
