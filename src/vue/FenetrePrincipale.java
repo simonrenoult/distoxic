@@ -55,7 +55,7 @@ public class FenetrePrincipale extends JFrame
 	 */
 	private ConteneurGlobal		conteneurGlobal;
 
-	String CHEMIN_ICONE_APPLICATION = "images/icones/logo_150.png";
+	String CHEMIN_ICONE_APPLICATION = "images/icones/icone_appli.png";
 	// ----------------------------------------- //
 	// --------------CONSTRUCTEURS-------------- //
 	// ----------------------------------------- //

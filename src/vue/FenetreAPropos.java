@@ -37,7 +37,7 @@ public class FenetreAPropos extends JWindow
 
 	private final static Color		COULEUR_BORDURE	= Color.BLACK;
 
-	private final static String		VERSION			= "v0.9";
+	private final static String		VERSION			= "1.0";
 	private final static String		REVISON			= "4b59ee2079";
 	private final static Dimension	dimension		= new Dimension(420, 320);
 

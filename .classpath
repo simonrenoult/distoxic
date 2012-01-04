@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="src/" kind="src" path=""/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="deb/distoxic_1.0/usr/bin/distoxic.jar"/>
+	<classpathentry kind="lib" path="lib/helpgui-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/alex/Documents/External_JAR/junit-4.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alex/Desktop/distoxic/lib/helpgui-1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
