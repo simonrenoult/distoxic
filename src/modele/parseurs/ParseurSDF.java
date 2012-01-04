@@ -150,7 +150,6 @@ public class ParseurSDF implements ParseurGenerique
 		else if (BALISES.matcher(ligne).find())
 		{
 			m = BALISES.matcher(ligne);
-
 			while (m.find())
 				fragment.getBalises().addLast(new Balise(m.group(1)));
 		}

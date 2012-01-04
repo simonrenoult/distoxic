@@ -2,7 +2,11 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import net.sourceforge.helpgui.gui.MainFrame;
 
 import modele.TripletFichier;
 import modele.enregistreurs.EnregistreurBIN;
@@ -67,6 +71,7 @@ public class EcouteurBarreMenu implements ActionListener
 	 * @see FenetreAPropos
 	 */
 	private FenetreAPropos		fenetreAPropos;
+	
 
 	// ----------------------------------------- //
 	// ------------- CONSTRUCTEURS ------------- //
@@ -96,12 +101,12 @@ public class EcouteurBarreMenu implements ActionListener
 	{
 		mf = (MenuFichier) bm.getMenuFichier();
 		mf.getNouveau().addActionListener(this);
-		// mf.getOuvrir().addActionListener(this);
 		mf.getEnregistrer().addActionListener(this);
 		mf.getEnregistrerSous().addActionListener(this);
 		mf.getImporter().addActionListener(this);
 		mf.getExporter().addActionListener(this);
 		mf.getQuitter().addActionListener(this);
+		
 	}
 
 	/**
@@ -322,6 +327,24 @@ public class EcouteurBarreMenu implements ActionListener
 			setFenetreAPropos(new FenetreAPropos(fenetrePrincipale));
 			fenetrePrincipale.setEnabled(false);
 		}
+		else if (e.getSource() == ma.getAide())
+		{
+			/*
+			 * Declaration minimaliste avec cette librairie.
+			 * Dû au manque de temps, utilisation d'une librairie sous licence GPL.
+			 */
+			final MainFrame mainFrame = new MainFrame("/docs/help/","plastic");
+			mainFrame.setLocationRelativeTo(null);
+			mainFrame.setSize(900, 600);
+			mainFrame.setVisible(true);
+			
+			//Action on close the window
+			mainFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+				public void windowClosing(java.awt.event.WindowEvent evt) {
+					mainFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+				}
+			});
+		}
 	}
 
 	public FenetreAPropos getFenetreAPropos()
@@ -333,5 +356,6 @@ public class EcouteurBarreMenu implements ActionListener
 	{
 		this.fenetreAPropos = fenetreAPropos;
 	}
+
 
 }

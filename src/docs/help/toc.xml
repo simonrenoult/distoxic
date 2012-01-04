@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+				 
+<toc>
+	<tocitem text="General">
+		<tocitem text="Introduction"       target="general/introduction.html" home="true"/>
+		<tocitem text="License"  target="general/license.html"/>
+		<tocitem text="Installer DisToxic"  target="general/installerDistoxic.html"/>
+	</tocitem>
+	
+  <tocitem text="Interface Utilisateur">
+	  <tocitem text="Introduction"   target="interfaceUtilisateur/introduction.html" />
+	  <tocitem text="Interface principale"           target="interfaceUtilisateur/interfaceGraphique.html"/>
+	  <tocitem text="Barre d'outils"   target="interfaceUtilisateur/barreOutils.html"/>
+	  <tocitem text="Arbre de sélection"   target="interfaceUtilisateur/arbreSelection.html"/>
+	  <tocitem text="Menu"     target="">
+			<tocitem text="Fichier"   target="interfaceUtilisateur/menu/fichier.html"/>
+			<tocitem text="A propos"   target="interfaceUtilisateur/menu/aPropos.html"/>
+	 </tocitem>
+</tocitem>	
+ 
+ <tocitem text="Utilisation">
+ 			<tocitem text="Introduction"   target="utilisation/introduction.html" />
+			<tocitem text="Import/export d'un projet"   target="utilisation/exportImport.html"/>
+			<tocitem text="Enregistrement d'un projet"   target="utilisation/enregistrement.html"/>
+			<tocitem text="Ajouter/supprimer des colonnes"   target="utilisation/ajouterSupprimerColonnes.html"/>
+			<tocitem text="Ajouter/supprimer des lignes aux tableaux"   target="utilisation/ajouterSupprimerLigne.html"/>
+			<tocitem text="Ajouter des fragments à une molécule"   target="utilisation/ajouterFragments.html"/>
+
+ </tocitem>	
+</toc>
