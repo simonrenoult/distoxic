@@ -8,7 +8,7 @@ Distoxic se veut être un logiciel d'affichage et d'édition de fichiers issus d
 
 Pour plus de détail, constultez le [Sujet](http://gpoezevara.free.fr/files/school/projet.pdf)
 
-##Qui ?
+#Qui ?
 
 Nous sommes deux étudiants en deuxième année de D.U.T. Informatique :
 
